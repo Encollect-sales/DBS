@@ -1,0 +1,2 @@
+Id,UserType,FirstName,LastName,AgencyCode,SupervisorEmailId,DialerId,DRACertificationDate,DRATrainingDate,DRAUniqueRegistrationNumber,Department,Designation,DateOfBirth,MobileNo,EmailId,FathersName,LocalResidentialAddress,PostalCode,CollectionEmploymentDate,LastRenewalDate,AuthorizationCardExpiryDate,Remarks,IsFailed,FailureReason
+3a1d28c411c87b407e09d569953bc3e5,FOS,mjmj,jmjm,1383,testone1986@yopmail.com,,24-05-2025,24-05-2025,,Agency,Agency Owner,24-05-1998,6745342345,testone1991@yopmail.com,baba,abcd,345678,24-07-2025,20-10-2025,24-05-2036,,True, | Department is invalid
