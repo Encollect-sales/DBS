@@ -2,14 +2,14 @@
 node_modules/
 
 # Cypress binary files
-cypress/downloads/
-cypress/screenshots/
-cypress/videos/
+# cypress/downloads/
+# cypress/screenshots/
+# cypress/videos/
 
 # Test report files
-cypress/reports/
-mochawesome-report/
-coverage/
+# cypress/reports/
+# mochawesome-report/
+# coverage/
 
 # Environment files
 .env

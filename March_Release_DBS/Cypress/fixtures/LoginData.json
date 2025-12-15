@@ -1,18 +1,19 @@
 {
   "login": {
-    "Companyname": "ENCollect",
-      "email": "dbsqaagentone@yopmail.com",
-      "password": "123@qwQW"
+    "Companyname": "ENCollect Sales",
+       "email": "dmtwsa",
+      "password": "Password1"
   },
+  
 
   "login1": {
-    "Companyname": "ENCollect",
-       "email": "dbsqaagentone@yopmail.com",
-      "password": "123@qwQW" 
+   "Companyname": "ENCollect Sales",
+       "email": "dmtwsa",
+      "password": "Password1"
   },
   "login2": {
-    "Companyname": "ENCollect",
-     "email": "dbsqaagentone@yopmail.com",
-      "password": "123@qwQW"
+    "Companyname": "ENCollect Sales",
+       "email": "dmtwsa",
+      "password": "Password1"
   }
 }

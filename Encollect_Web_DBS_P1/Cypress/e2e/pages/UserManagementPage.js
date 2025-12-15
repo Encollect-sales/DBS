@@ -35,6 +35,7 @@ cy.wait(2000);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
  cy.wait(2000);
     cy.get(this.locators.selectAgencyType)
   .find('option') 
@@ -62,7 +63,16 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
+
+
+   const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
+
+         // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
@@ -114,6 +124,8 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
+
+    // cy.get(this.locators.bankname).select("DBS Bank India Ltd");
     cy.get(this.locators.bankname)
   .find('option')
   .should('have.length.greaterThan', 1) // ensure options are loaded
@@ -187,19 +199,19 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("All");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -249,7 +261,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -257,6 +269,7 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -267,7 +280,9 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000);     cy.get(this.locators.selectAgencySubType)
+cy.wait(1000);    
+
+cy.get(this.locators.selectAgencySubType)
   .find('option') 
   .then($options => {
     const optionsCount = $options.length;
@@ -283,6 +298,13 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -408,19 +430,19 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("All");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -469,7 +491,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -477,6 +499,7 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -487,7 +510,9 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000);     cy.get(this.locators.selectAgencySubType)
+cy.wait(1000);   
+
+cy.get(this.locators.selectAgencySubType)
   .find('option') 
   .then($options => {
     const optionsCount = $options.length;
@@ -503,6 +528,13 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -740,7 +772,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
      cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -748,6 +780,7 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -758,7 +791,9 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000);     cy.get(this.locators.selectAgencySubType)
+cy.wait(1000);     
+
+cy.get(this.locators.selectAgencySubType)
   .find('option') 
   .then($options => {
     const optionsCount = $options.length;
@@ -774,6 +809,13 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
     // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -962,7 +1004,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -970,6 +1012,7 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -980,7 +1023,9 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000);     cy.get(this.locators.selectAgencySubType)
+cy.wait(1000);   
+
+cy.get(this.locators.selectAgencySubType)
   .find('option') 
   .then($options => {
     const optionsCount = $options.length;
@@ -996,6 +1041,13 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -1353,7 +1405,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -1361,6 +1413,7 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
      // Select random Agency Type
 cy.get(this.locators.selectAgencyType)
   .find('option')
@@ -1393,6 +1446,13 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -2008,7 +2068,7 @@ cy.wait(1000);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -2016,6 +2076,7 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -2026,7 +2087,8 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000);     cy.get(this.locators.selectAgencySubType)
+cy.wait(1000);    
+ cy.get(this.locators.selectAgencySubType)
   .find('option') 
   .then($options => {
     const optionsCount = $options.length;
@@ -2042,6 +2104,13 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -2172,20 +2241,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Cards");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Cards");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -2230,7 +2299,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -2238,6 +2307,7 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -2248,7 +2318,9 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000);     cy.get(this.locators.selectAgencySubType)
+cy.wait(1000);    
+
+cy.get(this.locators.selectAgencySubType)
   .find('option') 
   .then($options => {
     const optionsCount = $options.length;
@@ -2264,6 +2336,13 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -2363,20 +2442,20 @@ cy.wait(500);
     //cy.get(this.locators.UploadConfirm).click();
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("All");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -2482,7 +2561,7 @@ cy.wait(500);
     cy.get(this.locators.AddAgencey).click();
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -2490,6 +2569,7 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -2500,7 +2580,9 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000);     cy.get(this.locators.selectAgencySubType)
+cy.wait(1000);   
+
+cy.get(this.locators.selectAgencySubType)
   .find('option') 
   .then($options => {
     const optionsCount = $options.length;
@@ -2516,6 +2598,13 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -2697,7 +2786,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -2705,6 +2794,7 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -2715,12 +2805,30 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000);    cy.get(this.locators.selectAgencySubType).select("Branches");
-    cy.wait(2000);
+cy.wait(1000);    
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+  cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -2846,20 +2954,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Cards");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Cards");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan",{force: true});
+    cy.get(this.locators.selectsubp).select("All",{force: true});
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -2908,7 +3016,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
      cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -2916,6 +3024,7 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -2926,12 +3035,30 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000);    cy.get(this.locators.selectAgencySubType).select("Regional Task Force");
-    cy.wait(2000);
+cy.wait(1000);   
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+  cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -3057,20 +3184,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -3118,7 +3245,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -3126,6 +3253,7 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -3136,12 +3264,32 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000);    cy.get(this.locators.selectAgencySubType).select("Regional Office");
-    cy.wait(2000);
+cy.wait(1000);   
+
+  
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+  cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -3267,20 +3415,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Cards");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Cards");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -3329,7 +3477,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
      cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -3337,6 +3485,7 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -3347,12 +3496,31 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000);    cy.get(this.locators.selectAgencySubType).select("Zonal Office");
+cy.wait(1000);   
+  
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -3478,20 +3646,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -3541,7 +3709,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -3549,6 +3717,7 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
     cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
     cy.get(this.locators.selectAgencySubType).select("Field Agents");
@@ -3557,6 +3726,13 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -3683,20 +3859,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("All");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -3746,7 +3922,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
    cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -3754,14 +3930,22 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
     cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Pick up");
+    cy.get(this.locators.selectAgencySubType).select("Field Agents");
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -3814,6 +3998,9 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
+
+    //  cy.get(this.locators.bankname).select("DBS Bank India Ltd", {force: true});
+      cy.wait(2000);
     cy.get(this.locators.bankname)
   .find('option')
   .should('have.length.greaterThan', 1) // ensure options are loaded
@@ -3888,20 +4075,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("All");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -3952,7 +4139,7 @@ cy.wait(500);
     
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -3960,14 +4147,40 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Collections");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Skip Agency");
-    cy.wait(2000);
+cy.wait(2000);
+   
+     cy.get(this.locators.selectAgencyType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+  cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -4093,20 +4306,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("All");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -4156,7 +4369,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -4164,6 +4377,7 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
     cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
     cy.get(this.locators.selectAgencySubType).select("Tele calling");
@@ -4172,6 +4386,13 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -4298,20 +4519,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("All");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -4360,7 +4581,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
      cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -4368,14 +4589,39 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Repossession Agent");
-    cy.wait(2000);
+cy.wait(2000);
+     cy.get(this.locators.selectAgencyType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+  cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -4501,20 +4747,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("All");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -4565,7 +4811,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -4573,14 +4819,39 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Recovery Agents");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Valuer");
-    cy.wait(2000);
+cy.wait(2000);
+     cy.get(this.locators.selectAgencyType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+  cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -4706,20 +4977,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("All");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -4769,7 +5040,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
      cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -4777,14 +5048,39 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Repossession Agent");
-    cy.wait(2000);
+cy.wait(2000);
+      cy.get(this.locators.selectAgencyType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+  cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -4910,20 +5206,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("All");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -4974,7 +5270,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -4982,14 +5278,39 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Yard");
-    cy.wait(2000);
+cy.wait(2000);
+     cy.get(this.locators.selectAgencyType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+  cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -5116,20 +5437,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("All");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -5178,7 +5499,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -5186,14 +5507,39 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Valuer");
-    cy.wait(2000);
+cy.wait(2000);
+      cy.get(this.locators.selectAgencyType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+  cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -5320,20 +5666,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("All");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -5382,7 +5728,7 @@ cy.wait(500);
     cy.get(this.locators.AddAgencey).click();
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -5390,14 +5736,39 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Yard");
-    cy.wait(2000);
+cy.wait(2000);
+      cy.get(this.locators.selectAgencyType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+  cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -5524,20 +5895,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("All");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -5586,7 +5957,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
    cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -5594,14 +5965,39 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Recovery Agents");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Field Agents");
-    cy.wait(2000);
+cy.wait(2000);
+      cy.get(this.locators.selectAgencyType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+  cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -5728,20 +6124,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("All");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -5792,7 +6188,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
      cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -5800,14 +6196,39 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Yard");
-    cy.wait(2000);
+cy.wait(2000);
+      cy.get(this.locators.selectAgencyType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+  cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -5934,20 +6355,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("All");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -5999,7 +6420,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -6007,14 +6428,39 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Yard");
-    cy.wait(2000);
+cy.wait(2000);
+     cy.get(this.locators.selectAgencyType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+  cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -6141,20 +6587,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("All");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -6203,7 +6649,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -6211,14 +6657,39 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Yard");
-    cy.wait(2000);
+cy.wait(2000);
+     cy.get(this.locators.selectAgencyType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+  cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -6345,19 +6816,19 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("All");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -6415,16 +6886,40 @@ cy.wait(500);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-     cy.get(this.locators.selectAgencyType).select("Repossession Agency");
-     cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType).select("Yard");
-     cy.wait(2000);
+cy.wait(2000);
+      cy.get(this.locators.selectAgencyType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+  cy.wait(2000);
      cy.get(this.locators.fillpancard).type("ABCDE1234F");
      cy.wait(2000);
      cy.get(this.locators.fillTINNumber).type("123456");
      cy.wait(2000);
-     cy.get(this.locators.clickongenerateENcollectcode).click();
-     cy.wait(2000);
+     
+
+      const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      //Address Details
      cy.get(this.locators.clickonaddressdetails).click();
      cy.wait(2000);
@@ -6550,20 +7045,20 @@ cy.wait(500);
      //////-----------------
      cy.get(this.locators.scopeofword).click();
      cy.wait(2000);
-     cy.get(this.locators.productgroup).select("Consumer Loan");
+     cy.get(this.locators.productgroup).select("All");
      cy.wait(2000);
-     cy.get(this.locators.product).select("Unsecured");
+     cy.get(this.locators.product).select("All");
      cy.wait(2000);
      // cy.get(this.locators.subproduct).select("Personal Loan");
      cy.wait(2000);
  
      cy.get(this.locators.placeofwork).click();
      cy.wait(2000);
-     cy.get(this.locators.selectpg).select("Consumer Loan");
+     cy.get(this.locators.selectpg).select("All");
      cy.wait(2000);
-     cy.get(this.locators.selectp).select("Unsecured");
+     cy.get(this.locators.selectp).select("All");
      cy.wait(2000);
-     cy.get(this.locators.selectsubp).select("Personal Loan");
+     cy.get(this.locators.selectsubp).select("All");
      cy.wait(2000);
      cy.get(this.locators.selectbucket).select("1");
      cy.wait(2000);
@@ -6616,7 +7111,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -6624,14 +7119,39 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Yard");
-    cy.wait(2000);
+cy.wait(2000);
+     cy.get(this.locators.selectAgencyType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+  cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -6758,20 +7278,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("All");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -6825,7 +7345,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -6833,14 +7353,39 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Yard");
-    cy.wait(2000);
+cy.wait(2000);
+     cy.get(this.locators.selectAgencyType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+  cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
+
+     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
+
+cy.get('.col-md-6.ng-star-inserted > .form-control')
+  .clear()
+  .type(randomDigit.toString());
+cy.wait(2000);
      // cy.get(this.locators.clickongenerateENcollectcode).click();
     // cy.wait(2000);
     //Address Details
@@ -6967,20 +7512,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("All");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
     // cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -7041,6 +7586,7 @@ cy.wait(500);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
     cy.contains("Agency Name is required.").should("be.visible");
     cy.wait(1000);
     cy.get(this.locators.fillAgencyName).type("ab");
@@ -7052,6 +7598,7 @@ cy.wait(500);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
   cy.wait(1000);
     cy.contains("Agency Name must be at least 4 characters long").should("be.visible")
 
@@ -7068,6 +7615,7 @@ cy.wait(500);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
+cy.wait(2000);
 
    cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
@@ -7076,10 +7624,28 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Yard");
-    cy.wait(2000);
+cy.wait(2000);
+    cy.get(this.locators.selectAgencyType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+  cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDEfghijk");
     cy.wait(2000);
     cy.contains("Enter a valid pan card number.").should("be.visible");
@@ -7100,7 +7666,7 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     cy.wait(2000);
    const agencyName = faker.word.noun(); 
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
+cy.wait(2000);
     cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -7108,10 +7674,28 @@ cy.get(this.locators.fillAgencyName).type(agencyName);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Yard");
-    cy.wait(2000);
+cy.wait(2000);
+      cy.get(this.locators.selectAgencyType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+
+cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+  cy.wait(2000);
     cy.get(this.locators.fillTIN).type("ABCD");
     cy.wait(2000);
     cy.contains("Enter a valid TIN Number").should("be.visible");

@@ -34,9 +34,9 @@ describe('UserManagement - ENCollect system should throw an error as "Invalid Ag
             });
 
             const data = {
-                'A2': '10090',
-                'B2': '175623',
-                'C2': 'Enable',
+                'A2': 'DBSBMAHA',
+                'B2': '9849',
+                'C2': 'Disable',
                 'D2': 'Test',
                 
             };

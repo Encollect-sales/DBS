@@ -1,12 +1,10 @@
 {
     "loginPage": {
 
-    "selectradio":".form-radio-group > :nth-child(1)",
-
-    "Select_radio_Staff":":nth-child(1) > .ng-untouched",
-
-  
+   
+      "selectradio":".form-radio-group > :nth-child(1)",
       "selectradio_agency":".form-radio-group > :nth-child(2) > .ng-valid",
+
     "companynameInput": "#login-company-name",
     "ClickonCompanyName": "#ngb-typeahead-0-0",
     "usernameInput": "#login-email",
@@ -15,6 +13,7 @@
     "dashboard": ".name-width",
      "profile" : ".avatar-info",
     "logoutButton" : ":nth-child(4) > .dropdown-item"
+    
     },
   
 

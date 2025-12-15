@@ -34,11 +34,12 @@ class LoginPage {
   }
 
   selectradio1(){
- 
-    cy.wait(1000);
-    cy.get(this.locators.selectradio).click({force: true});
-    cy.wait(1000);
+  cy.wait(2000);
+   cy.get(this.locators.selectradio).each(($el) => {
+  cy.wrap($el).click({ force: true });
+});
 
+cy.wait(2000);
 
   }
 
@@ -78,7 +79,7 @@ class LoginPage {
       this.visit();
       // this.fillcompanyname(Companyname);
       // this.Clikcompanyname();
-      this.selectradio2();
+      this.selectradio1();
       this.fillUsername(email);
       this.fillPassword(password);
       this.submit();
