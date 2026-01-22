@@ -1,0 +1,2 @@
+Id,UserType,EmployeeId,FirstName,LastName,EmailId,MobileNumber,Department,Designation,BranchName,IsFailed,FailureReason
+3a1e599c4b72d139babdf40729b7b302,Telecaller,57613,Jana,Homenick,jana@yopmail.com,32!53@0049,Collection Staff Frontend,DBS FOS,Bangalore,True, | Mobile Number Only numbers are allowed | BranchName is invalid

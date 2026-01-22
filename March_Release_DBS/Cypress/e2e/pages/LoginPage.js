@@ -83,7 +83,7 @@ cy.wait(2000);
       this.fillUsername(email);
       this.fillPassword(password);
       this.submit();
-      cy.wait(3000);
+      cy.wait(6000);
       // this.verifyLoginSuccess();
   }
 

@@ -79,7 +79,7 @@ cy.wait(2000);
       this.visit();
       // this.fillcompanyname(Companyname);
       // this.Clikcompanyname();
-      this.selectradio1();
+      this.selectradio2();
       this.fillUsername(email);
       this.fillPassword(password);
       this.submit();

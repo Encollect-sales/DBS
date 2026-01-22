@@ -1117,17 +1117,17 @@ class UserManagementPage {
     cy.wait(2000);
     cy.get(this.locators.fillAgencyName).type("ABCDEF");
     cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer).select("danny ng");
+    cy.get(this.locators.selectRecommendingOfficer).select("test user");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencyType).select("Bank Staff");
+    cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("BCC");
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-    cy.get(this.locators.clickongenerateENcollectcode).click();
+    cy.get(this.locators.clickongenerateENcollectcode).type("46745");
     cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
@@ -1159,9 +1159,9 @@ class UserManagementPage {
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get('#bankName').select('02930758BB334E3981C9EED3A554837A');
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("AMBUR");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -1214,22 +1214,22 @@ class UserManagementPage {
    //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Cards");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("SPARK");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
-    cy.wait(2000);
+    // cy.get(this.locators.subproduct).select("Personal Loan");
+    // cy.wait(2000);
 
     cy.get(":nth-child(6) > .nav-link").click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Cards");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("SPARK");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
-    cy.wait(2000);
-    cy.get(this.locators.selectbucket).select("11");
+    // cy.get(this.locators.selectsubp).select("Personal Loan");
+    // cy.wait(2000);
+    cy.get(this.locators.selectbucket).select("8");
     cy.wait(2000);
     cy.get(this.locators.selectcountry).select("All");
     cy.wait(2000);
@@ -1239,7 +1239,7 @@ class UserManagementPage {
     cy.wait(2000);
     cy.get(this.locators.SelectCity).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectmanager).select("Ajit");
+    cy.get(this.locators.selectmanager).select("Dbs");
     cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
@@ -1261,28 +1261,28 @@ class UserManagementPage {
 
   DatevalidationforExpiryDate(){
 
-    const filePath = 'Aadhar_image.png';
+    const filePath = 'Aadharimage.png';
     cy.get(this.locators.clickonusermanagement).click();
     cy.wait(2000);
 
     
-    cy.get(this.locators.clickonAER).click();
+    cy.get(this.locators.clickonAER).click({force: true});
     cy.wait(2000);
     cy.get("a[title='Add Agency']").click();
     cy.wait(2000);
     cy.get(this.locators.fillAgencyName).type("ABCDEF");
     cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer).select("danny ng");
+    cy.get(this.locators.selectRecommendingOfficer).select("test user");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencyType).select("Bank Staff");
+    cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("BCC");
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-    cy.get(this.locators.clickongenerateENcollectcode).click();
+    cy.get(this.locators.clickongenerateENcollectcode).type("899634");
     cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
@@ -1314,15 +1314,15 @@ class UserManagementPage {
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("02930758BB334E3981C9EED3A554837A");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("AMBUR");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
    //////////////////////////////////////Documentation_Details/////////////////////////////////////
   //  const filePath = 'Aadhar.png';
-  const filePath1 = 'Aadhar.png';
+  const filePath1 = 'Aadharimage.png';
   // Expand the documentation details section
   cy.get(':nth-child(4) > .nav-link > span').click();
   cy.wait(2000);
@@ -1369,22 +1369,22 @@ class UserManagementPage {
   //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Cards");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("SPARK");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
-    cy.wait(2000);
+    // cy.get(this.locators.subproduct).select("Personal Loan");
+    // cy.wait(2000);
 
      cy.get(":nth-child(6) > .nav-link").click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Cards");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("SPARK");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
-    cy.wait(2000);
-    cy.get(this.locators.selectbucket).select("11");
+    // cy.get(this.locators.selectsubp).select("Personal Loan");
+    // cy.wait(2000);
+    cy.get(this.locators.selectbucket).select("8");
     cy.wait(2000);
     cy.get(this.locators.selectcountry).select("All");
     cy.wait(2000);
@@ -1394,7 +1394,7 @@ class UserManagementPage {
     cy.wait(2000);
     cy.get(this.locators.SelectCity).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectmanager).select("Ajit");
+    cy.get(this.locators.selectmanager).select("Dbs");
     cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
@@ -1424,10 +1424,10 @@ class UserManagementPage {
     cy.get(this.locators.SAContactExpiryDate).type('07/04/2024');
     cy.wait(2000);
     cy.get(this.locators.SASearch).click();
-    cy.get(this.locators.specialchrctrError).then(($el) => {
-          const text = $el.text();
-         cy.log(text);
-         })
+    // cy.get(this.locators.specialchrctrError).then(($el) => {
+    //       const text = $el.text();
+    //      cy.log(text);
+    //      })
 
   }
 
@@ -1444,10 +1444,10 @@ class UserManagementPage {
     cy.wait(2000);
     cy.get(this.locators.paginationNoPrevious).click();
 
-    cy.get(this.locators.SAEmpanelmentStatus).select('SavedAsDraft');
-    cy.wait(2000);
-    cy.get(this.locators.SASearch).click();
-    cy.log('Results are showing for SavedAsDraft status')
+    // cy.get(this.locators.SAEmpanelmentStatus).select('SavedAsDraft');
+    // cy.wait(2000);
+    // cy.get(this.locators.SASearch).click();
+    // cy.log('Results are showing for SavedAsDraft status')
 
   }
 
@@ -4764,19 +4764,19 @@ SearchAgent80() {
 
  SearchAgent182(){
   cy.wait(2000);
-  cy.get(this.locators.searchagent).click();
+  cy.get(this.locators.searchagent).click({force: true});
   cy.wait(2000);
   cy.get(this.locators.empanelmentapprovalstatus).select("Approved");
   cy.wait(2000);
   cy.get(this.locators.searchbtn).click();
   cy.wait(2000);
-  cy.scrollTo('bottom');
+  cy.scrollTo('bottom', {ensureScrollable: false});
   cy.wait(2000);
   cy.get(this.locators.nextbtn).click();
   cy.wait(2000);
   cy.get(this.locators.previouspagebtn).click();
   cy.wait(2000);
-  cy.scrollTo('top');
+  cy.scrollTo('top', {ensureScrollable: false});
   cy.wait(2000);
   cy.get(this.locators.empanelmentapprovalstatus).select("Rejected");
   cy.wait(2000);
@@ -4801,12 +4801,12 @@ SearchAgent80() {
     cy.get(this.locators.empanelmentapprovalstatus).select("Rejected");
     cy.wait(2000);
     cy.get(this.locators.searchbtn).click();
-    cy.wait(1000);
-    cy.get('tbody > :nth-child(1) > :nth-child(9) > .form-control-group > .form-check-group > label > input').click();
-    cy.wait(2000);
-    cy.get('#btn-edit').contains('Edit');
-    cy.wait(2000);
-    cy.get('#btn-cancel').contains('Cancel');
+    // cy.wait(1000);
+    // cy.get('tbody > :nth-child(1) > :nth-child(9) > .form-control-group > .form-check-group > label > input').click();
+    // cy.wait(2000);
+    // cy.get('#btn-edit').contains('Edit');
+    // cy.wait(2000);
+    // cy.get('#btn-cancel').contains('Cancel');
    }
 
 
@@ -4822,7 +4822,7 @@ SearchAgent80() {
 
    SearchAgent183() {
     cy.wait(2000);
-    cy.get(this.locators.ClickOnAgentEmpanelment).click();
+    cy.get(this.locators.ClickOnAgentEmpanelment).click({force: true});
     cy.wait(1000);
     cy.get(this.locators.searchagent).click();
     cy.wait(2000);
@@ -4904,9 +4904,9 @@ SearchAgent80() {
     cy.get(this.locators.empanelmentapprovalstatus).select("Disabled").should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.search).click().should("be.visible");
-    cy.wait(2000);
-    //cy.scrollTo('bottom');
-    cy.get(':nth-child(1) > :nth-child(8) > .form-control-group > .form-check-group > label > input').click().should("be.visible");
+    // cy.wait(2000);
+    // //cy.scrollTo('bottom');
+    // cy.get(':nth-child(1) > :nth-child(8) > .form-control-group > .form-check-group > label > input').click().should("be.visible");
    }
 
    EnableDisableStaff553(){
@@ -4919,9 +4919,9 @@ SearchAgent80() {
     cy.get(this.locators.search).click().should("be.visible");
     cy.wait(2000);
     //cy.scrollTo('bottom');
-    cy.get(':nth-child(1) > :nth-child(8) > .form-control-group > .form-check-group > label > input').click().should("be.visible");
-    cy.wait(2000);
-    cy.get(this.locators.enablestaff).click().should("be.visible");
+    // cy.get(':nth-child(1) > :nth-child(8) > .form-control-group > .form-check-group > label > input').click().should("be.visible");
+    // cy.wait(2000);
+    // cy.get(this.locators.enablestaff).click().should("be.visible");
    }
 
    EnableDisableAgency554(){
@@ -4997,7 +4997,7 @@ SearchAgent80() {
     cy.wait(2000);
     cy.get(this.locators.searchagent_submitbtn).click().should("be.visible");
     cy.wait(2000);
-    cy.get(this.locators.agentaction_checkbox).click().should("be.visible");
+    cy.get("#action").click().should("be.visible");
    }
 
    EnableDisableAgent561(){
@@ -5009,7 +5009,7 @@ SearchAgent80() {
     cy.wait(1000);
     cy.get(this.locators.searchagent_submitbtn).click().should("be.visible");;
     cy.wait(1000);
-    cy.get(this.locators.agentaction_checkbox).click().should("be.visible");;
+    cy.get("#action").click().should("be.visible");;
     cy.wait(1000)
     cy.get(this.locators.enablestaff).click().should("be.visible");;
     cy.wait(2000);
@@ -5242,7 +5242,7 @@ SearchAgent80() {
     cy.wait(2000);
     cy.get(this.locators.lname).type('shelar');
     cy.wait(2000);
-    cy.get(this.locators.agencyName).select('snap');
+    cy.get(this.locators.agencyName).select('DBS Agency pvt ltd');
     cy.wait(2000);
     cy.get(this.locators.ID_type).select('Aadhar Card');
     cy.wait(2000);
@@ -5283,24 +5283,40 @@ SearchAgent80() {
     cy.wait(2000);
     cy.get(this.locators.scopeOfWork).click();
     cy.wait(2000);
-    cy.get(this.locators.product_group_dropdown).select('All');
+    cy.get("#product-scope-HL01").click();
     cy.wait(2000);
-    cy.get(this.locators.product_dropdown).select('All');
+    cy.get(".col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container").type("Loans");
     cy.wait(2000);
-    cy.get(this.locators.subProduct_DropDown).select('All');
+    cy.contains(".ng-option-label","Loans").click({ force: true });
     cy.wait(2000);
-    cy.get(this.locators.Bucket_DropDown).select('All');
-    cy.wait(2000);
-    cy.get(this.locators.Country_DropDoun).select('All');
-    cy.wait(2000);
-    cy.get(this.locators.Region_DropDown).select('All');
-    cy.wait(2000);
-    cy.get(this.locators.State_DropDown).select('All');
-    cy.wait(2000);
-    cy.get(this.locators.City_DropDown).select('All');
-    cy.wait(2000);
-    cy.get(this.locators.Branch_DropDown).select('All');
-    cy.wait(2000);
+    cy.get('[heading="Bucket"] > .panel > .panel-heading').click();
+    cy.wait(500);
+    cy.get(".panel-open > .panel > .panel-collapse > .panel-body > .row > .col-md-12 > .form-control-group > .form-ng-select > .ng-select-container").type("PDD");
+    cy.wait(500);
+    cy.contains(".ng-option-label","PDD").click({ force: true });
+    cy.wait(500);
+    cy.get('[heading="Geography"] > .panel > .panel-heading').click();
+    cy.wait(500);
+    cy.get("#geo-scope-HL03").click();
+    cy.wait(500);
+    cy.get(".panel-open > .panel > .panel-collapse > .panel-body > .row > .col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container").type("India");
+    cy.wait(500);
+    cy.contains(".ng-option-label","India").click({ force: true });
+
+    // cy.get(this.locators.subProduct_DropDown).select('All');
+    // cy.wait(2000);
+    // cy.get(this.locators.Bucket_DropDown).select('All');
+    // cy.wait(2000);
+    // cy.get(this.locators.Country_DropDoun).select('All');
+    // cy.wait(2000);
+    // cy.get(this.locators.Region_DropDown).select('All');
+    // cy.wait(2000);
+    // cy.get(this.locators.State_DropDown).select('All');
+    // cy.wait(2000);
+    // cy.get(this.locators.City_DropDown).select('All');
+    // cy.wait(2000);
+    // cy.get(this.locators.Branch_DropDown).select('All');
+    // cy.wait(2000);
     cy.get(this.locators.documentation_details).click();
     cy.wait(2000);
    //###############################################
@@ -5339,7 +5355,7 @@ SearchAgent80() {
     cy.wait(2000);
     cy.get(this.locators.lname).type('shelar');
     cy.wait(2000);
-    cy.get(this.locators.agencyName).select('snap');
+    cy.get(this.locators.agencyName).select('DBS Agency pvt ltd');
     cy.wait(2000);
     cy.get(this.locators.ID_type).select('Aadhar Card');
     cy.wait(2000);
@@ -5372,23 +5388,42 @@ SearchAgent80() {
     cy.wait(2000);
     cy.get(':nth-child(6) > .nav-link > span').click();
     cy.wait(2000);
-    cy.get(this.locators.product_group_dropdown).select('All');
+    cy.get("#product-scope-HL01").click();
     cy.wait(2000);
-    cy.get(this.locators.product_dropdown).select('All');
+    cy.get(".col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container").type("Loans");
     cy.wait(2000);
-    cy.get(this.locators.subProduct_DropDown).select('All');
+    cy.contains(".ng-option-label","Loans").click({ force: true });
     cy.wait(2000);
-    cy.get(this.locators.Bucket_DropDown).select('All');
-    cy.wait(2000);
-    cy.get(this.locators.Country_DropDoun).select('All');
-    cy.wait(2000);
-    cy.get(this.locators.Region_DropDown).select('All');
-    cy.wait(2000);
-    cy.get(this.locators.State_DropDown).select('All');
-    cy.wait(2000);
-    cy.get(this.locators.City_DropDown).select('All');
-    cy.wait(2000);
-    cy.get(this.locators.Branch_DropDown).select('All');
+    cy.get('[heading="Bucket"] > .panel > .panel-heading').click();
+    cy.wait(500);
+    cy.get(".panel-open > .panel > .panel-collapse > .panel-body > .row > .col-md-12 > .form-control-group > .form-ng-select > .ng-select-container").type("PDD");
+    cy.wait(500);
+    cy.contains(".ng-option-label","PDD").click({ force: true });
+    cy.wait(500);
+    cy.get('[heading="Geography"] > .panel > .panel-heading').click();
+    cy.wait(500);
+    cy.get("#geo-scope-HL03").click();
+    cy.wait(500);
+    cy.get(".panel-open > .panel > .panel-collapse > .panel-body > .row > .col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container").type("India");
+    cy.wait(500);
+    cy.contains(".ng-option-label","India").click({ force: true });
+    // cy.get(this.locators.product_group_dropdown).select('All');
+    // cy.wait(2000);
+    // cy.get(this.locators.product_dropdown).select('All');
+    // cy.wait(2000);
+    // cy.get(this.locators.subProduct_DropDown).select('All');
+    // cy.wait(2000);
+    // cy.get(this.locators.Bucket_DropDown).select('All');
+    // cy.wait(2000);
+    // cy.get(this.locators.Country_DropDoun).select('All');
+    // cy.wait(2000);
+    // cy.get(this.locators.Region_DropDown).select('All');
+    // cy.wait(2000);
+    // cy.get(this.locators.State_DropDown).select('All');
+    // cy.wait(2000);
+    // cy.get(this.locators.City_DropDown).select('All');
+    // cy.wait(2000);
+    // cy.get(this.locators.Branch_DropDown).select('All');
     cy.wait(2000);
     cy.get(this.locators.documentation_details).click();
     cy.wait(2000);
@@ -5561,7 +5596,7 @@ SearchAgent80() {
     //   cy.log(text);
     // })
     cy.wait(2000);
-    cy.get(this.locators.mail).type("abc@yop.c");
+    cy.get(this.locators.mail).type("abc@yop.c", { force: true });
     cy.wait(2000);
     cy.get('.form-error > .ng-star-inserted').should("contain.text"," Enter a valid email ")
     // cy.get(this.locators.mailerror).then(($el) => {
@@ -5580,7 +5615,7 @@ SearchAgent80() {
     cy.wait(2000);
     cy.get(this.locators.dob).click();
     cy.wait(2000);
-    cy.get(this.locators.mail).click();
+    cy.get(this.locators.mail).click( {force: true});
     cy.wait(2000);
     cy.contains("Date of birth is required").should("be.visible");
     cy.wait(2000);
@@ -5969,7 +6004,7 @@ UserManagement_888(){
 
    Bulk_Enable_Disable_Agent_Staf977(){
     const filePath = 'Cypress/fixtures/Staff.xlsx'
-    cy.get("a[title='Bulk Upload']").click();
+    cy.get("a[title='Bulk Upload']").click({force: true});
     cy.wait(2000);
 
     cy.wait(2000);
@@ -5977,12 +6012,12 @@ UserManagement_888(){
     cy.wait(2000);
     //cy.get(this.locators.ClickUpload).click();
     cy.wait(2000);
-    cy.get('#fileTypeStaff').click();
+    cy.get('#fileTypeAgent').click();
     //cy.get(this.locators.TemplateForUpload).select("Template for Staff");
     cy.wait(2000);
     cy.get(this.locators.AgentTemplateDownload).click();
     cy.wait(2000);
-    cy.get('#uploadFileTypeStaff').click();
+    cy.get('#uploadFileTypeAgent').click();
     cy.wait(2000);
     cy.get(this.locators.AgentUpload).selectFile(filePath, { force: true });
     cy.wait(2000);
@@ -6005,12 +6040,12 @@ UserManagement_888(){
     cy.wait(2000);
     //cy.get(this.locators.ClickUpload).click();
     cy.wait(2000);
-    cy.get('#fileTypeStaff').click();
+    cy.get('#fileTypeAgent').click();
     //cy.get(this.locators.TemplateForUpload).select("Template for Staff");
     cy.wait(2000);
     cy.get(this.locators.AgentTemplateDownload).click();
     cy.wait(2000);
-    cy.get('#uploadFileTypeStaff').click();
+    cy.get('#uploadFileTypeAgent').click();
     cy.wait(2000);
     cy.get(this.locators.AgentUpload).selectFile(filePath, { force: true });
     cy.wait(2000);
@@ -6039,7 +6074,7 @@ UserManagement_888(){
     cy.wait(2000);
     cy.get(this.locators.LastName).type("Raj");
     cy.wait(2000);
-    cy.get(this.locators.Agencyname).select("Arun");
+    cy.get(this.locators.Agencyname).select("DBS Agency pvt ltd");
     cy.wait(2000);
     cy.get(this.locators.AgencyE).type("pranshu@yopmail.com");
     cy.wait(2000);
@@ -6053,7 +6088,7 @@ UserManagement_888(){
     cy.wait(2000);
     cy.get(this.locators.Idtype).select("Pan card");
     cy.wait(2000)
-    cy.get(this.locators.UDIDNumberr).type("12345678909876543");
+    cy.get(this.locators.UDIDNumberr).type("123456");
     cy.wait(2000);
 
     const filePath1 = 'Aadhar.png'
@@ -6061,8 +6096,8 @@ UserManagement_888(){
     cy.wait(2000);
     cy.get('input[type="file"]').attachFile(filePath1);
     cy.wait(2000);
-
-
+    const random4 = Math.floor(1000 + Math.random() * 9000).toString();
+    cy.get("#agentCode").type(random4, { force: true });
     cy.wait(2000);
     cy.get(this.locators.walletlimit).click();
     cy.wait(1000);
@@ -6072,9 +6107,9 @@ UserManagement_888(){
     cy.wait(2000);
     cy.get(this.locators.Add).click();
     cy.wait(2000);
-    cy.get(this.locators.Department).select("Agency Backend");
+    cy.get(this.locators.Department).select("Agency Collection Staff Backend");
     cy.wait(2000);
-    cy.get(this.locators.designationn).select("Agency Backend");
+    cy.get(this.locators.designationn).select("Agency Owner");
     cy.wait(2000);
     cy.get(this.locators.LocalAddressDetails).click();
     cy.wait(2000);
@@ -6100,8 +6135,12 @@ UserManagement_888(){
       return prefix + paddedNumber;
     }
     // Cypress test code
-    cy.get('input[name="primaryMobileNumber"]').type("8978758685");
-    cy.wait(2000);
+const prefix = ["6","7","8","9"][Math.floor(Math.random()*4)];
+const randomRest = Math.floor(100000000 + Math.random() * 900000000).toString();
+const mobile = prefix + randomRest;
+
+cy.get('input[name="primaryMobileNumber"]').type(mobile);
+
     //cy.get("#emailId").type("pranshu@yopmail.com");
     //cy.wait(2000);
     function generateRandomEmail() {
@@ -6126,59 +6165,59 @@ UserManagement_888(){
     cy.wait(2000);
     cy.get("input[placeholder='Enter Account Number']").type("456785678776543");
     cy.wait(2000);
-    cy.get("select[name='bankName']").select("BANK OF INDIA");
+    // cy.get("select[name='bankName']").select("BANK OF INDIA");
+    cy.get("#bankName").select('00C7AFF5B6ED4CFD8914A08776DF5586');           
     cy.wait(2000);
-    cy.get("select[name='bankBranchId']").select("BANO");
+    cy.get("#bankBranchName").select("ARNI");
     cy.wait(2000);
     cy.get(':nth-child(6) > .nav-link > span').click();
     cy.wait(2000);
-    cy.get("#productGroup-0").select("All");
+   cy.get("#product-scope-HL01").click();
     cy.wait(2000);
-    cy.get("#product-0").select("All");
+    cy.get(".col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container").type("Loans");
     cy.wait(2000);
-    cy.get("#subProduct-0").select("All");
+    cy.contains(".ng-option-label","Loans").click({ force: true });
     cy.wait(2000);
-    cy.get("#bucket-0").select("All");
-    cy.wait(2000);
-    cy.get("#country-0").select("All");
-    cy.wait(2000);
-    cy.get("#region-0").select("All");
-    cy.wait(2000);
-    cy.get("#state-0").select("All");
-    cy.wait(2000);
-    cy.get("#city-0").select("All");
-    cy.wait(2000);
-    cy.get("#branch-0").select("All");
-    cy.wait(2000);
-
-    cy.get(":nth-child(7) > .nav-link > span").click();
-    cy.wait(2000);
-    cy.get("#areaPin").type("845438");
-    cy.wait(2000);
-
-    cy.get(':nth-child(8) > .nav-link > span').click();
-    cy.wait(2000);
-    cy.get("#maxAccounts").type("2");
-    cy.wait(2000);
-
-    cy.get(':nth-child(8) > .nav-link > span').click();
-    cy.wait(2000);
-    cy.get("#maxAccounts").type("2").should('be.visible');
-    cy.wait(2000);
-    cy.get(':nth-child(9) > .nav-link > span').click();
-    cy.wait(2000);
-    cy.get("#expYears").type("2").should('be.visible');
-    cy.wait(2000);
-    cy.get("select[name='cutomerPersona']").select("Self-cure customer").should('be.visible');
-    cy.wait(2000);
-    cy.get('#lanKnown').select("Hindi").should('be.visible');
-    cy.wait(2000);
-    cy.get('#perBand').select("LH").should('be.visible');
-    cy.wait(2000);
+    cy.get('[heading="Bucket"] > .panel > .panel-heading').click();
+    cy.wait(500);
+    cy.get(".panel-open > .panel > .panel-collapse > .panel-body > .row > .col-md-12 > .form-control-group > .form-ng-select > .ng-select-container").type("PDD");
+    cy.wait(500);
+    cy.contains(".ng-option-label","PDD").click({ force: true });
+    cy.wait(500);
+    cy.get('[heading="Geography"] > .panel > .panel-heading').click();
+    cy.wait(500);
+    cy.get("#geo-scope-HL03").click();
+    cy.wait(500);
+    cy.get(".panel-open > .panel > .panel-collapse > .panel-body > .row > .col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container").type("India");
+    cy.wait(500);
+    cy.contains(".ng-option-label","India").click({ force: true });
+    // cy.wait(2000);
+    // cy.get(":nth-child(7) > .nav-link > span").click();
+    // cy.wait(2000);
+    // cy.get("#areaPin").type("845438");
+    // cy.wait(2000);
+    // cy.get(':nth-child(8) > .nav-link > span').click();
+    // cy.wait(2000);
+    // cy.get("#maxAccounts").type("2");
+    // cy.wait(2000);
+    // cy.get(':nth-child(8) > .nav-link > span').click();
+    // cy.wait(2000);
+    // cy.get("#maxAccounts").type("2").should('be.visible');
+    // cy.wait(2000);
+    // cy.get(':nth-child(9) > .nav-link > span').click();
+    // cy.wait(2000);
+    // cy.get("#expYears").type("2").should('be.visible');
+    // cy.wait(2000);
+    // cy.get("select[name='cutomerPersona']").select("Self-cure customer").should('be.visible');
+    // cy.wait(2000);
+    // cy.get('#lanKnown').select("Hindi").should('be.visible');
+    // cy.wait(2000);
+    // cy.get('#perBand').select("LH").should('be.visible');
+    // cy.wait(2000);
 
 
     //#############################Document&Details######################################### 
-    cy.get(':nth-child(10) > .nav-link > span').click().should('be.visible');
+    cy.get(':nth-child(7) > .nav-link > span').click().should('be.visible');
 
     cy.wait(2000);
     cy.get("#docTypeSelect-0").select("Pan Card").should('be.visible');
@@ -6205,7 +6244,7 @@ UserManagement_888(){
    
 //#############################Document&Details######################################### 
 
-cy.get(':nth-child(11) > .nav-link > span').click().should('be.visible');
+cy.get(':nth-child(8) > .nav-link > span').click().should('be.visible');
 cy.wait(2000);
 
 //  cy.get('#CollectionDate').click().should('be.visible');
@@ -6225,7 +6264,7 @@ cy.get("#CollectionDate").type("25/06/2023").should('be.visible');
 cy.wait(2000);
 cy.get("#RenewalDate").type("15-07-2024").should('be.visible');
 cy.wait(2000);
-cy.get("#ExpiryDate").type("15-11-2025").should('be.visible');
+cy.get("#ExpiryDate").type("27-11-2025").should('be.visible');
 cy.wait(2000);
 cy.get("#remarks").type("aaaaaa bbbbbbbbb cccccccccc dddddddddd 123",{force: true}).should('be.visible');
 cy.wait(2000)
@@ -6568,8 +6607,8 @@ AgentEnpalmentRequest911(){
     cy.get(this.locators.SelectEPStatus).select("Pending Approval");
     cy.wait(2000);
     cy.get(this.locators.button).click();
-    cy.wait(2000);
-    cy.get('tbody > :nth-child(1) > :nth-child(9) > .form-control-group > .form-check-group > label > input').click();
+    // cy.wait(2000);
+    // cy.get('tbody > :nth-child(1) > :nth-child(9) > .form-control-group > .form-check-group > label > input').click();
 
    }
 
@@ -6582,11 +6621,11 @@ cy.get(this.locators.ClickAddAgency).click();
 cy.wait(2000);
 cy.get(this.locators.fillAgencyName).type("ABCDEF");
 cy.wait(2000);
-cy.get(this.locators.selectRecommendingOfficer).select("danny ng");
+cy.get(this.locators.selectRecommendingOfficer).select("test user");
 cy.wait(2000);
-cy.get(this.locators.selectAgencyType).select("Bank Staff");
+cy.get(this.locators.selectAgencyType).select("Collections");
 cy.wait(2000);
-cy.get(this.locators.selectAgencySubType).select("BCC");
+cy.get(this.locators.selectAgencySubType).select("Tele calling");
 cy.wait(2000);
 cy.get(this.locators.fillpancard).type("ABCDE1234F");
 cy.wait(2000);
@@ -6643,9 +6682,9 @@ cy.get(this.locators.accountholdername).type("AJAY KUMAR");
 cy.wait(2000);
 cy.get(this.locators.bankaccountnumber).type("1234567890");
 cy.wait(2000);
-cy.get(this.locators.bankname).select("SBI");
+cy.get('#bankName').type("DBS Bank India Ltd");
 cy.wait(2000);
-cy.get(this.locators.bankbranchname).select("YamunaNagar");
+cy.get(this.locators.bankbranchname).select("BHOPAL");
 cy.wait(2000);
 cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
 cy.wait(2000);

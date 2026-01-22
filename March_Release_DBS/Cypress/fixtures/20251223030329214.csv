@@ -1,0 +1,2 @@
+Id,UserType,EmployeeId,FirstName,LastName,EmailId,MobileNumber,Department,Designation,BranchName,IsFailed,FailureReason
+3a1e599ed323549ba8f006a49ab7ef0c,Telecaller,86691,Keven,Russel,keven@yopmail.com,3098783891,,Audit Manager,Bangalore,True, | Department is Required | BranchName is invalid

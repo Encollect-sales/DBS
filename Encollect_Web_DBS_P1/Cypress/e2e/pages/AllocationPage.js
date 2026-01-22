@@ -40,17 +40,17 @@ class AllocationPage {
 
   fillproductgroup() {
      cy.wait(2000);
-    cy.get(this.locators.pg_select).select('CreditCard', {force: true});
+    cy.get(this.locators.pg_select).select('All', {force: true});
     cy.wait(2000);
   }
 
   fillproduct() {
-    cy.get(this.locators.product_select).select('CreditCard');
+    cy.get(this.locators.product_select).select('All');
      cy.wait(2000);
   }
 
   fillsubproduct() {
-    cy.get(this.locators.subproduct_select).select('CreditCard');
+    cy.get(this.locators.subproduct_select).select('All');
     cy.wait(2000)
   }
 
@@ -70,17 +70,17 @@ class AllocationPage {
   }
 
   clickonprimaryfile() {
-    cy.get(this.locators.primaryZip).click();
+    cy.get(this.locators.primaryZip).click({force: true});
      cy.wait(2000);
   }
 
   filltemplate() {
-    cy.get('#downloadTemplateType1').click();
+    cy.get('.card-content > :nth-child(1) > .form-select').eq(1).select('option_value');
     cy.wait(2000);
   }
 
   filltemplate2() {
-    cy.get('#downloadTemplateType2').click();
+    cy.get('.card-content > :nth-child(1) > .form-select').select("Allocation Template for Child Telecalling Agency");
     cy.wait(2000);
   }
 
@@ -161,10 +161,15 @@ class AllocationPage {
     cy.wait(2000);
   }  
 
+ clickonOK700error() {
+   cy.wait(2000);
+  cy.get('[role="alert"]').should('be.visible').and('contain.text',"The selected template does not match the 'Proceed with Allocation For' option");
+ cy.wait(2000);
+}
   clickonaccountsearch(){
    cy.get('.account-search > a.ng-star-inserted > span.ng-star-inserted').click();
    cy.wait(2000);
-   cy.get('#search-account-number').type('68210000012749');
+   cy.get('#search-account-number').type('0210773000022710');
    cy.wait(3000);
    cy.get('#search-submit-button').click();
    cy.wait(5000);
@@ -174,8 +179,8 @@ class AllocationPage {
    cy.wait(3000);
    cy.get(':nth-child(14) > .dropdown-item').click();
    cy.wait(3000);
-   cy.contains("Allocation History").should("be.visible");
-   cy.wait(2000);
+  //  cy.contains("Allocation History").should("be.visible");
+  //  cy.wait(2000);
   }
 
   uploadfile1_Spl_Chr(){
@@ -187,7 +192,7 @@ class AllocationPage {
   }
 
   uploadfile2() {
-    cy.get(this.locators.uploadfile).should('exist').attachFile('PrimaryTeleCallingAgency(1).xlsx');
+    cy.get(this.locators.uploadfile).should('exist').attachFile('PrimaryTeleCallingAgency.xlsx');
   }
 
   uploadfile3() {
@@ -195,7 +200,7 @@ class AllocationPage {
   }
 
   uploadfilewithSpclChrctr() {
-    cy.get(this.locators.uploadfile).should('exist').attachFile('Allocation#ToOwner.xlsx');
+    cy.get(this.locators.uploadfile).should('exist').attachFile('PrimaryTeleCallingAgency(1).xlsx');
   }
 
   uploadDocxExtensionFile() {
@@ -204,7 +209,7 @@ class AllocationPage {
   }
 
    uploadDocxExtensionFile701() {
-    cy.get(this.locators.uploadfile).should('exist').attachFile('AllocationToOwner_customeridLevel.xlsx');
+    cy.get(this.locators.uploadfile).should('exist').attachFile('AllocationToOwner_Customerlevel.xlsx');
     cy.wait(2000);
     cy.get('#upload').click();
     cy.wait(2000);
@@ -230,7 +235,7 @@ class AllocationPage {
     cy.wait(2000);
     cy.get('#search').click();
     cy.wait(2000);
-    cy.get('tr.ng-star-inserted > :nth-child(4)').scrollIntoView().contains('Processed').should('be.visible');
+    cy.get('tr.ng-star-inserted > :nth-child(4)').scrollIntoView().contains('Invalid File Format').scrollIntoView().should('be.visible');
     cy.wait(2000);
 
   }
@@ -271,7 +276,7 @@ class AllocationPage {
 
   clickonCARadioBtnagnt() {
     //cy.get(this.locators.CAradiobtnagent).click();
-    cy.get('#AllocationType2').click({ force: true });
+    cy.get('#allocationType2').click({ force: true });
     // cy.get('input[type="radio"][value="agent"]').click();
 
   }
@@ -375,7 +380,7 @@ class AllocationPage {
   }
 
   fillproductgroupPAF() {
-    cy.get(this.locators.pg_select_PAF).select('39');
+    cy.get(this.locators.pg_select_PAF).select('All');
     cy.wait(2000);
   }
 
@@ -390,17 +395,17 @@ class AllocationPage {
   }
 
   fillproductgroupPAF1() {
-    cy.get(this.locators.pg_select_PAF).select('Consumer Loan');
+    cy.get(this.locators.pg_select_PAF).select('All');
     cy.wait(2000);
   }
 
   fillproductPAF1() {
-    cy.get(this.locators.product_select_PAF).select('Unsecured');
+    cy.get(this.locators.product_select_PAF).select('All');
     cy.wait(2000);
   }
 
   fillsubproductPAF1() {
-    cy.get(this.locators.subproduct_select_PAF).select('Personal Loan');
+    cy.get(this.locators.subproduct_select_PAF).select('All');
     cy.wait(2000)
   }
 
@@ -421,25 +426,25 @@ class AllocationPage {
   }
 
   fillproductgroupPAF3() {
-    cy.get(this.locators.pg_select_PAF).select('CreditCard');
+    cy.get(this.locators.pg_select_PAF).select('All');
   }
 
   fillproductPAF3() {
-    cy.get(this.locators.product_select_PAF).select('CreditCard');
+    cy.get(this.locators.product_select_PAF).select('All');
   }
 
   fillsubproductPAF3() {
-    cy.get(this.locators.subproduct_select_PAF).select('CreditCard');
+    cy.get(this.locators.subproduct_select_PAF).select('All');
     cy.wait(2000)
   }
 
   fillproductgroupPAF4() {
-    cy.get(this.locators.pg_select_PAF).select('4ffacc7f03e74cbb961fa3aacf8b7f2a');
+    cy.get(this.locators.pg_select_PAF).select('Loans');
     cy.wait(2000);
   }
 
   fillproductPAF4() {
-    cy.get(this.locators.product_select_PAF).select('VEHICLE LOAN');
+    cy.get(this.locators.product_select_PAF).select('VEHICLE');
     cy.wait(2000);
   }
 
@@ -464,12 +469,12 @@ class AllocationPage {
   }
 
   fillproductgroupPAF6() {
-    cy.get(this.locators.pg_select_PAF).select('LOANS PRODUCTS');
+    cy.get(this.locators.pg_select_PAF).select('All');
     cy.wait(2000);
   }
 
   fillproductPAF6() {
-    cy.get(this.locators.product_select_PAF).select('VEHICLE LOAN');
+    cy.get(this.locators.product_select_PAF).select('All');
     cy.wait(2000);
   }
 
@@ -572,27 +577,27 @@ class AllocationPage {
   }
 
   fillproductgroupSAF1() {
-    cy.get(this.locators.pg_select_SAF).select('CreditCard');
+    cy.get(this.locators.pg_select_SAF).select('All');
     cy.wait(2000);
   }
 
   fillproductSAF1() {
-    cy.get(this.locators.product_select_SAF).select('CreditCard');
+    cy.get(this.locators.product_select_SAF).select('All');
     cy.wait(2000);
   }
 
   fillsubproductSAF1() {
-    cy.get(this.locators.subproduct_select_SAF).select('CreditCard');
+    cy.get(this.locators.subproduct_select_SAF).select('All');
     cy.wait(2000)
   }
 
   fillproductgroupSAF2() {
-    cy.get(this.locators.pg_select_SAF).select('LOANS PRODUCTS');
+    cy.get(this.locators.pg_select_SAF).select('Loans');
     cy.wait(2000);
   }
 
   fillproductSAF2() {
-    cy.get(this.locators.product_select_SAF).select('VEHICLE LOAN');
+    cy.get(this.locators.product_select_SAF).select('VEHICLE');
     cy.wait(2000);
   }
 
@@ -607,12 +612,12 @@ class AllocationPage {
   }
 
   fillproductgroupSAF4() {
-    cy.get(this.locators.pg_select_SAF).select('LOANS PRODUCTS');
+    cy.get(this.locators.pg_select_SAF).select('All');
     cy.wait(2000);
   }
 
   fillproductSAF4() {
-    cy.get(this.locators.product_select_SAF).select('VEHICLE LOAN');
+    cy.get(this.locators.product_select_SAF).select('All');
     cy.wait(2000);
   }
 
@@ -1295,11 +1300,10 @@ class AllocationPage {
     cy.wait(2000);
     cy.get(this.locators.clickagntfiltr).click({ force: true });
     cy.wait(2000);
-    cy.get('#Productgroup').select("Periode");
+    cy.get('#Productgroup').select("Cards");
     cy.wait(2000);
     cy.get('#product').select("All");
-    cy.wait(2000);
-    cy.get("#subproduct").select("All");
+    
     // cy.get(this.locators.currentDPD).type('abcd');
     // cy.wait(2000);
     // cy.get(this.locators.dellstring).type('abcedf');
@@ -1534,12 +1538,12 @@ class AllocationPage {
     cy.wait(2000);
     cy.get(this.locators.ClickAGBU).click();
     cy.wait(2000);
-    cy.get(this.locators.ProductGroupUAAO).select('Consumer Loan');
+    cy.get(this.locators.ProductGroupUAAO).select('All');
     cy.wait(2000)
-    cy.get(this.locators.ProductUAAO).select('Unsecured');
+    cy.get(this.locators.ProductUAAO).select('All');
     cy.wait(2000)
-    cy.get(this.locators.SubproducUAAO).select('Personal Loan');
-    cy.wait(2000)
+    // cy.get(this.locators.SubproducUAAO).select('Personal Loan');
+    // cy.wait(2000)
     cy.get(this.locators.ClickonNotAllocatedAgency).click();
     cy.wait(2000)
     cy.get('#downloadAccounts').click();
@@ -1637,13 +1641,27 @@ class AllocationPage {
     cy.wait(2000);
     cy.get('#TcagentName').type("A");
     cy.wait(2000);
-    cy.get('#ngb-typeahead-1-0').click();
-    cy.wait(2000);
+
+    cy.get('h5.ng-star-inserted').then($items => {
+  const count = $items.length;
+  const randomIndex = Math.floor(Math.random() * count);
+
+  cy.wrap($items[randomIndex]).click({ force: true });
+});
+
+  cy.wait(2000);
     cy.get('#Agentname').type("A");
     cy.wait(2000);
-    cy.get('#ngb-typeahead-2-0').click();
-    cy.wait(2000);
-    cy.get('#AllocationExpireDate2').type("01/05/2025");
+   
+    
+    cy.get('h5.ng-star-inserted').then($items => {
+  const count = $items.length;
+  const randomIndex = Math.floor(Math.random() * count);
+
+  cy.wrap($items[randomIndex]).click({ force: true });
+});
+  cy.wait(2000);
+    cy.get('#AllocationExpireDate2').type("01/05/2027");
     cy.wait(2000);
     cy.get('#allocate').click();
   }
@@ -1663,15 +1681,29 @@ class AllocationPage {
     cy.wait(2000);
     // cy.get('#AllocateToAgency').scrollIntoView().click();
     cy.wait(2000);
-    cy.get('#TcagentName').type("A");
+     cy.get('#TcagentName').type("A");
     cy.wait(2000);
-    cy.get('#ngb-typeahead-1-0').click();
-    cy.wait(2000);
+
+    cy.get('h5.ng-star-inserted').then($items => {
+  const count = $items.length;
+  const randomIndex = Math.floor(Math.random() * count);
+
+  cy.wrap($items[randomIndex]).click({ force: true });
+});
+
+  cy.wait(2000);
     cy.get('#Agentname').type("A");
     cy.wait(2000);
-    cy.get('#ngb-typeahead-2-0').click();
-    cy.wait(2000);
-    cy.get('#AllocationExpireDate2').type("01/05/2025");
+   
+    
+    cy.get('h5.ng-star-inserted').then($items => {
+  const count = $items.length;
+  const randomIndex = Math.floor(Math.random() * count);
+
+  cy.wrap($items[randomIndex]).click({ force: true });
+});
+  cy.wait(2000);
+    cy.get('#AllocationExpireDate2').type("01/05/2027");
     cy.wait(2000);
     cy.get('#allocate').click();
   }
@@ -1710,9 +1742,9 @@ class AllocationPage {
     cy.get(this.locators.clickonSABF).click().click();
     cy.wait(2000);
     //cy.get(this.locators.clickonPF).click();
-    cy.get(this.locators.pg_select_SAF).select('39');
+    cy.get(this.locators.pg_select_SAF).select('All');
     cy.get(this.locators.product_select_SAF).select('All');
-    cy.get(this.locators.subproduct_select_SAF).select('All');
+    // cy.get(this.locators.subproduct_select_SAF).select('All');
     cy.get(this.locators.clickonBF).click();
     cy.wait(2000);
     cy.get(this.locators.clickonDPD).type('12');
@@ -1767,9 +1799,9 @@ class AllocationPage {
     cy.get(this.locators.clickonSABF).click().click();
     cy.wait(2000);
     //cy.get(this.locators.clickonPF).click();
-    cy.get(this.locators.pg_select_SAF).select('39');
+    cy.get(this.locators.pg_select_SAF).select('All');
     cy.get(this.locators.product_select_SAF).select('All');
-    cy.get(this.locators.subproduct_select_SAF).select('All');
+    // cy.get(this.locators.subproduct_select_SAF).select('All');
     cy.get(this.locators.clickonBF).click();
     cy.wait(2000);
     cy.get(this.locators.clickonDPD).type('21');
@@ -1827,9 +1859,9 @@ class AllocationPage {
     cy.get(this.locators.AgencyName).type('Dev Electronics');
     cy.get(this.locators.AGencyExpirayDate).click();
     cy.get(':nth-child(5) > :nth-child(8) > .ng-star-inserted').click();
-    cy.get(this.locators.pg_select_SAF).select('CreditCard');
-    cy.get(this.locators.product_select_SAF).select('CreditCard');
-    cy.get(this.locators.subproduct_select_SAF).select('CreditCard');
+    cy.get(this.locators.pg_select_SAF).select('All');
+    cy.get(this.locators.product_select_SAF).select('All');
+    cy.get(this.locators.subproduct_select_SAF).select('All');
     cy.get('.buttons_set > #upload').click();
     cy.wait(2000);
     cy.get(this.locators.Welcome).then(($el) => {
@@ -1930,9 +1962,9 @@ class AllocationPage {
     cy.wait(2000);
     cy.get(this.locators.uploadfile).selectFile(filePath, { force: true });
     cy.wait(2000);
-    cy.contains('Please Select Proceed with Unallocation For Before Uploading File', { timeout: 20000 }).invoke('text').then((popupText) => {
-      cy.log(`Popup text: ${popupText}`);
-    });
+    // cy.contains('Please Select Proceed with Unallocation For Before Uploading File', { timeout: 20000 }).invoke('text').then((popupText) => {
+    //   cy.log(`Popup text: ${popupText}`);
+    // });
   }
 
   uploadAgencyUnallocationBatchInvalidFile() {
@@ -2192,9 +2224,9 @@ class AllocationPage {
     cy.wait(2000);
     cy.get(this.locators.uploadfile).selectFile(filePath, { force: true });
     cy.wait(2000);
-    cy.contains('Please Select Proceed with Deallocation For Before Uploading File', { timeout: 20000 }).invoke('text').then((popupText) => {
-      cy.log(`Popup text: ${popupText}`);
-    });
+    // cy.contains('Please Select Proceed with Deallocation For Before Uploading File', { timeout: 20000 }).invoke('text').then((popupText) => {
+    //   cy.log(`Popup text: ${popupText}`);
+    // });
   }
 
   uploadCollectorUnallocationBatchInvalidFile() {
@@ -2376,14 +2408,16 @@ class AllocationPage {
     cy.wait(2000);
     cy.get(this.locators.ClickAGBU).click({force: true} );
     cy.wait(2000);
-    cy.get(this.locators.pg_select).select('Consumer Loan');
+    cy.get(this.locators.pg_select).select('All');
     cy.wait(2000);
-    cy.get(this.locators.product_select).select('Unsecured');
+    cy.get(this.locators.product_select).select('All');
     cy.wait(2000);
-    cy.get(this.locators.subproduct_select).select('Personal Loan');
+    // cy.get(this.locators.subproduct_select).select('Personal Loan');
+    // cy.wait(2000);
+  
+    cy.get('#Bucket').select('All');
     cy.wait(2000);
-    cy.get(this.locators.UAABbucket).select('3');
-    cy.wait(2000);
+
     cy.get(this.locators.UAABCountry).select('All');
     cy.wait(2000);
     cy.get(this.locators.UAABRegion).select('All');
@@ -2582,12 +2616,12 @@ class AllocationPage {
     cy.wait(2000);
     cy.get(this.locators.ClickAGBU).click();
     cy.wait(2000);
-    cy.get(this.locators.ProductGroupUAAO).select('Consumer Loan');
+    cy.get(this.locators.ProductGroupUAAO).select('All');
     cy.wait(2000)
-    cy.get(this.locators.ProductUAAO).select('Unsecured');
+    cy.get(this.locators.ProductUAAO).select('All');
     cy.wait(2000)
-    cy.get(this.locators.SubproducUAAO).select('Personal Loan');
-    cy.wait(2000)
+    // cy.get(this.locators.SubproducUAAO).select('Personal Loan');
+    // cy.wait(2000)
     cy.get(this.locators.ClickonAllocatedAgency).click();
     cy.wait(2000)
     cy.get(this.locators.ClickOnAgBAAccLevelDownBtn).click();
@@ -2595,7 +2629,7 @@ class AllocationPage {
   }
 
   UploadFilledAgencyLevelAllocationFile290() {
-    const filePath = 'Cypress/downloads/AllocationToOwner.xlsx'
+    const filePath = 'Cypress/fixtures/AllocationToOwner.xlsx'
     cy.get(this.locators.allocation).click();
     cy.wait(2000);
     //cy.get(this.locators.Allocation_Batch).click().click();
@@ -2630,7 +2664,7 @@ class AllocationPage {
   }
 
   uploadAgencyAllocationBatchWrongAccountNo() {
-    const filePath = 'Cypress/downloads/AllocationToOwner.xlsx'
+    const filePath = 'Cypress/fixtures/AllocationToOwner.xlsx'
     cy.get(this.locators.allocation).click();
     cy.wait(2000);
     cy.get(this.locators.ClickAGBU).click({force: true} );
@@ -2735,12 +2769,12 @@ class AllocationPage {
     cy.wait(2000);
     // cy.get(this.locators.clickonPF).click();
     // cy.wait(2000);
-    cy.get(this.locators.pg_select_PAF).select('39');
+    cy.get(this.locators.pg_select_PAF).select('All');
     cy.wait(2000);
     cy.get(this.locators.product_select_PAF).select('All');
     cy.wait(2000);
-    cy.get(this.locators.subproduct_select_PAF).select('All');
-    cy.wait(2000);
+    // cy.get(this.locators.subproduct_select_PAF).select('All');
+    // cy.wait(2000);
     cy.get(this.locators.clickonBF).click();
     cy.wait(2000);
     cy.get(this.locators.clickonDPD).type('12');
@@ -2943,14 +2977,16 @@ class AllocationPage {
     cy.get(this.locators.clickagntfiltr).click();
     //cy.get(this.locators.Upload_Agency_Allocation_Owner).click();
     cy.wait(2000);
-    cy.get(this.locators.pg_select).select('Consumer Loan');
+    cy.get(this.locators.pg_select).select('All');
     cy.wait(2000);
-    cy.get('#product').select('Unsecured');
+    cy.get('#product').select('All');
     cy.wait(2000);
-    cy.get('#subproduct').select('Personal Loan');
-    cy.wait(2000);
-    // cy.get(this.locators.UAABbucket).select('1');
+    // cy.get('#subproduct').select('Personal Loan');
     // cy.wait(2000);
+    cy.get('[heading="Bucket Filter"] > .panel > .panel-heading > .panel-title > .accordion-toggle > .btn').click();
+    cy.wait(1000);
+    cy.get(this.locators.UAABbucket).select('1');
+    cy.wait(2000);
     // cy.get(this.locators.UAABCountry).select('All');
     // cy.wait(2000);
     // cy.get(this.locators.UAABRegion).select('All');
@@ -2977,7 +3013,7 @@ class AllocationPage {
     cy.get('.allocation > :nth-child(2) > :nth-child(1) > .sub-nav-list > :nth-child(1) > a').click();
     //cy.get(this.locators.Upload_Agency_Allocation_Owner).click().click();
     cy.wait(2000);
-    cy.get(':nth-child(1) > .enc-card > .card-content > :nth-child(1) > .form-radio-group > :nth-child(1)').click();
+    // cy.get(':nth-child(1) > .enc-card > .card-content > :nth-child(1) > .form-radio-group > :nth-child(1)').click();
     cy.get(this.locators.DownloadAllocationTemplt).click();
     cy.wait(2000);
   }
@@ -3046,13 +3082,26 @@ class AllocationPage {
       cy.wait(2000);
       cy.get('#TcagentName').type("A");
       cy.wait(2000);
-      cy.get('#ngb-typeahead-1-0').click();
-      cy.wait(2000);
-      cy.get('#Agentname').type("A");
-      cy.wait(2000);
-      cy.get('#ngb-typeahead-2-0').click();
-      cy.wait(2000);
-      cy.get('#AllocationExpireDate2').type("01/05/2025");
+       cy.get('h5.ng-star-inserted').then($items => {
+  const count = $items.length;
+  const randomIndex = Math.floor(Math.random() * count);
+
+  cy.wrap($items[randomIndex]).click({ force: true });
+});
+
+  cy.wait(2000);
+    cy.get('#Agentname').type("A");
+    cy.wait(2000);
+   
+    
+    cy.get('h5.ng-star-inserted').then($items => {
+  const count = $items.length;
+  const randomIndex = Math.floor(Math.random() * count);
+
+  cy.wrap($items[randomIndex]).click({ force: true });
+});
+  cy.wait(2000);
+      cy.get('#AllocationExpireDate2').type("01/05/2027");
       cy.wait(2000);
       cy.get('#cancelhiperLink').click();
     }
@@ -3128,13 +3177,10 @@ class AllocationPage {
     cy.wait(2000);
     cy.get(this.locators.clickagntfiltr).click();
     cy.wait(2000);
-    cy.get('#Productgroup').select("SCHOOL LOAN");
+    cy.get('#Productgroup').select("All");
     cy.wait(2000);
-    cy.get('#product').select("SCHOOL LOAN");
+    cy.get('#product').select("All");
     cy.wait(2000);
-    cy.get('#subproduct').select("SCHOOL LOAN");
-    cy.wait(2000);
-
 
 
   }

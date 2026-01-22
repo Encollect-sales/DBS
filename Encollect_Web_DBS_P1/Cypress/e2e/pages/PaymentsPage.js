@@ -23,7 +23,7 @@ class PaymentsPage {
     cy.wait(2000);
     cy.contains('Receipt From Date').should('be.visible');
     cy.wait(2000);
-    cy.get(this.locators.EnterCollCode).type("22");
+    cy.get(this.locators.EnterCollCode).type("1");
     cy.wait(2000);
     cy.get('typeahead-container .dropdown-item')
       .should('have.length.greaterThan', 0) // wait until at least one item is present
@@ -71,7 +71,7 @@ class PaymentsPage {
     cy.wait(2000);
     cy.get(this.locators.CliCkRMFC).click({ force: true });
     cy.wait(5000);
-    cy.get(this.locators.EnterCollCode).type("22");
+    cy.get(this.locators.EnterCollCode).type("1");
     cy.wait(2000);
     cy.get('typeahead-container .dropdown-item')
       .should('have.length.greaterThan', 0) // wait until at least one item is present
@@ -118,7 +118,7 @@ class PaymentsPage {
     cy.wait(2000);
     cy.get(this.locators.CliCkRMFC).click({ force: true });
     cy.wait(5000);
-    cy.get(this.locators.EnterCollCode).type("22");
+    cy.get(this.locators.EnterCollCode).type("1");
     cy.wait(2000);
     cy.get('typeahead-container .dropdown-item')
       .should('have.length.greaterThan', 0) // wait until at least one item is present
@@ -165,7 +165,7 @@ class PaymentsPage {
     cy.wait(2000);
     cy.get(this.locators.CliCkRMFC).click({ force: true });
     cy.wait(5000);
-    cy.get(this.locators.EnterCollCode).type("22");
+    cy.get(this.locators.EnterCollCode).type("1");
     cy.wait(2000);
     cy.get('typeahead-container .dropdown-item')
       .should('have.length.greaterThan', 0) // wait until at least one item is present
@@ -211,7 +211,7 @@ class PaymentsPage {
     cy.wait(2000);
     cy.get(this.locators.CliCkRMFC).click({ force: true });
     cy.wait(5000);
-    cy.get(this.locators.EnterCollCode).type("22");
+    cy.get(this.locators.EnterCollCode).type("1");
     cy.wait(2000);
     cy.get('typeahead-container .dropdown-item')
       .should('have.length.greaterThan', 0) // wait until at least one item is present
@@ -316,6 +316,8 @@ class PaymentsPage {
     cy.get('body').click();
     // cy.get('.today-date').click();
     // cy.wait(2000);
+    cy.get(':nth-child(7) > .form-select').select("Settlement");
+    cy.wait(1000);
     cy.get(this.locators.ClickOnSearch).click()
     cy.wait(5000);
   }
@@ -330,12 +332,14 @@ class PaymentsPage {
     cy.contains('Instrument No').should('be.visible');
     cy.contains('Drawee Bank & Drawee Branch').should('be.visible');
     // cy.contains('EMI Overdue Amount').should('be.visible');
-
+cy.get(':nth-child(7) > .form-select').select("Settlement");
+    cy.wait(1000);
+    
   }
   checkbox() {
     cy.wait(2000);
-    cy.get('label > .ng-untouched').click()
-    cy.wait(2000);
+     cy.get(':nth-child(7) > .form-select').select("Settlement");
+    cy.wait(1000);
     cy.get(this.locators.ClickOnSubmit).click();
 
 
@@ -726,19 +730,21 @@ class PaymentsPage {
   }
 
   ClickOnCreatePayInSlip_SubmitBtn() {
-    cy.get(this.locators.CPS_product_grp).select('Consumer Loan');
+    cy.get(this.locators.CPS_product_grp).select('Loans');
     cy.wait(2000);
-    cy.get(this.locators.CPS_Payin_ID).type('12345');
-    cy.wait(2000);
+    // cy.get(this.locators.CPS_Payin_ID).type('12345');
+    // cy.wait(2000);
     cy.get(this.locators.CPS_Payment_mode).select('CASH');
     cy.wait(2000);
-    cy.get(this.locators.CPS_Acc_num).select('012000026008');
+    cy.get(":nth-child(3) > .form-control-group > .form-select").select("Settlement");
     cy.wait(2000);
-    cy.get(this.locators.CPS_holder_name).select('My Bank');
-    cy.wait(2000);
-    cy.get(this.locators.CPS_bank_name).select('FAMILY BANK LIMITED');
-    cy.wait(2000);
-    cy.get(this.locators.CPS_branch).select('All the branches');
+    // cy.get(this.locators.CPS_Acc_num).select('012000026008');
+    // cy.wait(2000);
+    // cy.get(this.locators.CPS_holder_name).select('My Bank');
+    // cy.wait(2000);
+    // cy.get(this.locators.CPS_bank_name).select('FAMILY BANK LIMITED');
+    // cy.wait(2000);
+    cy.get(this.locators.CPS_branch).select('Bengaluru Main');
     cy.wait(2000);
     cy.get(this.locators.CPS_DOdeposit).click();
     cy.wait(2000);
@@ -756,19 +762,21 @@ class PaymentsPage {
   }
 
   ClickOnCreatePayInSlip_elementCheck() {
-    cy.get(this.locators.CPS_product_grp).select('Consumer Loan');
+    cy.get(this.locators.CPS_product_grp).select('Loans');
     cy.wait(2000);
-    cy.get(this.locators.CPS_Payin_ID).type('12345');
-    cy.wait(2000);
+   // cy.get(this.locators.CPS_Payin_ID).type('12345');
+    // cy.wait(2000);
     cy.get(this.locators.CPS_Payment_mode).select('CASH');
     cy.wait(2000);
-    cy.get(this.locators.CPS_Acc_num).select('012000026008');
+    cy.get(":nth-child(3) > .form-control-group > .form-select").select("Settlement");
     cy.wait(2000);
-    cy.get(this.locators.CPS_holder_name).select('My Bank');
-    cy.wait(2000);
-    cy.get(this.locators.CPS_bank_name).select('FAMILY BANK LIMITED');
-    cy.wait(2000);
-    cy.get(this.locators.CPS_branch).select('All the branches');
+    // cy.get(this.locators.CPS_Acc_num).select('012000026008');
+    // cy.wait(2000);
+    // cy.get(this.locators.CPS_holder_name).select('My Bank');
+    // cy.wait(2000);
+    // cy.get(this.locators.CPS_bank_name).select('FAMILY BANK LIMITED');
+    // cy.wait(2000);
+    cy.get(this.locators.CPS_branch).select('AMBUR');
     cy.wait(2000);
     cy.get(this.locators.CPS_DOdeposit).click();
     cy.wait(2000);
@@ -793,20 +801,49 @@ class PaymentsPage {
   }
 
   ClickOnCreatePayInSlip_generate_paySlip() {
-    cy.get(this.locators.CPS_product_grp).select('Consumer Loan');
+    cy.get(this.locators.CPS_product_grp).select('Cards');
     cy.wait(2000);
-    cy.get(this.locators.CPS_Payin_ID).type('12386');
-    cy.wait(2000);
+   // cy.get(this.locators.CPS_Payin_ID).type('12345');
+    // cy.wait(2000);
     cy.get(this.locators.CPS_Payment_mode).select('CASH');
     cy.wait(2000);
-    cy.get(this.locators.CPS_Acc_num).select('012000026008');
+    cy.get(":nth-child(3) > .form-control-group > .form-select").select("Settlement");
     cy.wait(2000);
-    cy.get(this.locators.CPS_holder_name).select('My Bank');
-    cy.wait(2000);
-    cy.get(this.locators.CPS_bank_name).select('FAMILY BANK LIMITED');
-    cy.wait(2000);
-    cy.get(this.locators.CPS_branch).select('All the branches');
-    cy.wait(2000);
+
+     cy.get(this.locators.CPS_Acc_num).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
+
+  cy.wrap($select).select(randomValue);
+});
+ cy.wait(2000);
+ cy.get(this.locators.CPS_holder_name).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
+
+  cy.wrap($select).select(randomValue);
+});
+ cy.wait(2000);
+ cy.get(this.locators.CPS_bank_name).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
+
+  cy.wrap($select).select(randomValue);
+});
+
+ cy.wait(2000);
+
+ cy.get(this.locators.CPS_branch).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
+
+  cy.wrap($select).select(randomValue);
+});
+    cy.wait(2000); 
     cy.get(this.locators.CPS_DOdeposit).click();
     cy.wait(2000);
      cy.get('.today-date').click();
@@ -830,19 +867,47 @@ class PaymentsPage {
   }
 
   ClickOnCreatePayInSlip_cancel_paySlip() {
-    cy.get(this.locators.CPS_product_grp).select('Consumer Loan');
+    cy.get(this.locators.CPS_product_grp).select('Cards');
     cy.wait(2000);
-    cy.get(this.locators.CPS_Payin_ID).type('12345');
-    cy.wait(2000);
+    // cy.get(this.locators.CPS_Payin_ID).type('12345');
+    // cy.wait(2000);
     cy.get(this.locators.CPS_Payment_mode).select('CASH');
     cy.wait(2000);
-    cy.get(this.locators.CPS_Acc_num).select('012000026008');
+    cy.get(":nth-child(3) > .form-control-group > .form-select").select("Settlement");
     cy.wait(2000);
-    cy.get(this.locators.CPS_holder_name).select('My Bank');
-    cy.wait(2000);
-    cy.get(this.locators.CPS_bank_name).select('FAMILY BANK LIMITED');
-    cy.wait(2000);
-    cy.get(this.locators.CPS_branch).select('All the branches');
+      cy.get(this.locators.CPS_Acc_num).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
+
+  cy.wrap($select).select(randomValue);
+});
+ cy.wait(2000);
+ cy.get(this.locators.CPS_holder_name).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
+
+  cy.wrap($select).select(randomValue);
+});
+ cy.wait(2000);
+ cy.get(this.locators.CPS_bank_name).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
+
+  cy.wrap($select).select(randomValue);
+});
+
+ cy.wait(2000);
+
+ cy.get(this.locators.CPS_branch).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
+
+  cy.wrap($select).select(randomValue);
+});
     cy.wait(2000);
     cy.get(this.locators.CPS_DOdeposit).click();
     cy.wait(2000);
@@ -866,19 +931,21 @@ class PaymentsPage {
   }
 
   ClickOnCreatePayInSlip_resetLink() {
-    cy.get(this.locators.CPS_product_grp).select('Consumer Loan');
+    cy.get(this.locators.CPS_product_grp).select('Loans');
     cy.wait(2000);
-    cy.get(this.locators.CPS_Payin_ID).type('12345');
-    cy.wait(2000);
+   // cy.get(this.locators.CPS_Payin_ID).type('12345');
+    // cy.wait(2000);
     cy.get(this.locators.CPS_Payment_mode).select('CASH');
     cy.wait(2000);
-    cy.get(this.locators.CPS_Acc_num).select('012000026008');
+    cy.get(":nth-child(3) > .form-control-group > .form-select").select("Settlement");
     cy.wait(2000);
-    cy.get(this.locators.CPS_holder_name).select('My Bank');
-    cy.wait(2000);
-    cy.get(this.locators.CPS_bank_name).select('FAMILY BANK LIMITED');
-    cy.wait(2000);
-    cy.get(this.locators.CPS_branch).select('All the branches');
+    // cy.get(this.locators.CPS_Acc_num).select('012000026008');
+    // cy.wait(2000);
+    // cy.get(this.locators.CPS_holder_name).select('My Bank');
+    // cy.wait(2000);
+    // cy.get(this.locators.CPS_bank_name).select('FAMILY BANK LIMITED');
+    // cy.wait(2000);
+    cy.get(this.locators.CPS_branch).select('Bengaluru Main');
     cy.wait(2000);
     cy.get(this.locators.CPS_DOdeposit).click();
     cy.wait(2000);
@@ -903,19 +970,21 @@ class PaymentsPage {
   }
 
   ClickOnCreatePayInSlip_updateData() {
-    cy.get(this.locators.CPS_product_grp).select('Consumer Loan');
+    cy.get(this.locators.CPS_product_grp).select('Loans');
     cy.wait(2000);
-    cy.get(this.locators.CPS_Payin_ID).type('12345');
-    cy.wait(2000);
+   // cy.get(this.locators.CPS_Payin_ID).type('12345');
+    // cy.wait(2000);
     cy.get(this.locators.CPS_Payment_mode).select('CASH');
     cy.wait(2000);
-    cy.get(this.locators.CPS_Acc_num).select('012000026008');
+    cy.get(":nth-child(3) > .form-control-group > .form-select").select("Settlement");
     cy.wait(2000);
-    cy.get(this.locators.CPS_holder_name).select('My Bank');
-    cy.wait(2000);
-    cy.get(this.locators.CPS_bank_name).select('FAMILY BANK LIMITED');
-    cy.wait(2000);
-    cy.get(this.locators.CPS_branch).select('All the branches');
+    // cy.get(this.locators.CPS_Acc_num).select('012000026008');
+    // cy.wait(2000);
+    // cy.get(this.locators.CPS_holder_name).select('My Bank');
+    // cy.wait(2000);
+    // cy.get(this.locators.CPS_bank_name).select('FAMILY BANK LIMITED');
+    // cy.wait(2000);
+    cy.get(this.locators.CPS_branch).select('Bengaluru Main');
     cy.wait(2000);
     //cy.get(this.locators.CPS_DOdeposit).click();
     //cy.wait(2000);
@@ -1432,7 +1501,7 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.SearchandViewPayinSlip069).click().click();
 cy.wait(2000);
-    cy.get(this.locators.selectproductgroup071).select('Consumer Loan');
+    cy.get(this.locators.selectproductgroup071).select('Loans');
 cy.wait(2000);
 
 

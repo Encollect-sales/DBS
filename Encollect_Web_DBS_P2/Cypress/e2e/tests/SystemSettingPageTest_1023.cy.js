@@ -23,6 +23,7 @@ describe('System Setting - Account Import Via Front End Bulk Upload (Credit Card
         getTestData('loginData', 'login').then(user => {
             loginPage.login(user.Companyname, user.email, user.password);
                 cy.wait(5000);
+                
                 systemsettingPage.SystemSettingTest_1023();
                 //loginPage.logout();
                          

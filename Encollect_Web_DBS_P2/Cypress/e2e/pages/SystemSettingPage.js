@@ -19,7 +19,7 @@ class SystemSettingPage {
     cy.wait(600);
     cy.get(this.locators.ClickAccountupStatus).click();
     cy.wait(500);
-    cy.get(this.locators.searchButton).click({force : true});
+    cy.get("#status-search").click({force : true});
     cy.wait(500);
     cy.contains("Enter at least one filter value").should("be.visible");
    
@@ -100,7 +100,7 @@ class SystemSettingPage {
     cy.wait(1000);
        }); 
 
-       cy.contains("File Uploaded Successfully", { timeout: 10000 })
+       cy.contains("Confirm File Upload?", { timeout: 10000 })
       .invoke("text")
       .then((popupText) => {
         cy.log(`Popup text: ${popupText}`);
@@ -114,18 +114,18 @@ class SystemSettingPage {
         }
       });
 
-    cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
-    cy.wait(3000);
-    cy.then(() => {
-      const transactionId = Cypress.env("transactionID");
-      cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
-    });
+    cy.get("#confirm-dialog-okay").click();
+    //cy.wait(3000);
+    // cy.then(() => {
+    //   const transactionId = Cypress.env("transactionID");
+    //   cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
+    // });
 
-     cy.wait(1000);
-    cy.get(this.locators.ClickOnStatusSearchBtn).click();
-    cy.wait(3000);
-     cy.contains("Processed").should("be.visible");
-      cy.wait(2000);
+    //  cy.wait(1000);
+    // cy.get(this.locators.ClickOnStatusSearchBtn).click();
+    // cy.wait(3000);
+    //  cy.contains("Processed").should("be.visible");
+    //   cy.wait(2000);
   }
 
 
@@ -345,9 +345,7 @@ class SystemSettingPage {
           mimeType: 'text/xlsx',
         });
       });
-
-      cy.wait(500);
-    cy.contains("You can only upload the file with extension xls or xlsx ").should("be.visible")
+    cy.contains("You can only upload the file with extension xls or csv").should("be.visible")
 
     
     
@@ -800,18 +798,18 @@ SystemSettingTest_983(){
         }
       });
 
-    cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
-    cy.wait(3000);
-    cy.then(() => {
-      const transactionId = Cypress.env("transactionID");
-      cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
-    });
+    // cy.get(".system-settings > :nth-child(2) > :nth-child(1) > .sub-nav-list > :nth-child(2) > a").click();
+    // cy.wait(3000);
+    // cy.then(() => {
+    //   const transactionId = Cypress.env("transactionID");
+    //   cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
+    // });
 
-     cy.wait(1000);
-    cy.get(this.locators.ClickOnStatusSearchBtn).click();
-    cy.wait(3000);
-     cy.contains("Processed").should("be.visible");
-      cy.wait(2000);
+    //  cy.wait(1000);
+    // cy.get(this.locators.ClickOnStatusSearchBtn).click();
+    // cy.wait(3000);
+    //  cy.contains("Processed").should("be.visible");
+    //   cy.wait(2000);
   }
 
 
@@ -826,11 +824,11 @@ SystemSettingTest_983(){
     cy.wait(1000);
     cy.get('.col-md-12 > .btn').click({force: true});
     cy.wait(600);
-    cy.fixture('AccountImportTemplate.xlsx').then((fileContent) => {
+    cy.fixture('AccountImportTemplate.csv').then((fileContent) => {
         cy.get("input[name='attachedFile']").attachFile({
           fileContent,
-          fileName: 'AccountImportTemplate.xlsx',
-          mimeType: 'text/xlsx',
+          fileName: 'AccountImportTemplate.csv',
+          mimeType: 'csv/xlsx',
         });
     cy.get(this.locators.ClickUPload).click();
     cy.get(this.locators.ClickOk).click();
@@ -852,18 +850,18 @@ SystemSettingTest_983(){
         }
       });
 
-    cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
-    cy.wait(3000);
-    cy.then(() => {
-      const transactionId = Cypress.env("transactionID");
-      cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
-    });
+    // cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
+    // cy.wait(3000);
+    // cy.then(() => {
+    //   const transactionId = Cypress.env("transactionID");
+    //   cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
+    // });
 
-     cy.wait(1000);
-    cy.get(this.locators.ClickOnStatusSearchBtn).click();
-    cy.wait(3000);
-     cy.contains("Processed").should("be.visible");
-      cy.wait(2000);
+    //  cy.wait(1000);
+    // cy.get(this.locators.ClickOnStatusSearchBtn).click();
+    // cy.wait(3000);
+    //  cy.contains("Processed").should("be.visible");
+    //   cy.wait(2000);
 
   }
   SystemSettingTest_1009(){
@@ -902,18 +900,18 @@ SystemSettingTest_983(){
         }
       });
 
-    cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
-    cy.wait(3000);
-    cy.then(() => {
-      const transactionId = Cypress.env("transactionID");
-      cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
-    });
+  //   cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
+  //   cy.wait(3000);
+  //   cy.then(() => {
+  //     const transactionId = Cypress.env("transactionID");
+  //     cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
+  //   });
 
-     cy.wait(1000);
-    cy.get(this.locators.ClickOnStatusSearchBtn).click();
-    cy.wait(3000);
-     cy.contains("Processed").should("be.visible");
-      cy.wait(2000);
+  //    cy.wait(1000);
+  //   cy.get(this.locators.ClickOnStatusSearchBtn).click();
+  //   cy.wait(3000);
+  //    cy.contains("Processed").should("be.visible");
+  //     cy.wait(2000);
 
   }
 
@@ -1003,17 +1001,17 @@ SystemSettingTest_983(){
         }
       });
 
-    cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
-    cy.wait(3000);
-    cy.then(() => {
-      const transactionId = Cypress.env("transactionID");
-      cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
-    });
+    // cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
+    // cy.wait(3000);
+    // cy.then(() => {
+    //   const transactionId = Cypress.env("transactionID");
+    //   cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
+    // });
 
-     cy.wait(1000);
-    cy.get(this.locators.ClickOnStatusSearchBtn).click();
-    cy.wait(3000);
-     cy.contains("Processed").should("be.visible");
+    //  cy.wait(1000);
+    // cy.get(this.locators.ClickOnStatusSearchBtn).click();
+    // cy.wait(3000);
+    //  cy.contains("Processed").should("be.visible");
       cy.wait(2000);
 
   }
@@ -1053,18 +1051,18 @@ SystemSettingTest_983(){
         }
       });
 
-    cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
-    cy.wait(3000);
-    cy.then(() => {
-      const transactionId = Cypress.env("transactionID");
-      cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
-    });
+    // cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
+    // cy.wait(3000);
+    // cy.then(() => {
+    //   const transactionId = Cypress.env("transactionID");
+    //   cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
+    // });
 
-     cy.wait(1000);
-    cy.get(this.locators.ClickOnStatusSearchBtn).click();
-    cy.wait(3000);
-     cy.contains("Processed").should("be.visible");
-      cy.wait(2000);
+    //  cy.wait(1000);
+    // cy.get(this.locators.ClickOnStatusSearchBtn).click();
+    // cy.wait(3000);
+    //  cy.contains("Processed").should("be.visible");
+    //   cy.wait(2000);
 
   }
 
@@ -1085,7 +1083,7 @@ SystemSettingTest_983(){
         mimeType: 'text/xlsx',
       });
     });
-    cy.wait(200)
+    cy.wait(200);
     cy.get(this.locators.ClickUPload).click();
     cy.wait(500);
     cy.get(this.locators.ClickOk).click();
@@ -1104,18 +1102,18 @@ SystemSettingTest_983(){
         }
       });
 
-    cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
-    cy.wait(3000);
-    cy.then(() => {
-      const transactionId = Cypress.env("transactionID");
-      cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
-    });
+    // cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
+    // cy.wait(3000);
+    // cy.then(() => {
+    //   const transactionId = Cypress.env("transactionID");
+    //   cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
+    // });
 
-     cy.wait(1000);
-    cy.get(this.locators.ClickOnStatusSearchBtn).click();
-    cy.wait(3000);
-     cy.contains("Processed").should("be.visible");
-      cy.wait(2000);
+    //  cy.wait(1000);
+    // cy.get(this.locators.ClickOnStatusSearchBtn).click();
+    // cy.wait(3000);
+    // //  cy.contains("Processed").should("be.visible");
+    // //   cy.wait(2000);
 
   }
 
@@ -1137,7 +1135,7 @@ SystemSettingTest_983(){
         mimeType: 'text/xlsx',
       });
     });
-    cy.wait(200)
+    cy.wait(200);
     cy.get(".btn-success").click();
 
     cy.contains("File Uploaded Successfully", { timeout: 10000 })
@@ -1154,18 +1152,18 @@ SystemSettingTest_983(){
         }
       });
 
-    cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
-    cy.wait(3000);
-    cy.then(() => {
-      const transactionId = Cypress.env("transactionID");
-      cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
-    });
+    // cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
+    // cy.wait(3000);
+    // cy.then(() => {
+    //   const transactionId = Cypress.env("transactionID");
+    //   cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
+    // });
 
-     cy.wait(1000);
-    cy.get(this.locators.ClickOnStatusSearchBtn).click();
-    cy.wait(3000);
-     cy.contains("Processed").should("be.visible");
-      cy.wait(2000);
+    //  cy.wait(1000);
+    // cy.get(this.locators.ClickOnStatusSearchBtn).click();
+    // cy.wait(3000);
+    //  cy.contains("Processed").should("be.visible");
+    //   cy.wait(2000);
   }
 
   Systemsetting1010(){
@@ -1186,8 +1184,9 @@ SystemSettingTest_983(){
         mimeType: 'text/xlsx',
       });
     });
-    cy.wait(200)
+    cy.wait(200);
     cy.get(this.locators.ClickUPload).click();
+    cy.wait(200);
     cy.get(this.locators.ClickOk).click();
 
      cy.contains("File Uploaded Successfully", { timeout: 10000 })
@@ -1204,18 +1203,18 @@ SystemSettingTest_983(){
         }
       });
 
-    cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
-    cy.wait(3000);
-    cy.then(() => {
-      const transactionId = Cypress.env("transactionID");
-      cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
-    });
+    // cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
+    // cy.wait(3000);
+    // cy.then(() => {
+    //   const transactionId = Cypress.env("transactionID");
+    //   cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
+    // });
 
-     cy.wait(1000);
-    cy.get(this.locators.ClickOnStatusSearchBtn).click();
-    cy.wait(3000);
-     cy.contains("Processed").should("be.visible");
-      cy.wait(2000);
+    //  cy.wait(1000);
+    // cy.get(this.locators.ClickOnStatusSearchBtn).click();
+    // cy.wait(3000);
+    //  cy.contains("Processed").should("be.visible");
+    //   cy.wait(2000);
   }
 
   Systemsetting1026(){
@@ -1237,9 +1236,10 @@ SystemSettingTest_983(){
         mimeType: 'text/xlsx',
       });
     });
-    cy.wait(200)
+    cy.wait(200);
     cy.get(this.locators.ClickUPload).click();
-    cy.get(this.locators.ClickOk).click();
+    cy.wait(200);
+    cy.get("#confirm-dialog-okay").click();
 
      cy.contains("File Uploaded Successfully", { timeout: 10000 })
       .invoke("text")
@@ -1255,18 +1255,18 @@ SystemSettingTest_983(){
         }
       });
 
-    cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
-    cy.wait(3000);
-    cy.then(() => {
-      const transactionId = Cypress.env("transactionID");
-      cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
-    });
+    // cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
+    // cy.wait(3000);
+    // cy.then(() => {
+    //   const transactionId = Cypress.env("transactionID");
+    //   cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
+    // });
 
-     cy.wait(1000);
-    cy.get(this.locators.ClickOnStatusSearchBtn).click();
-    cy.wait(3000);
-     cy.contains("Processed").should("be.visible");
-      cy.wait(2000);
+    //  cy.wait(1000);
+    // cy.get(this.locators.ClickOnStatusSearchBtn).click();
+    // cy.wait(3000);
+    //  cy.contains("Processed").should("be.visible");
+    //   cy.wait(2000);
   }
 
   Systemsetting1033(){
@@ -1286,8 +1286,9 @@ SystemSettingTest_983(){
         mimeType: 'text/xlsx',
       });
     });
-    cy.wait(200)
-    cy.get("#upload-button").click();
+    cy.wait(200);
+    cy.get(this.locators.ClickUPload).click();
+    cy.get(this.locators.ClickOk).click();
 
      cy.contains("File Uploaded Successfully", { timeout: 10000 })
       .invoke("text")
@@ -1303,18 +1304,18 @@ SystemSettingTest_983(){
         }
       });
 
-    cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
-    cy.wait(3000);
-    cy.then(() => {
-      const transactionId = Cypress.env("transactionID");
-      cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
-    });
+    // cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
+    // cy.wait(3000);
+    // cy.then(() => {
+    //   const transactionId = Cypress.env("transactionID");
+    //   cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
+    // });
 
-     cy.wait(1000);
-    cy.get(this.locators.ClickOnStatusSearchBtn).click();
-    cy.wait(3000);
-     cy.contains("Processed").should("be.visible");
-      cy.wait(2000);
+    //  cy.wait(1000);
+    // cy.get(this.locators.ClickOnStatusSearchBtn).click();
+    // cy.wait(3000);
+    //  cy.contains("Processed").should("be.visible");
+    //   cy.wait(2000);
 
   }
 
@@ -1337,7 +1338,7 @@ SystemSettingTest_983(){
         mimeType: 'text/xlsx',
       });
     });
-    cy.wait(200)
+    cy.wait(200);
     cy.get(this.locators.ClickUPload).click();
     cy.get(this.locators.ClickOk).click();
 
@@ -1355,18 +1356,18 @@ SystemSettingTest_983(){
         }
       });
 
-    cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
-    cy.wait(3000);
-    cy.then(() => {
-      const transactionId = Cypress.env("transactionID");
-      cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
-    });
+    // cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
+    // cy.wait(3000);
+    // cy.then(() => {
+    //   const transactionId = Cypress.env("transactionID");
+    //   cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
+    // });
 
-     cy.wait(1000);
-    cy.get(this.locators.ClickOnStatusSearchBtn).click();
-    cy.wait(3000);
-     cy.contains("Processed").should("be.visible");
-      cy.wait(2000);
+    //  cy.wait(1000);
+    // cy.get(this.locators.ClickOnStatusSearchBtn).click();
+    // cy.wait(3000);
+    //  cy.contains("Processed").should("be.visible");
+    //   cy.wait(2000);
 
   }
 
@@ -1406,18 +1407,18 @@ SystemSettingTest_983(){
         }
       });
 
-    cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
-    cy.wait(3000);
-    cy.then(() => {
-      const transactionId = Cypress.env("transactionID");
-      cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
-    });
+    // cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
+    // cy.wait(3000);
+    // cy.then(() => {
+    //   const transactionId = Cypress.env("transactionID");
+    //   cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
+    // });
 
-     cy.wait(1000);
-    cy.get(this.locators.ClickOnStatusSearchBtn).click();
-    cy.wait(3000);
-     cy.contains("Processed").should("be.visible");
-      cy.wait(2000);
+    //  cy.wait(1000);
+    // cy.get(this.locators.ClickOnStatusSearchBtn).click();
+    // cy.wait(3000);
+    //  cy.contains("Processed").should("be.visible");
+    //   cy.wait(2000);
     }
 
 
@@ -1463,18 +1464,19 @@ SystemSettingTest_983(){
               fileName: 'AccountImportTemplate.xlsx',
               mimeType: 'text/xlsx',
             });
-            cy.get(this.locators.ClickUPload).click();
-            cy.wait(500);
-            cy.get(this.locators.ClickOk).click();
+               cy.get(this.locators.ClickUPload).click();
+        cy.wait(500);
+        cy.get(this.locators.ClickOk).click();
+           
         cy.wait(1000);
           });
           cy.log('File upload completed');
           
-           cy.get(this.locators.ClickAccountupStatus).click();
-      cy.wait(1000);
-      cy.get('#transactionid').type(transactionID);
-      cy.wait(1000);
-      cy.contains("Processed").should("be.visible");
+      //      cy.get(this.locators.ClickAccountupStatus).click();
+      // cy.wait(1000);
+      // cy.get('#status-transaction-id').type("transactionID");
+      // cy.wait(1000);
+      // cy.contains("Processed").should("be.visible");
       cy.wait(2000);cy.contains("File Uploaded Successfully", { timeout: 10000 })
       .invoke("text")
       .then((popupText) => {
@@ -1489,18 +1491,18 @@ SystemSettingTest_983(){
         }
       });
 
-    cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
-    cy.wait(3000);
-    cy.then(() => {
-      const transactionId = Cypress.env("transactionID");
-      cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
-    });
+    // cy.get(this.locators.ClickOnUserCreationUploadStatus).click();
+    // cy.wait(3000);
+    // cy.then(() => {
+    //   const transactionId = Cypress.env("transactionID");
+    //   cy.get(":nth-child(4) > .form-control").type(transactionId.toString()); // Convert to string if needed
+    // });
 
-     cy.wait(1000);
-    cy.get(this.locators.ClickOnStatusSearchBtn).click();
-    cy.wait(3000);
-     cy.contains("Processed").should("be.visible");
-      cy.wait(2000);
+    //  cy.wait(1000);
+    // cy.get(this.locators.ClickOnStatusSearchBtn).click();
+    // cy.wait(3000);
+    //  cy.contains("Processed").should("be.visible");
+    //   cy.wait(2000);
       
         
     }

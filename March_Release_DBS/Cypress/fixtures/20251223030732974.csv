@@ -1,0 +1,2 @@
+Id,UserType,EmployeeId,FirstName,LastName,EmailId,MobileNumber,Department,Designation,BranchName,IsFailed,FailureReason
+3a1e59a2888960573d3eda48dad00570,Telecaller,24521,Jensen,Ratke,jensen@yopmail.com,7355364131,Audit,Arun Audit Manager,Bangalore,True, | Designation is invalid | BranchName is invalid

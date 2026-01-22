@@ -17,7 +17,7 @@ class DashboardPage {
 
     cy.get('.ng-arrow-wrapper').click();
     cy.wait(1000);
-    cy.contains('span.ng-option-label', 'Credit Card Last 4 digits').click();
+    cy.contains('span.ng-option-label', 'Credit Card Last 4 Digits').click();
     cy.wait(1000);
     cy.get("#search-cc-number").type("7990");
     cy.wait(1000);
@@ -27,10 +27,14 @@ class DashboardPage {
   Dashboard982(){
      cy.get('.ng-arrow-wrapper').click();
     cy.wait(1000);
-    cy.contains('span.ng-option-label', 'Credit Card Last 4 digits').click();
+    cy.contains('span.ng-option-label', 'Loan Account Last 4 Digits').click();
     cy.wait(2000);
     cy.get('#cc-account-type').click();
     cy.wait(500);
+     cy.get('.ng-arrow-wrapper').click();
+    cy.wait(1000);
+    cy.contains('span.ng-option-label', 'Credit Card Last 4 Digits').click();
+    cy.wait(2000);
     cy.get(this.locators.creditcardnumber).type('7990');
     cy.wait(500);
     cy.get(this.locators.search_btn);
@@ -47,16 +51,15 @@ class DashboardPage {
     cy.wait(500);
     cy.get(this.locators.search).click();
     cy.wait(500);
-    cy.get('.pagination-next > .page-link').click();
+    cy.get('.pagination-next > .page-link').click({force: true});
     
 
   } 
   Dashboard1517(){
     cy.wait(700);
     cy.get('[role="alert"]').should('contain.text', 'Last Successful Login :');
-
-     cy.wait(500);
-     cy.log("Last Successful Login :   +00:00. Last Failed Login :  +00:00.");
+    cy.wait(500);
+    cy.log("Last Successful Login :   +00:00. Last Failed Login :  +00:00.");
    
   }
  

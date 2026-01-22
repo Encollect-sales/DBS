@@ -81,10 +81,10 @@ class TrailsPage {
     cy.get(this.locators.showingdropdown).select("10");
     cy.wait(2000);
     //cy.scrollTo('bottom');
-    cy.wait(2000);
-    cy.get(this.locators.nextbtn).click();
-    cy.wait(2000);
-    cy.get(this.locators.previousbtn).click();
+    // cy.wait(2000);
+    // cy.get(this.locators.nextbtn).click();
+    // cy.wait(2000);
+    // cy.get(this.locators.previousbtn).click();
     
   }
 

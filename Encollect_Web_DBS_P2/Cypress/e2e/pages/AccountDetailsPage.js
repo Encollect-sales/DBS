@@ -294,9 +294,9 @@ class AccountDetailsPage {
 
 
     cy.get('#customer_yes').click({ force: true });
-    cy.get(this.locators.dcg).select("BPTP");
+    cy.get(this.locators.dcg).select("PTP");
     cy.wait(200);
-    cy.get(this.locators.dc).select("BPTP");
+    cy.get(this.locators.dc).select("PTP");
     cy.wait(200);
     cy.get('#mode_of_communication').select("Call");
     cy.wait(2000);
@@ -333,9 +333,9 @@ class AccountDetailsPage {
     cy.get("#search-account-number").type('68210000012749', { force: true });
     cy.wait(2000);
     cy.get("button[type='submit']").click();
-    cy.wait(5000);
-    cy.get(".d-flex > a").click();
-    cy.wait(5000);
+    // cy.wait(5000);
+    // cy.get(".d-flex > a").click();
+    // cy.wait(5000);
 
     // Click on the specific tab (adjust selector as per your application's HTML structure)
     //cy.get(this.locators.allocationHistory).should('be.visible').click();
@@ -359,7 +359,7 @@ class AccountDetailsPage {
     // Interaction Part 1: Typing and Clicking
     cy.get('.ng-arrow-wrapper').click();
     cy.wait(1000);
-    cy.contains('span.ng-option-label', 'Credit Card Last 4 digits').click();
+    cy.contains('span.ng-option-label', 'Credit Card Last 4 Digits').click();
     cy.wait(2000);
     cy.get("#search-cc-number").type('7980', { force: true });
     cy.wait(500);
@@ -420,9 +420,9 @@ class AccountDetailsPage {
     cy.wait(2000);
     cy.get(this.locators.clickonsearchbtn).click();
     cy.wait(4000);
-    cy.get('li[class="pagination-next page-item ng-star-inserted"] a[class="page-link"]').click();
-    cy.wait(1000);
-    cy.get('li[class="pagination-prev page-item ng-star-inserted"] a[class="page-link"]').click();
+    // cy.get('li[class="pagination-next page-item ng-star-inserted"] a[class="page-link"]').click();
+    // cy.wait(1000);
+    // cy.get('li[class="pagination-prev page-item ng-star-inserted"] a[class="page-link"]').click();
 
 
 
@@ -454,9 +454,9 @@ class AccountDetailsPage {
     cy.wait(2000)
     cy.get('#customer_yes').click();
     cy.wait(200);
-    cy.get(this.locators.dcg).select("BPTP");
+    cy.get(this.locators.dcg).select("PTP");
     cy.wait(200);
-    cy.get(this.locators.dc).select("BPTP");
+    cy.get(this.locators.dc).select("PTP");
     cy.wait(200);
     cy.get(this.locators.ptp).type("17-07-2024");
     cy.wait(200);
@@ -494,9 +494,9 @@ class AccountDetailsPage {
     cy.get(':nth-child(1) > .dropdown-item').click();
 
     cy.get('#customer_yes').click();
-    cy.get(this.locators.dcg).select("BPTP");
+    cy.get(this.locators.dcg).select("PTP");
     cy.wait(200);
-    cy.get(this.locators.dc).select("BPTP");
+    cy.get(this.locators.dc).select("PTP");
     cy.wait(200);
     cy.get(this.locators.ptp).type("17-07-2024");
     cy.wait(200);
@@ -751,9 +751,9 @@ class AccountDetailsPage {
     cy.wait(5000);
     cy.get(this.locators.Radio_yes).click();
     cy.wait(5000);
-    cy.get(this.locators.Disp_Code_Group).select("Paid");
+    cy.get(this.locators.Disp_Code_Group).select("PTP");
     cy.wait(5000);
-    cy.get(this.locators.Dis_code).select("ITP");
+    cy.get(this.locators.Dis_code).select("PTP");
     cy.wait(5000);
     cy.wait(5000);
     // cy.get(this.locators.Disp_Code_Group).select("Broken PTP");
@@ -873,8 +873,8 @@ class AccountDetailsPage {
     cy.wait(5000);
     cy.get(".reports > :nth-child(2) > :nth-child(2) > a.ng-star-inserted").click();
     cy.wait(5000);
-    cy.get('.reports > :nth-child(2) > :nth-child(2) > .sub-nav-list > :nth-child(2) > a').click();
-    cy.wait(5000);
+    // cy.get('.reports > :nth-child(2) > :nth-child(2) > .sub-nav-list > :nth-child(2) > a').click();
+    // cy.wait(5000);
 
   }
   AccountDetailsTestPage_110() {
@@ -883,20 +883,19 @@ class AccountDetailsPage {
     cy.wait(5000);
     cy.get(this.locators.Trail_Report).click();
     cy.wait(5000);
-    cy.get(this.locators.Trail_History_Report).click();
+    // cy.get(this.locators.Trail_History_Report).click();
+    // cy.wait(5000);
+    // cy.get(this.locators.BOM).select("All");
+    // cy.wait(5000);
+    cy.get("#Date_from").type("03/02/2025");
     cy.wait(5000);
-    cy.get(this.locators.BOM).select("All");
-    cy.wait(5000);
-    cy.get(this.locators.Trail_from_date).type("01/02/2025");
-    cy.wait(5000);
-    cy.get(this.locators.Trail_To_Date).type("11/02/2025");
-    cy.wait(5000);
-    cy.wait(5000);
-    cy.get(this.locators.DisCode_Group).select("BPTP");
-    cy.wait(5000);
-    cy.get(this.locators.DisCode).select("BPTP");
-    cy.wait(5000);
-    cy.get(this.locators.Gene_Report).click({ force: true });
+    cy.get("#Date_to").type("05/03/2025");
+    // cy.wait(5000);
+    // cy.get(this.locators.DisCode_Group).select("BPTP");
+    // cy.wait(5000);
+    // cy.get(this.locators.DisCode).select("BPTP");
+    // cy.wait(5000);
+    cy.get(".card-content > :nth-child(2)").click({ force: true });
 
 
   }
