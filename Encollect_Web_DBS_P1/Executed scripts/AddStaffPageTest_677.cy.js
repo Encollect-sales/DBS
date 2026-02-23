@@ -33,9 +33,9 @@ describe('Usermanagement - Base Branch and Reporting - manager User should be ab
 
                 //addStaffPage.fillemployeeID(firstRow.EmployeeID);  // Correct method name and pass the argument
                 addStaffPage.clickonbbrm3(); 
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.fillbasebranch();
-                cy.wait(500);
+                cy.wait(2000);
                 
                 
                

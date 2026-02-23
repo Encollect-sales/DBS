@@ -27,7 +27,7 @@ describe('Allocation - Primary Allocation by filters - User selected Product Gro
            allocationPage.ClickonallocationPAF();
            allocationPage.fillproductgroupPAF1();
            allocationPage.fillproductPAF1();
-        //    allocationPage.fillsubproductPAF1();
+           allocationPage.fillsubproductPAF1();
            
 
         });

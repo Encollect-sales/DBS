@@ -32,9 +32,9 @@ describe('User Management - Add Staff - User should be able to enter area pin co
                 //addStaffPage.fillemployeeID(firstRow.EmployeeID); 
                 
                 // addStaffPage.Clickonplaceofwork78();
-                // cy.wait(500);
+                // cy.wait(2000);
                 // addStaffPage.fillareanpincode();
-                // cy.wait(500);
+                // cy.wait(2000);
                 
                 
                   });

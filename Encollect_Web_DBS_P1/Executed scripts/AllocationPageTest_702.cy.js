@@ -25,10 +25,10 @@ describe('Allocation - Upload Agency Allocation Batch - Upload file extension an
             loginPage.login(user.Companyname, user.email, user.password);
 
            allocationPage.Clickonallocation();
-           allocationPage.filltemplate2();
+           allocationPage.filltemplate3();
            allocationPage.clickondownloadTemplate();
            allocationPage.clickonRadioBtnAO();
-           allocationPage.uploadfile1();
+           allocationPage.uploadDocxExtensionFile();
          
 
            

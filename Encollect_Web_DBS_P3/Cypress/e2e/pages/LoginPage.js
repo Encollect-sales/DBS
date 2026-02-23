@@ -7,7 +7,7 @@ class LoginPage {
   }
  
   visit() {
-
+ 
     Cypress.on('uncaught:exception', (err, runnable) => {
       console.error('Uncaught exception:', err.message);
       console.error(err);
@@ -32,34 +32,34 @@ class LoginPage {
     cy.get(this.locators.ClickonCompanyName).click();
     cy.wait(2000);
   }
-
+ 
   selectradio1(){
   cy.wait(2000);
    cy.get(this.locators.selectradio).each(($el) => {
   cy.wrap($el).click({ force: true });
 });
-
+ 
 cy.wait(2000);
-
+ 
   }
-
+ 
   selectradio2(){
  
     cy.wait(1000);
     cy.get(this.locators.selectradio_agency).click({force: true});
     cy.wait(1000);
-
-
+ 
+ 
   }
  
   fillUsername(email) {
-    
+   
     cy.get(this.locators.usernameInput).type(email);
     cy.wait(2000);
   }
  
   fillPassword(password) {
-    
+   
     cy.get(this.locators.passwordInput).type(password);
   }
  
@@ -67,6 +67,14 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.signinButton).click();
     cy.wait(4000);
+  }
+ 
+    enterotp(){
+cy.wait(2000);
+    cy.get('#otp-input').type(560062);
+    cy.wait(2000);
+    cy.get('.btn-success').click();
+    cy.wait(7000);
   }
  
   // verifyLoginSuccess() {
@@ -83,14 +91,15 @@ cy.wait(2000);
       this.fillUsername(email);
       this.fillPassword(password);
       this.submit();
-      cy.wait(3000);
+      cy.wait(2000);
+      this.enterotp();
       // this.verifyLoginSuccess();
   }
-
  
-
-
-
+ 
+ 
+ 
+ 
 }
  
 export default LoginPage;

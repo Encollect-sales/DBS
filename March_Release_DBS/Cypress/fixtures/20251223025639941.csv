@@ -1,2 +1,0 @@
-Id,UserType,EmployeeId,FirstName,LastName,EmailId,MobileNumber,Department,Designation,BranchName,IsFailed,FailureReason
-3a1e59989190ba7576f530d0e91110aa,Telecaller,11298,Alexandra,Russel,,2983428536,Collection Staff Frontend,DBS FOS,Bangalore,True, | Email id is required | BranchName is invalid

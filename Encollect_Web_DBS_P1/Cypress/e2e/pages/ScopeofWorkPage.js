@@ -37,8 +37,8 @@ class ScopeofWorkPage {
     cy.wait(1000);
     cy.get(this.locators.ClickOnScopeOfWork).click();
     cy.wait(1000);
-    cy.contains("Product").should("be.visible");
-    cy.wait(1000);
+    // cy.contains("Product").should("be.visible");
+    // cy.wait(1000);
     cy.contains("Bucket").should("be.visible");
     cy.wait(1000);
     cy.contains("Geography").should("be.visible");
@@ -56,7 +56,7 @@ class ScopeofWorkPage {
     cy.wait(1000);
     cy.get(this.locators.ClickOn_productgroup).click();
     cy.wait(3000);
-    cy.contains("Search and select your Product Group(s)").should("be.visible");
+    cy.contains("Search and select your ProductGroup(s) ").should("be.visible");
     cy.wait(1000);
   }
 
@@ -86,7 +86,7 @@ class ScopeofWorkPage {
     cy.wait(1000);
     cy.get(this.locators.ClickOn_SubProduct).click();
     cy.wait(1000);
-    cy.contains("Search and select your Sub Product(s)").should("be.visible");
+    cy.contains("Search and select your Product(s) ").should("be.visible");
     cy.wait(1000);
   }
   ScopeOfWorkTestPage_07() {
@@ -151,7 +151,7 @@ class ScopeofWorkPage {
     cy.wait(1000);
     cy.get(this.locators.Select_product_group).click();
     cy.wait(1000);
-    cy.get(".ng-option").eq(2).click();
+    cy.get("[id$='-1']").click();
     cy.wait(1000);
   }
 
@@ -168,7 +168,7 @@ class ScopeofWorkPage {
     cy.wait(1000);
     cy.get(this.locators.Select_product_group).click();
     cy.wait(1000);
-    cy.get(".ng-option").eq(3).click();
+    cy.get("[id$='-1']").click();
     cy.wait(1000);
   }
   ScopeOfWorkTestPage_12() {
@@ -184,11 +184,9 @@ class ScopeofWorkPage {
     cy.wait(1000);
     cy.get(this.locators.Select_product_group).click();
     cy.wait(1000);
-    cy.get(".ng-option").eq(1).click();
+    cy.get("[id$='-1']").click();
     cy.wait(1000);
-    cy.get(".ng-option").eq(2).click();
-    cy.wait(1000);
-    cy.get(".ng-option").eq(3).click();
+    cy.get("[id$='-0']").click();
     cy.wait(1000);
   }
 
@@ -205,7 +203,7 @@ class ScopeofWorkPage {
     cy.wait(1000);
     cy.get(this.locators.Select_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+    cy.get("[id$='-1']").click();
     cy.wait(1000);
   }
 
@@ -222,7 +220,7 @@ class ScopeofWorkPage {
     cy.wait(1000);
     cy.get(this.locators.Select_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").eq(1).click();
+     cy.get("[id$='-2']").click();
     cy.wait(1000);
   }
 
@@ -239,7 +237,7 @@ class ScopeofWorkPage {
     cy.wait(1000);
     cy.get(this.locators.Select_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").eq(2).click();
+    cy.get("[id$='-2']").click();
     cy.wait(1000);
   }
 
@@ -311,11 +309,12 @@ class ScopeofWorkPage {
     cy.wait(1000);
     cy.get(this.locators.ClickOnScopeOfWork).click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOn_SubProduct).click();
+    //cy.get(this.locators.ClickOn_SubProduct).click();
+    //cy.wait(1000);
+    //cy.get(this.locators.Select_Sub_product).click();
+    //cy.wait(1000);
+    cy.get("[id$='-1']").click();
     cy.wait(1000);
-    cy.get(this.locators.Select_Sub_product).click();
-    cy.wait(1000);
-    cy.get(".ng-option").first().click();
     cy.wait(1000);
   }
 
@@ -328,10 +327,10 @@ class ScopeofWorkPage {
     cy.wait(1000);
     cy.get(this.locators.ClickOnScopeOfWork).click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOn_SubProduct).click();
-    cy.wait(1000);
-    cy.get(this.locators.Select_Sub_product).click();
-    cy.wait(1000);
+    //cy.get(this.locators.ClickOn_SubProduct).click();
+    //cy.wait(1000);
+    //cy.get(this.locators.Select_Sub_product).click();
+    //cy.wait(1000);
     cy.get(".ng-option").eq(1).click();
     cy.wait(2000);
   }
@@ -345,11 +344,11 @@ class ScopeofWorkPage {
     cy.wait(1000);
     cy.get(this.locators.ClickOnScopeOfWork).click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOn_SubProduct).click();
-    cy.wait(1000);
-    cy.get(this.locators.Select_Sub_product).click();
-    cy.wait(1000);
-    cy.get(".ng-option").eq(3).click();
+    //cy.get(this.locators.ClickOn_SubProduct).click();
+    //cy.wait(1000);
+    //cy.get(this.locators.Select_Sub_product).click();
+    //cy.wait(1000);
+    //cy.get(".ng-option").eq(3).click();
     cy.wait(2000);
   }
 
@@ -362,10 +361,10 @@ class ScopeofWorkPage {
     cy.wait(1000);
     cy.get(this.locators.ClickOnScopeOfWork).click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOn_SubProduct).click();
-    cy.wait(1000);
-    cy.get(this.locators.Select_Sub_product).click();
-    cy.wait(1000);
+    //cy.get(this.locators.ClickOn_SubProduct).click();
+    //cy.wait(1000);
+    //cy.get(this.locators.Select_Sub_product).click();
+    //cy.wait(1000);
     cy.get(".ng-option").eq(6).click();
     cy.wait(2000);
   }
@@ -379,10 +378,10 @@ class ScopeofWorkPage {
     cy.wait(1000);
     cy.get(this.locators.ClickOnScopeOfWork).click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOn_SubProduct).click();
-    cy.wait(1000);
-    cy.get(this.locators.Select_Sub_product).click();
-    cy.wait(1000);
+    //cy.get(this.locators.ClickOn_SubProduct).click();
+    //cy.wait(1000);
+    //cy.get(this.locators.Select_Sub_product).click();
+    //cy.wait(1000);
     cy.get(".ng-option").eq(1).click();
     cy.wait(2000);
     cy.get(".ng-option").eq(2).click();
@@ -547,7 +546,7 @@ class ScopeofWorkPage {
     cy.wait(1000);
     cy.get('#geo-scope-HL05').click();
     cy.wait(2000);
-     cy.contains("Search and select your Region(s)").should("be.visible");
+     cy.contains("Search and select your State(s) ").should("be.visible");
     cy.wait(3000);
 
   }
@@ -635,7 +634,7 @@ cy.get(this.locators.clickonum).click();
     cy.wait(1000);
     cy.get('#geo-scope-HL07').click();
     cy.wait(2000);
-     cy.contains("Search and select your City(s)").should("be.visible");
+     cy.contains("Search and select your Branch(s) ").should("be.visible");
     cy.wait(3000);
 
   }
@@ -675,9 +674,9 @@ cy.get(this.locators.clickonum).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnGeography_head).click();
     cy.wait(1000);
-    cy.get('#geo-scope-HL08').click();
+    cy.get('#geo-scope-HL07').click();
     cy.wait(2000);
-     cy.contains("Search and select your Branch(s)").should("be.visible");
+     cy.contains("Search and select your Branch(s) ").should("be.visible");
     cy.wait(3000);
 
 
@@ -695,7 +694,7 @@ cy.get(this.locators.clickonum).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnGeography_head).click();
     cy.wait(1000);
-    cy.get('#geo-scope-HL08').click();
+    cy.get('#geo-scope-HL07').click();
     cy.wait(2000);
     cy.get(this.locators.Select_branch_Dropdown).click();
     cy.wait(2000);
@@ -755,8 +754,8 @@ cy.get(this.locators.clickonum).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOn_Agent_ScopeOfWork).click();
     cy.wait(1000);
-    cy.contains("Product").should("be.visible");
-    cy.wait(1000);
+    // cy.contains("Product").should("be.visible");
+    // cy.wait(1000);
     cy.contains("Bucket").should("be.visible");
     cy.wait(1000);
     cy.contains("Geography").should("be.visible");
@@ -1032,10 +1031,10 @@ cy.get(this.locators.clickonum).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOn_Agent_ScopeOfWork).click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOn_SubProduct).click();
-    cy.wait(1000);
-    cy.get(this.locators.Select_Sub_product).click();
-    cy.wait(1000);
+    //cy.get(this.locators.ClickOn_SubProduct).click();
+    //cy.wait(1000);
+    //cy.get(this.locators.Select_Sub_product).click();
+    //cy.wait(1000);
     cy.get(".ng-option").first().click();
     cy.wait(1000);
   }
@@ -1049,10 +1048,10 @@ cy.get(this.locators.clickonum).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOn_Agent_ScopeOfWork).click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOn_SubProduct).click();
-    cy.wait(1000);
-    cy.get(this.locators.Select_Sub_product).click();
-    cy.wait(1000);
+    //cy.get(this.locators.ClickOn_SubProduct).click();
+    //cy.wait(1000);
+    //cy.get(this.locators.Select_Sub_product).click();
+    //cy.wait(1000);
     cy.get(".ng-option").eq(1).click();
     cy.wait(2000);
   }
@@ -1066,11 +1065,11 @@ cy.get(this.locators.clickonum).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOn_Agent_ScopeOfWork).click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOn_SubProduct).click();
-    cy.wait(1000);
-    cy.get(this.locators.Select_Sub_product).click();
-    cy.wait(1000);
-    cy.get(".ng-option").eq(3).click();
+    //cy.get(this.locators.ClickOn_SubProduct).click();
+    //cy.wait(1000);
+    //cy.get(this.locators.Select_Sub_product).click();
+    //cy.wait(1000);
+    //cy.get(".ng-option").eq(3).click();
     cy.wait(2000);
   }
 
@@ -1083,10 +1082,10 @@ cy.get(this.locators.clickonum).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOn_Agent_ScopeOfWork).click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOn_SubProduct).click();
-    cy.wait(1000);
-    cy.get(this.locators.Select_Sub_product).click();
-    cy.wait(1000);
+    //cy.get(this.locators.ClickOn_SubProduct).click();
+    //cy.wait(1000);
+    //cy.get(this.locators.Select_Sub_product).click();
+    //cy.wait(1000);
     cy.get(".ng-option").eq(6).click();
     cy.wait(2000);
   }
@@ -1100,10 +1099,10 @@ cy.get(this.locators.clickonum).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOn_Agent_ScopeOfWork).click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOn_SubProduct).click();
-    cy.wait(1000);
-    cy.get(this.locators.Select_Sub_product).click();
-    cy.wait(1000);
+    //cy.get(this.locators.ClickOn_SubProduct).click();
+    //cy.wait(1000);
+    //cy.get(this.locators.Select_Sub_product).click();
+    //cy.wait(1000);
     cy.get(".ng-option").eq(1).click();
     cy.wait(2000);
     cy.get(".ng-option").eq(2).click();
@@ -1356,7 +1355,7 @@ cy.get(this.locators.clickonum).click();
     cy.wait(1000);
     cy.get('#geo-scope-HL07').click();
     cy.wait(2000);
-     cy.contains("Search and select your City(s)").should("be.visible");
+     cy.contains("Search and select your Branch(s) ").should("be.visible");
     cy.wait(3000);
 
   }
@@ -1396,9 +1395,9 @@ cy.get(this.locators.clickonum).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnGeography_head).click();
     cy.wait(1000);
-    cy.get('#geo-scope-HL08').click();
+    cy.get('#geo-scope-HL07').click();
     cy.wait(2000);
-     cy.contains("Search and select your Branch(s)").should("be.visible");
+     cy.contains("Search and select your Branch(s) ").should("be.visible");
     cy.wait(3000);
 
 

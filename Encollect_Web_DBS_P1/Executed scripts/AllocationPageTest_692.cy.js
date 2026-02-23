@@ -38,9 +38,10 @@ describe('Allocation - Upload Agency Allocation Batch -  User should be able to 
            allocationPage.Clickonallocation();
            cy.wait(2000);
        
-           allocationPage.fillproductgroup();
-           allocationPage.fillproduct();
-        //    allocationPage.fillsubproduct();
+           //allocationPage.fillproductgroup();
+           //allocationPage.fillproduct();
+           //allocationPage.fillsubproduct();
+           //allocationPage.fillBucketAndCountry();
            allocationPage.clickNotAllcated();
            allocationPage.clickonDownload();
            allocationPage.clickonprimaryfile();

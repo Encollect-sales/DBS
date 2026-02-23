@@ -39,9 +39,9 @@ describe('Add Staff - Change Log - Change log is a non mandatory field, user sho
                 addStaffPage.fillmobilenumber(firstRow.MobileNumber);
                 
                 addStaffPage.clickondandd();
-                cy.wait(500);
+                cy.wait(2000);
                 // addStaffPage.clickOnAdd();
-                // cy.wait(500);
+                // cy.wait(2000);
                 addStaffPage.fillDepartment('Audit and Risk', 0); 
                 addStaffPage.fillDesignation('Audit Manager', 0); 
                 cy.wait(1000);
@@ -49,12 +49,12 @@ describe('Add Staff - Change Log - Change log is a non mandatory field, user sho
                 addStaffPage.clickonWallet();
 
                 addStaffPage.clickonbbrm();
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.fillbasebranch();
-                cy.wait(500);
+                cy.wait(2000);
                 
                 // addStaffPage.clickonPlaceOkWork();
-                // cy.wait(500);
+                // cy.wait(2000);
                 // addStaffPage.ClickOnSkill();
                 // cy.wait(5000);
                 addStaffPage.clickonsubmitstaffprofile();

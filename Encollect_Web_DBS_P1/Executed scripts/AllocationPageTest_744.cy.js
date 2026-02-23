@@ -27,7 +27,7 @@ describe('Allocation - Primary Allocation by filters -All fields under Product f
            allocationPage.ClickonallocationPAF();
            allocationPage.fillproductgroupPAF6();
            allocationPage.fillproductPAF6();
-        //    allocationPage.fillsubproductPAF6();
+           allocationPage.fillsubproductPAF6();
 
         });
     });

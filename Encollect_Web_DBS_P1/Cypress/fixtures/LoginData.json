@@ -1,18 +1,20 @@
+
 {
   "login": {
-    "Companyname": "ENCollect Sales",
-       "email": "dbsqafour@yopmail.com",
+    "Companyname": "Encollect",
+    "email": "AD1234",
       "password": "123@asAS"
   },
-
   "login1": {
-    "Companyname": "ENCollect Sales",
-     "email": "dbsqafour@yopmail.com",
+    "Companyname": "Encollect",
+  "email": "AD1234",
       "password": "123@asAS"
   },
   "login2": {
-    "Companyname": "ENCollect Sales",
-  "email": "dbsqafour@yopmail.com",
+    "Companyname": "Encollect",
+   "email": "AD1234",
       "password": "123@asAS"
+
   }
-}
+  
+  }

@@ -37,11 +37,11 @@ describe('Add Staff - Agency Relationship Managers Scope of Work - User should b
                 addStaffPage.fillmobilenumber(firstRow.MobileNumber);
                 addStaffPage.ClikonSOW();
                
-                cy.wait(500);
+                cy.wait(2000);
 
                 addStaffPage.ScopeOfWorkTestPage_01();
                addStaffPage.clickonbbrm();
-                cy.wait(500); 
+                cy.wait(2000); 
              addStaffPage.fillbasebranch();
             });
         });

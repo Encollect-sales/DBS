@@ -10,7 +10,9 @@ class UserManagementPage {
   }
 
   UserManagementModule() {
+    cy.wait(2000);
     cy.get(this.locators.clickonusermanagement).click();
+    cy.wait(2000);
   }
 
 
@@ -23,10 +25,11 @@ class UserManagementPage {
     cy.get(this.locators.ClickOnAddAgency).click();
     cy.wait(2000);
 
-   const agencyName = faker.word.noun(); 
+    const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-
 cy.wait(2000);
+   
 
    cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
@@ -35,7 +38,6 @@ cy.wait(2000);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
  cy.wait(2000);
     cy.get(this.locators.selectAgencyType)
   .find('option') 
@@ -55,6 +57,7 @@ cy.wait(2000);
     const randomIndex = Math.floor(Math.random() * optionsCount); 
     const randomValue = $options[randomIndex].value; 
 
+cy.wait(1000);
     cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
   });
 
@@ -63,17 +66,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-
-   const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-
-         // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -124,27 +119,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-
-    // cy.get(this.locators.bankname).select("DBS Bank India Ltd");
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -199,19 +176,19 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("All");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("All");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -225,24 +202,20 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectCity).select("All");
     cy.wait(2000);
-   cy.get(this.locators.selectmanager)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure dropdown is loaded
+      cy.get(this.locators.selectmanager)
+  .find('option') 
   .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-    cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  });
-
-cy.wait(500);
-    cy.wait(2000);
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024').should("be.visible");
+    cy.get(this.locators.firstagreementdate).type('02-01-2026').should("be.visible");
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024').should("be.visible");
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026').should("be.visible");
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('30-09-2027').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).type('30-09-2026').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
@@ -259,17 +232,17 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.ClickOnAddAgency).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);   
+ cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -280,7 +253,7 @@ cy.wait(2000);
     cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000);    
+cy.wait(2000);    
 
 cy.get(this.locators.selectAgencySubType)
   .find('option') 
@@ -289,6 +262,7 @@ cy.get(this.locators.selectAgencySubType)
     const randomIndex = Math.floor(Math.random() * optionsCount); 
     const randomValue = $options[randomIndex].value; 
 
+cy.wait(1000);
     cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
   });
 
@@ -298,15 +272,9 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+    // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -357,25 +325,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -430,19 +382,19 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("All");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("All");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -456,24 +408,21 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectCity).select("All");
     cy.wait(2000);
-   cy.get(this.locators.selectmanager)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure dropdown is loaded
+     cy.get(this.locators.selectmanager)
+  .find('option') 
   .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-    cy.get(this.locators.selectmanager).select(randomText, { force: true });
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
   });
-
-cy.wait(500);
-    cy.wait(2000);
+  cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024').should("be.visible");
+    cy.get(this.locators.firstagreementdate).type('02-01-2026').should("be.visible");
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024').should("be.visible");
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026').should("be.visible");
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('30-09-2027').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).type('30-09-2026').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
@@ -489,17 +438,17 @@ cy.wait(500);
     cy.get(this.locators.clickonAER).click();
     cy.get(this.locators.ClickOnAddAgency).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);   
+ cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -510,7 +459,7 @@ cy.wait(2000);
     cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000);   
+cy.wait(1000);     
 
 cy.get(this.locators.selectAgencySubType)
   .find('option') 
@@ -519,6 +468,7 @@ cy.get(this.locators.selectAgencySubType)
     const randomIndex = Math.floor(Math.random() * optionsCount); 
     const randomValue = $options[randomIndex].value; 
 
+cy.wait(1000);
     cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
   });
 
@@ -529,14 +479,9 @@ cy.wait(1000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
 
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+  // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -586,26 +531,23 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
 
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });("SBI");
-    cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
-    cy.wait(2000);
+     cy.get(this.locators.bankname).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
+
+  cy.wrap($select).select(randomValue);
+});
+cy.wait(2000);
+ cy.get(this.locators.bankbranchname).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
+
+  cy.wrap($select).select(randomValue);
+});
+  cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
     //////////////////////////////////////Documentation_Details/////////////////////////////////////
@@ -663,7 +605,7 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("All");
+    ////cy.get(this.locators.subproduct).select("All");
     cy.wait(2000);
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
@@ -671,7 +613,7 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -685,24 +627,21 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectCity).select("All");
     cy.wait(2000);
-   cy.get(this.locators.selectmanager)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure dropdown is loaded
+       cy.get(this.locators.selectmanager)
+  .find('option') 
   .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-    cy.get(this.locators.selectmanager).select(randomText, { force: true });
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
   });
-
-cy.wait(500);
-    cy.wait(2000);
+  cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
     cy.get(this.locators.lastrenewaldate).type('06-05-2024');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('30-09-2027');
+    cy.get(this.locators.Contactexpiredate).type('30-09-2026');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
@@ -725,9 +664,9 @@ cy.wait(500);
     cy.get('tbody > :nth-child(1) > :nth-child(5) > input').click();
     cy.wait(2000);
     //cy.get('.btn-danger.ng-star-inserted').click();
-    //cy.wait(5000);
+    //cy.wait(3000);
     //cy.get('.ng-trigger').should('be.visible');
-    //cy.wait(5000);
+    //cy.wait(3000);
 
   }
 
@@ -770,17 +709,17 @@ cy.wait(500);
     cy.get(this.locators.clickonAER).click();
     cy.get(this.locators.ClickOnAddAgency).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-     cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);     
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -791,7 +730,7 @@ cy.wait(2000);
     cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000);     
+cy.wait(1000);    
 
 cy.get(this.locators.selectAgencySubType)
   .find('option') 
@@ -800,6 +739,7 @@ cy.get(this.locators.selectAgencySubType)
     const randomIndex = Math.floor(Math.random() * optionsCount); 
     const randomValue = $options[randomIndex].value; 
 
+cy.wait(1000);
     cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
   });
 
@@ -809,15 +749,9 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-    // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+  // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -867,26 +801,22 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
+     cy.get(this.locators.bankname).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
 
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });("SBI");
-    cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
-    cy.wait(2000);
+  cy.wrap($select).select(randomValue);
+});
+cy.wait(2000);
+ cy.get(this.locators.bankbranchname).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
+
+  cy.wrap($select).select(randomValue);
+});
+  cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
     //////////////////////////////////////Documentation_Details/////////////////////////////////////
@@ -944,7 +874,7 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("All");
+    ////cy.get(this.locators.subproduct).select("All");
     cy.wait(2000);
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
@@ -952,7 +882,7 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -966,24 +896,21 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectCity).select("All");
     cy.wait(2000);
-   cy.get(this.locators.selectmanager)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure dropdown is loaded
+       cy.get(this.locators.selectmanager)
+  .find('option') 
   .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-    cy.get(this.locators.selectmanager).select(randomText, { force: true });
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
   });
-
-cy.wait(500);
-    cy.wait(2000);
+  cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
     cy.get(this.locators.lastrenewaldate).type('06-05-2024');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('30-09-2027');
+    cy.get(this.locators.Contactexpiredate).type('30-09-2026');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
@@ -1002,17 +929,17 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.clickonAER).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);    
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -1023,15 +950,15 @@ cy.wait(2000);
     cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000);   
-
-cy.get(this.locators.selectAgencySubType)
+cy.wait(1000);    
+ cy.get(this.locators.selectAgencySubType)
   .find('option') 
   .then($options => {
     const optionsCount = $options.length;
     const randomIndex = Math.floor(Math.random() * optionsCount); 
     const randomValue = $options[randomIndex].value; 
 
+cy.wait(1000);
     cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
   });
 
@@ -1041,15 +968,9 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -1099,26 +1020,22 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
+     cy.get(this.locators.bankname).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
 
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });("SBI");
-    cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
-    cy.wait(2000);
+  cy.wrap($select).select(randomValue);
+});
+cy.wait(2000);
+ cy.get(this.locators.bankbranchname).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
+
+  cy.wrap($select).select(randomValue);
+});
+  cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
     //////////////////////////////////////Documentation_Details/////////////////////////////////////
@@ -1267,7 +1184,7 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("All");
+    ////cy.get(this.locators.subproduct).select("All");
     cy.wait(2000);
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
@@ -1275,7 +1192,7 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -1287,29 +1204,26 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectCity).select("All");
     cy.wait(2000);
-   cy.get(this.locators.selectmanager)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure dropdown is loaded
+       cy.get(this.locators.selectmanager)
+  .find('option') 
   .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-    cy.get(this.locators.selectmanager).select(randomText, { force: true });
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
   });
-
-cy.wait(500);
-    cy.wait(2000);
+  cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
     cy.get(this.locators.lastrenewaldate).type('06-05-2024');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('30-09-2027');
+    cy.get(this.locators.Contactexpiredate).type('30-09-2026');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(this.locators.submitagency).click({force : true});
-    cy.wait(5000);
+    cy.wait(3000);
    
   }
 
@@ -1322,29 +1236,29 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.ClickOnAddAgency).click();
     // cy.get('#Select').select("Pending Approval");
-    // cy.wait(5000);
+    // cy.wait(3000);
     // cy.get('.btn').click();
-    // cy.wait(5000);
+    // cy.wait(3000);
     // cy.get('tbody > :nth-child(1) > :nth-child(5) > input').click();
-    // cy.wait(5000);
+    // cy.wait(3000);
     // cy.get('.btn-success').click();
-    // cy.wait(5000);
+    // cy.wait(3000);
     // cy.get('.ng-trigger').should('be.visible');
     // cy.wait(50000);
     // cy.get('#Select').select("Approved");
-    // cy.wait(5000);
+    // cy.wait(3000);
     // cy.get('.btn').click();
-    // cy.wait(5000);
+    // cy.wait(3000);
     // cy.get('tbody > :nth-child(1) > :nth-child(2)').should('be.visible');
     // cy.wait(50000);
     // cy.get('tbody > :nth-child(1) > :nth-child(5) > input').click();
-    // cy.wait(5000);
+    // cy.wait(3000);
     // cy.get('div > .btn-primary').click();
-    // cy.wait(5000);
+    // cy.wait(3000);
     // cy.get(this.locators.selectAgencyType).select("Collections");
-    // cy.wait(5000);
+    // cy.wait(3000);
     // cy.get(this.locators.selectAgencySubType).select("Tele calling");
-    // cy.wait(5000);
+    // cy.wait(3000);
     // cy.get('.col-md-12 > .btn-primary').click();
     // cy.wait(100);
     // cy.get('.ng-trigger').should('be.visible');
@@ -1403,42 +1317,38 @@ cy.wait(500);
     cy.get(this.locators.clickonAER).click();
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);   
+ cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
-     // Select random Agency Type
-cy.get(this.locators.selectAgencyType)
-  .find('option')
+      cy.get(this.locators.selectAgencyType)
+  .find('option') 
   .then($options => {
     const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * (optionsCount - 1)) + 1;
-    const randomText = $options[randomIndex].innerText.trim();
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
 
-    cy.get(this.locators.selectAgencyType).select(randomText, { force: true });
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000); // wait for sub type dropdown to load
-
-// Select random Agency Sub Type
-cy.get(this.locators.selectAgencySubType)
-  .find('option')
-  .should('have.length.greaterThan', 1)
+cy.wait(1000);    
+ cy.get(this.locators.selectAgencySubType)
+  .find('option') 
   .then($options => {
     const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * (optionsCount - 1)) + 1;
-    const randomText = $options[randomIndex].innerText.trim();
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
 
-    cy.get(this.locators.selectAgencySubType).select(randomText, { force: true });
+cy.wait(1000);
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
   });
-
 
 cy.wait(1000);
     cy.wait(2000);
@@ -1446,15 +1356,9 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -1504,32 +1408,22 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
+     cy.get(this.locators.bankname).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
 
+  cy.wrap($select).select(randomValue);
+});
+cy.wait(2000);
+ cy.get(this.locators.bankbranchname).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
 
-
-//      cy.get(this.locators.bankname)
-//   .find('option')
-//   .should('have.length.greaterThan', 1) // ensure options are loaded
-//   .then($options => {
-//     const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-//     const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-//     cy.get(this.locators.bankname).select(randomText, { force: true });
-//   });
-//     cy.wait(2000);
-
-//     cy.get(this.locators.bankbranchname)
-//   .find('option')
-//   .should('have.length.greaterThan', 1)
-//   .then($options => {
-//     const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-//     const randomValue = $options.eq(randomIndex).val();
-//     cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-//   });
-
-// cy.wait(2000);
-
-    cy.wait(2000);
+  cy.wrap($select).select(randomValue);
+});
+  cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
     //////////////////////////////////////Documentation_Details/////////////////////////////////////
@@ -1584,7 +1478,7 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("All");
+    ////cy.get(this.locators.subproduct).select("All");
     cy.wait(2000);
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
@@ -1592,7 +1486,7 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -1603,24 +1497,22 @@ cy.wait(2000);
     cy.get(this.locators.SelectState).select("All");
     cy.wait(2000);
     // cy.get(this.locators.SelectCity).select("All");
-    // cy.wait(5000);
-    //cy.get(this.locators.selectmanager)
-  // .find('option')
-  // .should('have.length.greaterThan', 1) // ensure dropdown is loaded
+    // cy.wait(3000);
+  //     cy.get(this.locators.selectmanager)
+  // .find('option') 
   // .then($options => {
-  //   const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-  //   const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-  //   cy.get(this.locators.selectmanager).select(randomText, { force: true });
+  //   const randomIndex = Math.floor(Math.random() * $options.length); 
+  //   const randomValue = $options.eq(randomIndex).val(); 
+  //   cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   // });
-
-    // cy.wait(5000);
+  // cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
     cy.get(this.locators.firstagreementdate).type('02-01-2025');
     cy.wait(2000);
     cy.get(this.locators.lastrenewaldate).type('06-01-2025');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('30-09-2027');
+    cy.get(this.locators.Contactexpiredate).type('30-09-2026');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
@@ -1664,9 +1556,9 @@ cy.wait(2000);
     cy.get(this.locators.selectAgencySubType).select("Tele calling");
     cy.wait(2000);
     cy.get('.col-md-12 > .btn-primary').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('.ng-trigger').should('be.visible');
-    cy.wait(5000);
+    cy.wait(3000);
   }
 
 
@@ -1961,7 +1853,7 @@ cy.wait(2000);
     cy.get(this.locators.EmailIdField).clear();
     cy.wait(500);
     cy.get(this.locators.EmailIdField).type('abc@yopmail');
-    cy.wait(5000);
+    cy.wait(3000);
     //cy.contains(" Enter valid email ").should("be.visible");
 
   }
@@ -2057,7 +1949,7 @@ cy.wait(2000);
 
   Datevalidation() {
     // cy.get(this.locators.clickonARD).click();
-    // cy.wait(5000);
+    // cy.wait(3000);
     //const filePath = 'Cypress/fixtures/Aadhar_image.png';
     cy.get(this.locators.clickonusermanagement).click();
     cy.wait(2000);
@@ -2066,17 +1958,17 @@ cy.wait(2000);
     cy.get('.user-management > :nth-child(2) > :nth-child(1) > .sub-nav-list > :nth-child(1) > a').click();
     cy.get(this.locators.clickonAER).click().click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);    
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -2087,14 +1979,15 @@ cy.wait(2000);
     cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000);    
- cy.get(this.locators.selectAgencySubType)
+cy.wait(1000);     
+cy.get(this.locators.selectAgencySubType)
   .find('option') 
   .then($options => {
     const optionsCount = $options.length;
     const randomIndex = Math.floor(Math.random() * optionsCount); 
     const randomValue = $options[randomIndex].value; 
 
+cy.wait(1000);
     cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
   });
 
@@ -2104,15 +1997,9 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -2163,31 +2050,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-
-
-
-   
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -2241,20 +2106,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Cards");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Cards");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -2268,17 +2133,16 @@ cy.wait(500);
     cy.wait(2000);
     // cy.scrollTo('right')
     //cy.contains("div[class='p-0 overflow-auto'] div").scrollTo('right');
-    //cy.get(this.locators.selectmanager).select
-cy.wait(500);
+    //cy.get(this.locators.selectmanager).select("Ajit");
     cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
     cy.get(this.locators.firstagreementdate).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
     cy.get(this.locators.lastrenewaldate).type('01-03-2024');
-    cy.get(this.locators.Contactexpiredate).type('11-09-2027');
+    cy.get(this.locators.Contactexpiredate).type('11-09-2026');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
@@ -2297,17 +2161,17 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);   
+ cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -2319,14 +2183,14 @@ cy.wait(2000);
   });
 
 cy.wait(1000);    
-
-cy.get(this.locators.selectAgencySubType)
+ cy.get(this.locators.selectAgencySubType)
   .find('option') 
   .then($options => {
     const optionsCount = $options.length;
     const randomIndex = Math.floor(Math.random() * optionsCount); 
     const randomValue = $options[randomIndex].value; 
 
+cy.wait(1000);
     cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
   });
 
@@ -2336,15 +2200,9 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -2395,26 +2253,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -2422,15 +2263,15 @@ cy.wait(500);
     cy.get(this.locators.documentationdetails).click();
     cy.wait(2000);
     // cy.get(this.locators.signagreeementW).click();
-    // cy.wait(5000);
+    // cy.wait(3000);
     // cy.get(this.locators.verificationreport).click();
-    // cy.wait(5000);
+    // cy.wait(3000);
     // cy.get(this.locators.rletter).click();
-    // cy.wait(5000);
+    // cy.wait(3000);
     // cy.get(this.locators.pbankdetails).click();
-    // cy.wait(5000);
+    // cy.wait(3000);
     // cy.get(this.locators.pitr).click();
-    // cy.wait(5000);
+    // cy.wait(3000);
     cy.get(this.locators.kycid).select("Aadhar Card");
     cy.wait(2000);
     cy.get(this.locators.kycaddress).select("Driving Licence");
@@ -2442,20 +2283,20 @@ cy.wait(500);
     //cy.get(this.locators.UploadConfirm).click();
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("All");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("All");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -2465,32 +2306,29 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectState).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.SelectCity).select("All");
-    // cy.wait(5000);
-    //cy.get(this.locators.selectmanager)
-  // .find('option')
-  // .should('have.length.greaterThan', 1) // ensure dropdown is loaded
-  // .then($options => {
-  //   const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-  //   const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-  //   cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  // });
-
-    // cy.wait(5000);
-    cy.get(this.locators.clickonARD).scrollIntoView.click();
+    cy.get(this.locators.SelectCity).select("All");
+    cy.wait(3000);
+      cy.get(this.locators.selectmanager)
+  .find('option') 
+  .then($options => {
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  });// cy.wait(3000);
+    cy.get(this.locators.clickonARD).scrollIntoView().click();
     cy.wait(2000);
     cy.get(this.locators.firstagreementdate).click();
     cy.wait(2000);
     cy.get(this.locators.firstagreementdate).type('02-03-2023');
     cy.wait(2000);
     cy.get(this.locators.lastrenewaldate).type('01-03-2024');
-    cy.get(this.locators.Contactexpiredate).type('27-09-2027');
+    cy.get(this.locators.Contactexpiredate).type('27-09-2023');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
     cy.get(this.locators.saveagencyprofile).click();
 
-   //cy.contains("Contract Expiry Date must be greater than Last Renewal Date").should("be.visible");
+   cy.contains("Contract Expiry Date must be greater than Last Renewal Date").should("be.visible");
   }
 
   ClickonSearchAgencyApprovedStatusWithSpecialChrctr() {
@@ -2522,11 +2360,11 @@ cy.wait(500);
     cy.log('10 Results showing for agencies');
 
     // cy.get(this.locators.paginationNoNext).click();
-    // cy.wait(5000);
+    // cy.wait(3000);
     // cy.get(this.locators.paginationNoPrevious).click();
 
     // cy.get(this.locators.SAEmpanelmentStatus).select('8: SavedAsDraft');
-    // cy.wait(5000);
+    // cy.wait(3000);
     // cy.get(this.locators.SASearch).click();
     // cy.log('Results are showing for SavedAsDraft status')
 
@@ -2559,17 +2397,17 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.clickonAER).click();
     cy.get(this.locators.AddAgencey).click();
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000); 
+   cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -2580,15 +2418,15 @@ cy.wait(2000);
     cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000);   
-
-cy.get(this.locators.selectAgencySubType)
+cy.wait(1000);    
+ cy.get(this.locators.selectAgencySubType)
   .find('option') 
   .then($options => {
     const optionsCount = $options.length;
     const randomIndex = Math.floor(Math.random() * optionsCount); 
     const randomValue = $options[randomIndex].value; 
 
+cy.wait(1000);
     cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
   });
 
@@ -2598,15 +2436,9 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -2656,26 +2488,22 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
+     cy.get(this.locators.bankname).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
 
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });("SBI");
-    cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
-    cy.wait(2000);
+  cy.wrap($select).select(randomValue);
+});
+cy.wait(2000);
+ cy.get(this.locators.bankbranchname).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
+
+  cy.wrap($select).select(randomValue);
+});
+  cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
     //////////////////////////////////////Documentation_Details/////////////////////////////////////
@@ -2731,7 +2559,7 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("All");
+    ////cy.get(this.locators.subproduct).select("All");
     cy.wait(2000);
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
@@ -2739,7 +2567,7 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -2750,30 +2578,21 @@ cy.wait(500);
     cy.get(this.locators.SelectState).select("All");
     cy.wait(2000);
     // cy.get(this.locators.SelectCity).select("All");
-    // cy.wait(5000);
-    //cy.get(this.locators.selectmanager)
-  // .find('option')
-  // .should('have.length.greaterThan', 1) // ensure dropdown is loaded
-  // .then($options => {
-  //   const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-  //   const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-  //   cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  // });
-
-cy.wait(500);
-    // cy.wait(5000);
+    // cy.wait(3000);
+    // cy.get(this.locators.selectmanager).select("Admin");
+    // cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
     cy.get(this.locators.lastrenewaldate).type('06-05-2024');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('30-09-2027');
+    cy.get(this.locators.Contactexpiredate).type('30-09-2026');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
     cy.get(this.locators.submitagency).click({force : true});
-    cy.wait(5000);
+    cy.wait(3000);
     cy.contains("Please enter place of work.").should("be.visible");
   }
 
@@ -2784,17 +2603,17 @@ cy.wait(500);
     cy.get(this.locators.clickonAER).click();
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);    
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -2805,32 +2624,26 @@ cy.wait(2000);
     cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000);    
-
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
+cy.wait(1000);   
+ cy.get(this.locators.selectAgencySubType)
   .find('option') 
   .then($options => {
     const optionsCount = $options.length;
     const randomIndex = Math.floor(Math.random() * optionsCount); 
     const randomValue = $options[randomIndex].value; 
 
+cy.wait(1000);
     cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
   });
-  cy.wait(2000);
+
+cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -2881,26 +2694,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -2954,20 +2750,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Cards");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Cards");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All",{force: true});
+    //cy.get(this.locators.selectsubp).select("Personal Loan",{force: true});
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -2978,30 +2774,26 @@ cy.wait(500);
     cy.get(this.locators.SelectState).select("All");
     cy.wait(2000);
     // cy.get(this.locators.SelectCity).select("All");
-    // cy.wait(5000);
-    //cy.get(this.locators.selectmanager)
-  // .find('option')
-  // .should('have.length.greaterThan', 1) // ensure dropdown is loaded
+    // cy.wait(3000);
+    //  cy.get(this.locators.selectmanager)
+  // .find('option') 
   // .then($options => {
-  //   const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-  //   const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-  //   cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  // });
-
-cy.wait(500);
-    // cy.wait(5000);
+  //   const randomIndex = Math.floor(Math.random() * $options.length); 
+  //   const randomValue = $options.eq(randomIndex).val(); 
+  //   cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
+  // });// cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('01-09-2027');
+    cy.get(this.locators.Contactexpiredate).type('01-09-2026');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
     cy.get(this.locators.submitagency).click({force: true});
-    cy.wait(5000);
+    cy.wait(3000);
     cy.contains("Please enter place of work.").should("be.visible");
 
   }
@@ -3014,17 +2806,17 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-     cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);     
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -3035,32 +2827,24 @@ cy.wait(2000);
     cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
   });
 
-cy.wait(1000);   
+cy.wait(1000);    
 
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
+ cy.get(this.locators.selectAgencySubType).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
 
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
-  });
-  cy.wait(2000);
+  cy.wrap($select).select(randomValue);
+});
+
+    cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -3111,26 +2895,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -3188,7 +2955,7 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
@@ -3197,7 +2964,7 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -3206,30 +2973,26 @@ cy.wait(500);
     cy.get(this.locators.selectregion).select("All");
     cy.wait(2000);
     // cy.get(this.locators.SelectState).select("All");
-    // cy.wait(5000);
+    // cy.wait(3000);
     // cy.get(this.locators.SelectCity).select("All");
-    // cy.wait(5000);
-   cy.get(this.locators.selectmanager)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure dropdown is loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-    cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  });
-
-cy.wait(500);
-    cy.wait(2000);
+    // cy.wait(3000);
+  //    cy.get(this.locators.selectmanager)
+  // .find('option') 
+  // .then($options => {
+  //   const randomIndex = Math.floor(Math.random() * $options.length); 
+  //   const randomValue = $options.eq(randomIndex).val(); 
+  //   cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
+  // });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('01-09-2027');
+    cy.get(this.locators.Contactexpiredate).type('01-09-2026');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(this.locators.submitagency).click({force: true});
     cy.wait(2000);
     cy.contains("Please enter place of work.").should("be.visible");
@@ -3243,17 +3006,17 @@ cy.wait(500);
     cy.get(this.locators.clickonAER).click();
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);   
+ cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
       cy.get(this.locators.selectAgencyType)
   .find('option') 
   .then($options => {
@@ -3266,32 +3029,25 @@ cy.wait(2000);
 
 cy.wait(1000);   
 
-  
-
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
+ cy.get(this.locators.selectAgencySubType)
   .find('option') 
   .then($options => {
     const optionsCount = $options.length;
     const randomIndex = Math.floor(Math.random() * optionsCount); 
     const randomValue = $options[randomIndex].value; 
 
+cy.wait(1000);
     cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
   });
-  cy.wait(2000);
+
+cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -3342,257 +3098,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
-    cy.wait(2000);
-    cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
-    cy.wait(2000);
-    //////////////////////////////////////Documentation_Details/////////////////////////////////////
-
-    const filePath = 'Aadhar.png';
-    const filePath1 = 'adharcard.pdf';
-    // Expand the documentation details section
-    cy.get(':nth-child(4) > .nav-link > span').click();
-    cy.wait(2000);
-    //lick on various elements to interact with the UI
-    cy.get('#waive--0').click();
-    cy.wait(2000);
-    cy.get('#waive--3').click();
-    cy.wait(2000);
-    cy.get('#waive--4').click();
-    cy.wait(2000);
-    cy.get('#waive--5').click();
-    cy.wait(2000);
-    cy.get('#waive--6').click();
-    cy.wait(2000);
-    cy.get('#agencyaddFileBtn-0').click();
-    cy.wait(2000);
-    cy.get('input[type="file"]').eq(0)
-    .attachFile(filePath, { force: true });
-    cy.wait(2000);
-    cy.get('#agencydocTypeSelect-1').select('Pan Card');
-    cy.get('#agencyaddFileBtn-1').click();
-    cy.wait(2000);
-    cy.get('input[type="file"]').eq(1)
-    .attachFile(filePath1, { force: true });
-    cy.wait(2000);
-    cy.get('input[type="file"]').eq(1)
-    .attachFile(filePath1, { force: true });
-    cy.wait(2000);
-    cy.get('#agencydocTypeSelect-2').select('Aadhar Card');
-    cy.get('#agencyaddFileBtn-2').click();
-    cy.wait(2000);
-    cy.get('input[type="file"]').eq(2)
-    .attachFile(filePath1, { force: true });
-    cy.wait(2000);
-    cy.get('input[type="file"]').eq(3)
-    .attachFile(filePath1, { force: true });
-    cy.wait(2000);
-    cy.get('input[type="file"]').eq(4)
-    .attachFile(filePath1, { force: true });
-    cy.wait(2000);
-    cy.get('input[type="file"]').eq(5)
-    .attachFile(filePath1, { force: true });
-    cy.wait(2000);
-    //////-----------------
-    cy.get(this.locators.scopeofword).click();
-    cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Cards");
-    cy.wait(2000);
-    cy.get(this.locators.product).select("All");
-    cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
-    cy.wait(2000);
-
-    cy.get(this.locators.placeofwork).click();
-    cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Cards");
-    cy.wait(2000);
-    cy.get(this.locators.selectp).select("All");
-    cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
-    cy.wait(2000);
-    cy.get(this.locators.selectbucket).select("All");
-    cy.wait(2000);
-    cy.get(this.locators.selectcountry).select("All");
-    cy.wait(2000);
-    cy.get(this.locators.selectregion).select("All");
-    cy.wait(2000);
-    cy.get(this.locators.SelectState).select("All");
-    cy.wait(2000);
-    // cy.get(this.locators.SelectCity).select("All");
-    // cy.wait(5000);
-    //cy.get(this.locators.selectmanager)
-  // .find('option')
-  // .should('have.length.greaterThan', 1) // ensure dropdown is loaded
-  // .then($options => {
-  //   const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-  //   const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-  //   cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  // });
-
-cy.wait(500);
-    // cy.wait(5000);
-    cy.get(this.locators.clickonARD).click();
-    cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
-    cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
-    cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('11-09-2027');
-    cy.wait(2000);
-    cy.get(this.locators.addremark).type("This is ok",{force:true});
-    cy.wait(2000);
-    cy.get(this.locators.submitagency).click({force: true});
-    cy.wait(5000);
-    cy.contains("Please enter place of work.").should("be.visible");
-
-  }
-
-  CreateAgency035() {
-    //const filePath = 'Aadhar-image.png';
-    cy.wait(2000);
-    cy.get(this.locators.clickonusermanagement).click();
-    cy.wait(2000);
-    cy.get(this.locators.clickonAER).click();
-    cy.get(this.locators.AddAgencey).click();
-    cy.wait(2000);
-   const agencyName = faker.word.noun(); 
-cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-     cy.get(this.locators.selectRecommendingOfficer)
-  .find('option') 
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * $options.length); 
-    const randomValue = $options.eq(randomIndex).val(); 
-    cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
-  });
-cy.wait(2000);
-      cy.get(this.locators.selectAgencyType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
-  });
-
-cy.wait(1000);   
-  
-
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
-  });
-    cy.wait(2000);
-    cy.get(this.locators.fillpancard).type("ABCDE1234F");
-    cy.wait(2000);
-    cy.get(this.locators.fillTINNumber).type("123456");
-    cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
-    //Address Details
-    cy.get(this.locators.clickonaddressdetails).click();
-    cy.wait(2000);
-    cy.get(this.locators.primaryownerfirstname).type("Sachin");
-    cy.wait(2000);
-    cy.get(this.locators.primaryownerlastname).type("Tendulkar");
-    cy.wait(2000);
-    cy.get(this.locators.registeredagencyaddress).type("Azad maidam Mumbai Fort 4212345");
-    cy.wait(2000);
-    
-    // Function to generate a random 10-digit number
-    function generateRandomMobileNumber() {
-      const prefix = '07'; // Assuming you want the number to start with '07'
-      const randomNumber = Math.floor(Math.random() * 100000000); // Generates an 8-digit number
-      const paddedNumber = String(randomNumber).padStart(8, '0'); // Pads with leading zeros if necessary
-      return prefix + paddedNumber;
-    }
-    // Cypress test code
-    cy.get(this.locators.mobilenumber).type(generateRandomMobileNumber());
-    cy.wait(2000);
-    //cy.get(this.locators.mobilenumber).type("0769875425");
-    cy.wait(2000);
-    cy.get(this.locators.areacode).type("1234");
-    cy.wait(2000);
-    cy.get(this.locators.landlinenumber).type("1234567890");
-    cy.wait(2000);
-    cy.get(this.locators.selectstate).select("All");
-    cy.wait(2000);
-    // Function to generate a random email address
-    function generateRandomEmail() {
-      const randomString = Math.random().toString(36).substring(2, 11); // Generates a random string
-      return `user_${randomString}@yopmail.com`; // Concatenate to form an email address
-    }
-
-    // Cypress test code
-    cy.get(this.locators.fillemailid).type(generateRandomEmail());
-    cy.wait(2000);
-    //cy.get(this.locators.fillemailid).type("sachin41@yopmail.com");
-    cy.wait(2000);
-    cy.get(this.locators.selectcity).select("All");
-    cy.wait(2000);
-    cy.get(this.locators.postalcode).type("123456");
-    cy.wait(2000);
-    //Banking details
-    cy.get(this.locators.clickonbankingdetails).click();
-    cy.wait(2000);
-    cy.get(this.locators.accountholdername).type("AJAY KUMAR");
-    cy.wait(2000);
-    cy.get(this.locators.bankaccountnumber).type("1234567890");
-    cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
-    cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -3650,7 +3158,7 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
@@ -3659,7 +3167,7 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -3670,25 +3178,221 @@ cy.wait(500);
     cy.get(this.locators.SelectState).select("All");
     cy.wait(2000);
     // cy.get(this.locators.SelectCity).select("All");
-    // cy.wait(5000);
-    //cy.get(this.locators.selectmanager)
-  // .find('option')
-  // .should('have.length.greaterThan', 1) // ensure dropdown is loaded
+    // cy.wait(3000);
+    //  cy.get(this.locators.selectmanager)
+  // .find('option') 
   // .then($options => {
-  //   const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-  //   const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-  //   cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  // });
-
-cy.wait(500);
-    // cy.wait(5000);
+  //   const randomIndex = Math.floor(Math.random() * $options.length); 
+  //   const randomValue = $options.eq(randomIndex).val(); 
+  //   cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
+  // });// cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('11-09-2027').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).type('11-09-2026');
+    cy.wait(2000);
+    cy.get(this.locators.addremark).type("This is ok",{force:true});
+    cy.wait(2000);
+    cy.get(this.locators.submitagency).click({force: true});
+    cy.wait(3000);
+    cy.contains("Please enter place of work.").should("be.visible");
+
+  }
+
+  CreateAgency035() {
+    //const filePath = 'Aadhar-image.png';
+    cy.wait(2000);
+    cy.get(this.locators.clickonusermanagement).click();
+    cy.wait(2000);
+    cy.get(this.locators.clickonAER).click();
+    cy.get(this.locators.AddAgencey).click();
+    cy.wait(2000);
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
+cy.get(this.locators.fillAgencyName).type(agencyName);
+cy.wait(2000);    
+ cy.get(this.locators.selectRecommendingOfficer)
+  .find('option') 
+  .then($options => {
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
+  });
+      cy.get(this.locators.selectAgencyType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+
+cy.wait(1000);    
+
+ cy.get(this.locators.selectAgencySubType).then($select => {
+  const options = $select.find('option');
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+  const randomValue = options[randomIndex].value;
+
+  cy.wrap($select).select(randomValue);
+});
+    cy.wait(2000);
+    cy.get(this.locators.fillpancard).type("ABCDE1234F");
+    cy.wait(2000);
+    cy.get(this.locators.fillTINNumber).type("123456");
+    cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
+    //Address Details
+    cy.get(this.locators.clickonaddressdetails).click();
+    cy.wait(2000);
+    cy.get(this.locators.primaryownerfirstname).type("Sachin");
+    cy.wait(2000);
+    cy.get(this.locators.primaryownerlastname).type("Tendulkar");
+    cy.wait(2000);
+    cy.get(this.locators.registeredagencyaddress).type("Azad maidam Mumbai Fort 4212345");
+    cy.wait(2000);
+    
+    // Function to generate a random 10-digit number
+    function generateRandomMobileNumber() {
+      const prefix = '07'; // Assuming you want the number to start with '07'
+      const randomNumber = Math.floor(Math.random() * 100000000); // Generates an 8-digit number
+      const paddedNumber = String(randomNumber).padStart(8, '0'); // Pads with leading zeros if necessary
+      return prefix + paddedNumber;
+    }
+    // Cypress test code
+    cy.get(this.locators.mobilenumber).type(generateRandomMobileNumber());
+    cy.wait(2000);
+    //cy.get(this.locators.mobilenumber).type("0769875425");
+    cy.wait(2000);
+    cy.get(this.locators.areacode).type("1234");
+    cy.wait(2000);
+    cy.get(this.locators.landlinenumber).type("1234567890");
+    cy.wait(2000);
+    cy.get(this.locators.selectstate).select("All");
+    cy.wait(2000);
+    // Function to generate a random email address
+    function generateRandomEmail() {
+      const randomString = Math.random().toString(36).substring(2, 11); // Generates a random string
+      return `user_${randomString}@yopmail.com`; // Concatenate to form an email address
+    }
+
+    // Cypress test code
+    cy.get(this.locators.fillemailid).type(generateRandomEmail());
+    cy.wait(2000);
+    //cy.get(this.locators.fillemailid).type("sachin41@yopmail.com");
+    cy.wait(2000);
+    cy.get(this.locators.selectcity).select("All");
+    cy.wait(2000);
+    cy.get(this.locators.postalcode).type("123456");
+    cy.wait(2000);
+    //Banking details
+    cy.get(this.locators.clickonbankingdetails).click();
+    cy.wait(2000);
+    cy.get(this.locators.accountholdername).type("AJAY KUMAR");
+    cy.wait(2000);
+    cy.get(this.locators.bankaccountnumber).type("1234567890");
+    cy.wait(2000);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
+    cy.wait(2000);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
+    cy.wait(2000);
+    cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
+    cy.wait(2000);
+    //////////////////////////////////////Documentation_Details/////////////////////////////////////
+
+    const filePath = 'Aadhar.png';
+    const filePath1 = 'adharcard.pdf';
+    // Expand the documentation details section
+    cy.get(':nth-child(4) > .nav-link > span').click();
+    cy.wait(2000);
+    //lick on various elements to interact with the UI
+    cy.get('#waive--0').click();
+    cy.wait(2000);
+    cy.get('#waive--3').click();
+    cy.wait(2000);
+    cy.get('#waive--4').click();
+    cy.wait(2000);
+    cy.get('#waive--5').click();
+    cy.wait(2000);
+    cy.get('#waive--6').click();
+    cy.wait(2000);
+    cy.get('#agencyaddFileBtn-0').click();
+    cy.wait(2000);
+    cy.get('input[type="file"]').eq(0)
+    .attachFile(filePath, { force: true });
+    cy.wait(2000);
+    cy.get('#agencydocTypeSelect-1').select('Pan Card');
+    cy.get('#agencyaddFileBtn-1').click();
+    cy.wait(2000);
+    cy.get('input[type="file"]').eq(1)
+    .attachFile(filePath1, { force: true });
+    cy.wait(2000);
+    cy.get('input[type="file"]').eq(1)
+    .attachFile(filePath1, { force: true });
+    cy.wait(2000);
+    cy.get('#agencydocTypeSelect-2').select('Aadhar Card');
+    cy.get('#agencyaddFileBtn-2').click();
+    cy.wait(2000);
+    cy.get('input[type="file"]').eq(2)
+    .attachFile(filePath1, { force: true });
+    cy.wait(2000);
+    cy.get('input[type="file"]').eq(3)
+    .attachFile(filePath1, { force: true });
+    cy.wait(2000);
+    cy.get('input[type="file"]').eq(4)
+    .attachFile(filePath1, { force: true });
+    cy.wait(2000);
+    cy.get('input[type="file"]').eq(5)
+    .attachFile(filePath1, { force: true });
+    cy.wait(2000);
+    //////-----------------
+    cy.get(this.locators.scopeofword).click();
+    cy.wait(2000);
+    cy.get(this.locators.productgroup).select("Loans");
+    cy.wait(2000);
+    cy.get(this.locators.product).select("All");
+    cy.wait(2000);
+    //cy.get(this.locators.subproduct).select("Personal Loan");
+    cy.wait(2000);
+
+    cy.get(this.locators.placeofwork).click();
+    cy.wait(2000);
+    cy.get(this.locators.selectpg).select("Loans");
+    cy.wait(2000);
+    cy.get(this.locators.selectp).select("All");
+    cy.wait(2000);
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
+    cy.wait(2000);
+    cy.get(this.locators.selectbucket).select("All");
+    cy.wait(2000);
+    cy.get(this.locators.selectcountry).select("All");
+    cy.wait(2000);
+    cy.get(this.locators.selectregion).select("All");
+    cy.wait(2000);
+    cy.get(this.locators.SelectState).select("All");
+    cy.wait(2000);
+    cy.get(this.locators.SelectCity).select("All");
+    cy.wait(3000);
+      cy.get(this.locators.selectmanager)
+  .find('option') 
+  .then($options => {
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  });cy.wait(3000);
+    cy.get(this.locators.clickonARD).click();
+    cy.wait(2000);
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
+    cy.wait(2000);
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
+    cy.wait(2000);
+    cy.get(this.locators.Contactexpiredate).type('11-09-2026').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true}).should("be.visible");
     cy.wait(2000);
@@ -3707,34 +3411,39 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);    
+
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
     cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Field Agents");
-    cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType)
+  .find('option') 
+  .then($options => {
+    const optionsCount = $options.length;
+    const randomIndex = Math.floor(Math.random() * optionsCount); 
+    const randomValue = $options[randomIndex].value; 
+
+cy.wait(1000);
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+
+cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -3786,26 +3495,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -3859,20 +3551,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("All");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("All");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -3882,29 +3574,25 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectState).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.SelectCity).select("All");
-    // cy.wait(5000);
-    //cy.get(this.locators.selectmanager)
-  // .find('option')
-  // .should('have.length.greaterThan', 1) // ensure dropdown is loaded
-  // .then($options => {
-  //   const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-  //   const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-  //   cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  // });
-
-cy.wait(500);
-    // cy.wait(5000);
+    cy.get(this.locators.SelectCity).select("All");
+    cy.wait(3000);
+      cy.get(this.locators.selectmanager)
+  .find('option') 
+  .then($options => {
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  });cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024').should("be.visible");
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026').should("be.visible");
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('30-09-2027').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).type('30-09-2026').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true}).should("be.visible");
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(this.locators.submitagency).click({force: true}).should("be.visible");
     cy.wait(4000);
     //cy.contains("Please enter place of work.").should("be.visible");
@@ -3920,34 +3608,29 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-   cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);  
+
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
     cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Field Agents");
+    cy.get(this.locators.selectAgencySubType).select("Pick up");
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -3998,29 +3681,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-
-    //  cy.get(this.locators.bankname).select("DBS Bank India Ltd", {force: true});
-      cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -4075,20 +3738,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("All");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("All");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -4098,26 +3761,22 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectState).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.SelectCity).select("All");
-    // cy.wait(5000);
-    //cy.get(this.locators.selectmanager)
-  // .find('option')
-  // .should('have.length.greaterThan', 1) // ensure dropdown is loaded
-  // .then($options => {
-  //   const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-  //   const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-  //   cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  // });
-
-cy.wait(500);
-    // cy.wait(5000);
+    cy.get(this.locators.SelectCity).select("All");
+    cy.wait(3000);
+      cy.get(this.locators.selectmanager)
+  .find('option') 
+  .then($options => {
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  });cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('01-09-2027').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).type('01-09-2026').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true}).should("be.visible");
     cy.wait(2000);
@@ -4137,52 +3796,29 @@ cy.wait(500);
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
     
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);   
+
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
-   
-     cy.get(this.locators.selectAgencyType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
-  });
-
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
-  });
-  cy.wait(2000);
+    cy.get(this.locators.selectAgencyType).select("Collections");
+    cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType).select("Skip Agency");
+    cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -4233,26 +3869,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -4306,20 +3925,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("All");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("All");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -4329,32 +3948,28 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectState).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.SelectCity).select("All");
-    // cy.wait(5000);
-    //cy.get(this.locators.selectmanager)
-  // .find('option')
-  // .should('have.length.greaterThan', 1) // ensure dropdown is loaded
-  // .then($options => {
-  //   const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-  //   const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-  //   cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  // });
-
-cy.wait(500);
-    // cy.wait(5000);
+    cy.get(this.locators.SelectCity).select("All");
+    cy.wait(3000);
+      cy.get(this.locators.selectmanager)
+  .find('option') 
+  .then($options => {
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  });cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2027').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).type('31-10-2026').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true}).should("be.visible");
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(this.locators.submitagency).click({force: true}).should("be.visible");
-    cy.wait(5000);
-    //cy.contains("Please enter place of work.").should("be.visible");
+    cy.wait(3000);
+    // cy.contains("Please enter place of work.").should("be.visible");
 
   }
 
@@ -4367,17 +3982,17 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);    
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
     cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
     cy.get(this.locators.selectAgencySubType).select("Tele calling");
@@ -4386,15 +4001,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -4445,26 +4054,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -4519,20 +4111,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("All");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("All");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -4542,31 +4134,27 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectState).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.SelectCity).select("All");
-    // cy.wait(5000);
-    //cy.get(this.locators.selectmanager)
-  // .find('option')
-  // .should('have.length.greaterThan', 1) // ensure dropdown is loaded
-  // .then($options => {
-  //   const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-  //   const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-  //   cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  // });
-
-cy.wait(500);
-    // cy.wait(5000);
+    cy.get(this.locators.SelectCity).select("All");
+    cy.wait(3000);
+      cy.get(this.locators.selectmanager)
+  .find('option') 
+  .then($options => {
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  });cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2027').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true}).should("be.visible");
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(this.locators.submitagency).click({force: true}).should("be.visible");
-    cy.wait(5000);
+    cy.wait(3000);
     //cy.contains("Please enter place of work.").should("be.visible");
 
   }
@@ -4579,51 +4167,29 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-     cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);    
+
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
-     cy.get(this.locators.selectAgencyType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
-  });
-
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
-  });
-  cy.wait(2000);
+    cy.get(this.locators.selectAgencyType).select("Collections");
+    cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType).select("Repossession Agent");
+    cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -4674,26 +4240,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -4747,20 +4296,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("All");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("All");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -4774,29 +4323,25 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectCity).select("All");
     cy.wait(2000);
-   cy.get(this.locators.selectmanager)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure dropdown is loaded
+      cy.get(this.locators.selectmanager)
+  .find('option') 
   .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-    cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  });
-
-cy.wait(500);
-    cy.wait(2000);
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2027');
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get("#btn-cancel").click({force: true});
-    cy.wait(5000);
+    cy.wait(3000);
 
   }
 
@@ -4809,51 +4354,29 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);   
+
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
-     cy.get(this.locators.selectAgencyType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
-  });
-
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
-  });
-  cy.wait(2000);
+    cy.get(this.locators.selectAgencyType).select("Collections");
+    cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType).select("Valuer");
+    cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -4904,26 +4427,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -4977,20 +4483,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("All");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("All");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -5000,31 +4506,27 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectState).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.SelectCity).select("All");
-    // cy.wait(5000);
-    //cy.get(this.locators.selectmanager)
-  // .find('option')
-  // .should('have.length.greaterThan', 1) // ensure dropdown is loaded
-  // .then($options => {
-  //   const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-  //   const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-  //   cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  // });
-
-cy.wait(500);
-    // cy.wait(5000);
+    cy.get(this.locators.SelectCity).select("All");
+    cy.wait(3000);
+      cy.get(this.locators.selectmanager)
+  .find('option') 
+  .then($options => {
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  });cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2027');
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true}).should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.submitagency).click({force:true}).should("be.visible");
-    cy.wait(5000);
+    cy.wait(3000);
     //cy.contains("Please enter place of work.").should("be.visible");
 
   }
@@ -5038,51 +4540,29 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-     cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);    
+
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
-      cy.get(this.locators.selectAgencyType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
-  });
-
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
-  });
-  cy.wait(2000);
+    cy.get(this.locators.selectAgencyType).select("Collections");
+    cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType).select("Repossession Agent");
+    cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -5133,26 +4613,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -5206,20 +4669,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("All");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("All");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -5229,31 +4692,27 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectState).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.SelectCity).select("All");
-    // cy.wait(5000);
-    //cy.get(this.locators.selectmanager)
-  // .find('option')
-  // .should('have.length.greaterThan', 1) // ensure dropdown is loaded
-  // .then($options => {
-  //   const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-  //   const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-  //   cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  // });
-
-cy.wait(500);
-    // cy.wait(5000);
+    cy.get(this.locators.SelectCity).select("All");
+    cy.wait(3000);
+      cy.get(this.locators.selectmanager)
+  .find('option') 
+  .then($options => {
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  });cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2027').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true}).should("be.visible");
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(this.locators.submitagency).click({force:true}).should("be.visible");
-    cy.wait(5000);
+    cy.wait(3000);
     //cy.contains("Please enter place of work.").should("be.visible");
 
   }
@@ -5268,51 +4727,29 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);    
+
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
-     cy.get(this.locators.selectAgencyType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
-  });
-
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
-  });
-  cy.wait(2000);
+    cy.get(this.locators.selectAgencyType).select("Collections");
+    cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
+    cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -5363,26 +4800,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -5437,20 +4857,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("All");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("All");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -5460,31 +4880,27 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectState).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.SelectCity).select("All");
-    // cy.wait(5000);
-    //cy.get(this.locators.selectmanager)
-  // .find('option')
-  // .should('have.length.greaterThan', 1) // ensure dropdown is loaded
-  // .then($options => {
-  //   const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-  //   const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-  //   cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  // });
-
-cy.wait(500);
-    // cy.wait(5000);
+    cy.get(this.locators.SelectCity).select("All");
+    cy.wait(3000);
+      cy.get(this.locators.selectmanager)
+  .find('option') 
+  .then($options => {
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  });cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2027').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true}).should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.submitagency).click({force:true}).should("be.visible");
-    cy.wait(5000);
+    cy.wait(3000);
 
   }
 
@@ -5497,51 +4913,29 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);   
+
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
-      cy.get(this.locators.selectAgencyType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
-  });
-
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
-  });
-  cy.wait(2000);
+    cy.get(this.locators.selectAgencyType).select("Collections");
+    cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType).select("Valuer");
+    cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+    // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -5592,26 +4986,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -5666,20 +5043,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("All");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("All");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -5689,31 +5066,27 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectState).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.SelectCity).select("All");
-    // cy.wait(5000);
-    //cy.get(this.locators.selectmanager)
-  // .find('option')
-  // .should('have.length.greaterThan', 1) // ensure dropdown is loaded
-  // .then($options => {
-  //   const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-  //   const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-  //   cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  // });
-
-cy.wait(500);
-    // cy.wait(5000);
+    cy.get(this.locators.SelectCity).select("All");
+    cy.wait(2000);
+      cy.get(this.locators.selectmanager)
+  .find('option') 
+  .then($options => {
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2027').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true}).should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.submitagency).click({force:true}).should("be.visible");
-    cy.wait(5000);
+    cy.wait(3000);
     //cy.contains("Please enter place of work.").should("be.visible");
 
   }
@@ -5726,51 +5099,29 @@ cy.wait(500);
     cy.get(this.locators.clickonAER).click();
     cy.wait(2000);
     cy.get(this.locators.AddAgencey).click();
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);    
+
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
-      cy.get(this.locators.selectAgencyType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
-  });
-
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
-  });
-  cy.wait(2000);
+    cy.get(this.locators.selectAgencyType).select("Collections");
+    cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
+    cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -5821,26 +5172,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -5895,20 +5229,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("All");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("All");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -5918,31 +5252,27 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectState).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.SelectCity).select("All");
-    // cy.wait(5000);
-    //cy.get(this.locators.selectmanager)
-  // .find('option')
-  // .should('have.length.greaterThan', 1) // ensure dropdown is loaded
-  // .then($options => {
-  //   const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-  //   const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-  //   cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  // });
-
-cy.wait(500);
-    // cy.wait(5000);
+    cy.get(this.locators.SelectCity).select("All");
+    cy.wait(3000);
+      cy.get(this.locators.selectmanager)
+  .find('option') 
+  .then($options => {
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  });cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2027').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true}).should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.submitagency).click({force:true});
-    cy.wait(5000);
+    cy.wait(3000);
 
   }
 
@@ -5955,51 +5285,29 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-   cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);  
+
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
-      cy.get(this.locators.selectAgencyType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
-  });
-
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
-  });
-  cy.wait(2000);
+    cy.get(this.locators.selectAgencyType).select("Collections");
+    cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType).select("Field Agents");
+    cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -6050,26 +5358,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD").should("be.visible");
     cy.wait(2000);
@@ -6124,20 +5415,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("All");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("All");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -6150,29 +5441,25 @@ cy.wait(500);
     cy.get("div[class='p-0 overflow-auto']").scrollTo("right")
     cy.get(this.locators.SelectCity).select("All");
     cy.wait(2000);
-   cy.get(this.locators.selectmanager)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure dropdown is loaded
+      cy.get(this.locators.selectmanager)
+  .find('option') 
   .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-    cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  });
-
-cy.wait(500);
-    cy.wait(2000);
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('30-09-2027');
+    cy.get(this.locators.Contactexpiredate).type('30-09-2026');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
     cy.get(this.locators.submitagency).click({force:true}).should("be.visible");
-    cy.wait(5000);
+    cy.wait(3000);
     // cy.contains("The ContractExpireDate field is required.").should("be.visible");
 
   }
@@ -6186,51 +5473,29 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-     cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);    
+
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
-      cy.get(this.locators.selectAgencyType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
-  });
-
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
-  });
-  cy.wait(2000);
+    cy.get(this.locators.selectAgencyType).select("Collections");
+    cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
+    cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -6281,26 +5546,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -6355,20 +5603,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("All");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("All");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -6380,29 +5628,25 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectCity).select("All");
     cy.wait(2000);
-   cy.get(this.locators.selectmanager)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure dropdown is loaded
+      cy.get(this.locators.selectmanager)
+  .find('option') 
   .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-    cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  });
-
-cy.wait(500);
-    cy.wait(2000);
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2027');
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
     cy.get(this.locators.saveagency).click({force:true}).should("be.visible");
-    cy.wait(5000);
+    cy.wait(3000);
     // cy.contains("Agency profile is Saved as Draft").should("be.visible");
 
 
@@ -6418,51 +5662,28 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);  
+  cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
-     cy.get(this.locators.selectAgencyType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
-  });
-
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
-  });
-  cy.wait(2000);
+    cy.get(this.locators.selectAgencyType).select("Collections");
+    cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
+    cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -6513,26 +5734,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -6587,20 +5791,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("All");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("All");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -6614,27 +5818,23 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectCity).select("All");
     cy.wait(2000);
-   cy.get(this.locators.selectmanager)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure dropdown is loaded
+      cy.get(this.locators.selectmanager)
+  .find('option') 
   .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-    cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  });
-
-cy.wait(500);
-    cy.wait(2000);
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('30-09-2027');
+    cy.get(this.locators.Contactexpiredate).type('30-09-2026');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
-    cy.wait(5000);
+    cy.wait(3000);
     
   }
 
@@ -6647,51 +5847,29 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);   
+
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
-     cy.get(this.locators.selectAgencyType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
-  });
-
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
-  });
-  cy.wait(2000);
+    cy.get(this.locators.selectAgencyType).select("Collections");
+    cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
+    cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+     cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -6742,26 +5920,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -6816,19 +5977,19 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("All");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("All");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -6842,29 +6003,25 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectCity).select("All");
     cy.wait(2000);
-   cy.get(this.locators.selectmanager)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure dropdown is loaded
+      cy.get(this.locators.selectmanager)
+  .find('option') 
   .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-    cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  });
-
-cy.wait(500);
-    cy.wait(2000);
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2027');
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
     cy.get(this.locators.reset).click({force:true});
-    cy.wait(5000);
+    cy.wait(3000);
 
   }
 
@@ -6877,8 +6034,11 @@ cy.wait(500);
      cy.wait(2000);
      cy.get(this.locators.AddAgencey).click();
      cy.wait(2000);
-     cy.get(this.locators.fillAgencyName).type("ABCDEF");
-     cy.wait(2000);
+    const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
+cy.get(this.locators.fillAgencyName).type(agencyName);
+cy.wait(2000);  
+    
      cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
@@ -6886,40 +6046,16 @@ cy.wait(500);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
-      cy.get(this.locators.selectAgencyType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
-  });
-
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
-  });
-  cy.wait(2000);
+     cy.get(this.locators.selectAgencyType).select("Collections");
+     cy.wait(2000);
+     cy.get(this.locators.selectAgencySubType).select("Tele calling");
+     cy.wait(2000);
      cy.get(this.locators.fillpancard).type("ABCDE1234F");
      cy.wait(2000);
      cy.get(this.locators.fillTINNumber).type("123456");
      cy.wait(2000);
-     
-
-      const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
+     cy.get(this.locators.clickongenerateENcollectcode).click();
+     cy.wait(2000);
      //Address Details
      cy.get(this.locators.clickonaddressdetails).click();
      cy.wait(2000);
@@ -6971,26 +6107,9 @@ cy.wait(2000);
      cy.wait(2000);
      cy.get(this.locators.bankaccountnumber).type("1234567890");
      cy.wait(2000);
-     cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+     cy.get(this.locators.bankname).select("ANDHRA BANK");
      cy.wait(2000);
-     cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+     cy.get(this.locators.bankbranchname).select("ACHANTA");
      cy.wait(2000);
      cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
      cy.wait(2000);
@@ -7045,20 +6164,20 @@ cy.wait(500);
      //////-----------------
      cy.get(this.locators.scopeofword).click();
      cy.wait(2000);
-     cy.get(this.locators.productgroup).select("All");
+     cy.get(this.locators.productgroup).select("Loans");
      cy.wait(2000);
      cy.get(this.locators.product).select("All");
      cy.wait(2000);
-     // cy.get(this.locators.subproduct).select("Personal Loan");
+     //cy.get(this.locators.subproduct).select("Personal Loan");
      cy.wait(2000);
  
      cy.get(this.locators.placeofwork).click();
      cy.wait(2000);
-     cy.get(this.locators.selectpg).select("All");
+     cy.get(this.locators.selectpg).select("Loans");
      cy.wait(2000);
      cy.get(this.locators.selectp).select("All");
      cy.wait(2000);
-     cy.get(this.locators.selectsubp).select("All");
+     //cy.get(this.locators.selectsubp).select("Personal Loan");
      cy.wait(2000);
      cy.get(this.locators.selectbucket).select("1");
      cy.wait(2000);
@@ -7072,29 +6191,25 @@ cy.wait(500);
      cy.wait(2000);
      cy.get(this.locators.SelectCity).select("All");
      cy.wait(2000);
-    cy.get(this.locators.selectmanager)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure dropdown is loaded
+       cy.get(this.locators.selectmanager)
+  .find('option') 
   .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-    cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  });
-
-cy.wait(500);
-     cy.wait(2000);
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  }); cy.wait(2000);
      cy.get(this.locators.clickonARD).click();
      cy.wait(2000);
-     cy.get(this.locators.firstagreementdate).type('02-04-2024');
+     cy.get(this.locators.firstagreementdate).type('02-01-2026');
      cy.wait(2000);
-     cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+     cy.get(this.locators.lastrenewaldate).type('20-02-2026');
      cy.wait(2000);
-     cy.get(this.locators.Contactexpiredate).type('31-08-2027');
+     cy.get(this.locators.Contactexpiredate).type('31-08-2028');
      cy.wait(2000);
      cy.get(this.locators.addremark).type("This is ok",{force:true});
      cy.wait(2000);
      cy.get('#btn-save').click();
-     cy.wait(5000);
+     cy.wait(3000);
      cy.contains("Agency profile is Saved as Draft.").should("be.visible");
 
 
@@ -7109,51 +6224,29 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);    
+
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
-     cy.get(this.locators.selectAgencyType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
-  });
-
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
-  });
-  cy.wait(2000);
+    cy.get(this.locators.selectAgencyType).select("Collections");
+    cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
+    cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -7204,26 +6297,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -7278,20 +6354,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("All");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("All");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -7305,29 +6381,25 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectCity).select("All");
     cy.wait(2000);
-   cy.get(this.locators.selectmanager)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure dropdown is loaded
+      cy.get(this.locators.selectmanager)
+  .find('option') 
   .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-    cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  });
-
-cy.wait(500);
-    cy.wait(2000);
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('30-09-2027').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).type('30-09-2026').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true}).should("be.visible");
     cy.wait(2000);
     cy.get('#btn-reset').click();
-    cy.wait(5000);
+    cy.wait(3000);
     
 
 
@@ -7343,51 +6415,29 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);    
+
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
-     cy.get(this.locators.selectAgencyType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
-  });
-
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
-  });
-  cy.wait(2000);
+    cy.get(this.locators.selectAgencyType).select("Collections");
+    cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
+    cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-
-     const randomDigit = Math.floor(10000000 + Math.random() * 90000000);
-
-cy.get('.col-md-6.ng-star-inserted > .form-control')
-  .clear()
-  .type(randomDigit.toString());
-cy.wait(2000);
-     // cy.get(this.locators.clickongenerateENcollectcode).click();
-    // cy.wait(2000);
+   // const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+    //  cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+    cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
@@ -7438,26 +6488,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure options are loaded
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // safer way to get text
-
-    cy.get(this.locators.bankname).select(randomText, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname)
-  .find('option')
-  .should('have.length.greaterThan', 1)
-  .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomValue = $options.eq(randomIndex).val();
-    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
-  });
-cy.wait(500);
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -7512,20 +6545,20 @@ cy.wait(500);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("All");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    // cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("All");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -7539,24 +6572,20 @@ cy.wait(500);
     cy.wait(2000);
     cy.get(this.locators.SelectCity).select("All");
     cy.wait(2000);
-   cy.get(this.locators.selectmanager)
-  .find('option')
-  .should('have.length.greaterThan', 1) // ensure dropdown is loaded
+      cy.get(this.locators.selectmanager)
+  .find('option') 
   .then($options => {
-    const randomIndex = Math.floor(Math.random() * ($options.length - 1)) + 1; // skip placeholder
-    const randomText = $options.eq(randomIndex).text().trim(); // get visible text
-    cy.get(this.locators.selectmanager).select(randomText, { force: true });
-  });
-
-cy.wait(500);
-    cy.wait(2000);
+    const randomIndex = Math.floor(Math.random() * $options.length); 
+    const randomValue = $options.eq(randomIndex).val(); 
+    cy.get(this.locators.selectmanager).select(randomValue);
+  });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2027');
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
@@ -7586,7 +6615,6 @@ cy.wait(500);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
     cy.contains("Agency Name is required.").should("be.visible");
     cy.wait(1000);
     cy.get(this.locators.fillAgencyName).type("ab");
@@ -7598,7 +6626,6 @@ cy.wait(2000);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
   cy.wait(1000);
     cy.contains("Agency Name must be at least 4 characters long").should("be.visible")
 
@@ -7613,39 +6640,22 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
+cy.wait(2000);  
 
-   cy.get(this.locators.selectRecommendingOfficer)
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
-    cy.get(this.locators.selectAgencyType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
-  });
-
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
-  });
-  cy.wait(2000);
+    cy.get(this.locators.selectAgencyType).select("Collections");
+    cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
+    cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDEfghijk");
     cy.wait(2000);
     cy.contains("Enter a valid pan card number.").should("be.visible");
@@ -7664,38 +6674,22 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.AddAgencey).click();
     cy.wait(2000);
-   const agencyName = faker.word.noun(); 
+   const agencyNameRaw = faker.word.sample({ length: { min: 6, max: 12 } });
+const agencyName = agencyNameRaw.charAt(0).toUpperCase() + agencyNameRaw.slice(1);
 cy.get(this.locators.fillAgencyName).type(agencyName);
-cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer)
+cy.wait(2000);   
+
+cy.get(this.locators.selectRecommendingOfficer)
   .find('option') 
   .then($options => {
     const randomIndex = Math.floor(Math.random() * $options.length); 
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-cy.wait(2000);
-      cy.get(this.locators.selectAgencyType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
-  });
-
-cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
-  });
-  cy.wait(2000);
+    cy.get(this.locators.selectAgencyType).select("Collections");
+    cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
+    cy.wait(2000);
     cy.get(this.locators.fillTIN).type("ABCD");
     cy.wait(2000);
     cy.contains("Enter a valid TIN Number").should("be.visible");
@@ -7704,56 +6698,7 @@ cy.wait(2000);
     cy.contains("Enter a valid TIN Number").should("be.visible");
   }
 
-  SearchAgency_088(){
-    const filePath = 'Aadhar_AboveSize.jpg';
-
- cy.get(this.locators.clickonusermanagement).click();
-    cy.wait(2000);
-    cy.get(this.locators.clickonAER).click();
-    cy.wait(2000);
-    cy.get(this.locators.AddAgencey).click();
-    cy.wait(2000);
-
-    cy.get(':nth-child(4) > .nav-link > span').click();
-    cy.wait(2000);
-
-     cy.get('#agencyaddFileBtn-0').click();
-    cy.wait(2000);
-    cy.get('input[type="file"]').eq(0)
-    .attachFile(filePath, { force: true });
-    cy.wait(2000);
-
-     cy.contains("File names should not contain special characters or spaces.").should("be.visible");
-  cy.wait(2000);
-
-
-  }
-
-   SearchAgency_089(){
-    const filePath = 'AadharAboveSize.jpg';
-
- cy.get(this.locators.clickonusermanagement).click();
-    cy.wait(2000);
-    cy.get(this.locators.clickonAER).click();
-    cy.wait(2000);
-    cy.get(this.locators.AddAgencey).click();
-    cy.wait(2000);
-
-    cy.get(':nth-child(4) > .nav-link > span').click();
-    cy.wait(2000);
-
-     cy.get('#agencyaddFileBtn-0').click();
-    cy.wait(2000);
-    cy.get('input[type="file"]').eq(0)
-    .attachFile(filePath, { force: true });
-    cy.wait(2000);
-
-     cy.contains("File size must not exceed 2 MB.").should("be.visible");
-  cy.wait(2000);
-   }
-
-
-  SearchAgent(){
+  SearchAgent() {
     cy.get(this.locators.AgentEnplmnt).click();
     cy.get(this.locators.searchagent).click();
     cy.get(this.locators.approvalstatus).select('Pending Approval');

@@ -1,2 +1,0 @@
-Id,UserType,EmployeeId,FirstName,LastName,EmailId,MobileNumber,Department,Designation,BranchName,IsFailed,FailureReason
-3a1e5994d027e22e84bf002f7c8ecc0d,Telecaller,50235,,Kozey,hoyt@yopmail.com,6597015560,Collection Staff Backend,Accounts Operations,Bangalore,True, | First Name is required | BranchName is invalid

@@ -1,2 +1,0 @@
-Id,UserType,EmployeeId,FirstName,LastName,EmailId,MobileNumber,Department,Designation,BranchName,IsFailed,FailureReason
-3a1e59974b8ac951cae65058c63c30f3,FOS,32590,Alia,,alia@yopmail.com,1702772187,Collection Staff Backend,Accounts Operations,Bangalore,True, | Last Name is required | BranchName is invalid

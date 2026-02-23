@@ -37,7 +37,7 @@ describe('Add Staff - Scope of Work - User should be able to select all fields i
                 addStaffPage.fillmobilenumber(firstRow.MobileNumber);
                 addStaffPage.ClikonSOW();
                
-                cy.wait(500);
+                cy.wait(2000);
 
                 addStaffPage.ScopeOfWorkTestPage_02();
                   addStaffPage.clickonbbrm();

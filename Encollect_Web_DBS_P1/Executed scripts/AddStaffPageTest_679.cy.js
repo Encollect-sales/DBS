@@ -38,37 +38,37 @@ describe('Add Staff - Load - User should be able to enter maximum number of acco
               
 
                 cy.get(':nth-child(2) > .nav-link').click();
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.clickOnAdd();
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.fillDepartment('Agency Backend', 0); 
                 addStaffPage.fillDesignation('Agency Backend', 0); 
 
                   addStaffPage.ClikonSOW();
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.ScopeOfWorkTestPage_01();
-                cy.wait(500);
+                cy.wait(2000);
 
                  cy.get(':nth-child(4) > .nav-link').click();
-                cy.wait(500);
+                cy.wait(2000);
                 cy.get('#walletLimit').type(10000);
                 cy.wait(1000);
 
 
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.clickonbbrm();
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.fillbasebranch();
-                cy.wait(500);
+                cy.wait(2000);
                 
                 // addStaffPage.Clickonplaceofwork();
-                // cy.wait(500);
+                // cy.wait(2000);
                 // addStaffPage.fillareanpincode();
-                // cy.wait(500);
+                // cy.wait(2000);
                 // addStaffPage.clickonskill();
-                // cy.wait(500);
+                // cy.wait(2000);
                 // addStaffPage.fillnumberofaccountwithoutType();
-                // cy.wait(500);
+                // cy.wait(2000);
                 
             });
         });

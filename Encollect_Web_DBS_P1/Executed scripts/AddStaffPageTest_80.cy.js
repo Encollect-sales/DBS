@@ -38,11 +38,11 @@ describe('User Management - Add Staff-Once staff submitted for approval, email n
                 addStaffPage.filllastname(firstRow.LastName);
                 addStaffPage.fillemailid(firstRow.EmailID);
                 addStaffPage.fillmobilenumber(firstRow.MobileNumber);
-                
+                //addStaffPage.typeexistingcode();
                 addStaffPage.clickondandd();
-                cy.wait(500);
+                cy.wait(2000);
                 // addStaffPage.clickOnAdd();
-                // cy.wait(500);
+                // cy.wait(2000);
                 addStaffPage.fillDepartment('Audit and Risk', 0); 
                 addStaffPage.fillDesignation('Audit Manager', 0); 
                 cy.wait(1000);
@@ -50,31 +50,28 @@ describe('User Management - Add Staff-Once staff submitted for approval, email n
                 addStaffPage.clickonWallet();
 
                  addStaffPage.ClikonSOW();
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.ScopeOfWorkTestPage_01();
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.clickonbbrm();
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.fillbasebranch();
-                cy.wait(500);
+                cy.wait(2000);
                 
                 // addStaffPage.clickonPlaceOkWork();
-                // cy.wait(500);
+                // cy.wait(2000);
                 // addStaffPage.ClickOnSkill();
                 // cy.wait(5000);
                 addStaffPage.clickonsubmitstaffprofile();
                 cy.wait(3000);
                 cy.get('#empStatus').select("Pending Approval");
-                cy.wait(500);
+                cy.wait(2000);
                 cy.get('#btn-search').click();
                 cy.wait(2000);
                 cy.get('.avatar').click();
-                cy.wait(500);
+                cy.wait(2000);
                 cy.get(':nth-child(3) > .dropdown-item').click();
                 cy.wait(5000);
-
-               
-
                
                 
                       });
@@ -94,13 +91,13 @@ describe('User Management - Add Staff-Once staff submitted for approval, email n
                         loginPage.login(user.Companyname, user.email, user.password);
 
                         addStaffPage.Clikonusermanagement();
-                        cy.wait(500);
+                        cy.wait(2000);
                         addStaffPage.ClickonSttafEmp();
-                        cy.wait(500);
+                        cy.wait(2000);
                         addStaffPage.clickSearchStaff();
-                        cy.wait(500);
+                        cy.wait(2000);
                         addStaffPage.Approval();
-                        cy.wait(500);
+                        cy.wait(2000);
 
                     });
 

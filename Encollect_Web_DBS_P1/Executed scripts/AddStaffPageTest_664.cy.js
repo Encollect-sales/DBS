@@ -34,9 +34,9 @@ describe('Add Staff - Department and Designations - User should be able to add d
                     addStaffPage.filllastname(firstRow.LastName);
                     addStaffPage.fillemailid(firstRow.EmailID);
                     addStaffPage.fillmobilenumber(firstRow.MobileNumber);
-                    cy.wait(500);
+                    cy.wait(2000);
                 addStaffPage.clickondandd();
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.seleDD64();
             });
         });

@@ -1,2 +1,0 @@
-Id,UserType,EmployeeId,FirstName,LastName,EmailId,MobileNumber,Department,Designation,BranchName,IsFailed,FailureReason
-3a1e5990eecb201a7c4a05801efd3c19,FOS,,Geraldine,Doyle,geraldine@yopmail.com,3711219095,Audit,Audit Manager,Bangalore,True, | Employee Id is required | BranchName is invalid

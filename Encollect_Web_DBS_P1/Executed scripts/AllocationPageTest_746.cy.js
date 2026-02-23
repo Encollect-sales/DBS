@@ -27,7 +27,7 @@ describe('Allocation - Primary Allocation by filters - User should be able to se
            allocationPage.ClickonallocationPAF();
            allocationPage.fillproductgroupPAF6();
            allocationPage.fillproductPAF6();
-        //    allocationPage.fillsubproductPAF6();
+           allocationPage.fillsubproductPAF6();
             
 
         });

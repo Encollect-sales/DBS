@@ -1,11 +1,13 @@
 {
-   "loginPage": {
+    "loginPage": {
+
 
       "selectradio":".form-radio-group > :nth-child(1)",
       "selectradio_agency":".form-radio-group > :nth-child(2) > .ng-valid",
 
+      
     "companynameInput": "#login-company-name",
-    "ClickonCompanyName": "#ngb-typeahead-0-0",
+    "ClickonCompanyName": ".ng-option-label",
     "usernameInput": "#login-email",
     "passwordInput": "#login-password",
     "signinButton": "#login-submit-button",
@@ -13,6 +15,7 @@
      "profile" : ".avatar-info",
     "logoutButton" : ":nth-child(4) > .dropdown-item"
     },
+
 
     "addstaffPage": {
       "clickonum": "a[title='User Management'] span[class='ng-star-inserted']",
@@ -141,9 +144,9 @@
       "ClickAGBA":".allocation > :nth-child(2) > :nth-child(2) > .sub-nav-list > :nth-child(1) > a",
       "upload":":nth-child(6) > :nth-child(1) > .btn",
       "uploadallocation" : ".allocation > :nth-child(2) > :nth-child(1) > .sub-nav-list > :nth-child(1) > a",
-      "pg_select" : "#Productgroup",
-      "product_select" : "#Product",
-      "subproduct_select" : "#SubProduct",
+      "pg_select" : ":nth-child(2) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "product_select" : ":nth-child(3) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "subproduct_select" : ":nth-child(4) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
       "notallocated" : "#notAllocatedToAgency",
       "download" : "#downloadAccounts",
       "AllocFilter":"a[title='Allocation Filters']",
@@ -163,6 +166,7 @@
       "ClickOnOK":"#confirm-dialog-okay",
       "ConnfirmUpload":"#upload",
       "uploadfile" : "input[name='attachedFile']",
+      "Click_UploadBtn":"#upload",
       "collectorallocation" : "body > app-root:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-navbar:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(5) > a:nth-child(1) > span:nth-child(2)",
       "CAtempltdd" : "select[name='template']",
       "CAdownloadtemplt" : ".ng-star-inserted > .btn",
@@ -177,9 +181,9 @@
       "PrimaryAS" : "a[title='Agency Allocation Status']",
       "clickonPAF" : ".allocation > :nth-child(2) > :nth-child(4) > .sub-nav-list > :nth-child(1) > a",
       "clickonPF" : "[heading='Product Filter'] > .panel > .panel-heading > .panel-title > .accordion-toggle",
-      "pg_select_PAF" : "select[name='ProductGroup']",
-      "product_select_PAF" : "select[name='Product']",
-      "subproduct_select_PAF" : "select[name='SubProduct']",
+      "pg_select_PAF" : ".panel-open > .panel > .panel-collapse > .panel-body > .row > :nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "product_select_PAF" : ".panel-open > .panel > .panel-collapse > .panel-body > .row > :nth-child(2) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "subproduct_select_PAF" : ".panel-open > .panel > .panel-collapse > .panel-body > .row > :nth-child(3) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
       "clickonBF" : "[heading='Bucket Filter'] > .panel > .panel-heading > .panel-title > .accordion-toggle > .btn",
       "clickonOF" : "accordion-group[heading='Other Filter'] div[role='button']",
       "clickonDPD" : "input[name='currentDPD']",
@@ -189,19 +193,19 @@
       "BOMBucket" : "select[name='bucket']",
       "UCAB" : "body > app-root:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-navbar:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(5) > a:nth-child(1) > span:nth-child(2)",
       "Geography_Filter" : "[heading='  Geography Filter'] > .panel > .panel-heading > .panel-title > .accordion-toggle",
-      "GF_country" : "#Country",
-      "GF_region" : "#Region",
-      "GF_state" : "#State",
-      "GF_city" : "#City",
-      "GF_branch" : "#Branch",
+      "GF_country" : ".panel-open > .panel > .panel-collapse > .panel-body > .row > :nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "GF_region" : ".panel-open > .panel > .panel-collapse > .panel-body > .row > :nth-child(2) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "GF_state" : ".panel-open > .panel > .panel-collapse > .panel-body > .row > :nth-child(3) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "GF_city" : ":nth-child(4) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "GF_branch" : ":nth-child(5) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
       "Unallocated_Accounts" : "input[name='unallocated']",
       "Allocated_Accounts" : "input[name='allocated']",
       "SearchOF" : ".btn-secondary",
       "clickonSAF" : "body > app-root:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-navbar:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(10) > a:nth-child(1) > span:nth-child(2)",
       "clickonSPF" : "accordion-group[heading='Product Filter'] div[role='button']",
-      "pg_select_SAF" : "select[name='ProductGroup']",
-      "product_select_SAF" : "select[name='Product']",
-      "subproduct_select_SAF" : "select[name='SubProduct']",
+      "pg_select_SAF" : ".panel-open > .panel > .panel-collapse > .panel-body > .row > :nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "product_select_SAF" : ".panel-open > .panel > .panel-collapse > .panel-body > .row > :nth-child(2) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "subproduct_select_SAF" : ".panel-open > .panel > .panel-collapse > .panel-body > .row > :nth-child(3) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
       "clickonUAAOS" : "body > app-root:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-navbar:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(12) > a:nth-child(1) > span:nth-child(2)",
       "clickonUAAOSFailed" : "select[name='status']",
       "clickonUAAOSFailed1" : ":nth-child(3) > .form-group > .form-control",
@@ -232,7 +236,7 @@
       "currentDPD" : "input[name='currentDPD']",
       "dpderr" : "div[aria-label='Invalid DPD']",
       "dellstring" : "input[name='delstring']",
-      "BomBu":"#BomBucket",
+      "BomBu":".panel-open > .panel > .panel-collapse > .panel-body > .row > .col-lg-4.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
       "delstrErr" : "div[aria-label='Invalid Delstring']",
       "Otherfield" : "[heading='Other Filter'] > .panel > .panel-heading > .panel-title > .accordion-toggle > .btn",
       "CustomerName" : "input[name='customerName']",
@@ -249,7 +253,7 @@
       "cancelbtn" : "#confirm-dialog-cancel",
       "Secondryallctn" : "a[title='Agent Allocation by Filters']",
       "Semptyerr" : ".ng-trigger",
-      "SAllAccbtn" : ":nth-child(2) > .ng-pristine",
+      "SAllAccbtn" : "#Allocated",
       "Allocation_SearchResult": "#AllocateToAgency",
       "AllocateToAgency": ":nth-child(2) > .col-md-12 > .ng-untouched",
       "TCAgency": ":nth-child(2) > :nth-child(2) > .form-group > .form-control",
@@ -259,11 +263,11 @@
       "CancelButton": ".btn-danger",
       "dashboardOnAllocation": ".name-width",
       "SAF_Geography_Filter" : "accordion-group:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(1) div:nth-child(1) button:nth-child(1)",
-      "SAF_GF_country" : "#Country",
-      "SAF_GF_region" : "#Region",
-      "SAF_GF_state" : "#State",
-      "SAF_GF_city" : "#City",
-      "SAF_GF_branch" : "#Branch",
+      "SAF_GF_country" : ".panel-open > .panel > .panel-collapse > .panel-body > .row > :nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "SAF_GF_region" : ".panel-open > .panel > .panel-collapse > .panel-body > .row > :nth-child(2) > .form-control-group > .form-ng-select > .ng-select-container",
+      "SAF_GF_state" : ".panel-open > .panel > .panel-collapse > .panel-body > .row > :nth-child(3) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "SAF_GF_city" : ":nth-child(4) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "SAF_GF_branch" : ":nth-child(5) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
       "AccountNumber" : "[heading='Other Filter'] > .panel > .panel-collapse > .panel-body > .row > :nth-child(2) > .form-group > .form-control",
       "SAF_Unallocated_Accounts" : "#unAllocated",
       "SAF_Allocated_Accounts" : "#Allocated",
@@ -272,9 +276,9 @@
       "FilenamePAS" : "#Filename",
       "FileuploadPAS" : "#fileuploaddate",
       "clickonUAAO" : "body > app-root:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-navbar:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(11) > a:nth-child(1) > span:nth-child(2)",
-      "ProductGroupUAAO" : "#Productgroup",
-      "ProductUAAO" : "#Product",
-      "SubproducUAAO": "#SubProduct",
+      "ProductGroupUAAO" : ":nth-child(2) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "ProductUAAO" : ":nth-child(3) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "SubproducUAAO": ":nth-child(4) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
       "ClickonNotAllocatedAgency" : "#notAllocatedToAgency",
       "ClickondownloadaccountsUAAO" : ".btn-set > .btn",
       "ClickOnAgBAAccLevelDownBtn":"#downloadAccounts",
@@ -296,12 +300,12 @@
       "UAABUpload" : "input[name='attachedFile']",
       "UAABAllocationOwner" : ":nth-child(3) > .ng-valid",
       "uploadextensionErr" : ".toast-info > .ng-tns-c2308121496-5",
-      "UAABbucket" : "#BomBucket",
-      "UAABCountry" : "#Country",
-      "UAABRegion" : "#Region",
-      "UAABState" : "#State",
-      "UAABCity" : "#City",
-      "UAABbranch" : "#Branch",
+      "UAABbucket" : ":nth-child(5) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "UAABCountry" : ":nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "UAABRegion" : ":nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "UAABState" : ":nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "UAABCity" : ":nth-child(9) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "UAABbranch" : ":nth-child(10) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
       "UAABUploadfile" : ":nth-child(3) > .btn",
       "Allocation_Batch" : "body > app-root:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-navbar:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(11) > a:nth-child(1) > span:nth-child(2)",
       "Allocation_Primary" : "#Template",
@@ -334,9 +338,10 @@
       "clickonaccountnumber" : "tbody > :nth-child(1) > :nth-child(4) > a",
       "basicinfo" : "#basicinfo > .panel > .panel-heading > .panel-title > .accordion-toggle",
       "UplAllowner":".allocation > :nth-child(2) > :nth-child(3) > a.ng-star-inserted",
-      "Uploadallstatus":"a[title='Allocation Owner Upload Status']"
+      "Uploadallstatus":"a[title='Allocation Owner Upload Status']",
 
-      
+      "SelectBucket":":nth-child(5) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
+      "SelectCountry":":nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input"
 
     }, 
 
@@ -365,7 +370,7 @@
       "clickonemail" : ":nth-child(1) > :nth-child(12) > .fa-envelope",
       "clickonphone" : ":nth-child(4) > :nth-child(12) > .fa-phone",
       "SearchandEditBatch" : "a[title='Search and Edit Batch']",
-      "fillbranchid" : "input[name='BatchId']",
+      "fillbranchid" : "input",
       "searchbranchID" : ".btn",
       "selectreceipt" : "tr.ng-star-inserted > .ng-star-inserted > input",
       "clickonsearch66" : ".btn-success",
@@ -478,9 +483,10 @@
       "selectmodeofpayment071" : "select[name='paymentMode']",
       "clickonsearch071" : ".btn",
       "Searchresult" : "div[class='history-table'] h3",
-      "SearchandPrintBatch1398" : "a[title='Search and Print Batch']",
+      "SearchandPrintBatch" : "a[title='Search and Print Batch']",
+       "Select_BatchID":"input",
       "selectbatchid1398" : "[value='0: Object']",
-      "clickonsearch1398" : "button[type='submit']",
+      "clickonsearch1398" : "#search-button",
       "Agencydetails" : "h4.title",
       "SearchandViewPayinSlipID1399" : ".payments > :nth-child(2) > :nth-child(3) > .sub-nav-list > :nth-child(2) > a",
       "clickonsearch1399" : "button[type='submit']",
@@ -524,7 +530,7 @@
     },
 
 
-   "UserManagementPage": {
+    "UserManagementPage": {
       "clickonusermanagement" : "a[title='User Management'] span[class='ng-star-inserted']",
       "ClickOnAddAgency":"a[title='Add Agency']",
       "clickonAER" : "a[title='Agency Empanelment']",
@@ -551,7 +557,7 @@
       "clickonbankingdetails" : ":nth-child(3) > .nav-link > span",
       "accountholdername" : "input[name='accountHolderName']",
       "bankaccountnumber" : "input[name='bankAccountNo']",
-      "bankname" : "#bankName",
+      "bankname" : "select[name='bankName']",
       "bankbranchname" : "select[name='bankBranchId']",
       "bankifsccode" : "input[name='branchCode']",
       "gstnumber" : "input[name='gstin']",
@@ -659,7 +665,7 @@
       "approve" : ".btn-success"
     },
 
-      "agentemplimentationRequest": {
+    "agentemplimentationRequest": {
       "companynameInput": ":nth-child(1) > .form-control",
       "LocalAddressDetails":"",
       "Departmentdesignation":":nth-child(2) > .nav-link > span",
@@ -778,33 +784,15 @@
       "button": ".btn",
       "SelectUsertype":"#userType",
 
-      "ClickOn_Agent_ScopeOfWork":":nth-child(6) > .nav-link > span",
 
-      "ClickOn_productgroup":"[for='product-scope-HL01']",
-      "ClickOn_Product":"[for='product-scope-HL02']",
-      "ClickOn_SubProduct":"#product-scope-HL03",
+      "Productoption1":"label[for='product-scope-HL01']",
+      "productoption1_Suboptions":".col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper",
+      "selectsuboptions":".ng-option-label.ng-star-inserted",
 
-      "ClickOn_product_panel":".panel-open > .panel > .panel-heading > .panel-title",
-
-      "Select_product_group":".col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
-      "Select_Product":".col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
-      "Select_Sub_product":".col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input",
-
-      "ClickOnBucket_head":"[heading='Bucket'] > .panel > .panel-heading > .panel-title",
-      "ClickonBucket_Dropdown":".col-md-12 > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper",
-
-      "ClickOnGeography_head":"[heading='Geography'] > .panel > .panel-heading > .panel-title",
-      "Select_Country_Dropdown":".col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper",
-      "Select_region_Dropdown":".col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper",
-      "Select_State_Dropdown":".col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper",
-      "Select_city_Dropdown":".col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper",
-    "Select_branch_Dropdown":".col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper",
-
-    "Product_Panel":".panel-open > .panel > .panel-heading > .panel-title",
-    "Bucket_panel_open":".panel-open > .panel > .panel-collapse > .panel-body > .row > .col-md-12 > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper",
-    "Geography_panel_open":".panel-open > .panel > .panel-collapse > .panel-body > .row > .col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container",
-    "geography_Panel_close":".panel-open > .panel > .panel-heading > .panel-title"
-
+      "ClickOnBucketHead":"[heading='Bucket'] > .panel > .panel-heading > .panel-title",
+      "ClickOnBucket":"ng-select[placeholder='Search and select your Bucket(s)'] input[role='combobox']",
+      
+      "SelectAgencyReportManager":"#reportingManager > .ng-select-container > .ng-value-container > .ng-input > input"
 
     },
 
@@ -831,17 +819,17 @@
       "EnterCusId":"input[placeholder='Enter customer id']",
       "ClickToggal":"#toggleButton",
       "clickonAccNoLink":"tbody tr:nth-child(1) td:nth-child(4) a:nth-child(1)",
-      "ClicktrailHist":"li:nth-child(15) span:nth-child(1)",
-      "ClickNoteHistory":":nth-child(18) > .dropdown-item",
+      "ClicktrailHist":":nth-child(13) > .dropdown-item",
+      "ClickNoteHistory":":nth-child(19) > .dropdown-item",
       "ClickOnAdd":".m-2 > .btn",
       "SelectNoteCode":"select[name='NoteCode']",
       "EnterNotes":"input[name='Notes']",
       "ClickOnSave":"span[title='Save']",
       "ClickCancelNote":"span[title='Cancel']",
-      "ClickOnflag":":nth-child(19) > .dropdown-item",
+      "ClickOnflag":":nth-child(18) > .dropdown-item",
       "SelectFlag":"select[name='name']",
       "SelectFlagAct":"select[name='isActive']",
-      "ClickFilter":".btn.btn-outline-dark.mw-150px.ms-4.position-relative.mr-4",
+      "ClickFilter":".w-100 > .btn-outline-dark",
 
       "UserMangment":"a[title='User Management']",
       "BulkUpload":"a[title='Bulk Upload']",

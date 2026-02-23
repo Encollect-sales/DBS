@@ -1,2 +1,0 @@
-Id,UserType,EmployeeId,FirstName,LastName,EmailId,MobileNumber,Department,Designation,BranchName,IsFailed,FailureReason
-3a1e599b1cd0a6c87190b57f2f4f32ad,Telecaller,37696,Constantin,Funk,constantin@yopmail.com,,Collection Staff Frontend,DBS Telecaller,Bangalore,True, | Mobile Number is required | BranchName is invalid

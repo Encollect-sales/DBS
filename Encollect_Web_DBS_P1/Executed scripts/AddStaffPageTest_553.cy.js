@@ -25,13 +25,13 @@ describe('Add staff - Department and Designations - Agency Backend - User should
                 cy.wait(2000);
                 addStaffPage.Clikonusermanagement();  // Use the method without click
                 addStaffPage.ClickonSttafEmp();
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.Clikonaddstaff();
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.clickondandd();
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.fillDepartment('Audit and Risk', 0); 
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.fillDesignation('Risk officer', 0); 
                 addStaffPage.clickOnAdd(); 
                 addStaffPage.fillDepartment('Audit and Risk', 0); 

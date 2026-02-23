@@ -38,25 +38,25 @@ describe('UserManagement - Add Staff - Logged in user to validate the values of 
               
 
                 addStaffPage.clickondandd();
-                cy.wait(500);
+                cy.wait(2000);
                 // addStaffPage.clickOnAdd();
-                // cy.wait(500);
+                // cy.wait(2000);
                 addStaffPage.fillDepartment('Audit and Risk', 0); 
                 addStaffPage.fillDesignation('Audit Manager', 0); 
                 cy.wait(1000);
 
                 addStaffPage.clickonWallet();
                   addStaffPage.ClikonSOW();
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.ScopeOfWorkTestPage_02();
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.clickonbbrm();
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.fillbasebranch();
-                cy.wait(500);
+                cy.wait(2000);
                 
                 // addStaffPage.clickonPlaceOkWork();
-                // cy.wait(500);
+                // cy.wait(2000);
                 // addStaffPage.ClickOnSkill();
                 // cy.wait(5000);
                 // addStaffPage.clickonsavestaffprofile();

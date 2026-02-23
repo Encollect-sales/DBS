@@ -25,11 +25,11 @@ describe('Allocation - Upload Agency Allocation Batch -When the user trying to u
             loginPage.login(user.Companyname, user.email, user.password);
 
            allocationPage.Clickonallocation();
-           allocationPage.filltemplate2();
+           allocationPage.filltemplate3();
            allocationPage.clickondownloadTemplate();
            allocationPage.clickonRadioBtnAO();
            allocationPage.uploadfilewithSpclChrctr();
-           allocationPage.clickonOK700error();
+           allocationPage.clickonOK700();
 
            
 

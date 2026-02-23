@@ -35,9 +35,9 @@ describe('Add Staff - Department and Designations - Audit Officer - User should 
                 addStaffPage.filllastname(firstRow.LastName);
                 addStaffPage.fillemailid(firstRow.EmailID);
                 addStaffPage.fillmobilenumber(firstRow.MobileNumber);
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.clickondandd();
-                cy.wait(500);
+                cy.wait(2000);
                 addStaffPage.seleDD1();
 
                

@@ -41,7 +41,7 @@ class DashboardPage {
     cy.wait(1000);
     cy.contains('span.ng-option-label', 'Customer Name').click();
     cy.wait(1000);
-    cy.get(this.locators.EnterCustomeName).type("R ANBU").should("be.visible");
+    cy.get(this.locators.EnterCustomeName).type("Arun").should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.SearchButton).click();
     cy.wait(2000);
@@ -108,7 +108,7 @@ class DashboardPage {
     cy.wait(1000);
     cy.contains('span.ng-option-label', 'Customer Name').click();
     cy.wait(1000);
-    cy.get(this.locators.EnterCustomeName).type("R ANBU").should("be.visible");
+    cy.get(this.locators.EnterCustomeName).type("Arun").should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.SearchButton).click();
     cy.wait(2000);
@@ -147,7 +147,7 @@ class DashboardPage {
     cy.wait(1000);
     cy.contains('span.ng-option-label', 'Customer Name').click();
     cy.wait(1000);
-    cy.get(this.locators.EnterCustomeName).type("R ANBU").should("be.visible");
+    cy.get(this.locators.EnterCustomeName).type("Arun").should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.SearchButton).click().should("be.visible");
     cy.wait(2000);
@@ -164,7 +164,7 @@ class DashboardPage {
     cy.wait(1000);
     cy.contains('span.ng-option-label', 'Customer Name').click();
     cy.wait(1000);
-    cy.get(this.locators.EnterCustomeName).type("R ANBU").should("be.visible");
+    cy.get(this.locators.EnterCustomeName).type("Arun").should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.SearchButton).click().should("be.visible");
     cy.wait(2000);
@@ -194,7 +194,7 @@ class DashboardPage {
     cy.wait(1000);
     cy.contains('span.ng-option-label', 'Customer Name').click();
     cy.wait(1000);
-    cy.get(this.locators.EnterCustomeName).type("R ANBU").should("be.visible");
+    cy.get(this.locators.EnterCustomeName).type("Arun").should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.SearchButton).click().should("be.visible");
     cy.wait(2000);
@@ -224,7 +224,7 @@ class DashboardPage {
     cy.wait(1000);
     cy.contains('span.ng-option-label', 'Customer Name').click();
     cy.wait(1000);
-    cy.get(this.locators.EnterCustomeName).type("R ANBU").should("be.visible");
+    cy.get(this.locators.EnterCustomeName).type("Arun").should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.SearchButton).click().should("be.visible");
     cy.wait(2000);
@@ -254,7 +254,7 @@ class DashboardPage {
     cy.wait(1000);
     cy.contains('span.ng-option-label', 'Customer Name').click();
     cy.wait(1000);
-    cy.get(this.locators.EnterCustomeName).type("R ANBU").should("be.visible");
+    cy.get(this.locators.EnterCustomeName).type("Arun").should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.SearchButton).click().should("be.visible");
     cy.wait(2000);
@@ -283,7 +283,7 @@ class DashboardPage {
     cy.wait(1000);
     cy.contains('span.ng-option-label', 'Customer Name').click();
     cy.wait(1000);
-    cy.get(this.locators.EnterCustomeName).type("R ANBU").should("be.visible");
+    cy.get(this.locators.EnterCustomeName).type("Arun").should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.SearchButton).click().should("be.visible");
     cy.wait(2000);
@@ -319,7 +319,7 @@ class DashboardPage {
     cy.wait(1000);
     cy.contains('span.ng-option-label', 'Customer Name').click();
     cy.wait(1000);
-    cy.get(this.locators.EnterCustomeName).type("R ANBU").should("be.visible");
+    cy.get(this.locators.EnterCustomeName).type("Arun").should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.SearchButton).click().should("be.visible");
     cy.wait(2000);
@@ -349,7 +349,7 @@ class DashboardPage {
     cy.wait(1000);
     cy.contains('span.ng-option-label', 'Customer Name').click();
     cy.wait(1000);
-    cy.get(this.locators.EnterCustomeName).type("R ANBU").should("be.visible");
+    cy.get(this.locators.EnterCustomeName).type("Arun").should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.SearchButton).click().should("be.visible");
     cy.wait(2000);
@@ -371,7 +371,7 @@ class DashboardPage {
     cy.wait(1000);
     cy.contains('span.ng-option-label', 'Customer Name').click();
     cy.wait(1000);
-    cy.get(this.locators.EnterCustomeName).type("R ANBU").should("be.visible");
+    cy.get(this.locators.EnterCustomeName).type("Arun").should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.SearchButton).click().should("be.visible");
     cy.wait(2000);
@@ -401,7 +401,7 @@ class DashboardPage {
     cy.wait(1000);
     cy.contains('span.ng-option-label', 'Customer Name').click();
     cy.wait(1000);
-    cy.get(this.locators.EnterCustomeName).type("R ANBU").should("be.visible");
+    cy.get(this.locators.EnterCustomeName).type("Arun").should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.SearchButton).click().should("be.visible");
     cy.wait(2000);
@@ -431,7 +431,7 @@ class DashboardPage {
     cy.wait(1000);
     cy.contains('span.ng-option-label', 'Customer Name').click();
     cy.wait(1000);
-    cy.get(this.locators.EnterCustomeName).type("R ANBU").should("be.visible");
+    cy.get(this.locators.EnterCustomeName).type("Arun").should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.SearchButton).click().should("be.visible");
     cy.wait(2000);
@@ -459,7 +459,7 @@ class DashboardPage {
     cy.wait(1000);
     cy.contains('span.ng-option-label', 'Customer Name').click();
     cy.wait(1000);
-    cy.get(this.locators.EnterCustomeName).type("R ANBU").should("be.visible");
+    cy.get(this.locators.EnterCustomeName).type("Arun").should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.SearchButton).click().should("be.visible");
     cy.wait(2000);
@@ -489,7 +489,7 @@ class DashboardPage {
     cy.wait(1000);
     cy.contains('span.ng-option-label', 'Customer Name').click();
     cy.wait(1000);
-    cy.get(this.locators.EnterCustomeName).type("R ANBU").should("be.visible");
+    cy.get(this.locators.EnterCustomeName).type("Arun").should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.SearchButton).click().should("be.visible");
     cy.wait(2000);
@@ -521,7 +521,7 @@ class DashboardPage {
     cy.wait(1000);
     cy.contains('span.ng-option-label', 'Customer Name').click();
     cy.wait(1000);
-    cy.get(this.locators.EnterCustomeName).type("R ANBU").should("be.visible");
+    cy.get(this.locators.EnterCustomeName).type("Arun").should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.SearchButton).click().should("be.visible");
     cy.wait(2000);
@@ -548,7 +548,7 @@ class DashboardPage {
     cy.wait(1000);
     cy.contains('span.ng-option-label', 'Customer Name').click();
     cy.wait(1000);
-    cy.get(this.locators.EnterCustomeName).type("R ANBU").should("be.visible");
+    cy.get(this.locators.EnterCustomeName).type("Arun").should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.SearchButton).click().should("be.visible");
     cy.wait(2000);
@@ -592,12 +592,12 @@ class DashboardPage {
     cy.wait(2000);
     cy.get(this.locators.ClicktrailHist).click();
     cy.wait(2000);
-    // cy.get(this.locators.ClickFilter).click();
-    // cy.wait(2000);
-    // cy.contains("Assigned User Id").scrollIntoView().should("be.visible");
-    // cy.wait(2000);
-    // cy.contains("Reason For Assignment").scrollIntoView().should("be.visible");
-    // cy.wait(2000);
+    cy.get(this.locators.ClickFilter).click();
+    cy.wait(2000);
+    cy.contains("Assigned User Id").scrollIntoView().should("be.visible");
+    cy.wait(2000);
+    cy.contains("Reason For Assignment").scrollIntoView().should("be.visible");
+    cy.wait(2000);
 
 
   }
@@ -622,10 +622,10 @@ class DashboardPage {
     cy.wait(2000);
     cy.get(this.locators.ClicktrailHist).click();
     cy.wait(2000);
-    // cy.get(this.locators.ClickFilter).click();
-    // cy.wait(2000);
-    // cy.contains("Assigned User Id").click().should("be.visible");
-    // cy.wait(2000);
+    cy.get(this.locators.ClickFilter).click();
+    cy.wait(2000);
+    cy.contains("Assigned User Id").click().should("be.visible");
+    cy.wait(2000);
 
 
   }

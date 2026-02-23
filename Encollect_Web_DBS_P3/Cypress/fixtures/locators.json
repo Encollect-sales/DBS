@@ -1,7 +1,6 @@
 {
   "loginPage": {
-     "selectradio":".form-radio-group > :nth-child(1)",
-
+    "selectradio":".form-radio-group > :nth-child(1)",
   
       "selectradio_agency":".form-radio-group > :nth-child(2) > .ng-valid",
     "companynameInput": "#login-company-name",
