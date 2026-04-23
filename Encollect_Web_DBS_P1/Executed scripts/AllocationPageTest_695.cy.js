@@ -25,7 +25,7 @@ describe('Allocation - Upload Agency Allocation Batch -  user clicked on "ok" so
             loginPage.login(user.Companyname, user.email, user.password);
 
            allocationPage.Clickonallocation();
-           allocationPage.filltemplate();
+           allocationPage.filltemplate2();
            allocationPage.clickondownloadTemplate();
            allocationPage.clickonRadioBtnFA();
            allocationPage.uploadfile1_Spl_Chr();

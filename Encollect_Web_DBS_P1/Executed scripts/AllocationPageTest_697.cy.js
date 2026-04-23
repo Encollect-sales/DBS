@@ -28,7 +28,7 @@ describe('Allocation - Upload Agency Allocation Batch - user clicked on "ok" so 
            allocationPage.Clickonallocation();
            allocationPage.filltemplate2();
            allocationPage.clickondownloadTemplate();
-           allocationPage.clickonRadioBtnTCA();
+           allocationPage.clickonRadioBtnFA();
            allocationPage.uploadfile2();
            allocationPage.clickonOK();
 

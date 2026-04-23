@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-04-15T06:44:29.399Z",
+    "end": "2026-04-15T06:45:42.301Z",
+    "duration": 72902,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a7c7d06f-bfa6-454f-bfa0-3190ac7ff1cc",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\UserCreationTestPage_14b.cy.js",
+      "file": "cypress\\e2e\\tests\\UserCreationTestPage_14b.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d2950a61-e30e-4c73-aa95-320678b33ea0",
+          "title": "UserManagement -If user enters fathers name more than 40 characters then system will throw an error as Fathers Name cannot be more than 40 characters",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "User download the agent template If user enters fathers name more than 40 characters then system will throw an error as Fathers Name cannot be more than 40 characters. - TC_ID_02",
+              "fullTitle": "UserManagement -If user enters fathers name more than 40 characters then system will throw an error as Fathers Name cannot be more than 40 characters User download the agent template If user enters fathers name more than 40 characters then system will throw an error as Fathers Name cannot be more than 40 characters. - TC_ID_02",
+              "timedOut": null,
+              "duration": 68539,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _TestDataUtils.getTestData)('loginData', 'login2').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(900);\n  usercreationpage.UserCreationAgentTemplate_download();\n  const sheetName = 'Sheet1';\n  Cypress.on('uncaught:exception', (err, runnable) => {\n    if (err.message.includes('ResizeObserver loop completed with undelivered notifications.')) {\n      return false;\n    }\n  });\n  //############################################################################\n  const firstName = _faker.faker.name.firstName(); // B2\n  const lastName = _faker.faker.name.lastName(); // C2\n  const phoneNumber = _faker.faker.number.int({\n    min: 1000000000,\n    max: 9999999999\n  }).toString(); // 10-digit\n  const email = `${firstName.toLowerCase()}@yopmail.com`; // N2 - short, simple\n  //################################################################################\n  const data = {\n    'A2': 'Telecaller',\n    'B2': firstName,\n    'C2': lastName,\n    'D2': '2345',\n    'E2': '',\n    'F2': '435454',\n    'G2': '10-10-2020',\n    'H2': '10-10-2020',\n    'I2': '23577359447',\n    'J2': 'Agency Collection Staff Backend',\n    'K2': 'Agency Owner',\n    'L2': '18-10-1979',\n    'M2': phoneNumber,\n    'N2': email,\n    'O2': 'yofrhlrgtriughdknghijklnbinjgklbldfkjghilkbnrgihlrngkjniryhdklgjhiiuthp',\n    'P2': 'bakori',\n    'Q2': '765523',\n    'R2': '19-10-2022',\n    'S2': '19-10-2023',\n    'T2': '10-10-2033',\n    'U2': 'resr'\n  };\n  const downloadsFolder = Cypress.config('downloadsFolder');\n  const fixturesFolder = 'cypress/fixtures';\n  const excelFileName = 'AgentTemplate.xlsx';\n  const sourceFilePath = path.join(downloadsFolder, excelFileName);\n  const destFilePath = path.join(fixturesFolder, excelFileName);\n  // Update Excel File\n  cy.task('updateAgentTemplateCell', {\n    filePath: sourceFilePath,\n    sheetName: sheetName,\n    data: data\n  }).then(() => {\n    cy.log('Excel file updated successfully with new data');\n  });\n  cy.task('moveAllDownloadsToFixtures').then(result => {\n    cy.log(result);\n  });\n  // Upload the file from `fixtures/`\n  usercreationpage.UserCreationAgentTemplate_upload();\n});",
+              "err": {},
+              "uuid": "e007bdaa-50d1-4c4f-9d53-a968251ef448",
+              "parentUUID": "d2950a61-e30e-4c73-aa95-320678b33ea0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e007bdaa-50d1-4c4f-9d53-a968251ef448"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 68539,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

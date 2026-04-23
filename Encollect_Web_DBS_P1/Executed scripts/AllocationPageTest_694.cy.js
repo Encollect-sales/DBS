@@ -25,7 +25,7 @@ describe('Allocation - Upload Agency Allocation Batch - User selected template f
             loginPage.login(user.Companyname, user.email, user.password);
 
            allocationPage.Clickonallocation();
-           allocationPage.filltemplate();
+           allocationPage.filltemplate2();
            allocationPage.clickondownloadTemplate();
 
            

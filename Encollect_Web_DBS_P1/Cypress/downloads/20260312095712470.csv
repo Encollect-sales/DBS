@@ -1,0 +1,2 @@
+Id,UserType,EmployeeId,FirstName,LastName,EmailId,MobileNumber,Department,Designation,BranchName,IsFailed,FailureReason
+3a1ff50c7b5d726a0510ece775d6b439,Others,92811,Gisselle,Rau,gisselle@yopmail.com,2378241796,Branch Backend,Branch Manager,Bangalore,True, | Department is invalid | Designation is invalid | BranchName is invalid

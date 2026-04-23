@@ -1108,7 +1108,7 @@ class UserManagementPage {
   Datevalidation(){
     // cy.get(this.locators.clickonARD).click();
     // cy.wait(2000);
-    const filePath = 'Aadhar-image.png';
+    const filePath = 'Aadharimage.png';
     cy.get(this.locators.clickonusermanagement).click();
     cy.wait(2000);
     cy.get(this.locators.clickonAER).click();
@@ -1117,7 +1117,7 @@ class UserManagementPage {
     cy.wait(2000);
     cy.get(this.locators.fillAgencyName).type("ABCDEF");
     cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer).select("test user");
+    cy.get(this.locators.selectRecommendingOfficer).select("dbs admin");
     cy.wait(2000);
     cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
@@ -1127,9 +1127,6 @@ class UserManagementPage {
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-    cy.get(this.locators.clickongenerateENcollectcode).type("46745");
-    cy.wait(2000);
-    //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
     cy.wait(2000);
     cy.get(this.locators.primaryownerfirstname).type("Sachin");
@@ -1152,6 +1149,7 @@ class UserManagementPage {
     cy.wait(2000);
     cy.get(this.locators.postalcode).type("123456");
     cy.wait(2000);
+    cy.get(this.locators.landlineno).type("1234567890")
     //Banking details
     cy.get(this.locators.clickonbankingdetails).click();
     cy.wait(2000);
@@ -1159,9 +1157,9 @@ class UserManagementPage {
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get('#bankName').select('02930758BB334E3981C9EED3A554837A');
+    cy.get('#bankName').select('AXIS BANK');
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("AMBUR");
+    cy.get(this.locators.bankbranchname).select('ASIKA'); 
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -1251,12 +1249,15 @@ class UserManagementPage {
     cy.get(this.locators.Contactexpiredate).type('11-06-2026');
     cy.wait(2000);
     cy.get(this.locators.saveagencyprofile).click();
+    cy.wait(3000);
     // cy.get(this.locators.DateError).then(($el) => {
     //   const text = $el.text();
     //  cy.log(text);
     //  })
-
-
+   cy.get('[role="alert"]')
+  .should('be.visible')
+  .and('contain', 'Last Renewal Date must be greater than First Renewal date');
+   cy.wait(2000);
   }
 
   DatevalidationforExpiryDate(){
@@ -1272,7 +1273,7 @@ class UserManagementPage {
     cy.wait(2000);
     cy.get(this.locators.fillAgencyName).type("ABCDEF");
     cy.wait(2000);
-    cy.get(this.locators.selectRecommendingOfficer).select("test user");
+    cy.get(this.locators.selectRecommendingOfficer).select("dbs admin");
     cy.wait(2000);
     cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
@@ -1282,7 +1283,7 @@ class UserManagementPage {
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-    cy.get(this.locators.clickongenerateENcollectcode).type("899634");
+    cy.get(this.locators.tinnumber).type("112233445");
     cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
@@ -1307,6 +1308,8 @@ class UserManagementPage {
     cy.wait(2000);
     cy.get(this.locators.postalcode).type("123456");
     cy.wait(2000);
+    cy.get(this.locators.landlineno).type("123456890");
+    cy.wait(2000);
     //Banking details
     cy.get(this.locators.clickonbankingdetails).click();
     cy.wait(2000);
@@ -1314,9 +1317,9 @@ class UserManagementPage {
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("02930758BB334E3981C9EED3A554837A");
+    cy.get(this.locators.bankname).select("AXIS BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("AMBUR");
+    cy.get(this.locators.bankbranchname).select("ABRAMA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -1437,7 +1440,7 @@ class UserManagementPage {
     cy.get(this.locators.SASearch).click();
 
     cy.log('User click on showing More agencies option');
-    cy.get(this.locators.dropdownForMoreAgencies).select('10');
+    cy.get(this.locators.dropdownForMoreAgencies).select('5');
     cy.log('10 Results showing for agencies');
 
     cy.get(this.locators.paginationNoNext).click();

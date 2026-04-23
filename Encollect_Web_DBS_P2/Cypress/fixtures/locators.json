@@ -448,7 +448,8 @@
       "Searchandeditbatch1424" : "body > app-root:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-navbar:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(9) > a:nth-child(1) > span:nth-child(2)",
       "batchid1424" : ":nth-child(1) > .form-control",
       "batchstatus1424" : ".row > :nth-child(2) > .form-control",
-      "SearcButton3":"#search-button"
+      "SearcButton3":"#search-button",
+      "BatchType":"[name='receiptType']"
 
     },
 
@@ -954,7 +955,10 @@
 
       "paginationNoNext":".pagination-next > .page-link",
       "paginationNoPrevious":".pagination-prev > .page-link",
-      "ClickOnAgentEmpanelment":".user-management > :nth-child(2) > :nth-child(2) > a.ng-star-inserted"
+      "ClickOnAgentEmpanelment":".user-management > :nth-child(2) > :nth-child(2) > a.ng-star-inserted",
+"landlineno":"[name='secondaryContactNumber']",
+"tinnumber": "[name='tin']"
+
 
 
     },
@@ -1647,6 +1651,7 @@
       "CreateBOP":"a[title='Create Batch of Payments']",
       "PD_Group":"#search-product-group",
       "POfMode":"#search-payment-mode",
+      "ReceiptType":"[name='receiptType']",
       "CollCode":"#search-collector-code",
       "Collname":"#search-collector-name",
       "DateFrom":"#search-from-date",
@@ -1668,7 +1673,7 @@
       "DepoDate":"input[name='depositDate']",
       "BatchID":"ng-select[placeholder='Select Batch IDs']",
       "SubmitButton":"button[type='submit']",
-      "generate_paySlip":"button[type='button']",
+      "Generate_payInSlip":".btn-secondary",
       "Reset_Section":".btn.btn-outline-danger.mw-150px.ms-4",
       "Cancel":".btn.btn-danger.mw-150px.ms-4",
       "PrintButton":".btn.btn-secondary.print-btn.mw-150px",
@@ -1704,7 +1709,7 @@
       "Physical_receipt":"input[name='physicalReceiptNumber']",
       "Coll_Id":"input[name='collectorsList']",
       "Coll_Name":"input[name='collectorName']",
-      "Cust_Acc_Number":"input[name='account_no']",
+      "Cust_Acc_Number":"[name='account_no']",
       "Rel_with_Customer":"select[name='relationship_with_customer']",
       "Mode_of_payment":"select[name='collectionMode']",
       "Emi_Over_Due":"input[name='yOverdueAmount']",
@@ -1730,7 +1735,11 @@
       "Reason_of_canc":"textarea[name='remarks']",
       "Cancle_Yes":"modal-container[role='dialog'] button:nth-child(1)",
       "Cancel_No":"modal-container[role='dialog'] button:nth-child(2)",
-      "Approve":"button[class='btn btn-success mw-150px']"
+      "Approve":"button[class='btn btn-success mw-150px']",
+      "BatchType":"[name='receiptType']",
+      "Batch_ID":"[name='BatchId']"
+
+      
 
     },
 

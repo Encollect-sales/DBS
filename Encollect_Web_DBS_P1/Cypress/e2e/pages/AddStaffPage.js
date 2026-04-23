@@ -319,7 +319,7 @@ cy.get('.ng-option-label')
     cy.wait(1000);
     cy.get(this.locators.Select_product_group).click();
     cy.wait(1000);
-    cy.get(".ng-option").eq(3).click();
+    cy.get(".ng-option-label").click({ multiple: true });
     cy.wait(1000);
     cy.get(this.locators.Product_Panel).click()
     cy.wait(2000);
@@ -1229,7 +1229,7 @@ cy.get('.ng-option-label')
     cy.wait(2000);
     cy.get('#emailId').click();
     cy.wait(2000);
-    cy.get('#btn-save').click();
+    cy.get('#btn-save').click({force:true});
     cy.wait(2000);
     cy.contains("E-mail ID is required").should("be.visible");
     cy.wait(2000);

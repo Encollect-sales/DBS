@@ -1218,7 +1218,7 @@ SystemSettingTest_983(){
   }
 
   Systemsetting1026(){
-    cy.get(this.locators.clickOnSystemSetting).click();
+    cy. get(this.locators.clickOnSystemSetting).click();
     cy.wait(900);
     cy.get(this.locators.ClickAccountUpload).click();
     cy.wait(600);

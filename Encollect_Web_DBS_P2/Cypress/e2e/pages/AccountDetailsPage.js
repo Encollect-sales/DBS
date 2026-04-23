@@ -294,9 +294,9 @@ class AccountDetailsPage {
 
 
     cy.get('#customer_yes').click({ force: true });
-    cy.get(this.locators.dcg).select("PTP");
+    cy.get(this.locators.dcg).select("BPTP");
     cy.wait(200);
-    cy.get(this.locators.dc).select("PTP");
+    cy.get(this.locators.dc).select("BPTP");
     cy.wait(200);
     cy.get('#mode_of_communication').select("Call");
     cy.wait(2000);
@@ -447,19 +447,24 @@ class AccountDetailsPage {
     cy.wait(500)
     cy.get('.btn-secondary').click({ force: true });
     cy.wait(500);
-    cy.get('.action-icon-button').click();
+    cy.get(':nth-child(1) > .actions > .d-flex > .action-icon-button').click();
     cy.wait(500);
     cy.get(':nth-child(1) > .dropdown-item').click();
 
     cy.wait(2000)
     cy.get('#customer_yes').click();
     cy.wait(200);
-    cy.get(this.locators.dcg).select("PTP");
+    cy.get(this.locators.dcg).select("BPTP");
     cy.wait(200);
-    cy.get(this.locators.dc).select("PTP");
+    cy.get(this.locators.dc).select("BPTP");
     cy.wait(200);
-    cy.get(this.locators.ptp).type("17-07-2024");
+    cy.get(this.locators.ptp).type("23-02-2026");
     cy.wait(200);
+    cy.get('.today-date').click({force: true});
+    cy.wait(200);
+    
+
+
 
     cy.wait(500);
 
@@ -489,14 +494,14 @@ class AccountDetailsPage {
     cy.wait(1000)
     cy.get('.btn-secondary').click();
     cy.wait(500);
-    cy.get('.action-icon-button').click();
+    cy.get(':nth-child(1) > .actions > .d-flex > .action-icon-button').click();
     cy.wait(500);
     cy.get(':nth-child(1) > .dropdown-item').click();
 
     cy.get('#customer_yes').click();
-    cy.get(this.locators.dcg).select("PTP");
+    cy.get(this.locators.dcg).select("BPTP");
     cy.wait(200);
-    cy.get(this.locators.dc).select("PTP");
+    cy.get(this.locators.dc).select("BPTP");
     cy.wait(200);
     cy.get(this.locators.ptp).type("17-07-2024");
     cy.wait(200);
@@ -538,7 +543,7 @@ class AccountDetailsPage {
     cy.wait(500)
     cy.get('.btn-secondary').click();
     cy.wait(500);
-    cy.get('.action-icon-button').click();
+    cy.get(':nth-child(1) > .actions > .d-flex > .action-icon-button').click();
 
     // Log the parent HTML to see the structure
 
@@ -664,9 +669,9 @@ class AccountDetailsPage {
 
     cy.get(this.locators.Radio_yes).click();
     cy.wait(3000);
-    cy.get(this.locators.Disp_Code_Group).select("PTP");
+    cy.get(this.locators.Disp_Code_Group).select("BPTP");
     cy.wait(5000);
-    cy.get(this.locators.Dis_code).select("PTP");
+    cy.get(this.locators.Dis_code).select("BPTP");
     cy.wait(5000);
     cy.get(this.locators.Short_Discription).type("AAASNNDND");
     cy.wait(5000);
@@ -751,9 +756,9 @@ class AccountDetailsPage {
     cy.wait(5000);
     cy.get(this.locators.Radio_yes).click();
     cy.wait(5000);
-    cy.get(this.locators.Disp_Code_Group).select("PTP");
+    cy.get(this.locators.Disp_Code_Group).select("BPTP");
     cy.wait(5000);
-    cy.get(this.locators.Dis_code).select("PTP");
+    cy.get(this.locators.Dis_code).select("BPTP");
     cy.wait(5000);
     cy.wait(5000);
     // cy.get(this.locators.Disp_Code_Group).select("Broken PTP");
@@ -812,9 +817,9 @@ class AccountDetailsPage {
 
     cy.get(this.locators.Radio_yes).click();
     cy.wait(3000);
-    cy.get(this.locators.Disp_Code_Group).select("PTP");
+    cy.get(this.locators.Disp_Code_Group).select("BPTP");
     cy.wait(5000);
-    cy.get(this.locators.Dis_code).select("PTP");
+    cy.get(this.locators.Dis_code).select("BPTP");
     cy.wait(5000);
     cy.get(this.locators.Short_Discription).type("AAASNNDND");
     cy.wait(5000);

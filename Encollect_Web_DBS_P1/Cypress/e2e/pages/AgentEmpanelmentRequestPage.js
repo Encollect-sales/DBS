@@ -365,6 +365,10 @@ class AgentEmpanelmentRequestPage {
     cy.wait(2000);
     cy.get(this.locators.designation).select("Agency Owner");
     cy.wait(2000);
+    cy.get(':nth-child(3) > .nav-link > span').click({force:true});
+    cy.wait(2000);
+    cy.get('#walletLimit').type('1078');
+    cy.wait(2000);
     cy.get(':nth-child(4) > .nav-link > span').click().should('be.visible');
     cy.wait(2000);
     cy.get(this.locators.Address).type(" AAAAAAAAAAAAAAAA XXXXXXXXXXXXXXXXXX BBBBBBBBBBBBBB CCCCCCCCCCCCCCC");
@@ -977,12 +981,12 @@ class AgentEmpanelmentRequestPage {
     cy.wait(2000);
     cy.get('#department-select-0').select("Collection").should('be.visible');
     cy.wait(2000);
-    cy.get('#designation-select-0').select("Collection").should('be.visible');
+    cy.get('#designation-select-0').select("Admin").should('be.visible');
     cy.wait(2000);
     cy.get(this.locators.Add).click();
     cy.get('#department-select-0').select("Collection").should('be.visible');
     cy.wait(2000);
-    cy.get('#designation-select-0').select("Collection").should('be.visible');
+    cy.get('#designation-select-0').select("Admin").should('be.visible');
     cy.wait(2000);
 
    }
@@ -1000,7 +1004,7 @@ class AgentEmpanelmentRequestPage {
     cy.wait(2000);
     cy.get('#department-select-0').select("Collection").should('be.visible');
     cy.wait(2000);
-    cy.get('#designation-select-0').select("Agency Cashier").should('be.visible');
+    cy.get('#designation-select-0').select("Admin").should('be.visible');
     cy.wait(2000);
     cy.get(this.locators.Add).click();
     cy.get('#department-select-1').select("Collection").should('be.visible');
@@ -1021,7 +1025,7 @@ AgentEnpalmentRequest627(){
     cy.wait(2000);
     cy.get(this.locators.Add).click();
     cy.wait(2000);
-    cy.get('#department-select-0').select("Collection").should('be.visible');
+    cy.get('#department-select-0').select("Agency Collection Staff Backend").should('be.visible');
     cy.wait(2000);
     cy.get('#designation-select-0').select("Agency Owner").should('be.visible');
     cy.wait(2000);
@@ -1070,7 +1074,7 @@ AgentEnpalmentRequest629(){
   cy.wait(2000);
   cy.get('#department-select-0').select('Agency Collection Staff Frontend').should('be.visible');
   cy.wait(300);
-  cy.get('#designation-select-0').select("Agent").should('be.visible');
+  cy.get('#designation-select-0').select("Agency FOS").should('be.visible');
   cy.wait(300);
   cy.get(this.locators.Add).click();
     cy.get('#department-select-1').select("Collection").should('be.visible');
@@ -1093,7 +1097,7 @@ AgentEnpalmentRequest630(){
   cy.wait(2000);
   cy.get('#department-select-0').select('Agency Collection Staff Frontend').should('be.visible');
   cy.wait(300);
-  cy.get('#designation-select-0').select("Telecaller").should('be.visible');
+  cy.get('#designation-select-0').select("Agency Telecaller").should('be.visible');
   cy.wait(300);
   cy.get(this.locators.Add).click();
     cy.get('#department-select-1').select("Collection").should('be.visible');
@@ -1697,6 +1701,7 @@ cy.wait(2000);
 
 }
 AgentEnpalmentRequest640(){
+  cy.wait(3000);
   const filePath = 'Cypress/fixtures/Aadhar.png'
 
   cy.wait(2000);
@@ -1761,6 +1766,10 @@ AgentEnpalmentRequest640(){
   cy.get(this.locators.Department).select("Agency Collection Staff Backend");
   cy.wait(2000);
   cy.get(this.locators.designation).select("Agency Owner");
+  cy.wait(2000);
+  cy.get(':nth-child(3) > .nav-link > span').click({force:true});
+  cy.wait(2000);
+  cy.get('#walletLimit').type("6789");
   cy.wait(2000);
   cy.get(':nth-child(4) > .nav-link > span').click().should('be.visible');
   cy.wait(2000);
@@ -1879,8 +1888,14 @@ AgentEnpalmentRequest640(){
     cy.wait(2000)
     cy.get('input[type="file"]').eq(4).selectFile(filePath, { force: true });
     cy.wait(2000);
-
-
+  cy.get('#docTypeSelect-4').select("Police Verification Certificate").should('be.visible');
+    cy.wait(2000)
+    cy.get('input[type="file"]').eq(4).selectFile(filePath, { force: true });
+    cy.wait(2000);
+  cy.get('#docTypeSelect-7').select("DRA Certificate").should('be.visible');
+    cy.wait(2000)
+    cy.get('input[type="file"]').eq(4).selectFile(filePath, { force: true });
+    cy.wait(2000);
    cy.get(':nth-child(8) > .nav-link > span').click().should('be.visible');
    cy.wait(2000);
 

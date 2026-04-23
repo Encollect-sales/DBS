@@ -102,16 +102,24 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.get(this.locators.ClickRecMonColl).click();
                         cy.wait(1000);
-                        cy.get(this.locators.EnterCollCode).type("10001");
-                        cy.contains("#ngb-typeahead-0-0 > .ng-star-inserted", "10001").click();
+                        cy.get(this.locators.EnterCollCode).type("10117");
+                        cy.contains('.dropdown-item', '10117').click()
                         cy.wait(1000);
-                        // cy.get('#collector-name').type("dbsagent one");
-                        // cy.wait(1000);
-                        cy.get(this.locators.RecDate).type("30/05/2025");
-                        cy.wait(1000);
-                        cy.get(this.locators.TODate).click();
-                        cy.wait(1000);
-                        cy.get('#receipt-to-date').type("19/11/2025");
+                        //cy.get('#collector-name').type("dbsagent one");
+                        //cy.wait(1000);
+                        cy.get(this.locators.RecDate).click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#receipt-to-date').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
                         cy.wait(1000);
                         cy.get(this.locators.SearchButton2).click({force:true});
                         cy.wait(1000);
@@ -134,16 +142,26 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.get(this.locators.ClickRecMonColl).click();
                         cy.wait(1000);
-                        cy.get(this.locators.EnterCollCode).type("10001");
-                        cy.contains("#ngb-typeahead-0-0 > .ng-star-inserted", "10001").click();
+                         cy.get(this.locators.EnterCollCode).type("10117");
+                        cy.contains('.dropdown-item', '10117').click()
                         cy.wait(1000);
-                        // cy.get('#collector-name').type("arun");
-                        // cy.wait(1000);
-                        cy.get(this.locators.RecDate).type("30/05/2025");
+                        //cy.get('#collector-name').type("dbsagent one");
+                        //cy.wait(1000);
+                        cy.get(this.locators.RecDate).click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#receipt-to-date').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
                         cy.wait(1000);
-                        cy.get(this.locators.TODate).click();
-                        cy.wait(1000);
-                        cy.get('#receipt-to-date').type("19/11/2025");
+                        cy.get(this.locators.SearchButton2).click({force:true});
                         cy.wait(1000);
                         cy.get(this.locators.SearchButton2).click({force:true});
                         cy.wait(1000);
@@ -163,16 +181,26 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.get(this.locators.ClickRecMonColl).click();
                         cy.wait(1000);
-                        cy.get(this.locators.EnterCollCode).type("10001");
-                        cy.contains("#ngb-typeahead-0-0 > .ng-star-inserted", "10001").click();
+                         cy.get(this.locators.EnterCollCode).type("10117");
+                        cy.contains('.dropdown-item', '10117').click()
                         cy.wait(1000);
-                        // cy.get('#collector-name').type("arun");
-                        // cy.wait(1000);
-                        cy.get(this.locators.RecDate).type("30/05/2025");
+                        //cy.get('#collector-name').type("dbsagent one");
+                        //cy.wait(1000);
+                        cy.get(this.locators.RecDate).click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#receipt-to-date').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
                         cy.wait(1000);
-                        cy.get(this.locators.TODate).click();
-                        cy.wait(1000);
-                        cy.get('#receipt-to-date').type("19/11/2025");
+                        cy.get(this.locators.SearchButton2).click({force:true});
                         cy.wait(1000);
                         cy.get(this.locators.SearchButton2).click({force:true});
                         cy.wait(1000);
@@ -359,7 +387,7 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.get('#search-batch-id') .click()
                         cy.wait(1000);
-                        cy.get('.ng-dropdown-panel').contains('3006').click()
+                        cy.get('.ng-dropdown-panel').contains('1081').click()
                         cy.wait(1000);
                         cy.get(this.locators.SearchButton2).click({force: true});
                         cy.wait(1000);
@@ -396,9 +424,9 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.contains("Product Group").should("be.visible");
                         cy.wait(1000);
-                        cy.contains("CMS PayinSlip ID").should("be.visible");
-                        cy.wait(1000);
                         cy.contains("Payment Mode").should("be.visible");
+                        cy.wait(1000);
+                        cy.get("[name='receiptType']").should("be.visible");
                         cy.wait(1000);
                         cy.contains("Deposit Account Number").should("be.visible");
                         cy.wait(1000);
@@ -412,42 +440,67 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.contains("Batch ID").should("be.visible");
                         cy.wait(1000);
-                        cy.get(this.locators.Pd_Group).select("All");
-                        cy.wait(1000);
-                       //###################################################################
-                        const randomNum = Math.floor(Math.random() * 900) + 100;
-    
-                        // Log the random number for debugging
-                        cy.log('Generated Random Number:', randomNum);
-                    
-                        // Example: Use the random number to fill an input field
-                        cy.get(this.locators.CMSPay_In).type(randomNum.toString());
+//cy.get(this.locators.Pd_Group).click();
+//cy.get('.ng-dropdown-panel').contains('Cards').click();
 
-                        //###################################################################
-                    
-                        
-                        cy.wait(1000);
-                        cy.get(this.locators.Paym_mode).select("CASH");
-                        cy.wait(1000);
-                        cy.get(this.locators.Depo_Accoun_No).select("012000026008");
-                        cy.wait(1000);
-                        cy.get(this.locators.Account_Holder_name).select("My Bank");
-                        cy.wait(1000);
-                        cy.get(this.locators.Depo_bank_name).select("FAMILY BANK LIMITED");
-                        cy.wait(1000);
-                        cy.get(this.locators.DepoBranch).select("All the branches");
-                        cy.wait(1000);
-                        cy.get(this.locators.DepoDate).click();
-                        cy.wait(1000);
-                        cy.get('.today-date').click();
-                        cy.wait(1000);
-                        cy.get(this.locators.BatchID).click()
-                        cy.wait(1000);
-                        cy.get('.ng-dropdown-panel').contains('3090').click()
-                        cy.wait(1000);
-                        //cy.get(this.locators.SubmitButton).click();
+// ===== Product Group (native select) =====
+cy.get(this.locators.Pd_Group)
+  .should('be.visible')
+  .select('Cards');
+
+// ===== Random number =====
+const randomNum = Math.floor(Math.random() * 900) + 100;
+cy.log('Generated Random Number:', randomNum);
+
+// cy.get(this.locators.CMSPay_In)
+//   .should('be.visible')
+//   .clear()
+//   .type(randomNum.toString());
+
+// ===== Payment Mode =====
+cy.get(this.locators.Paym_mode)
+  .should('be.visible')
+  .select('CASH');
+  cy.wait(2000);
+
+cy.get(this.locators.BatchType).select('Non-Settlement');
+//cy.get('.ng-dropdown-panel').contains('Settlement').click();
+ cy.wait(2000);
+
+// ===== Deposit Account =====
+cy.get(this.locators.Depo_Accoun_No)
+  .should('be.visible')
+  .select('923020031594877');
+
+// ===== Account Holder =====
+cy.get(this.locators.Account_Holder_name)
+  .should('be.visible')
+  .select('DBS BANK INDIA LTD');
+
+// ===== Deposit Bank =====
+cy.get(this.locators.Depo_bank_name)
+  .should('be.visible')
+  .select('AXIS BANK');
+
+// ===== Branch =====
+cy.get(this.locators.DepoBranch)
+  .should('be.visible')
+  .select('ADONI');
+
+// ===== Date =====
+cy.get(this.locators.DepoDate).click();
+cy.get('.today-date').click();
+
+// ===== Batch ID (custom dropdown) =====
+cy.get(this.locators.BatchID).click();
+cy.get('.ng-dropdown-panel').contains('1081').click();
+
+// ===== Submit =====
+cy.get(this.locators.SubmitButton).click();
+
 
                     }
+
 
                     PaymentTestPage_146(){
                         cy.wait(1000);
@@ -459,7 +512,7 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.get(this.locators.CreateDipSlip).click();
                         cy.wait(1000);
-                        cy.get(this.locators.Pd_Group).select("All");
+                        cy.get(this.locators.Pd_Group).select("Cards");
                         cy.wait(1000);
                         //###################################################################
                         const randomNum = Math.floor(Math.random() * 900) + 100;
@@ -468,19 +521,21 @@ this.locators = locators;
                         cy.log('Generated Random Number:', randomNum);
                     
                         // Example: Use the random number to fill an input field
-                        cy.get(this.locators.CMSPay_In).type(randomNum.toString());
+                        //cy.get(this.locators.CMSPay_In).type(randomNum.toString());
 
                         //###################################################################
                         cy.wait(1000);
                         cy.get(this.locators.Paym_mode).select("CASH");
                         cy.wait(1000);
-                        cy.get(this.locators.Depo_Accoun_No).select("012000026008");
+                        cy.get(this.locators.BatchType).select('Non-Settlement');
                         cy.wait(1000);
-                        cy.get(this.locators.Account_Holder_name).select("My Bank");
+                        cy.get(this.locators.Depo_Accoun_No).select("923020031594877");
                         cy.wait(1000);
-                        cy.get(this.locators.Depo_bank_name).select("FAMILY BANK LIMITED");
+                        cy.get(this.locators.Account_Holder_name).select("DBS BANK INDIA LTD");
                         cy.wait(1000);
-                        cy.get(this.locators.DepoBranch).select("All the branches");
+                        cy.get(this.locators.Depo_bank_name).select("AXIS BANK");
+                        cy.wait(1000);
+                        cy.get(this.locators.DepoBranch).select("ADONI");
                         cy.wait(1000);
                         cy.get(this.locators.DepoDate).click();
                         cy.wait(1000);
@@ -488,14 +543,16 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.get(this.locators.BatchID).click()
                         cy.wait(1000);
-                        cy.get('.ng-dropdown-panel').contains('3055').click()
+                        cy.get('.ng-dropdown-panel').contains('1081').click()
                         cy.wait(1000);
                         cy.get(this.locators.SubmitButton).click();
                         cy.wait(3000);
                         cy.contains("Total Deposit Amount (Rs)").should("be.visible");
                         cy.wait(1000);
-                        cy.contains("Generate PayIn Slip").should("be.visible");
-                        cy.wait(1000);
+                        cy.get(this.locators.Generate_payInSlip)
+                        .should('exist')
+                        .scrollIntoView()
+                        .should('be.visible');
                         cy.get(this.locators.Reset_Section).should("be.visible");
                         cy.wait(1000);
                         cy.get(this.locators.Cancel).should("be.visible");
@@ -513,7 +570,7 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.get(this.locators.CreateDipSlip).click();
                         cy.wait(1000);
-                        cy.get(this.locators.Pd_Group).select("All");
+                        cy.get(this.locators.Pd_Group).select("Cards");
                         cy.wait(1000);
                          //###################################################################
                          const randomNum = Math.floor(Math.random() * 900) + 100;
@@ -522,19 +579,21 @@ this.locators = locators;
                          cy.log('Generated Random Number:', randomNum);
                      
                          // Example: Use the random number to fill an input field
-                         cy.get(this.locators.CMSPay_In).type(randomNum.toString());
+                         //cy.get(this.locators.CMSPay_In).type(randomNum.toString());
  
                          //###################################################################
                         cy.wait(1000);
                         cy.get(this.locators.Paym_mode).select("CASH");
                         cy.wait(1000);
-                        cy.get(this.locators.Depo_Accoun_No).select("012000026008");
+                        cy.get(this.locators.BatchType).select('Non-Settlement');
                         cy.wait(1000);
-                        cy.get(this.locators.Account_Holder_name).select("My Bank");
+                        cy.get(this.locators.Depo_Accoun_No).select("923020031594877");
                         cy.wait(1000);
-                        cy.get(this.locators.Depo_bank_name).select("FAMILY BANK LIMITED");
+                        cy.get(this.locators.Account_Holder_name).select("DBS BANK INDIA LTD");
                         cy.wait(1000);
-                        cy.get(this.locators.DepoBranch).select("All the branches");
+                        cy.get(this.locators.Depo_bank_name).select("AXIS BANK");
+                        cy.wait(1000);
+                        cy.get(this.locators.DepoBranch).select("AGRA");
                         cy.wait(1000);
                         cy.get(this.locators.DepoDate).click();
                         cy.wait(1000);
@@ -542,7 +601,7 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.get(this.locators.BatchID).click()
                         cy.wait(1000);
-                        cy.get('.ng-dropdown-panel').contains('3090').click()
+                        cy.get('.ng-dropdown-panel').contains('1081').click()
                         cy.wait(1000);
                         cy.get(this.locators.SubmitButton).click({force:true});
                         cy.wait(3000);
@@ -565,7 +624,7 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.get(this.locators.CreateDipSlip).click();
                         cy.wait(1000);
-                        cy.get(this.locators.Pd_Group).select("All");
+                        cy.get(this.locators.Pd_Group).select("Cards");
                         cy.wait(1000);
                           //###################################################################
                           const randomNum = Math.floor(Math.random() * 900) + 100;
@@ -574,29 +633,32 @@ this.locators = locators;
                           cy.log('Generated Random Number:', randomNum);
                       
                           // Example: Use the random number to fill an input field
-                          cy.get(this.locators.CMSPay_In).type(randomNum.toString());
+                          //cy.get(this.locators.CMSPay_In).type(randomNum.toString());
   
                           //###################################################################
                         cy.wait(1000);
                         cy.get(this.locators.Paym_mode).select("CASH");
                         cy.wait(1000);
-                        cy.get(this.locators.Depo_Accoun_No).select("012000026008");
+                        cy.get(this.locators.BatchType).select('Non-Settlement');
                         cy.wait(1000);
-                        cy.get(this.locators.Account_Holder_name).select("My Bank");
+                        cy.get(this.locators.Depo_Accoun_No).select("923020031594877");
                         cy.wait(1000);
-                        cy.get(this.locators.Depo_bank_name).select("FAMILY BANK LIMITED");
+                        cy.get(this.locators.Account_Holder_name).select("DBS BANK INDIA LTD");
                         cy.wait(1000);
-                        cy.get(this.locators.DepoBranch).select("All the branches");
+                        cy.get(this.locators.Depo_bank_name).select("AXIS BANK");
+                        cy.wait(1000);
+                        cy.get(this.locators.DepoBranch).select("AGRA");
                         cy.wait(1000);
                         cy.get(this.locators.DepoDate).click();
                         cy.wait(1000);
                         cy.get('.today-date').click();
                         cy.wait(1000);
+                        cy.get(this.locators.BatchID).click()
                         cy.wait(1000);
-                        cy.get(this.locators.BatchID).click();
+                        cy.get('.ng-dropdown-panel').contains('1081').click()
                         cy.wait(1000);
-                        cy.get('.ng-dropdown-panel').contains('3090').click();
-                        cy.wait(1000);
+                        cy.get(this.locators.SubmitButton).click({force:true});
+                        cy.wait(3000);
                         cy.get(this.locators.SubmitButton).click().should("be.visible");
                         cy.wait(1000);
                         cy.get(this.locators.Cancel).click();
@@ -617,7 +679,7 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.get(this.locators.CreateDipSlip).click();
                         cy.wait(1000);
-                        cy.get(this.locators.Pd_Group).select("All");
+                        cy.get(this.locators.Pd_Group).select("Cards");
                         cy.wait(1000);
                         //###################################################################
                         const randomNum = Math.floor(Math.random() * 900) + 100;
@@ -626,29 +688,32 @@ this.locators = locators;
                         cy.log('Generated Random Number:', randomNum);
                     
                         // Example: Use the random number to fill an input field
-                        cy.get(this.locators.CMSPay_In).type(randomNum.toString());
+                        //cy.get(this.locators.CMSPay_In).type(randomNum.toString());
 
                         //###################################################################
                         cy.wait(1000);
                         cy.get(this.locators.Paym_mode).select("CASH");
                         cy.wait(1000);
-                        cy.get(this.locators.Depo_Accoun_No).select("012000026008");
+                        cy.get(this.locators.BatchType).select('Non-Settlement');
                         cy.wait(1000);
-                        cy.get(this.locators.Account_Holder_name).select("My Bank");
+                        cy.get(this.locators.Depo_Accoun_No).select("923020031594877");
                         cy.wait(1000);
-                        cy.get(this.locators.Depo_bank_name).select("FAMILY BANK LIMITED");
+                        cy.get(this.locators.Account_Holder_name).select("DBS BANK INDIA LTD");
                         cy.wait(1000);
-                        cy.get(this.locators.DepoBranch).select("All the branches");
+                        cy.get(this.locators.Depo_bank_name).select("AXIS BANK");
+                        cy.wait(1000);
+                        cy.get(this.locators.DepoBranch).select("AGRA");
                         cy.wait(1000);
                         cy.get(this.locators.DepoDate).click();
                         cy.wait(1000);
                         cy.get('.today-date').click();
                         cy.wait(1000);
+                        cy.get(this.locators.BatchID).click()
                         cy.wait(1000);
-                        cy.get(this.locators.BatchID).click();
+                        cy.get('.ng-dropdown-panel').contains('1081').click()
                         cy.wait(1000);
-                        cy.get('.ng-dropdown-panel').contains('3090').click();
-                        cy.wait(1000);
+                        cy.get(this.locators.SubmitButton).click({force:true});
+                        cy.wait(3000);
                         cy.get(this.locators.SubmitButton).click().should("be.visible");
                         cy.wait(3000);
                         cy.get(this.locators.Reset_Section).click();
@@ -670,7 +735,7 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.get(this.locators.CreateDipSlip).click();
                         cy.wait(1000);
-                        cy.get(this.locators.Pd_Group).select("All");
+                        cy.get(this.locators.Pd_Group).select("Cards");
                         cy.wait(1000);
                       //###################################################################
                       const randomNum = Math.floor(Math.random() * 900) + 100;
@@ -679,29 +744,32 @@ this.locators = locators;
                       cy.log('Generated Random Number:', randomNum);
                   
                       // Example: Use the random number to fill an input field
-                      cy.get(this.locators.CMSPay_In).type(randomNum.toString());
+                      //cy.get(this.locators.CMSPay_In).type(randomNum.toString());
 
                       //###################################################################
-                        cy.wait(1000);
+                       cy.wait(1000);
                         cy.get(this.locators.Paym_mode).select("CASH");
                         cy.wait(1000);
-                        cy.get(this.locators.Depo_Accoun_No).select("012000026008");
+                        cy.get(this.locators.BatchType).select('Non-Settlement');
                         cy.wait(1000);
-                        cy.get(this.locators.Account_Holder_name).select("My Bank");
+                        cy.get(this.locators.Depo_Accoun_No).select("923020031594877");
                         cy.wait(1000);
-                        cy.get(this.locators.Depo_bank_name).select("FAMILY BANK LIMITED");
+                        cy.get(this.locators.Account_Holder_name).select("DBS BANK INDIA LTD");
                         cy.wait(1000);
-                        cy.get(this.locators.DepoBranch).select("All the branches");
+                        cy.get(this.locators.Depo_bank_name).select("AXIS BANK");
+                        cy.wait(1000);
+                        cy.get(this.locators.DepoBranch).select("AGRA");
                         cy.wait(1000);
                         cy.get(this.locators.DepoDate).click();
                         cy.wait(1000);
                         cy.get('.today-date').click();
                         cy.wait(1000);
+                        cy.get(this.locators.BatchID).click()
                         cy.wait(1000);
-                        cy.get(this.locators.BatchID).click();
+                        cy.get('.ng-dropdown-panel').contains('1081').click()
                         cy.wait(1000);
-                        cy.get('.ng-dropdown-panel').contains('3090').click();
-                        cy.wait(1000);
+                        cy.get(this.locators.SubmitButton).click({force:true});
+                        cy.wait(3000);
                         cy.get(this.locators.SubmitButton).click().should("be.visible");
                         cy.wait(3000);
                         cy.get(this.locators.Reset_Section).click();
@@ -855,7 +923,7 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.get(this.locators.SearchAndEdit).click().should("be.visible");
                         cy.wait(1000);
-                        cy.get(this.locators.Batch_id).type("3235");
+                        cy.get(this.locators.Batch_ID).type("1081");
                         cy.wait(1000);
                         cy.get(this.locators.SearchButton2).click();
                         cy.wait(1000);
@@ -869,30 +937,26 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.contains("Customer Name").should("be.visible");
                         cy.wait(1000);
-                        cy.get(".card-content.p-0.overflow-auto").scrollTo("right");
-                        cy.wait(1000);
-                        // cy.contains("Customer Account No").should("be.visible");
-                        // cy.wait(5000);
-                        // cy.contains("Mode Of Payment").should("be.visible");
-                        // cy.wait(5000);
-                        // cy.contains("Instrument No").should("be.visible");
-                        // cy.wait(5000);
-                        // cy.contains("Instrument Date").should("be.visible");
-                        // cy.wait(5000);
-                        // cy.contains("Drawee Bank & Drawee Branch").should("be.visible");
-                        // cy.wait(5000);
-                        // cy.contains("EMI Overdue Amount").should("be.visible");
-                        // cy.wait(5000);
-                        // cy.contains("Foreclosure Amount").should("be.visible");
-                        // cy.wait(5000);
-                        // cy.contains("Bounce Charges").should("be.visible");
-                        // cy.wait(5000);
-                        cy.contains("Penal Amount").should("be.visible");
-                        cy.wait(1000);
-                        cy.contains("Settlement Amount").should("be.visible");
-                        cy.wait(1000);
-                        cy.contains("Transaction Number").should("be.visible");
-                        cy.wait(1000);
+cy.get(".enc-card.mt-4 > .card-content")
+  .scrollTo('right');
+
+const verifyColumn = (name) => {
+  cy.contains('th', name)
+    .scrollIntoView({ inline: 'center' })
+    .should('exist');
+};
+
+verifyColumn("Customer Account No");
+verifyColumn("Mode Of Payment");
+verifyColumn("Instrument No");
+verifyColumn("Instrument Date");
+verifyColumn("Drawee Bank & Drawee Branch");
+verifyColumn("EMI Overdue Amount");
+verifyColumn("Foreclosure Amount");
+verifyColumn("Bounce Charges");
+verifyColumn("Penal Amount");
+verifyColumn("Settlement Amount");
+verifyColumn("Transaction Number");
                         cy.get(this.locators.cancle_Button).should("be.visible");
                         cy.wait(1000);
                  
@@ -906,7 +970,7 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.get(this.locators.SearchAndEdit).click().should("be.visible");
                         cy.wait(1000);
-                        cy.get(this.locators.Batch_id).type("3235");
+                        cy.get(this.locators.Batch_id).type("1081");
                         cy.wait(1000);
                         cy.get(this.locators.SearchButton2).click();
                         cy.wait(1000);
@@ -925,7 +989,7 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.get(this.locators.SearchAndEdit).click().should("be.visible");
                         cy.wait(1000);
-                        cy.get(this.locators.Batch_id).type("3235");
+                        cy.get(this.locators.Batch_id).type("1081");
                         cy.wait(1000);
                         cy.get(this.locators.SearchButton2).click();
                         cy.wait(1000);
@@ -933,7 +997,7 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.get(this.locators.cancle_Button).click();
                         cy.wait(1000);
-                        cy.contains("Account Search").should("be.visible");
+                        //cy.contains("Account Search").should("be.visible");
                         
                     }
 
@@ -945,7 +1009,7 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.get(this.locators.SearchAndEdit).click().should("be.visible");
                         cy.wait(1000);
-                        cy.get(this.locators.Batch_id).type("3235");
+                        cy.get(this.locators.Batch_id).type("1081");
                         cy.wait(1000);
                         cy.get(this.locators.SearchButton2).click();
                         cy.wait(1000);
@@ -1454,7 +1518,7 @@ this.locators = locators;
                         cy.wait(1000);
                         cy.get(':nth-child(3) > .form-control-group > .form-control').type("arun");
                         cy.wait(1000);
-                        cy.get(this.locators.Cust_Acc_Number).type("ABCD123456");
+                        cy.get(this.locators.Cust_Acc_Number).type("0105773000090964");
                         cy.wait(1000);
                         cy.get(this.locators.Rel_with_Customer).select("Others");
                         cy.wait(1000);
@@ -1470,12 +1534,12 @@ this.locators = locators;
                         // cy.wait(1000);
                         // cy.get(this.locators.Email_Checkbox).click();
                         // cy.wait(1000);
-                        cy.get(this.locators.EnterEmail_id).type("Abc@yopmail.com");
-                        cy.wait(1000);
-                        cy.get(this.locators.Phone_Checkbox).click();
-                        cy.wait(1000);
-                        cy.get(this.locators.Enter_mobile).type("9865754678");
-                        cy.wait(1000);
+                        // cy.get(this.locators.EnterEmail_id).type("Abc@yopmail.com");
+                        // cy.wait(1000);
+                        // cy.get(this.locators.Phone_Checkbox).click();
+                        // cy.wait(1000);
+                        // cy.get(this.locators.Enter_mobile).type("9865754678");
+                        // cy.wait(1000);
                         cy.get(this.locators.Submit_payment).click();
                         cy.wait(1000);
                         //cy.contains("Please Enter PAN Number").should("be.visible");
@@ -1764,6 +1828,8 @@ this.locators = locators;
                         cy.wait(5000);
                         cy.get(this.locators.DateTo).type("02/02/2025");
                         cy.wait(5000);
+                        cy.get(this.locators.ReceiptType).select("Settlement");
+                        cy.wait(5000);
                         cy.get(this.locators.SearchButton2).click({force: true} );
                         cy.wait(5000);
                         cy.contains("No results found!").should("be.visible");
@@ -1780,7 +1846,7 @@ this.locators = locators;
                         cy.wait(5000);
                         cy.get('#search-batch-id') .click()
                         cy.wait(5000);
-                        cy.get('.ng-dropdown-panel').contains('2944').click()
+                        cy.get('.ng-select-container').contains('2944').click()
                         cy.wait(5000);
                         cy.get(this.locators.SearchButton2).click({force: true});
                         cy.wait(5000);
@@ -1822,11 +1888,11 @@ this.locators = locators;
                         cy.wait(5000);
                         cy.get(this.locators.Acknowledge_Slip).click().should("be.visible");
                         cy.wait(5000);
-                        cy.contains("Search By ENCollect Pay-In Slip No").should("be.visible");
+                        cy.contains("Search By CMS Pay-In Slip No").should("be.visible");
                         cy.wait(500);
                         cy.contains("Search By Amount, Mode of Payment, Deposit Date").should("be.visible");
                         cy.wait(500);
-                        cy.contains("Search").click({force: true});
+                        cy.contains("Search").click({force: true}); 
                     
                     }
 

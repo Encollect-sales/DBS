@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-04-15T06:11:28.653Z",
+    "end": "2026-04-15T06:12:46.883Z",
+    "duration": 78230,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "07512815-dd33-46e0-a169-ea0efa37f4ba",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\UserCreationTestPage_03a.cy.js",
+      "file": "cypress\\e2e\\tests\\UserCreationTestPage_03a.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7e5547c7-5557-4bda-b0ae-044c6a8862f8",
+          "title": "UserManagement -If entered supervisor email id greater than 50 characters then system will throw an error as Supervisor email id cannot be more than 50 characters",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "User download the agent template If entered supervisor email id greater than 50 characters then system will throw an error as Supervisor email id cannot be more than 50 characters- TC_ID_02",
+              "fullTitle": "UserManagement -If entered supervisor email id greater than 50 characters then system will throw an error as Supervisor email id cannot be more than 50 characters User download the agent template If entered supervisor email id greater than 50 characters then system will throw an error as Supervisor email id cannot be more than 50 characters- TC_ID_02",
+              "timedOut": null,
+              "duration": 70471,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _TestDataUtils.getTestData)('loginData', 'login2').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(900);\n  usercreationpage.UserCreationAgentTemplate_download();\n  const sheetName = 'Sheet1';\n  Cypress.on('uncaught:exception', (err, runnable) => {\n    if (err.message.includes('ResizeObserver loop completed with undelivered notifications.')) {\n      return false;\n    }\n  });\n  //############################################################################\n  const firstName = _faker.faker.name.firstName(); // B2\n  const lastName = _faker.faker.name.lastName(); // C2\n  const phoneNumber = _faker.faker.number.int({\n    min: 1000000000,\n    max: 9999999999\n  }).toString(); // 10-digit\n  const email = `${firstName.toLowerCase()}@yopmail.com`; // N2 - short, simple\n  //################################################################################\n  const data = {\n    'A2': 'FOS',\n    'B2': firstName,\n    'C2': lastName,\n    'D2': '2345',\n    'E2': 'ardhdfkbguybfvfveibgekffiyubhjdifbvkjndfviyergfndbvheryighbdgvyukhbgjnhgdbgvyujvfyugdjvfduyghbvddhdgun@yopmail.com',\n    'F2': '435454',\n    'G2': '',\n    'H2': '',\n    'I2': '',\n    'J2': 'Agency Collection Staff Backend',\n    'K2': 'Agency Owner',\n    'L2': '18-10-1979',\n    'M2': phoneNumber,\n    'N2': email,\n    'O2': 'yop',\n    'P2': 'bakori',\n    'Q2': '765523',\n    'R2': '19-10-2022',\n    'S2': '19-10-2023',\n    'T2': '10-10-2033',\n    'U2': 'resr'\n  };\n  const downloadsFolder = Cypress.config('downloadsFolder');\n  const fixturesFolder = 'cypress/fixtures';\n  const excelFileName = 'AgentTemplate.xlsx';\n  const sourceFilePath = path.join(downloadsFolder, excelFileName);\n  const destFilePath = path.join(fixturesFolder, excelFileName);\n  // Update Excel File\n  cy.task('updateAgentTemplateCell', {\n    filePath: sourceFilePath,\n    sheetName: sheetName,\n    data: data\n  }).then(() => {\n    cy.log('Excel file updated successfully with new data');\n  });\n  cy.task('moveAllDownloadsToFixtures').then(result => {\n    cy.log(result);\n  });\n  // Upload the file from `fixtures/`\n  usercreationpage.UserCreationAgentTemplate_upload();\n});",
+              "err": {},
+              "uuid": "8c951f77-3ed4-475c-87e2-23d1e7e201be",
+              "parentUUID": "7e5547c7-5557-4bda-b0ae-044c6a8862f8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8c951f77-3ed4-475c-87e2-23d1e7e201be"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 70471,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
