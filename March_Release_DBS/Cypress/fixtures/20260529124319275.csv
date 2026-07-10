@@ -1,0 +1,2 @@
+Id,UserType,FirstName,LastName,AgencyCode,SupervisorEmailId,DialerId,DRACertificationDate,DRATrainingDate,DRAUniqueRegistrationNumber,Department,Designation,DateOfBirth,MobileNo,EmailId,FathersName,LocalResidentialAddress,PostalCode,CollectionEmploymentDate,LastRenewalDate,AuthorizationCardExpiryDate,Remarks,IsFailed,FailureReason
+3a2184c16c9aa52f29f77b93a075b552,FOS,Jenifer,Reynolds,1270,,435454,,,,Agency Collection Staff Backend,Agency Owner,18-10-1979,3407562610,jenifer@yopmail.com,yop,bakori,765523,19-10-2022,19-10-2023,10-10-2033,resr,False,

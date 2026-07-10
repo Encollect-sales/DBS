@@ -1,0 +1,19 @@
+{
+  "login": {
+    "Companyname": "ENCollect",
+    "email": "9001",
+    "password": "123@asAS"
+  },
+
+  "login1": {
+    "Companyname": "ENCollect",
+     "email": "9001",
+    "password": "123@asAS"
+  },
+
+  "login2": {
+    "Companyname": "ENCollect",
+      "email": "9001",
+    "password": "123@asAS"
+  }
+}

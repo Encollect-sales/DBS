@@ -1,0 +1,2 @@
+Id,IsParentAgency,ParentAgencyCode,AgencyCode,AgencyName,RecommendingOfficer,AgencyType,AgencySubType,TINNumber,PanCard,PrimaryOwnerFirstName,PrimaryOwnerLastName,RegisteredAgencyAddress,Landmark,MobileNo,EmailID,FirstAgreementDate,LastRenewalDate,ContractExpiryDate,Remarks,IsFailed,FailureReason
+3a21ed933d46e0928d2f3738f53b5641,Yes,,392603,Nya,1161,Collections,Field Agents,12345321,PANCA9614B,hamad,P,Pune,wiki field,9550061122,arun@#@679@yopmail.com,12-10-2022,13-10-2023,10-10-2032,Bulk upload,True, | Enter valid email
