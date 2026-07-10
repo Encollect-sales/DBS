@@ -46,7 +46,7 @@ describe('UserManagement -If user enters numbers, special characters  in last na
                 'A2': 'FOS',
                 'B2': firstName,
                 'C2': 'ksinge@#a%ja',
-                'D2': '2345',
+                'D2': '1002',
                 'E2': '',
                 'F2': '435454',
                 'G2': '',

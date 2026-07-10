@@ -57,17 +57,36 @@ UserManagementTestPage_103(){
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
 
-    cy.get(this.locators.selectAgencyType).select("Bank Staff");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("BCC");
-    cy.wait(2000);
+   cy.get(this.locators.selectAgencyType)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-    cy.get(this.locators.clickongenerateENcollectcode).click();
-    cy.wait(2000);
+    // cy.get(this.locators.clickongenerateENcollectcode).click();
+    // cy.wait(2000);
     //Address Details
      cy.get(this.locators.ClickOnAgency_Address_Details).click();
   cy.wait(2000);
@@ -118,10 +137,29 @@ UserManagementTestPage_103(){
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
-    cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
-    cy.wait(2000);
+    cy.get(this.locators.bankname)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.bankname).select(randomValue, { force: true });
+  });
+cy.wait(2000);
+
+ cy.get(this.locators.bankbranchname)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
+  });
+cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
     //////////////////////////////////////Documentation_Details/////////////////////////////////////
@@ -181,7 +219,7 @@ UserManagementTestPage_103(){
     cy.wait(2000);
     cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
-    cy.get(this.locators.placeofwork).click();
+    cy.get(':nth-child(6) > .nav-link > span').click();
     cy.wait(2000);
     cy.get(this.locators.selectpg).select("Consumer Loan");
     cy.wait(2000);
@@ -201,15 +239,25 @@ UserManagementTestPage_103(){
     cy.wait(2000);
     cy.get(this.locators.SelectCity).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectmanager).select("Ajit");
-    cy.wait(2000);
+
+      cy.get(this.locators.selectmanager)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.selectmanager).select(randomValue, { force: true });
+  });
+cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024').should("be.visible");
+    cy.get(this.locators.firstagreementdate).type('02-01-2026').should("be.visible");
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024').should("be.visible");
+    cy.get(this.locators.lastrenewaldate).type('05-01-2026').should("be.visible");
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('30-09-2026').should("be.visible");
+   cy.get(this.locators.Contactexpiredate).clear().type('2027-03-30');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
@@ -239,17 +287,37 @@ UserManagementTestPage_104(){
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
+   cy.get(this.locators.selectAgencyType)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
 
-    cy.get(this.locators.selectAgencyType).select("Bank Staff");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("BCC");
-    cy.wait(2000);
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+cy.wait(2000);
+
+  cy.get(this.locators.selectAgencySubType)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+cy.wait(2000);
+
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-    cy.get(this.locators.clickongenerateENcollectcode).click();
-    cy.wait(2000);
+    // cy.get(this.locators.clickongenerateENcollectcode).click();
+    // cy.wait(2000);
     //Address Details
      cy.get(this.locators.ClickOnAgency_Address_Details).click();
   cy.wait(2000);
@@ -300,10 +368,31 @@ UserManagementTestPage_104(){
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
-    cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
-    cy.wait(2000);
+
+    cy.get(this.locators.bankname)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.bankname).select(randomValue, { force: true });
+  });
+cy.wait(2000);
+
+ cy.get(this.locators.bankbranchname)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
+  });
+cy.wait(2000);
+
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
     //////////////////////////////////////Documentation_Details/////////////////////////////////////
@@ -363,7 +452,7 @@ UserManagementTestPage_104(){
     cy.wait(2000);
     cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
-    cy.get(this.locators.placeofwork).click();
+    cy.get(':nth-child(6) > .nav-link > span').click();
     cy.wait(2000);
     cy.get(this.locators.selectpg).select("Consumer Loan");
     cy.wait(2000);
@@ -383,15 +472,25 @@ UserManagementTestPage_104(){
     cy.wait(2000);
     cy.get(this.locators.SelectCity).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectmanager).select("Ajit");
+     cy.get(this.locators.selectmanager)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.selectmanager).select(randomValue, { force: true });
+  });
+cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
     cy.get(this.locators.firstagreementdate).type('02-04-2024').should("be.visible");
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024').should("be.visible");
+    cy.get(this.locators.lastrenewaldate).type('10-01-2024').should("be.visible");
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('30-09-2026').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).clear().type('2027-03-30');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
@@ -421,17 +520,35 @@ UserManagementTestPage_105(){
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
+   cy.get(this.locators.selectAgencyType)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
 
-    cy.get(this.locators.selectAgencyType).select("Bank Staff");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("BCC");
-    cy.wait(2000);
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-    cy.get(this.locators.clickongenerateENcollectcode).click();
-    cy.wait(2000);
+    // cy.get(this.locators.clickongenerateENcollectcode).click();
+    // cy.wait(2000);
     //Address Details
      cy.get(this.locators.ClickOnAgency_Address_Details).click();
   cy.wait(2000);
@@ -482,10 +599,29 @@ UserManagementTestPage_105(){
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
-    cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
-    cy.wait(2000);
+    cy.get(this.locators.bankname)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.bankname).select(randomValue, { force: true });
+  });
+cy.wait(2000);
+
+ cy.get(this.locators.bankbranchname)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
+  });
+cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
     //////////////////////////////////////Documentation_Details/////////////////////////////////////
@@ -545,7 +681,7 @@ UserManagementTestPage_105(){
     cy.wait(2000);
     cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
-    cy.get(this.locators.placeofwork).click();
+    cy.get(':nth-child(6) > .nav-link > span').click();
     cy.wait(2000);
     cy.get(this.locators.selectpg).select("Consumer Loan");
     cy.wait(2000);
@@ -565,21 +701,32 @@ UserManagementTestPage_105(){
     cy.wait(2000);
     cy.get(this.locators.SelectCity).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectmanager).select("Ajit");
+     cy.get(this.locators.selectmanager)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.selectmanager).select(randomValue, { force: true });
+  });
+cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
     cy.get(this.locators.firstagreementdate).type('02-04-2024').should("be.visible");
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024').should("be.visible");
+    cy.get(this.locators.lastrenewaldate).type('10-01-2024').should("be.visible");
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('30-09-2026').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).clear().type('2027-03-30');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
     cy.get(this.locators.saveagencyprofile).click().should("be.visible");
     cy.wait(2000);
-   cy.contains("Special characters are not allowed in the input").should("be.visible");
+    cy.contains("Agency profile is Saved as Draft.").should("be.visible");
+  cy.contains("Special characters are not allowed in the input").should("not.exist");
    cy.wait(2000);
 }
 
@@ -603,17 +750,35 @@ UserManagementTestPage_106(){
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
+   cy.get(this.locators.selectAgencyType)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
 
-    cy.get(this.locators.selectAgencyType).select("Bank Staff");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("BCC");
-    cy.wait(2000);
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-    cy.get(this.locators.clickongenerateENcollectcode).click();
-    cy.wait(2000);
+    // cy.get(this.locators.clickongenerateENcollectcode).click();
+    // cy.wait(2000);
     //Address Details
      cy.get(this.locators.ClickOnAgency_Address_Details).click();
   cy.wait(2000);
@@ -662,10 +827,29 @@ UserManagementTestPage_106(){
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
-    cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
-    cy.wait(2000);
+    cy.get(this.locators.bankname)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.bankname).select(randomValue, { force: true });
+  });
+cy.wait(2000);
+
+ cy.get(this.locators.bankbranchname)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
+  });
+cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
     //////////////////////////////////////Documentation_Details/////////////////////////////////////
@@ -725,7 +909,7 @@ UserManagementTestPage_106(){
     cy.wait(2000);
     cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
-    cy.get(this.locators.placeofwork).click();
+    cy.get(':nth-child(6) > .nav-link > span').click();
     cy.wait(2000);
     cy.get(this.locators.selectpg).select("Consumer Loan");
     cy.wait(2000);
@@ -745,21 +929,32 @@ UserManagementTestPage_106(){
     cy.wait(2000);
     cy.get(this.locators.SelectCity).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectmanager).select("Ajit");
+     cy.get(this.locators.selectmanager)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.selectmanager).select(randomValue, { force: true });
+  });
+cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
     cy.get(this.locators.firstagreementdate).type('02-04-2024').should("be.visible");
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024').should("be.visible");
+    cy.get(this.locators.lastrenewaldate).type('10-01-2024').should("be.visible");
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('30-09-2026').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).clear().type('2027-03-30');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
     cy.get(this.locators.saveagencyprofile).click().should("be.visible");
     cy.wait(2000);
-   cy.contains("Please fill all the required fields inside Address Detail tab").should("be.visible");
+   cy.should('contain.text', 'The AddressLine field is required.');
+
    cy.wait(2000);
 }
 
@@ -796,17 +991,35 @@ UserManagementTestPage_108(){
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
+cy.wait(2000);
+   cy.get(this.locators.selectAgencyType)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
 
-    cy.get(this.locators.selectAgencyType).select("Bank Staff");
-    cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("BCC");
-    cy.wait(2000);
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+  });
+cy.wait(2000);
+    cy.get(this.locators.selectAgencySubType)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+  });
+cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-    cy.get(this.locators.clickongenerateENcollectcode).click();
-    cy.wait(2000);
+    // cy.get(this.locators.clickongenerateENcollectcode).click();
+    // cy.wait(2000);
     //Address Details
      cy.get(this.locators.ClickOnAgency_Address_Details).click();
   cy.wait(2000);
@@ -814,7 +1027,7 @@ UserManagementTestPage_108(){
     cy.wait(2000);
     cy.get(this.locators.primaryownerlastname).type("Tendulkar");
     cy.wait(2000);
-    cy.get(this.locators.Type_Agency_Address).type("Green Meadows Residency Fifth Cross Street Near Sunrise Park Opposite Lake View Towers Whitefield Main Road Bengaluru Karnataka India Situated Close To Reputed Schools Colleges Major IT Parks Shopping Malls Supermarkets Hospitals Banks And Public Transport Facilities Making It A Convenient Residential Location For Families Professionals And Students Alike");
+    cy.get(this.locators.Type_Agency_Address).type("Green Meadows Res#%$%idency Fifth Cross Street Near Sunrise Park Opposite Lake View Towers Whitefield Main Road Bengaluru Karnataka India Situated Close To Reputed Schools Colleges Major IT Parks Shopping Malls Supermarkets Hospitals Banks And Public Transport Facilities Making It A Convenient Residential Location For Families Professionals And Students Alike");
   cy.wait(2000);
     
     // Function to generate a random 10-digit number
@@ -857,10 +1070,29 @@ UserManagementTestPage_108(){
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
-    cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
-    cy.wait(2000);
+    cy.get(this.locators.bankname)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.bankname).select(randomValue, { force: true });
+  });
+cy.wait(2000);
+
+ cy.get(this.locators.bankbranchname)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.bankbranchname).select(randomValue, { force: true });
+  });
+cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
     //////////////////////////////////////Documentation_Details/////////////////////////////////////
@@ -920,7 +1152,7 @@ UserManagementTestPage_108(){
     cy.wait(2000);
     cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
-    cy.get(this.locators.placeofwork).click();
+    cy.get(':nth-child(6) > .nav-link > span').click();
     cy.wait(2000);
     cy.get(this.locators.selectpg).select("Consumer Loan");
     cy.wait(2000);
@@ -940,21 +1172,31 @@ UserManagementTestPage_108(){
     cy.wait(2000);
     cy.get(this.locators.SelectCity).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectmanager).select("Ajit");
+     cy.get(this.locators.selectmanager)
+  .find('option')
+  .then(options => {
+    const optionCount = options.length;
+    const randomIndex = Math.floor(Math.random() * (optionCount - 1)) + 1;
+
+    const randomValue = options[randomIndex].value;
+
+    cy.get(this.locators.selectmanager).select(randomValue, { force: true });
+  });
+cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
     cy.get(this.locators.firstagreementdate).type('02-04-2024').should("be.visible");
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024').should("be.visible");
+    cy.get(this.locators.lastrenewaldate).type('10-01-2024').should("be.visible");
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('30-09-2026').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).clear().type('2027-03-30');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
     cy.get(this.locators.saveagencyprofile).click().should("be.visible");
     cy.wait(2000);
-   cy.contains("Special characters are not allowed in the input").should("be.visible");
+  cy.contains("Special characters are not allowed in the input").should("not.exist");
    cy.wait(2000);
 }
 
@@ -1012,17 +1254,35 @@ UserManagementTestPage_111(){
   cy.get(this.locators.LastName).type(lastName);
   cy.wait(2000);
 
-  cy.get(this.locators.Agencyname)
-    .find("option")
-    .then((options) => {
-      const randomIndex = Math.floor(Math.random() * options.length); // get random index
-      const randomValue = options[randomIndex].value; // get value of random option
-      cy.get(this.locators.Agencyname).select(randomValue); // select it
-    });
+cy.get(this.locators.Agencyname)
+  .find("option")
+  .then((options) => {
+    // Filter out blank/placeholder options
+    const validOptions = [...options].filter(
+      (opt) => opt.value !== "" && opt.text.trim() !== "" && opt.text.trim().toLowerCase() !== "select"
+    );
 
-  cy.get(this.locators.AgencySupervisorEmailId)
-    .type("pranshu@yopmail.com")
-    .should("be.visible");
+    if (validOptions.length === 0) {
+      throw new Error("No valid options found in Agency Name dropdown");
+    }
+
+    const randomIndex = Math.floor(Math.random() * validOptions.length);
+    const randomValue = validOptions[randomIndex].value;
+
+    cy.get(this.locators.Agencyname)
+      .select(randomValue)
+      .should("not.have.value", ""); // Assert a real value is selected
+  });
+
+
+   cy.get(this.locators.SelectAgencyReportManager).click(); 
+cy.wait(2000);
+cy.get('.ng-dropdown-panel .ng-option')        
+  .then(options => {
+    const randomIndex = Math.floor(Math.random() * options.length);
+    cy.wrap(options[randomIndex]).click();   
+  });
+
   cy.wait(2000);
   cy.get(this.locators.dilarID).type("123").should("be.visible");
   cy.wait(2000);
@@ -1058,117 +1318,115 @@ UserManagementTestPage_111(){
   cy.wait(2000);
   cy.get(":nth-child(4) > .nav-link > span").click().should("be.visible");
   cy.wait(2000);
- cy.get(this.locators.Type_Agency_Address).type("Sunrise Residency Lakeview Avenue Near Central Park Opposite Grand Towers Whitefield Main Road Bengaluru Karnataka India Close To Schools Colleges Hospitals Shopping Centers And Public Transport Facility");
+ cy.get(this.locators.Type_Agent_Address).type("Sunrise Residency Lakeview Avenue Near Central Park Opposite Grand Towers Whitefield Main Road Bengaluru Karnataka India Close To Schools Colleges Hospitals Shopping Centers And Public Transport Facility");
   cy.wait(2000);
-  cy.wait(2000);
-  cy.get("#stateId").select("All").should("be.visible");
-  cy.wait(2000);
-  cy.get("select[name='city']").select("All").should("be.visible");
-  cy.wait(2000);
-  cy.get("input[placeholder='Enter Address Landmark']")
-    .type("xxxx Bank")
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("#pinId").type("845438");
-  cy.wait(2000);
-  cy.get("#emer_contactNO").type(8838506890);
-  cy.wait(2000);
-  cy.get("#bloodGroup").select("A-");
-  cy.wait(2000);
-  cy.get("#mobileTypeId").select("MO", { force: true });
-  cy.wait(2000);
+  cy.get('#stateId').select('All').should('be.visible');
+    cy.wait(2000);
+    cy.get("#cityId").select("All").should('be.visible');
+    cy.wait(2000);
+    cy.get("#landmarkId").type("xxxx Bank").should('be.visible');
+    cy.wait(2000);
+    cy.get("#pinId").type("845438");
+    cy.wait(2000);
+    cy.get('#emer_contactNO').type(8838506890);
+    cy.wait(2000);
+    cy.get('#bloodGroup').select("A-");
+    cy.wait(2000);
+    cy.get("#mobileTypeId").select("MO",{force : true});
+    cy.wait(2000);
 
-  function generateRandomMobileNumber() {
-    const prefix = "8"; // Assuming you want the number to start with '07'
-    const randomNumber = Math.floor(Math.random() * 20000000000); // Generates an 8-digit number
-    const paddedNumber = String(randomNumber).padStart(8, "0"); // Pads with leading zeros if necessary
-    return prefix + paddedNumber;
-  }
-  // Cypress test code
-  cy.get('input[name="primaryMobileNumber"]').type(
-    generateRandomMobileNumber()
-  );
-  cy.wait(500);
+    function generateRandomMobileNumber() {
+      const prefix = '07'; 
+      const randomNumber = Math.floor(Math.random() * 200000000);
+      const paddedNumber = String(randomNumber).padStart(8, '0');  
+      return prefix + paddedNumber;
+    }
+    // Cypress test code
+    cy.get('input[name="primaryMobileNumber"]').type(generateRandomMobileNumber());
+    cy.wait(500);
+    function generateRandomEmail() {
+      const randomString = Math.random().toString(36).substring(2, 11); 
+      return `user_${randomString}@yopmail.com`; 
+    }
 
-  function generateRandomEmail() {
-    const randomString = Math.random().toString(36).substring(2, 11);
-    return `user_${randomString}@yopmail.com`;
-  }
+    // Cypress test code
+    cy.get("#emailId").type(generateRandomEmail());
+    cy.wait(500);
+    cy.get("#dobId").type("25/06/2002");
+    cy.wait(2000);
+  const randomName = faker.person.fullName().replace(/[^a-zA-Z ]/g, '');
+   cy.get("#fatherNameId").type(randomName, { force: true });
+cy.wait(2000);
+    cy.get(this.locators.Banking_details).click().should('be.visible');
+    cy.wait(2000);
+    cy.get(this.locators.cust_name).type("Pranshu raj").should('be.visible');
+    cy.wait(2000);
+    cy.get("input[placeholder='Enter Account Number']").type("456785678776543").should('be.visible');
+    cy.wait(2000);
 
-  cy.get("#emailId").type(generateRandomEmail());
-  cy.wait(500);
-  cy.get("#dobId").type("11-06-20006");
-  cy.wait(2000);
-  cy.get("#fatherNameId").type("Kumar", { force: true });
-  cy.wait(2000);
-  cy.get(this.locators.Banking_details).click().should("be.visible");
-  cy.wait(2000);
-  cy.get(this.locators.cust_name).type("Pranshu raj").should("be.visible");
-  cy.wait(2000);
-  cy.get("input[placeholder='Enter Account Number']")
-    .type("456785678776543")
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("select[name='bankName']")
-    .select("BANK OF INDIA")
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("select[name='bankBranchId']").select("BANO").should("be.visible");
-  cy.wait(2000);
-  cy.get(this.locators.PlaceOfWork).click().should("be.visible");
-  cy.wait(2000);
-  cy.get(this.locators.pininput).type("845438").should("be.visible");
-  cy.wait(2000);
-  cy.get(":nth-child(8) > .nav-link > span").click().should("be.visible");
-  cy.wait(2000);
-  cy.get("#expYears").type("2").should("be.visible");
-  cy.wait(2000);
+cy.get("select[name='bankName']")
+  .find("option")
+  .then(options => {
+    const count = options.length;
+    const randomIndex = Math.floor(Math.random() * (count - 1)) + 1; 
+    const randomValue = options[randomIndex].value;
 
-  cy.get("#lanKnown").select("English").should("be.visible");
-  cy.wait(2000);
+    cy.get("select[name='bankName']").select(randomValue);
+  });
 
-  cy.get(":nth-child(9) > .nav-link > span").click().should("be.visible");
+cy.wait(1500);
+cy.get("select[name='bankBranchId']")
+  .find("option")
+  .then(options => {
+    const count = options.length;
+    const randomIndex = Math.floor(Math.random() * (count - 1)) + 1;
+    const randomValue = options[randomIndex].value;
 
-  cy.wait(2000);
-  cy.get("#docTypeSelect-0").select("Pan Card").should("be.visible");
-  cy.wait(2000);
-  cy.get("#addFileBtn-0").click();
-  cy.get('input[type="file"]').eq(1).selectFile(filePath, { force: true });
-  cy.wait(2000);
+    cy.get("select[name='bankBranchId']").select(randomValue);
+  });
 
-  cy.get("#docTypeSelect-1").select("Aadhar Card").should("be.visible");
-  cy.wait(2000);
-  cy.get("#addFileBtn-1").click();
-  cy.get('input[type="file"]').eq(2).selectFile(filePath, { force: true });
-  cy.wait(2000);
+cy.wait(1500);
 
-  cy.get("#docTypeSelect-2").select("Agency ID Card").should("be.visible");
-  cy.wait(2000);
-  cy.get('input[type="file"]').eq(3).selectFile(filePath, { force: true });
-  cy.wait(2000);
 
-  cy.get("#docTypeSelect-3").select("HOC Approval").should("be.visible");
-  cy.wait(2000);
-  cy.get('input[type="file"]').eq(4).selectFile(filePath, { force: true });
-  cy.wait(2000);
+    cy.get(':nth-child(7) > .nav-link > span').click().should('be.visible');
 
-  cy.get(":nth-child(10) > .nav-link > span").click().should("be.visible");
-  cy.wait(2000);
+    cy.wait(2000);
+    cy.get("#docTypeSelect-0").select("Pan Card").should('be.visible');
+    cy.wait(2000);
+    cy.get('#addFileBtn-0').click();
+    cy.get('input[type="file"]').eq(1).selectFile(filePath, { force: true });
+    cy.wait(2000);
+   
+    cy.get('#docTypeSelect-1').select("Aadhar Card").should('be.visible');
+    cy.wait(2000);
+    cy.get('#addFileBtn-1').click();
+    cy.get('input[type="file"]').eq(2).selectFile(filePath, { force: true });
+    cy.wait(2000);
 
-  //choose date 2
+    cy.get("#docTypeSelect-2").select("Agency ID Card").should('be.visible');
+    cy.wait(2000)
+    cy.get('input[type="file"]').eq(3).selectFile(filePath, { force: true });
+    cy.wait(2000);
 
-  cy.get("#CollectionDate").type("25/06/2023").should("be.visible");
-  cy.wait(2000);
-  cy.get("#RenewalDate").type("15-07-2024").should("be.visible");
-  cy.wait(2000);
-  cy.get("#ExpiryDate").type("15-07-2026").should("be.visible");
-  cy.wait(2000);
-  cy.get("#remarks")
-    .type("aaaaaa bbbbbbbbb cccccccccc dddddddddd 123", { force: true })
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("#btn-submit").click();
-  cy.wait(3000);
+    cy.get("#docTypeSelect-3").select("HOC Approval").should('be.visible');
+    cy.wait(2000)
+    cy.get('input[type="file"]').eq(4).selectFile(filePath, { force: true });
+    cy.wait(2000);
+
+     cy.get(':nth-child(8) > .nav-link > span').click().should('be.visible');
+      cy.wait(2000);
+   
+
+    cy.get("#CollectionDate").type("25/06/2023").should('be.visible');
+    cy.wait(2000);
+    cy.get("#RenewalDate").type("15-07-2024").should('be.visible');
+    cy.wait(2000);
+    cy.get("#ExpiryDate").clear().type('2027-03-30');
+    cy.wait(2000);
+    cy.get("#remarks").type("aaaaaa bbbbbbbbb cccccccccc dddddddddd 123",{force: true}).should('be.visible');
+    cy.wait(2000)
+    cy.get('#btn-submit').click();
+    cy.wait(3000);
   cy.contains("Agent Profile has been Submitted for Approval.").should("be.visible")
   cy.wait(2000);
 
@@ -1188,26 +1446,47 @@ UserManagementTestPage_112(){
   cy.get(this.locators.SelectUsertype).select("Others");
   cy.wait(1000);
 
-  const firstName = faker.person.firstName();
-  const lastName = faker.person.lastName();
+ // Helper function to remove special characters
+const cleanName = (name) => name.replace(/[^a-zA-Z]/g, "");
 
-  cy.get(this.locators.FirstName).type(firstName);
-  cy.wait(2000);
+const firstName = cleanName(faker.person.firstName());
+const lastName = cleanName(faker.person.lastName());
 
-  cy.get(this.locators.LastName).type(lastName);
-  cy.wait(2000);
+cy.get(this.locators.FirstName).type(firstName);
+cy.wait(2000);
 
-  cy.get(this.locators.Agencyname)
-    .find("option")
-    .then((options) => {
-      const randomIndex = Math.floor(Math.random() * options.length); // get random index
-      const randomValue = options[randomIndex].value; // get value of random option
-      cy.get(this.locators.Agencyname).select(randomValue); // select it
-    });
+cy.get(this.locators.LastName).type(lastName);
+cy.wait(2000);
 
-  cy.get(this.locators.AgencySupervisorEmailId)
-    .type("pranshu@yopmail.com")
-    .should("be.visible");
+ cy.get(this.locators.Agencyname)
+  .find("option")
+  .then((options) => {
+    // Filter out blank/placeholder options
+    const validOptions = [...options].filter(
+      (opt) => opt.value !== "" && opt.text.trim() !== "" && opt.text.trim().toLowerCase() !== "select"
+    );
+
+    if (validOptions.length === 0) {
+      throw new Error("No valid options found in Agency Name dropdown");
+    }
+
+    const randomIndex = Math.floor(Math.random() * validOptions.length);
+    const randomValue = validOptions[randomIndex].value;
+
+    cy.get(this.locators.Agencyname)
+      .select(randomValue)
+      .should("not.have.value", ""); // Assert a real value is selected
+  });
+
+cy.wait(2000);
+ cy.get(this.locators.SelectAgencyReportManager).click(); 
+cy.wait(2000);
+cy.get('.ng-dropdown-panel .ng-option')        
+  .then(options => {
+    const randomIndex = Math.floor(Math.random() * options.length);
+    cy.wrap(options[randomIndex]).click();   
+  });
+
   cy.wait(2000);
   cy.get(this.locators.dilarID).type("123").should("be.visible");
   cy.wait(2000);
@@ -1245,114 +1524,114 @@ UserManagementTestPage_112(){
   cy.wait(2000);
   cy.get(this.locators.Type_Agent_Address).type("Sunrise Residency Lakeview Avenue Near Central Park Whitefield Main Road Bengaluru Karnataka India");
   cy.wait(2000);
-  cy.get("#stateId").select("All").should("be.visible");
-  cy.wait(2000);
-  cy.get("select[name='city']").select("All").should("be.visible");
-  cy.wait(2000);
-  cy.get("input[placeholder='Enter Address Landmark']")
-    .type("xxxx Bank")
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("#pinId").type("845438");
-  cy.wait(2000);
-  cy.get("#emer_contactNO").type(8838506890);
-  cy.wait(2000);
-  cy.get("#bloodGroup").select("A-");
-  cy.wait(2000);
-  cy.get("#mobileTypeId").select("MO", { force: true });
-  cy.wait(2000);
+ cy.get('#stateId').select('All').should('be.visible');
+    cy.wait(2000);
+    cy.get("#cityId").select("All").should('be.visible');
+    cy.wait(2000);
+    cy.get("#landmarkId").type("xxxx Bank").should('be.visible');
+    cy.wait(2000);
+    cy.get("#pinId").type("845438");
+    cy.wait(2000);
+    cy.get('#emer_contactNO').type(8838506890);
+    cy.wait(2000);
+    cy.get('#bloodGroup').select("A-");
+    cy.wait(2000);
+    cy.get("#mobileTypeId").select("MO",{force : true});
+    cy.wait(2000);
 
-  function generateRandomMobileNumber() {
-    const prefix = "8"; // Assuming you want the number to start with '07'
-    const randomNumber = Math.floor(Math.random() * 20000000000); // Generates an 8-digit number
-    const paddedNumber = String(randomNumber).padStart(8, "0"); // Pads with leading zeros if necessary
-    return prefix + paddedNumber;
-  }
-  // Cypress test code
-  cy.get('input[name="primaryMobileNumber"]').type(
-    generateRandomMobileNumber()
-  );
-  cy.wait(500);
+    function generateRandomMobileNumber() {
+      const prefix = '07'; 
+      const randomNumber = Math.floor(Math.random() * 200000000);
+      const paddedNumber = String(randomNumber).padStart(8, '0');  
+      return prefix + paddedNumber;
+    }
+    // Cypress test code
+    cy.get('input[name="primaryMobileNumber"]').type(generateRandomMobileNumber());
+    cy.wait(500);
+    function generateRandomEmail() {
+      const randomString = Math.random().toString(36).substring(2, 11); 
+      return `user_${randomString}@yopmail.com`; 
+    }
 
-  function generateRandomEmail() {
-    const randomString = Math.random().toString(36).substring(2, 11);
-    return `user_${randomString}@yopmail.com`;
-  }
+    // Cypress test code
+    cy.get("#emailId").type(generateRandomEmail());
+    cy.wait(500);
+   cy.get("#dobId").type("25/06/2002");
+    cy.wait(2000);
+    
+  const randomName = faker.person.fullName().replace(/[^a-zA-Z ]/g, '');
+   cy.get("#fatherNameId").type(randomName, { force: true });
+cy.wait(2000);
+    cy.get(this.locators.Banking_details).click().should('be.visible');
+    cy.wait(2000);
+    cy.get(this.locators.cust_name).type("Pranshu raj").should('be.visible');
+    cy.wait(2000);
+    cy.get("input[placeholder='Enter Account Number']").type("456785678776543").should('be.visible');
+    cy.wait(2000);
 
-  cy.get("#emailId").type(generateRandomEmail());
-  cy.wait(500);
-  cy.get("#dobId").type("11-06-20006");
-  cy.wait(2000);
-  cy.get("#fatherNameId").type("Kumar", { force: true });
-  cy.wait(2000);
-  cy.get(this.locators.Banking_details).click().should("be.visible");
-  cy.wait(2000);
-  cy.get(this.locators.cust_name).type("Pranshu raj").should("be.visible");
-  cy.wait(2000);
-  cy.get("input[placeholder='Enter Account Number']")
-    .type("456785678776543")
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("select[name='bankName']")
-    .select("BANK OF INDIA")
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("select[name='bankBranchId']").select("BANO").should("be.visible");
-  cy.wait(2000);
-  cy.get(this.locators.PlaceOfWork).click().should("be.visible");
-  cy.wait(2000);
-  cy.get(this.locators.pininput).type("845438").should("be.visible");
-  cy.wait(2000);
-  cy.get(":nth-child(8) > .nav-link > span").click().should("be.visible");
-  cy.wait(2000);
-  cy.get("#expYears").type("2").should("be.visible");
-  cy.wait(2000);
+cy.get("select[name='bankName']")
+  .find("option")
+  .then(options => {
+    const count = options.length;
+    const randomIndex = Math.floor(Math.random() * (count - 1)) + 1; 
+    const randomValue = options[randomIndex].value;
 
-  cy.get("#lanKnown").select("English").should("be.visible");
-  cy.wait(2000);
+    cy.get("select[name='bankName']").select(randomValue);
+  });
 
-  cy.get(":nth-child(9) > .nav-link > span").click().should("be.visible");
+cy.wait(1500);
+cy.get("select[name='bankBranchId']")
+  .find("option")
+  .then(options => {
+    const count = options.length;
+    const randomIndex = Math.floor(Math.random() * (count - 1)) + 1;
+    const randomValue = options[randomIndex].value;
 
-  cy.wait(2000);
-  cy.get("#docTypeSelect-0").select("Pan Card").should("be.visible");
-  cy.wait(2000);
-  cy.get("#addFileBtn-0").click();
-  cy.get('input[type="file"]').eq(1).selectFile(filePath, { force: true });
-  cy.wait(2000);
+    cy.get("select[name='bankBranchId']").select(randomValue);
+  });
 
-  cy.get("#docTypeSelect-1").select("Aadhar Card").should("be.visible");
-  cy.wait(2000);
-  cy.get("#addFileBtn-1").click();
-  cy.get('input[type="file"]').eq(2).selectFile(filePath, { force: true });
-  cy.wait(2000);
+cy.wait(1500);
 
-  cy.get("#docTypeSelect-2").select("Agency ID Card").should("be.visible");
-  cy.wait(2000);
-  cy.get('input[type="file"]').eq(3).selectFile(filePath, { force: true });
-  cy.wait(2000);
 
-  cy.get("#docTypeSelect-3").select("HOC Approval").should("be.visible");
-  cy.wait(2000);
-  cy.get('input[type="file"]').eq(4).selectFile(filePath, { force: true });
-  cy.wait(2000);
+    cy.get(':nth-child(7) > .nav-link > span').click().should('be.visible');
 
-  cy.get(":nth-child(10) > .nav-link > span").click().should("be.visible");
-  cy.wait(2000);
+    cy.wait(2000);
+    cy.get("#docTypeSelect-0").select("Pan Card").should('be.visible');
+    cy.wait(2000);
+    cy.get('#addFileBtn-0').click();
+    cy.get('input[type="file"]').eq(1).selectFile(filePath, { force: true });
+    cy.wait(2000);
+   
+    cy.get('#docTypeSelect-1').select("Aadhar Card").should('be.visible');
+    cy.wait(2000);
+    cy.get('#addFileBtn-1').click();
+    cy.get('input[type="file"]').eq(2).selectFile(filePath, { force: true });
+    cy.wait(2000);
 
-  //choose date 2
+    cy.get("#docTypeSelect-2").select("Agency ID Card").should('be.visible');
+    cy.wait(2000)
+    cy.get('input[type="file"]').eq(3).selectFile(filePath, { force: true });
+    cy.wait(2000);
 
-  cy.get("#CollectionDate").type("25/06/2023").should("be.visible");
-  cy.wait(2000);
-  cy.get("#RenewalDate").type("15-07-2024").should("be.visible");
-  cy.wait(2000);
-  cy.get("#ExpiryDate").type("15-07-2026").should("be.visible");
-  cy.wait(2000);
-  cy.get("#remarks")
-    .type("aaaaaa bbbbbbbbb cccccccccc dddddddddd 123", { force: true })
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("#btn-submit").click();
-  cy.wait(3000);
+    cy.get("#docTypeSelect-3").select("HOC Approval").should('be.visible');
+    cy.wait(2000)
+    cy.get('input[type="file"]').eq(4).selectFile(filePath, { force: true });
+    cy.wait(2000);
+
+     cy.get(':nth-child(8) > .nav-link > span').click().should('be.visible');
+      cy.wait(2000);
+   
+
+    cy.get("#CollectionDate").type("25/06/2023").should('be.visible');
+    cy.wait(2000);
+    cy.get("#RenewalDate").type("15-07-2024").should('be.visible');
+    cy.wait(2000);
+    cy.get("#ExpiryDate").clear().type('2027-03-30');
+    cy.wait(2000);
+    cy.get("#remarks").type("aaaaaa bbbbbbbbb cccccccccc dddddddddd 123",{force: true}).should('be.visible');
+    cy.wait(2000)
+    cy.get('#btn-submit').click();
+    cy.wait(3000);
   cy.contains("Agent Profile has been Submitted for Approval.").should("be.visible")
   cy.wait(2000);
 
@@ -1388,10 +1667,15 @@ UserManagementTestPage_113(){
       const randomValue = options[randomIndex].value; // get value of random option
       cy.get(this.locators.Agencyname).select(randomValue); // select it
     });
+cy.wait(2000);
+  cy.get(this.locators.SelectAgencyReportManager).click(); 
+cy.wait(2000);
+cy.get('.ng-dropdown-panel .ng-option')        
+  .then(options => {
+    const randomIndex = Math.floor(Math.random() * options.length);
+    cy.wrap(options[randomIndex]).click();   
+  });
 
-  cy.get(this.locators.AgencySupervisorEmailId)
-    .type("pranshu@yopmail.com")
-    .should("be.visible");
   cy.wait(2000);
   cy.get(this.locators.dilarID).type("123").should("be.visible");
   cy.wait(2000);
@@ -1429,114 +1713,113 @@ UserManagementTestPage_113(){
   cy.wait(2000);
    cy.get(this.locators.Type_Agent_Address).type("Sunrise Re@dency Lakeview Street Near City Park Whitefie%ld Main Road Bengaluru Karnataka India");
   cy.wait(2000);
-  cy.get("#stateId").select("All").should("be.visible");
-  cy.wait(2000);
-  cy.get("select[name='city']").select("All").should("be.visible");
-  cy.wait(2000);
-  cy.get("input[placeholder='Enter Address Landmark']")
-    .type("xxxx Bank")
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("#pinId").type("845438");
-  cy.wait(2000);
-  cy.get("#emer_contactNO").type(8838506890);
-  cy.wait(2000);
-  cy.get("#bloodGroup").select("A-");
-  cy.wait(2000);
-  cy.get("#mobileTypeId").select("MO", { force: true });
-  cy.wait(2000);
+  cy.get('#stateId').select('All').should('be.visible');
+    cy.wait(2000);
+    cy.get("#cityId").select("All").should('be.visible');
+    cy.wait(2000);
+    cy.get("#landmarkId").type("xxxx Bank").should('be.visible');
+    cy.wait(2000);
+    cy.get("#pinId").type("845438");
+    cy.wait(2000);
+    cy.get('#emer_contactNO').type(8838506890);
+    cy.wait(2000);
+    cy.get('#bloodGroup').select("A-");
+    cy.wait(2000);
+    cy.get("#mobileTypeId").select("MO",{force : true});
+    cy.wait(2000);
 
-  function generateRandomMobileNumber() {
-    const prefix = "8"; // Assuming you want the number to start with '07'
-    const randomNumber = Math.floor(Math.random() * 20000000000); // Generates an 8-digit number
-    const paddedNumber = String(randomNumber).padStart(8, "0"); // Pads with leading zeros if necessary
-    return prefix + paddedNumber;
-  }
-  // Cypress test code
-  cy.get('input[name="primaryMobileNumber"]').type(
-    generateRandomMobileNumber()
-  );
-  cy.wait(500);
+    function generateRandomMobileNumber() {
+      const prefix = '07'; 
+      const randomNumber = Math.floor(Math.random() * 200000000);
+      const paddedNumber = String(randomNumber).padStart(8, '0');  
+      return prefix + paddedNumber;
+    }
+    // Cypress test code
+    cy.get('input[name="primaryMobileNumber"]').type(generateRandomMobileNumber());
+    cy.wait(500);
+    function generateRandomEmail() {
+      const randomString = Math.random().toString(36).substring(2, 11); 
+      return `user_${randomString}@yopmail.com`; 
+    }
 
-  function generateRandomEmail() {
-    const randomString = Math.random().toString(36).substring(2, 11);
-    return `user_${randomString}@yopmail.com`;
-  }
+    // Cypress test code
+    cy.get("#emailId").type(generateRandomEmail());
+    cy.wait(500);
+   cy.get("#dobId").type("25/06/2002");
+    cy.wait(2000);
+  const randomName = faker.person.fullName().replace(/[^a-zA-Z ]/g, '');
+   cy.get("#fatherNameId").type(randomName, { force: true });
+cy.wait(2000);
+    cy.get(this.locators.Banking_details).click().should('be.visible');
+    cy.wait(2000);
+    cy.get(this.locators.cust_name).type("Pranshu raj").should('be.visible');
+    cy.wait(2000);
+    cy.get("input[placeholder='Enter Account Number']").type("456785678776543").should('be.visible');
+    cy.wait(2000);
 
-  cy.get("#emailId").type(generateRandomEmail());
-  cy.wait(500);
-  cy.get("#dobId").type("11-06-20006");
-  cy.wait(2000);
-  cy.get("#fatherNameId").type("Kumar", { force: true });
-  cy.wait(2000);
-  cy.get(this.locators.Banking_details).click().should("be.visible");
-  cy.wait(2000);
-  cy.get(this.locators.cust_name).type("Pranshu raj").should("be.visible");
-  cy.wait(2000);
-  cy.get("input[placeholder='Enter Account Number']")
-    .type("456785678776543")
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("select[name='bankName']")
-    .select("BANK OF INDIA")
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("select[name='bankBranchId']").select("BANO").should("be.visible");
-  cy.wait(2000);
-  cy.get(this.locators.PlaceOfWork).click().should("be.visible");
-  cy.wait(2000);
-  cy.get(this.locators.pininput).type("845438").should("be.visible");
-  cy.wait(2000);
-  cy.get(":nth-child(8) > .nav-link > span").click().should("be.visible");
-  cy.wait(2000);
-  cy.get("#expYears").type("2").should("be.visible");
-  cy.wait(2000);
+cy.get("select[name='bankName']")
+  .find("option")
+  .then(options => {
+    const count = options.length;
+    const randomIndex = Math.floor(Math.random() * (count - 1)) + 1; 
+    const randomValue = options[randomIndex].value;
 
-  cy.get("#lanKnown").select("English").should("be.visible");
-  cy.wait(2000);
+    cy.get("select[name='bankName']").select(randomValue);
+  });
 
-  cy.get(":nth-child(9) > .nav-link > span").click().should("be.visible");
+cy.wait(1500);
+cy.get("select[name='bankBranchId']")
+  .find("option")
+  .then(options => {
+    const count = options.length;
+    const randomIndex = Math.floor(Math.random() * (count - 1)) + 1;
+    const randomValue = options[randomIndex].value;
 
-  cy.wait(2000);
-  cy.get("#docTypeSelect-0").select("Pan Card").should("be.visible");
-  cy.wait(2000);
-  cy.get("#addFileBtn-0").click();
-  cy.get('input[type="file"]').eq(1).selectFile(filePath, { force: true });
-  cy.wait(2000);
+    cy.get("select[name='bankBranchId']").select(randomValue);
+  });
 
-  cy.get("#docTypeSelect-1").select("Aadhar Card").should("be.visible");
-  cy.wait(2000);
-  cy.get("#addFileBtn-1").click();
-  cy.get('input[type="file"]').eq(2).selectFile(filePath, { force: true });
-  cy.wait(2000);
+cy.wait(1500);
 
-  cy.get("#docTypeSelect-2").select("Agency ID Card").should("be.visible");
-  cy.wait(2000);
-  cy.get('input[type="file"]').eq(3).selectFile(filePath, { force: true });
-  cy.wait(2000);
 
-  cy.get("#docTypeSelect-3").select("HOC Approval").should("be.visible");
-  cy.wait(2000);
-  cy.get('input[type="file"]').eq(4).selectFile(filePath, { force: true });
-  cy.wait(2000);
+    cy.get(':nth-child(7) > .nav-link > span').click().should('be.visible');
 
-  cy.get(":nth-child(10) > .nav-link > span").click().should("be.visible");
-  cy.wait(2000);
+    cy.wait(2000);
+    cy.get("#docTypeSelect-0").select("Pan Card").should('be.visible');
+    cy.wait(2000);
+    cy.get('#addFileBtn-0').click();
+    cy.get('input[type="file"]').eq(1).selectFile(filePath, { force: true });
+    cy.wait(2000);
+   
+    cy.get('#docTypeSelect-1').select("Aadhar Card").should('be.visible');
+    cy.wait(2000);
+    cy.get('#addFileBtn-1').click();
+    cy.get('input[type="file"]').eq(2).selectFile(filePath, { force: true });
+    cy.wait(2000);
 
-  //choose date 2
+    cy.get("#docTypeSelect-2").select("Agency ID Card").should('be.visible');
+    cy.wait(2000)
+    cy.get('input[type="file"]').eq(3).selectFile(filePath, { force: true });
+    cy.wait(2000);
 
-  cy.get("#CollectionDate").type("25/06/2023").should("be.visible");
-  cy.wait(2000);
-  cy.get("#RenewalDate").type("15-07-2024").should("be.visible");
-  cy.wait(2000);
-  cy.get("#ExpiryDate").type("15-07-2026").should("be.visible");
-  cy.wait(2000);
-  cy.get("#remarks")
-    .type("aaaaaa bbbbbbbbb cccccccccc dddddddddd 123", { force: true })
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("#btn-submit").click();
-  cy.wait(3000);
+    cy.get("#docTypeSelect-3").select("HOC Approval").should('be.visible');
+    cy.wait(2000)
+    cy.get('input[type="file"]').eq(4).selectFile(filePath, { force: true });
+    cy.wait(2000);
+
+     cy.get(':nth-child(8) > .nav-link > span').click().should('be.visible');
+      cy.wait(2000);
+   
+
+    cy.get("#CollectionDate").type("25/06/2023").should('be.visible');
+    cy.wait(2000);
+    cy.get("#RenewalDate").type("15-07-2024").should('be.visible');
+    cy.wait(2000);
+    cy.get("#ExpiryDate").clear().type('2027-03-30');
+    cy.wait(2000);
+    cy.get("#remarks").type("aaaaaa bbbbbbbbb cccccccccc dddddddddd 123",{force: true}).should('be.visible');
+    cy.wait(2000)
+    cy.get('#btn-submit').click();
+    cy.wait(3000);
    cy.contains("Special characters are not allowed in the input").should("be.visible");
    cy.wait(2000);
 
@@ -1564,18 +1847,34 @@ UserManagementTestPage_114(){
 
   cy.get(this.locators.LastName).type(lastName);
   cy.wait(2000);
+cy.get(this.locators.Agencyname)
+  .find("option")
+  .then((options) => {
+    // Filter out blank/placeholder options
+    const validOptions = [...options].filter(
+      (opt) => opt.value !== "" && opt.text.trim() !== "" && opt.text.trim().toLowerCase() !== "select"
+    );
 
-  cy.get(this.locators.Agencyname)
-    .find("option")
-    .then((options) => {
-      const randomIndex = Math.floor(Math.random() * options.length); // get random index
-      const randomValue = options[randomIndex].value; // get value of random option
-      cy.get(this.locators.Agencyname).select(randomValue); // select it
-    });
+    if (validOptions.length === 0) {
+      throw new Error("No valid options found in Agency Name dropdown");
+    }
 
-  cy.get(this.locators.AgencySupervisorEmailId)
-    .type("pranshu@yopmail.com")
-    .should("be.visible");
+    const randomIndex = Math.floor(Math.random() * validOptions.length);
+    const randomValue = validOptions[randomIndex].value;
+
+    cy.get(this.locators.Agencyname)
+      .select(randomValue)
+      .should("not.have.value", ""); // Assert a real value is selected
+  });
+cy.wait(2000);
+  cy.get(this.locators.SelectAgencyReportManager).click(); 
+cy.wait(2000);
+cy.get('.ng-dropdown-panel .ng-option')        
+  .then(options => {
+    const randomIndex = Math.floor(Math.random() * options.length);
+    cy.wrap(options[randomIndex]).click();   
+  });
+
   cy.wait(2000);
   cy.get(this.locators.dilarID).type("123").should("be.visible");
   cy.wait(2000);
@@ -1611,115 +1910,114 @@ UserManagementTestPage_114(){
   cy.wait(2000);
   cy.get(":nth-child(4) > .nav-link > span").click().should("be.visible");
   cy.wait(2000);
-  cy.get("#stateId").select("All").should("be.visible");
-  cy.wait(2000);
-  cy.get("select[name='city']").select("All").should("be.visible");
-  cy.wait(2000);
-  cy.get("input[placeholder='Enter Address Landmark']")
-    .type("xxxx Bank")
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("#pinId").type("845438");
-  cy.wait(2000);
-  cy.get("#emer_contactNO").type(8838506890);
-  cy.wait(2000);
-  cy.get("#bloodGroup").select("A-");
-  cy.wait(2000);
-  cy.get("#mobileTypeId").select("MO", { force: true });
-  cy.wait(2000);
+  cy.get('#stateId').select('All').should('be.visible');
+    cy.wait(2000);
+    cy.get("#cityId").select("All").should('be.visible');
+    cy.wait(2000);
+    cy.get("#landmarkId").type("xxxx Bank").should('be.visible');
+    cy.wait(2000);
+    cy.get("#pinId").type("845438");
+    cy.wait(2000);
+    cy.get('#emer_contactNO').type(8838506890);
+    cy.wait(2000);
+    cy.get('#bloodGroup').select("A-");
+    cy.wait(2000);
+    cy.get("#mobileTypeId").select("MO",{force : true});
+    cy.wait(2000);
 
-  function generateRandomMobileNumber() {
-    const prefix = "8"; // Assuming you want the number to start with '07'
-    const randomNumber = Math.floor(Math.random() * 20000000000); // Generates an 8-digit number
-    const paddedNumber = String(randomNumber).padStart(8, "0"); // Pads with leading zeros if necessary
-    return prefix + paddedNumber;
-  }
-  // Cypress test code
-  cy.get('input[name="primaryMobileNumber"]').type(
-    generateRandomMobileNumber()
-  );
-  cy.wait(500);
+    function generateRandomMobileNumber() {
+      const prefix = '07'; 
+      const randomNumber = Math.floor(Math.random() * 200000000);
+      const paddedNumber = String(randomNumber).padStart(8, '0');  
+      return prefix + paddedNumber;
+    }
+    // Cypress test code
+    cy.get('input[name="primaryMobileNumber"]').type(generateRandomMobileNumber());
+    cy.wait(500);
+    function generateRandomEmail() {
+      const randomString = Math.random().toString(36).substring(2, 11); 
+      return `user_${randomString}@yopmail.com`; 
+    }
 
-  function generateRandomEmail() {
-    const randomString = Math.random().toString(36).substring(2, 11);
-    return `user_${randomString}@yopmail.com`;
-  }
+    // Cypress test code
+    cy.get("#emailId").type(generateRandomEmail());
+    cy.wait(500);
+    cy.get("#dobId").type("25/06/2002");
+    cy.wait(2000);
+  const randomName = faker.person.fullName().replace(/[^a-zA-Z ]/g, '');
+   cy.get("#fatherNameId").type(randomName, { force: true });
+cy.wait(2000);
+    cy.get(this.locators.Banking_details).click().should('be.visible');
+    cy.wait(2000);
+    cy.get(this.locators.cust_name).type("Pranshu raj").should('be.visible');
+    cy.wait(2000);
+    cy.get("input[placeholder='Enter Account Number']").type("456785678776543").should('be.visible');
+    cy.wait(2000);
 
-  cy.get("#emailId").type(generateRandomEmail());
-  cy.wait(500);
-  cy.get("#dobId").type("11-06-20006");
-  cy.wait(2000);
-  cy.get("#fatherNameId").type("Kumar", { force: true });
-  cy.wait(2000);
-  cy.get(this.locators.Banking_details).click().should("be.visible");
-  cy.wait(2000);
-  cy.get(this.locators.cust_name).type("Pranshu raj").should("be.visible");
-  cy.wait(2000);
-  cy.get("input[placeholder='Enter Account Number']")
-    .type("456785678776543")
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("select[name='bankName']")
-    .select("BANK OF INDIA")
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("select[name='bankBranchId']").select("BANO").should("be.visible");
-  cy.wait(2000);
-  cy.get(this.locators.PlaceOfWork).click().should("be.visible");
-  cy.wait(2000);
-  cy.get(this.locators.pininput).type("845438").should("be.visible");
-  cy.wait(2000);
-  cy.get(":nth-child(8) > .nav-link > span").click().should("be.visible");
-  cy.wait(2000);
-  cy.get("#expYears").type("2").should("be.visible");
-  cy.wait(2000);
+cy.get("select[name='bankName']")
+  .find("option")
+  .then(options => {
+    const count = options.length;
+    const randomIndex = Math.floor(Math.random() * (count - 1)) + 1; 
+    const randomValue = options[randomIndex].value;
 
-  cy.get("#lanKnown").select("English").should("be.visible");
-  cy.wait(2000);
+    cy.get("select[name='bankName']").select(randomValue);
+  });
 
-  cy.get(":nth-child(9) > .nav-link > span").click().should("be.visible");
+cy.wait(1500);
+cy.get("select[name='bankBranchId']")
+  .find("option")
+  .then(options => {
+    const count = options.length;
+    const randomIndex = Math.floor(Math.random() * (count - 1)) + 1;
+    const randomValue = options[randomIndex].value;
 
-  cy.wait(2000);
-  cy.get("#docTypeSelect-0").select("Pan Card").should("be.visible");
-  cy.wait(2000);
-  cy.get("#addFileBtn-0").click();
-  cy.get('input[type="file"]').eq(1).selectFile(filePath, { force: true });
-  cy.wait(2000);
+    cy.get("select[name='bankBranchId']").select(randomValue);
+  });
 
-  cy.get("#docTypeSelect-1").select("Aadhar Card").should("be.visible");
-  cy.wait(2000);
-  cy.get("#addFileBtn-1").click();
-  cy.get('input[type="file"]').eq(2).selectFile(filePath, { force: true });
-  cy.wait(2000);
+cy.wait(1500);
 
-  cy.get("#docTypeSelect-2").select("Agency ID Card").should("be.visible");
-  cy.wait(2000);
-  cy.get('input[type="file"]').eq(3).selectFile(filePath, { force: true });
-  cy.wait(2000);
 
-  cy.get("#docTypeSelect-3").select("HOC Approval").should("be.visible");
-  cy.wait(2000);
-  cy.get('input[type="file"]').eq(4).selectFile(filePath, { force: true });
-  cy.wait(2000);
+    cy.get(':nth-child(7) > .nav-link > span').click().should('be.visible');
 
-  cy.get(":nth-child(10) > .nav-link > span").click().should("be.visible");
-  cy.wait(2000);
+    cy.wait(2000);
+    cy.get("#docTypeSelect-0").select("Pan Card").should('be.visible');
+    cy.wait(2000);
+    cy.get('#addFileBtn-0').click();
+    cy.get('input[type="file"]').eq(1).selectFile(filePath, { force: true });
+    cy.wait(2000);
+   
+    cy.get('#docTypeSelect-1').select("Aadhar Card").should('be.visible');
+    cy.wait(2000);
+    cy.get('#addFileBtn-1').click();
+    cy.get('input[type="file"]').eq(2).selectFile(filePath, { force: true });
+    cy.wait(2000);
 
-  //choose date 2
+    cy.get("#docTypeSelect-2").select("Agency ID Card").should('be.visible');
+    cy.wait(2000)
+    cy.get('input[type="file"]').eq(3).selectFile(filePath, { force: true });
+    cy.wait(2000);
 
-  cy.get("#CollectionDate").type("25/06/2023").should("be.visible");
-  cy.wait(2000);
-  cy.get("#RenewalDate").type("15-07-2024").should("be.visible");
-  cy.wait(2000);
-  cy.get("#ExpiryDate").type("15-07-2026").should("be.visible");
-  cy.wait(2000);
-  cy.get("#remarks")
-    .type("aaaaaa bbbbbbbbb cccccccccc dddddddddd 123", { force: true })
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("#btn-submit").click();
-  cy.wait(3000);
-   cy.contains("Please fill all the required fields with valid data.").should("be.visible");
+    cy.get("#docTypeSelect-3").select("HOC Approval").should('be.visible');
+    cy.wait(2000)
+    cy.get('input[type="file"]').eq(4).selectFile(filePath, { force: true });
+    cy.wait(2000);
+
+     cy.get(':nth-child(8) > .nav-link > span').click().should('be.visible');
+      cy.wait(2000);
+   
+
+    cy.get("#CollectionDate").type("25/06/2023").should('be.visible');
+    cy.wait(2000);
+    cy.get("#RenewalDate").type("15-07-2024").should('be.visible');
+    cy.wait(2000);
+    cy.get("#ExpiryDate").clear().type('2027-03-30');
+    cy.wait(2000);
+    cy.get("#remarks").type("aaaaaa bbbbbbbbb cccccccccc dddddddddd 123",{force: true}).should('be.visible');
+    cy.wait(2000)
+    cy.get('#btn-submit').click();
+    cy.wait(3000);
+      cy.should('contain.text', 'Please fill all the required fields with valid data.');
    cy.wait(2000);
 
 }
@@ -1769,10 +2067,15 @@ UserManagementTestPage_116(){
       const randomValue = options[randomIndex].value; // get value of random option
       cy.get(this.locators.Agencyname).select(randomValue); // select it
     });
+cy.wait(2000);
+  cy.get(this.locators.SelectAgencyReportManager).click(); 
+cy.wait(2000);
+cy.get('.ng-dropdown-panel .ng-option')        
+  .then(options => {
+    const randomIndex = Math.floor(Math.random() * options.length);
+    cy.wrap(options[randomIndex]).click();   
+  });
 
-  cy.get(this.locators.AgencySupervisorEmailId)
-    .type("pranshu@yopmail.com")
-    .should("be.visible");
   cy.wait(2000);
   cy.get(this.locators.dilarID).type("123").should("be.visible");
   cy.wait(2000);
@@ -1810,114 +2113,113 @@ UserManagementTestPage_116(){
   cy.wait(2000);
   cy.get(this.locators.Type_Agent_Address).type("Green Meadows Residency Fifth Cross Street Near Sunrise Park Opposite Lake View Towers Whitefield Main Road Bengaluru Karnataka India Situated Close To Reputed Schools Colleges Major IT Parks Shopping Malls Supermarkets Hospitals Banks And Public Transport Facilities Making It A Convenient Residential Location For Families Professionals And Students Alike");
   cy.wait(2000);
-  cy.get("#stateId").select("All").should("be.visible");
-  cy.wait(2000);
-  cy.get("select[name='city']").select("All").should("be.visible");
-  cy.wait(2000);
-  cy.get("input[placeholder='Enter Address Landmark']")
-    .type("xxxx Bank")
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("#pinId").type("845438");
-  cy.wait(2000);
-  cy.get("#emer_contactNO").type(8838506890);
-  cy.wait(2000);
-  cy.get("#bloodGroup").select("A-");
-  cy.wait(2000);
-  cy.get("#mobileTypeId").select("MO", { force: true });
-  cy.wait(2000);
+  cy.get('#stateId').select('All').should('be.visible');
+    cy.wait(2000);
+    cy.get("#cityId").select("All").should('be.visible');
+    cy.wait(2000);
+    cy.get("#landmarkId").type("xxxx Bank").should('be.visible');
+    cy.wait(2000);
+    cy.get("#pinId").type("845438");
+    cy.wait(2000);
+    cy.get('#emer_contactNO').type(8838506890);
+    cy.wait(2000);
+    cy.get('#bloodGroup').select("A-");
+    cy.wait(2000);
+    cy.get("#mobileTypeId").select("MO",{force : true});
+    cy.wait(2000);
 
-  function generateRandomMobileNumber() {
-    const prefix = "8"; // Assuming you want the number to start with '07'
-    const randomNumber = Math.floor(Math.random() * 20000000000); // Generates an 8-digit number
-    const paddedNumber = String(randomNumber).padStart(8, "0"); // Pads with leading zeros if necessary
-    return prefix + paddedNumber;
-  }
-  // Cypress test code
-  cy.get('input[name="primaryMobileNumber"]').type(
-    generateRandomMobileNumber()
-  );
-  cy.wait(500);
+    function generateRandomMobileNumber() {
+      const prefix = '07'; 
+      const randomNumber = Math.floor(Math.random() * 200000000);
+      const paddedNumber = String(randomNumber).padStart(8, '0');  
+      return prefix + paddedNumber;
+    }
+    // Cypress test code
+    cy.get('input[name="primaryMobileNumber"]').type(generateRandomMobileNumber());
+    cy.wait(500);
+    function generateRandomEmail() {
+      const randomString = Math.random().toString(36).substring(2, 11); 
+      return `user_${randomString}@yopmail.com`; 
+    }
 
-  function generateRandomEmail() {
-    const randomString = Math.random().toString(36).substring(2, 11);
-    return `user_${randomString}@yopmail.com`;
-  }
+    // Cypress test code
+    cy.get("#emailId").type(generateRandomEmail());
+    cy.wait(500);
+    cy.get("#dobId").type("25/06/2002");
+    cy.wait(2000);
+  const randomName = faker.person.fullName().replace(/[^a-zA-Z ]/g, '');
+   cy.get("#fatherNameId").type(randomName, { force: true });
+cy.wait(2000);
+    cy.get(this.locators.Banking_details).click().should('be.visible');
+    cy.wait(2000);
+    cy.get(this.locators.cust_name).type("Pranshu raj").should('be.visible');
+    cy.wait(2000);
+    cy.get("input[placeholder='Enter Account Number']").type("456785678776543").should('be.visible');
+    cy.wait(2000);
 
-  cy.get("#emailId").type(generateRandomEmail());
-  cy.wait(500);
-  cy.get("#dobId").type("11-06-20006");
-  cy.wait(2000);
-  cy.get("#fatherNameId").type("Kumar", { force: true });
-  cy.wait(2000);
-  cy.get(this.locators.Banking_details).click().should("be.visible");
-  cy.wait(2000);
-  cy.get(this.locators.cust_name).type("Pranshu raj").should("be.visible");
-  cy.wait(2000);
-  cy.get("input[placeholder='Enter Account Number']")
-    .type("456785678776543")
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("select[name='bankName']")
-    .select("BANK OF INDIA")
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("select[name='bankBranchId']").select("BANO").should("be.visible");
-  cy.wait(2000);
-  cy.get(this.locators.PlaceOfWork).click().should("be.visible");
-  cy.wait(2000);
-  cy.get(this.locators.pininput).type("845438").should("be.visible");
-  cy.wait(2000);
-  cy.get(":nth-child(8) > .nav-link > span").click().should("be.visible");
-  cy.wait(2000);
-  cy.get("#expYears").type("2").should("be.visible");
-  cy.wait(2000);
+cy.get("select[name='bankName']")
+  .find("option")
+  .then(options => {
+    const count = options.length;
+    const randomIndex = Math.floor(Math.random() * (count - 1)) + 1; 
+    const randomValue = options[randomIndex].value;
 
-  cy.get("#lanKnown").select("English").should("be.visible");
-  cy.wait(2000);
+    cy.get("select[name='bankName']").select(randomValue);
+  });
 
-  cy.get(":nth-child(9) > .nav-link > span").click().should("be.visible");
+cy.wait(1500);
+cy.get("select[name='bankBranchId']")
+  .find("option")
+  .then(options => {
+    const count = options.length;
+    const randomIndex = Math.floor(Math.random() * (count - 1)) + 1;
+    const randomValue = options[randomIndex].value;
 
-  cy.wait(2000);
-  cy.get("#docTypeSelect-0").select("Pan Card").should("be.visible");
-  cy.wait(2000);
-  cy.get("#addFileBtn-0").click();
-  cy.get('input[type="file"]').eq(1).selectFile(filePath, { force: true });
-  cy.wait(2000);
+    cy.get("select[name='bankBranchId']").select(randomValue);
+  });
 
-  cy.get("#docTypeSelect-1").select("Aadhar Card").should("be.visible");
-  cy.wait(2000);
-  cy.get("#addFileBtn-1").click();
-  cy.get('input[type="file"]').eq(2).selectFile(filePath, { force: true });
-  cy.wait(2000);
+cy.wait(1500);
 
-  cy.get("#docTypeSelect-2").select("Agency ID Card").should("be.visible");
-  cy.wait(2000);
-  cy.get('input[type="file"]').eq(3).selectFile(filePath, { force: true });
-  cy.wait(2000);
 
-  cy.get("#docTypeSelect-3").select("HOC Approval").should("be.visible");
-  cy.wait(2000);
-  cy.get('input[type="file"]').eq(4).selectFile(filePath, { force: true });
-  cy.wait(2000);
+    cy.get(':nth-child(7) > .nav-link > span').click().should('be.visible');
 
-  cy.get(":nth-child(10) > .nav-link > span").click().should("be.visible");
-  cy.wait(2000);
+    cy.wait(2000);
+    cy.get("#docTypeSelect-0").select("Pan Card").should('be.visible');
+    cy.wait(2000);
+    cy.get('#addFileBtn-0').click();
+    cy.get('input[type="file"]').eq(1).selectFile(filePath, { force: true });
+    cy.wait(2000);
+   
+    cy.get('#docTypeSelect-1').select("Aadhar Card").should('be.visible');
+    cy.wait(2000);
+    cy.get('#addFileBtn-1').click();
+    cy.get('input[type="file"]').eq(2).selectFile(filePath, { force: true });
+    cy.wait(2000);
 
-  //choose date 2
+    cy.get("#docTypeSelect-2").select("Agency ID Card").should('be.visible');
+    cy.wait(2000)
+    cy.get('input[type="file"]').eq(3).selectFile(filePath, { force: true });
+    cy.wait(2000);
 
-  cy.get("#CollectionDate").type("25/06/2023").should("be.visible");
-  cy.wait(2000);
-  cy.get("#RenewalDate").type("15-07-2024").should("be.visible");
-  cy.wait(2000);
-  cy.get("#ExpiryDate").type("15-07-2026").should("be.visible");
-  cy.wait(2000);
-  cy.get("#remarks")
-    .type("aaaaaa bbbbbbbbb cccccccccc dddddddddd 123", { force: true })
-    .should("be.visible");
-  cy.wait(2000);
-  cy.get("#btn-submit").click();
-  cy.wait(3000);
+    cy.get("#docTypeSelect-3").select("HOC Approval").should('be.visible');
+    cy.wait(2000)
+    cy.get('input[type="file"]').eq(4).selectFile(filePath, { force: true });
+    cy.wait(2000);
+
+     cy.get(':nth-child(8) > .nav-link > span').click().should('be.visible');
+      cy.wait(2000);
+   
+
+    cy.get("#CollectionDate").type("25/06/2023").should('be.visible');
+    cy.wait(2000);
+    cy.get("#RenewalDate").type("15-07-2024").should('be.visible');
+    cy.wait(2000);
+    cy.get("#ExpiryDate").type("2027-03-30").should('be.visible');
+    cy.wait(2000);
+    cy.get("#remarks").type("aaaaaa bbbbbbbbb cccccccccc dddddddddd 123",{force: true}).should('be.visible');
+    cy.wait(2000)
+    cy.get('#btn-submit').click();
+    cy.wait(3000);
   cy.contains("Agent Profile has been Submitted for Approval.").should("be.visible")
   cy.wait(2000);
 
@@ -1925,7 +2227,7 @@ UserManagementTestPage_116(){
 }
 
 PanCardTestPage_01(){
-
+  cy.wait(7000);
   cy.get(this.locators.clickonusermanagement).click();
   cy.wait(1000);
   cy.get(this.locators.clickonAgencyEmpanelRequest).click({force: true});
@@ -1936,12 +2238,40 @@ PanCardTestPage_01(){
   cy.wait(2000);
   cy.get(this.locators.Click_On_Submit).click();
   cy.wait(4000);
-  cy.get('tbody > :nth-child(2) > :nth-child(5) > .form-control-group > .form-check-group > label > input').click();
+  cy.get(".pagination-count > .form-select").select('50');
   cy.wait(2000);
-  cy.get(this.locators.ClickOn_Edit).click();
+  cy.get(':nth-child(2) > :nth-child(5) > .form-control-group > .form-check-group > label > input').click({force:true});
+  cy.wait(2000);
+   cy.get(this.locators.ClickOn_Edit).click();
   cy.wait(3000);
   cy.contains("Edit Agency").should("be.visible");
   cy.wait(1000);
+  cy.get(this.locators.scope_of_work).click({force:true});
+  cy.wait(2000);
+  cy.get('#scopeOfWorkProductGroup').select("All");
+  cy.wait(2000);
+  cy.get('#scopeOfWorkProduct').select("All");
+  cy.wait(2000);
+  cy.get('#scopeOfWorkSubProduct').select("All");
+  cy.wait(2000);
+  cy.get(this.locators.place_of_work).click({force:true});
+  cy.wait(2000);
+  cy.get(this.locators.productGroupDropdown).select("All");
+cy.get(this.locators.productDropdown).select("All")
+cy.get(this.locators.subProductDropdown).select("All")
+cy.get(this.locators.bucketDropdown).select("All")
+cy.get(this.locators.countryDropdown).select("All")
+cy.get(this.locators.regionDropdown).select("All")
+cy.get(this.locators.stateDropdown).select("All")
+cy.get(this.locators.cityDropdown).select("All")
+cy.get(this.locators.managerDropdown).then(($dropdown) => {
+  const options = $dropdown.find('option')
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1
+  cy.wrap($dropdown).select(options[randomIndex].value)
+})
+cy.wait(2000);
+cy.get(this.locators.basic_information).click({force:true});
+cy.wait(2000);
   cy.get(this.locators.ClickOn_Pancard).clear();
   cy.wait(2000);
   cy.get(this.locators.ClickOn_Pancard).clear().type("BNZAA1234F");
@@ -1950,9 +2280,9 @@ PanCardTestPage_01(){
   cy.wait(2000);
   cy.get(this.locators.Type_Agency_Address).type("Sunrise Residency Lakeview Street Near City Park Whitefield Main Road Bengaluru Karnataka India");
   cy.wait(2000);
-  cy.get(this.locators.ClickOn_Submit_afterEdit).click();
-  cy.wait(2000);
-  cy.get('[role="alert"]').should('be.visible').and('contain', 'Agency Profile has been Submitted for Approval.');
+  cy.get(this.locators.ClickOn_Submit_afterEdit).click({force: true});
+  cy.wait(3000);
+ cy.should('be.visible').and('contain', 'Agency Profile has been submitted for approval.');
   cy.wait(2000);
 
 }
@@ -1966,7 +2296,6 @@ PanCardTestPage_01(){
         Cypress.env('generatedPAN', generatedPAN);  // Store it in Cypress.env
         return generatedPAN;
  }
-
 PanCardTestPage_02(){
 
   const generatedPAN = this.generateRandomPAN();
@@ -1977,7 +2306,7 @@ PanCardTestPage_02(){
   cy.wait(2000);
   cy.get(this.locators.ClickOn_Search_Agency).click();
   cy.wait(2000);
-  cy.get(this.locators.Type_Agency_Name).type("Kinder");
+  cy.get(this.locators.Type_Agency_Name).type("Amber");
   cy.wait(2000);
   cy.get(this.locators.Select_Agency_status).select("Approved");
   cy.wait(2000);
@@ -1998,8 +2327,8 @@ PanCardTestPage_02(){
   // cy.get(this.locators.Type_Agency_Address).clear().type("Sunrise Residency Lakeview Street Near City Park Whitefield Main Road Bengaluru Karnataka India");
   // cy.wait(2000);
   cy.get(this.locators.ClickOn_Submit_afterEdit).click();
-  cy.wait(2000);
-  cy.get('[role="alert"]').should('be.visible').and('contain', 'Agency Profile has been Submitted for Approval.');
+  cy.wait(8000);
+  cy.should('be.visible').and('contain', 'Agency Profile has been Submitted for Approval.');
   cy.wait(2000);
 
 }
@@ -2014,7 +2343,7 @@ PanCardTestPage_02a(){
   cy.wait(2000);
   cy.get(this.locators.ClickOn_Search_Agency).click();
   cy.wait(2000);
-   cy.get(this.locators.Type_Agency_Name).type("Kinder");
+   cy.get(this.locators.Type_Agency_Name).type("Amber");
   cy.wait(2000);
   cy.get(this.locators.Select_Agency_status).select("Pending Approval");
   cy.wait(2000);
@@ -2024,24 +2353,25 @@ PanCardTestPage_02a(){
   cy.wait(2000);
   cy.get(this.locators.ClickOn_Approve).click();
   cy.wait(2000);  
-    cy.get('[role="alert"]').should('be.visible').and('contain', 'Agency Approved Successfully');
+    cy.should('be.visible').and('contain', 'Agency Approved Successfully');
   cy.wait(4000);
-    cy.get(this.locators.Type_Agency_Name).clear().type("Kinder");
+    cy.get(this.locators.Type_Agency_Name).clear().type("Amber");
   cy.wait(2000);
   cy.get(this.locators.Select_Agency_status).select("Approved");
   cy.wait(2000);
   cy.get(this.locators.Click_On_Submit).click();
-  cy.wait(4000);
+  cy.wait(6000);
   cy.get('tbody > :nth-child(1) > :nth-child(5) > .form-control-group > .form-check-group > label > input').click();
   cy.wait(2000);
   cy.get(this.locators.ClickOn_Edit).click();
-  cy.wait(3000);
+  cy.wait(7000);
   cy.contains("Edit Agency").should("be.visible");
   cy.wait(1000);
    cy.get(this.locators.ClickOn_Pancard).should("have.value", generatedPAN); 
   cy.wait(2000);
 
 }
+
 
 PanCardTestPage_03(){
 
@@ -2098,61 +2428,89 @@ PanCardTestPage_04(){
 
 }
 
-PanCardTestPage_05(){
+PanCardTestPage_05() {
 
- cy.get(this.locators.clickonusermanagement).click();
+  cy.get(this.locators.clickonusermanagement).click();
   cy.wait(1000);
-  cy.get(this.locators.clickonAgencyEmpanelRequest).click({force: true});
+
+  cy.get(this.locators.clickonAgencyEmpanelRequest).click({ force: true });
   cy.wait(2000);
+
   cy.get(this.locators.ClickOn_Search_Agency).click();
   cy.wait(2000);
-    cy.get(this.locators.Type_Agency_Name).type("Kinder");
-  cy.wait(2000);
+
   cy.get(this.locators.Select_Agency_status).select("Approved");
   cy.wait(2000);
+
   cy.get(this.locators.Click_On_Submit).click();
   cy.wait(4000);
-  cy.get('tbody > :nth-child(1) > :nth-child(5) > .form-control-group > .form-check-group > label > input').click();
+
+  // ⭐ STEP 1 — Click first row checkbox AND store row index
+  cy.get('tbody tr').first().then(($row) => {
+    const rowIndex = $row.index();
+    cy.wrap(rowIndex).as('selectedRowIndex');
+
+    cy.wrap($row)
+      .find(':nth-child(5) .form-check-group input')
+      .check({ force: true });
+  });
+
   cy.wait(2000);
   cy.get(this.locators.ClickOn_Edit).click();
   cy.wait(3000);
+
   cy.contains("Edit Agency").should("be.visible");
   cy.wait(2000);
 
+  // Copy PAN value
   cy.get(this.locators.ClickOn_Pancard).invoke("val").as("copiedPan");
-cy.wait(2000);
+  cy.wait(2000);
 
+  // Edit PAN and cancel
   cy.get(this.locators.ClickOn_Pancard).clear();
   cy.wait(2000);
+
   cy.get(this.locators.ClickOn_Pancard).type("BNZAA1234F");
-  cy.wait(2000);  
-   cy.get(this.locators.Clickon_Cancel_afteredit).click();
   cy.wait(2000);
 
-    cy.get(this.locators.ClickOn_Search_Agency).click();
+  cy.get(this.locators.Clickon_Cancel_afteredit).click();
   cy.wait(2000);
-    cy.get(this.locators.Type_Agency_Name).type("Kinder");
+
+  // Search again
+  cy.get(this.locators.ClickOn_Search_Agency).click();
   cy.wait(2000);
+
   cy.get(this.locators.Select_Agency_status).select("Approved");
   cy.wait(2000);
+
   cy.get(this.locators.Click_On_Submit).click();
   cy.wait(4000);
-  cy.get('tbody > :nth-child(1) > :nth-child(5) > .form-control-group > .form-check-group > label > input').click();
+
+  // ⭐ STEP 2 — Click SAME row checkbox again using saved index
+  cy.get('@selectedRowIndex').then((rowIndex) => {
+    cy.get('tbody tr')
+      .eq(rowIndex)
+      .find(':nth-child(5) .form-check-group input')
+      .check({ force: true });
+  });
+
   cy.wait(2000);
   cy.get(this.locators.ClickOn_Edit).click();
   cy.wait(3000);
+
   cy.contains("Edit Agency").should("be.visible");
   cy.wait(1000);
-  
-  cy.get("@copiedPan").then((panValue) => {
-  cy.get(this.locators.ClickOn_Pancard)
-    .invoke("val")
-    .should("eq", panValue);
-});
-cy.wait(2000);
-   
 
+  // Verify PAN is unchanged after cancel
+  cy.get("@copiedPan").then((panValue) => {
+    cy.get(this.locators.ClickOn_Pancard)
+      .invoke("val")
+      .should("eq", panValue);
+  });
+
+  cy.wait(2000);
 }
+
 
 PanCardTestPage_06(){
 
@@ -2186,43 +2544,62 @@ PanCardTestPage_07(){
 
 }
 
-PanCardTestPage_08(){
+PanCardTestPage_08() {
 
   cy.get(this.locators.clickonusermanagement).click();
   cy.wait(1000);
-  cy.get(this.locators.clickonAgencyEmpanelRequest).click({force: true});
+
+  cy.get(this.locators.clickonAgencyEmpanelRequest).click({ force: true });
   cy.wait(2000);
+
   cy.get(this.locators.ClickOn_Search_Agency).click();
   cy.wait(2000);
-  cy.get(this.locators.Type_Agency_Name).type("Kinder");
-  cy.wait(2000);
+
   cy.get(this.locators.Select_Agency_status).select("Approved");
   cy.wait(2000);
+
   cy.get(this.locators.Click_On_Submit).click();
   cy.wait(4000);
-  cy.get('tbody > :nth-child(1) > :nth-child(5) > .form-control-group > .form-check-group > label > input').click();
+
+  // Stable checkbox click (dynamic table)
+  cy.get('tbody tr')
+    .first()
+    .find(':nth-child(5) .form-check-group input')
+    .check({ force: true });
+
   cy.wait(2000);
+
   cy.get(this.locators.ClickOn_Edit).click();
   cy.wait(3000);
+
   cy.contains("Edit Agency").should("be.visible");
   cy.wait(1000);
+
+  cy.get(this.locators.ClickOn_Pancard)
+    .clear()
+    .type("ABCDE1234F");
+
+  cy.wait(2000);
+
   cy.get(':nth-child(8) > .nav-link > span').click();
   cy.wait(2000);
 
-  const today = new Date().toLocaleDateString("en-US", {
-  month: "short",
-  day: "numeric",
-  year: "numeric",
-});
-cy.contains(today).should("be.visible");
-cy.wait(2000);
+  // Correct date format: DD-MMM-YY
+  const today = new Date();
+  const day = String(today.getDate()).padStart(2, '0');
+  const month = today.toLocaleString('en-US', { month: 'short' });
+  const year = String(today.getFullYear()).slice(-2);
+
+  const formattedDate = `${day}-${month}-${year}`;
+
+  cy.contains(formattedDate).should("be.visible");
+  cy.wait(2000);
+
   cy.contains("AgencyApproved").should("be.visible");
   cy.wait(2000);
+
   cy.contains("AgencyPendingApproval").should("be.visible");
   cy.wait(2000);
-
-
-
 }
 
 

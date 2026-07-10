@@ -6,7 +6,6 @@ class LoginPage {
     this.locators = locators;
   }
  
-  
   visit() {
  
     Cypress.on('uncaught:exception', (err, runnable) => {
@@ -70,15 +69,15 @@ cy.wait(2000);
   submit() {
     cy.wait(2000);
     cy.get(this.locators.signinButton).click();
-    cy.wait(4000);
+    cy.wait(2000);
   }
  
 enterotp(){
 cy.wait(2000);
     cy.get('#otp-input').type(560062);
-    cy.wait(2000);
+    cy.wait(1000);
     cy.get('.btn-success').click({force:true});
-     cy.wait(3000); 
+     cy.wait(10000); 
      cy.wait(2000);
      cy.wait(1000);
    cy.get('body', { timeout: 5000 }).then(($body) => {
@@ -104,7 +103,7 @@ cy.wait(2000);
       this.fillUsername(email);
       this.fillPassword(password);
       this.submit();
-      cy.wait(2000);
+      cy.wait(1000);
       this.enterotp();
       // this.verifyLoginSuccess();
   }

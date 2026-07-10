@@ -5,7 +5,7 @@ import LoginPage from '../pages/LoginPage';
 import AllocationPage from '../pages/AllocationPage';
 import { getLocators } from '../utils/locatorUtils';
 
-describe('Allocation -  Allocation Agency by filters - All the fields should be visible for Other filter section', () => {
+describe('Allocation - Primary Allocation by filters -All fields under Product filters are cascading drop down values. The values under dropdown are populated based on item selected by user from another dropdown list.', () => {
     let loginPage;
     let allocationPage;  
 
@@ -24,8 +24,10 @@ describe('Allocation -  Allocation Agency by filters - All the fields should be 
         getTestData('loginData', 'login').then(user => {
             loginPage.login(user.Companyname, user.email, user.password);
 
+           allocationPage.ClickonallocationPAF();
            allocationPage.fillproductgroupPAF6();
-           
+           allocationPage.fillproductPAF6();
+           allocationPage.fillsubproductPAF6();
 
         });
     });

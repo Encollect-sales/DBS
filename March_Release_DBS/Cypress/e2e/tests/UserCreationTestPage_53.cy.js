@@ -51,7 +51,7 @@ describe('UserManagement -If Designation is blank, then system will throw an err
                             'D2': ln,
                             'E2': email,
                             'F2': phno,
-                            'G2': 'Branch Backend',
+                            'G2': 'Collection Staff Backend',
                             'H2': '',
                             'I2': 'Bangalore',                        
 

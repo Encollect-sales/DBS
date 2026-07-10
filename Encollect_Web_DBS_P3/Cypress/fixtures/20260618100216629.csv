@@ -1,0 +1,2 @@
+CustomerID,AccountNo,AgentCode,AllocationExpireDate,WorkRequestId,UploadStatus,Remarks
+,10008932,,,20260618100216629,Error,Invalid CustomerID

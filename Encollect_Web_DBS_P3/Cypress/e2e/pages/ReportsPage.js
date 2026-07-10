@@ -16,32 +16,48 @@ class ReportsPage {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(2000);
-    cy.get(this.locators.clickonpaymentreport).click();
-    cy.wait(300);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
-     cy.get(this.locators.Clickon_Bucket).click();
+    cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
+
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
-    cy.wait(300);
+    cy.wait(2000);
 
 
   }
@@ -52,32 +68,47 @@ class ReportsPage {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(2000);
-    cy.get(this.locators.clickonpaymentreport).click();
-    cy.wait(300);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
-     cy.get(this.locators.Clickon_Bucket).click();
+    cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
-    cy.wait(300);
+    cy.wait(2000);
     //cy.get(this.locators.DownloadReport).click().should('be.visible');
     //cy.wait(300);
 
@@ -87,32 +118,47 @@ class ReportsPage {
       console.error('Uncaught exception:', err.message);
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
     cy.wait(400);
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
-    cy.wait(300);
+    cy.wait(2000);
   }
 
 
@@ -121,34 +167,49 @@ class ReportsPage {
       console.error('Uncaught exception:', err.message);
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
     cy.wait(400);
     cy.get('#agencyUserRadio').click();
     cy.wait(1000);
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
-    cy.wait(300);
+    cy.wait(2000);
   }
 
   ReportPaymentTestPage_306() {
@@ -156,36 +217,54 @@ class ReportsPage {
       console.error('Uncaught exception:', err.message);
       return false;
     });
-   cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
     cy.wait(400);
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
-    cy.wait(300);;
+    cy.wait(2000);;
 
   }
 
@@ -195,165 +274,240 @@ class ReportsPage {
       console.error('Uncaught exception:', err.message);
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
     cy.wait(400);
     cy.get('#agencyUserRadio').click();
     cy.wait(1000);
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
-    cy.wait(300);;
+    cy.wait(2000);;
   }
 
   ReportPaymentTestPage_308() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
-    cy.wait(300);
-   cy.get(this.locators.ClickOn_Product_group).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.get(this.locators.ClickOn_Product_group).click();
+    cy.wait(2000);
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
     cy.get(".ng-option").last().click();
     cy.wait(2000);
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
-    cy.wait(300);;
+    cy.wait(2000);;
     //cy.get('.inner-layout-container').scrollTo('bottom');
-   // cy.wait(500);
-   // cy.contains('Search Result').should('be.visible');
-   // cy.wait(500);
+    // cy.wait(2000);
+    // cy.contains('Search Result').should('be.visible');
+    // cy.wait(2000);
     //cy.get('#downloadReport').click();
-   // cy.wait(2000);
+    // cy.wait(2000);
 
   }
 
   ReportPaymentTestPage_309() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('#agencyUserRadio').click();
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
     cy.get(".ng-option").last().click();
     cy.wait(2000);
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
-    cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.get('#receiptDate_from').click({force: true});
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
-    cy.wait(300);;
+    cy.wait(2000);;
     //cy.get('.inner-layout-container').scrollTo('bottom');
-   // cy.wait(500);
-   // cy.contains('Search Result').should('be.visible');
-   // cy.wait(500);
+    // cy.wait(2000);
+    // cy.contains('Search Result').should('be.visible');
+    // cy.wait(2000);
     //cy.get('#downloadReport').click();
-   // cy.wait(2000);
+    // cy.wait(2000);
 
   }
 
 
   ReportPaymentTestPage_310() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
     cy.get(".ng-option").last().click();
     cy.wait(2000);
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
-    cy.wait(300);;
+    cy.wait(2000);;
     //cy.get('.inner-layout-container').scrollTo('bottom');
     //cy.wait(500);
     //cy.contains('Search Result').should('be.visible');
@@ -367,92 +521,64 @@ class ReportsPage {
 
 
   ReportPaymentTestPage_311() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
-    cy.wait(300);
-   cy.get('#agencyUserRadio').click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.get('#agencyUserRadio').click();
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
     cy.get(".ng-option").last().click();
     cy.wait(2000);
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
-    cy.wait(300);;
-   //cy.get('.inner-layout-container').scrollTo('bottom');
-    //cy.wait(500);
-    //cy.contains('Search Result').should('be.visible');
-    //cy.wait(500);
-    //cy.get('#downloadReport').click();
-    //cy.wait(2000);
-    //cy.get('.pagination-count > .form-select').select('10');
-    //cy.wait(2000);
-  }
-    ReportPaymentTestPage_312() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickOn_Product_group).click();
-    cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.wait(2000);
-    cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
-    cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.wait(2000);
-    cy.get(this.locators.ClickOn_Country).click();
-    cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.wait(2000);
-    cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
-    cy.get(".ng-option").last().click();
-    cy.wait(2000);
-    cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
-    cy.wait(2000);
-    cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container').click();
-    cy.get(".ng-option").first().click();
-    cy.wait(2000);
-    cy.get(':nth-child(9) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
-    cy.wait(2000);
-    cy.get('#receiptDate_from').click();
-    cy.wait(500);
-    cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
-    cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
-    cy.get('#generate-report-button').click();
-    cy.wait(300);;
+    cy.wait(2000);;
     //cy.get('.inner-layout-container').scrollTo('bottom');
     //cy.wait(500);
     //cy.contains('Search Result').should('be.visible');
@@ -462,47 +588,70 @@ class ReportsPage {
     //cy.get('.pagination-count > .form-select').select('10');
     //cy.wait(2000);
   }
-    ReportPaymentTestPage_313() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
-    cy.wait(300);
-    cy.get('#agencyUserRadio').click();
+  ReportPaymentTestPage_312() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
     cy.get(".ng-option").last().click();
     cy.wait(2000);
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(9) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
-    cy.wait(300);;
+    cy.wait(2000);;
     //cy.get('.inner-layout-container').scrollTo('bottom');
     //cy.wait(500);
     //cy.contains('Search Result').should('be.visible');
@@ -511,51 +660,149 @@ class ReportsPage {
     //cy.wait(2000);
     //cy.get('.pagination-count > .form-select').select('10');
     //cy.wait(2000);
-  
-    }
-    
-ReportPaymentTestPage_314() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
-    cy.wait(300);
+  }
+  ReportPaymentTestPage_313() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('#agencyUserRadio').click();
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
     cy.get(".ng-option").last().click();
     cy.wait(2000);
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(9) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
-    cy.wait(300);
-}
+    cy.wait(2000);;
+    //cy.get('.inner-layout-container').scrollTo('bottom');
+    //cy.wait(500);
+    //cy.contains('Search Result').should('be.visible');
+    //cy.wait(500);
+    //cy.get('#downloadReport').click();
+    //cy.wait(2000);
+    //cy.get('.pagination-count > .form-select').select('10');
+    //cy.wait(2000);
+
+  }
+
+  ReportPaymentTestPage_314() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.get('#agencyUserRadio').click();
+    cy.get(this.locators.ClickOn_Product_group).click();
+    cy.wait(2000);
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
+    cy.wait(2000);
+    cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
+    cy.get(this.locators.Clickon_Bucket).click();
+    cy.wait(2000);
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
+    cy.wait(2000);
+    cy.get(this.locators.ClickOn_Country).click();
+    cy.wait(2000);
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
+    cy.wait(2000);
+    cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
+    cy.get(".ng-option").last().click();
+    cy.wait(2000);
+    cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
+    cy.wait(2000);
+    cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container').click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
+    cy.wait(2000);
+    cy.get(':nth-child(9) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
+    cy.wait(2000);
+    cy.get('#receiptDate_from').click();
+    cy.wait(2000);
+    cy.get('.previous > span').click();
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
+    cy.get('#receiptDate_to').click();
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
+    cy.get('#generate-report-button').click();
+    cy.wait(2000);
+  }
   ReportPaymentTestPage_315() {
     Cypress.on('uncaught:exception', (err, runnable) => {
       console.error('Uncaught exception:', err.message);
@@ -563,98 +810,152 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-      cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
     cy.get(".ng-option").last().click();
     cy.wait(2000);
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(9) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(10) > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
-    cy.wait(300);
+    cy.wait(2000);
   }
-    
-   ReportPaymentTestPage_316() {
+
+  ReportPaymentTestPage_316() {
     Cypress.on('uncaught:exception', (err, runnable) => {
       console.error('Uncaught exception:', err.message);
       console.error(err);
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('#agencyUserRadio').click();
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
     cy.get(".ng-option").last().click();
     cy.wait(2000);
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(9) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(10) > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
     cy.wait(300)
   }
@@ -666,48 +967,75 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
     cy.get(".ng-option").last().click();
     cy.wait(2000);
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(9) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(10) > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
-    cy.wait(300);
+    cy.wait(2000);
   }
 
   ReoprtPaymentTestPage_318() {
@@ -717,52 +1045,82 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('#agencyUserRadio').click();
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
     cy.get(".ng-option").last().click();
     cy.wait(2000);
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(9) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(10) > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(11) > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
-    cy.wait(300);
+    cy.wait(2000);
 
   }
 
@@ -773,51 +1131,81 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-  cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
     cy.get(".ng-option").last().click();
     cy.wait(2000);
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(9) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(10) > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(11) > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
-    cy.wait(300);
+    cy.wait(2000);
 
 
 
@@ -829,33 +1217,48 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('#agencyUserRadio').click();
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#payment_status').select("Failed");
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
 
 
@@ -867,33 +1270,48 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#payment_status').select("Failed");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
 
 
@@ -905,34 +1323,49 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-   cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('#agencyUserRadio').click();
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#payment_status').select("With Agent");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
   }
   ReoprtPaymentTestPage_326() {
@@ -942,33 +1375,48 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#payment_status').select("With Agent");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
     cy.get('#generate-report-button').click();
   }
   ReoprtPaymentTestPage_327() {
@@ -978,32 +1426,32 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonpaymentreport).click();
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Payment Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.contains("Product Group").should("be.visible");
     cy.wait(1000);
-    cy.contains("Product").should("be.visible");
+    cy.contains("Product(s)").should("be.visible");
     cy.wait(1000);
-    cy.contains("Sub Product").should("be.visible");
+    cy.contains("Sub Product(s)").should("be.visible");
     cy.wait(1000);
-    cy.contains("Bucket").should("be.visible");
+    cy.contains("Bucket(s)").should("be.visible");
     cy.wait(1000);
-    cy.contains("Country").should("be.visible");
+    cy.contains("Country(s)").should("be.visible");
     cy.wait(1000);
-    cy.contains("Region").should("be.visible");
+    cy.contains("Region(s)").should("be.visible");
     cy.wait(1000);
-    cy.contains("State").should("be.visible");
+    cy.contains("State(s)").should("be.visible");
     cy.wait(1000);
-    cy.contains("City").should("be.visible");
+    cy.contains("City(s)").should("be.visible");
     cy.wait(1000);
-    //cy.contains("Branch").should("be.visible");
-    //cy.wait(1000);
-    cy.contains("User Branch").should("be.visible");
+    cy.contains("Branch(s)").should("be.visible");
     cy.wait(1000);
-    //cy.contains("Staff").should("be.visible");
-    //cy.wait(1000);
+    cy.contains("User Branch(s)").should("be.visible");
+    cy.wait(1000);
+    cy.contains("Staff(s)").should("be.visible");
+    cy.wait(1000);
     cy.contains("Payment Status").should("be.visible");
     cy.wait(1000);
     cy.contains("Receipt From Date").scrollIntoView().should("be.visible");
@@ -1018,13 +1466,18 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonperformance).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+  cy.contains("Performance Reports").scrollIntoView().should("be.visible").click();
+cy.wait(1000);
+  cy.contains("Performance Report (MTD)").should("be.visible").click()
     cy.wait(300)
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
 
 
@@ -1036,12 +1489,17 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonperformance).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+  cy.contains("Performance Reports").scrollIntoView().should("be.visible").click();
+cy.wait(1000);
+  cy.contains("Performance Report (MTD)").should("be.visible").click()
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
     cy.get(".ng-option").last().click();
@@ -1056,22 +1514,33 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonperformance).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+  cy.contains("Performance Reports").scrollIntoView().should("be.visible").click();
+cy.wait(1000);
+  cy.contains("Performance Report (MTD)").should("be.visible").click()
     cy.wait(300)
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
     cy.get(".ng-option").last().click();
     cy.wait(2000);
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
 
 
@@ -1084,25 +1553,39 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonperformance).click();
-    cy.wait(300)
-    /cy.get(this.locators.ClickOn_Country).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+  cy.contains("Performance Reports").scrollIntoView().should("be.visible").click();
+cy.wait(1000);
+  cy.contains("Performance Report (MTD)").should("be.visible").click()
+    cy.wait(300)
+      / cy.get(this.locators.ClickOn_Country).click();
+    cy.wait(2000);
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
     cy.get(".ng-option").last().click();
     cy.wait(2000);
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(9) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
 
 
@@ -1114,13 +1597,15 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonperformance).click();
-    cy.wait(300)
-    cy.get('#inlineRadio2').click();
-
-
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+  cy.contains("Performance Reports").scrollIntoView().should("be.visible").click();
+cy.wait(1000);
+  cy.contains("Performance Report (MTD)").should("be.visible").click()
+    cy.wait(2000);
+    cy.get(this.locators.ClickOn_Agency_RadioBtn).click();
+    cy.wait(2000);
+ 
 
   }
   ReoprtPaymentTestPage_351() {
@@ -1130,15 +1615,20 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonperformance).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+  cy.contains("Performance Reports").scrollIntoView().should("be.visible").click();
+cy.wait(1000);
+  cy.contains("Performance Report (MTD)").should("be.visible").click()
     cy.wait(300)
-    cy.get('#inlineRadio2').click();
+    cy.get(this.locators.ClickOn_Agency_RadioBtn).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
 
   }
@@ -1150,13 +1640,18 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonperformance).click();
-    cy.wait(300)
-   cy.get(this.locators.ClickOn_Country).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+  cy.contains("Performance Reports").scrollIntoView().should("be.visible").click();
+cy.wait(1000);
+  cy.contains("Performance Report (MTD)").should("be.visible").click()
+    cy.wait(300)
+    cy.get(this.locators.ClickOn_Country).click();
+    cy.wait(2000);
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
 
   }
@@ -1167,22 +1662,33 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonperformance).click();
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+  cy.contains("Performance Reports").scrollIntoView().should("be.visible").click();
+cy.wait(1000);
+  cy.contains("Performance Report (MTD)").should("be.visible").click()
+    cy.wait(2000);
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#generate-report-button').click();
   }
@@ -1194,22 +1700,33 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-     cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonperformance).click();
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+  cy.contains("Performance Reports").scrollIntoView().should("be.visible").click();
+cy.wait(1000);
+  cy.contains("Performance Report (MTD)").should("be.visible").click()
+    cy.wait(2000);
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#generate-report-button').click();
 
@@ -1221,33 +1738,53 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonperformance).click();
-    cy.wait(300);
-     cy.get(this.locators.ClickOn_Product_group).click();
-    cy.get(".ng-option").first().click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+  cy.contains("Performance Reports").scrollIntoView().should("be.visible").click();
+cy.wait(1000);
+  cy.contains("Performance Report (MTD)").should("be.visible").click()
+    cy.wait(2000);
+    cy.get(this.locators.ClickOn_Product_group).click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
     cy.get(".ng-option").last().click();
     cy.wait(2000);
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(9) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#generate-report-button').click();
 
@@ -1260,61 +1797,96 @@ ReportPaymentTestPage_314() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonperformance).click();
-    cy.wait(300);
-     cy.get(this.locators.ClickOn_Product_group).click();
-    cy.get(".ng-option").first().click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+  cy.contains("Performance Reports").scrollIntoView().should("be.visible").click();
+cy.wait(1000);
+  cy.contains("Performance Report (MTD)").should("be.visible").click()
+    cy.wait(2000);
+    cy.get(this.locators.ClickOn_Product_group).click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(2) > :nth-child(2) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(3) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
-     cy.get('#generate-report-button').click();
+    cy.get('#generate-report-button').click();
 
   }
-ReoprtPaymentTestPage_357() {
+  ReoprtPaymentTestPage_357() {
     Cypress.on('uncaught:exception', (err, runnable) => {
       console.error('Uncaught exception:', err.message);
       console.error(err);
       // Returning false prevents Cypress from failing the test
       return false;
     });
-     cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonperformance).click();
-    cy.wait(300);
-    cy.get('#inlineRadio2').click();
-     cy.get(this.locators.ClickOn_Product_group).click();
-    cy.get(".ng-option").first().click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+  cy.contains("Performance Reports").scrollIntoView().should("be.visible").click();
+cy.wait(1000);
+  cy.contains("Performance Report (MTD)").should("be.visible").click()
+    cy.wait(2000);
+   cy.get(this.locators.ClickOn_Agency_RadioBtn).click();
+   cy.wait(2000);
+    cy.get(this.locators.ClickOn_Product_group).click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(2) > :nth-child(2) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(3) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
-     cy.get('#generate-report-button').click();
-
+    cy.get('#generate-report-button').click();
+cy.wait(4000);
   }
   ReoprtPaymentTestPage_358() {
     Cypress.on('uncaught:exception', (err, runnable) => {
@@ -1323,41 +1895,69 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-   cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonperformance).click();
-    cy.wait(300);
-    cy.get('#inlineRadio2').click();
-     cy.get(this.locators.ClickOn_Product_group).click();
-    cy.get(".ng-option").first().click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+  cy.contains("Performance Reports").scrollIntoView().should("be.visible").click();
+cy.wait(1000);
+  cy.contains("Performance Report (MTD)").should("be.visible").click()
+    cy.wait(2000);
+    cy.get(this.locators.ClickOn_Agency_RadioBtn).click();
+    cy.wait(2000);
+    cy.get(this.locators.ClickOn_Product_group).click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(2) > :nth-child(2) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(3) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
-     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
+    cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container').click();
     cy.get(".ng-option").last().click();
     cy.wait(2000);
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(9) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#generate-report-button').click();
+    cy.wait(4000);
 
 
   }
@@ -1369,34 +1969,37 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonperformance).click();
-    cy.wait(300);
-   cy.get('#inlineRadio2').click();
-     cy.contains("Product Group").should("be.visible");
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+  cy.contains("Performance Reports").scrollIntoView().should("be.visible").click();
+cy.wait(1000);
+  cy.contains("Performance Report (MTD)").should("be.visible").click()
+    cy.wait(2000);
+  cy.get(this.locators.ClickOn_Agency_RadioBtn).click();
+    cy.wait(2000);
+    cy.contains("Product Group(s)").should("be.visible");
     cy.wait(1000);
-    cy.contains("Product").should("be.visible");
+    cy.contains("Product(s)").should("be.visible");
     cy.wait(1000);
-    cy.contains("Sub Product").should("be.visible");
+    cy.contains("Sub Product(s)").should("be.visible");
     cy.wait(1000);
-    cy.contains("Bucket").should("be.visible");
+    cy.contains("Bucket(s)").should("be.visible");
     cy.wait(1000);
-    cy.contains("Country").should("be.visible");
+    cy.contains("Country(s)").should("be.visible");
     cy.wait(1000);
-    cy.contains("Region").should("be.visible");
+    cy.contains("Region(s)").should("be.visible");
     cy.wait(1000);
-    cy.contains("State").should("be.visible");
+    cy.contains("State(s)").should("be.visible");
     cy.wait(1000);
-    cy.contains("City").should("be.visible");
+    cy.contains("City(s)").should("be.visible");
     cy.wait(1000);
-    // cy.contains("Branch").should("be.visible");
-    //cy.wait(1000);
-    //cy.contains("Agency").should("be.visible");
-    //cy.wait(1000);
-    //cy.contains("Agent").should("be.visible");
-    //cy.wait(1000);
-    
+    cy.contains("Branch(s)").should("be.visible");
+    cy.wait(1000);
+    cy.contains("Agency(s)").should("be.visible");
+    cy.wait(1000);
+    cy.contains("Agent(s)").should("be.visible");
+    cy.wait(1000);
+
 
   }
   ReoprtPaymentTestPage_360() {
@@ -1406,11 +2009,11 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(5000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(5000);
     //cy.get(this.locators.click_productgroup).select('All', { force: true });
     //cy.wait(1000);
@@ -1422,8 +2025,8 @@ ReoprtPaymentTestPage_357() {
     //cy.wait(1000);
     //cy.get(this.locators.ClickongenerateBtn).click({ force: true });
     //cy.wait(1000);
-    //  cy.get(this.locators.clickonreport).click();
-    //  cy.wait(300);
+    //    cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    //  cy.wait(2000);
     //cy.get(this.locators.clickonAllocationreoprt).click().scrollIntoView();
     //cy.wait(300);
 
@@ -1439,16 +2042,20 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
-    
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
+
   }
 
   ReoprtPaymentTestPage_362() {
@@ -1458,18 +2065,26 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-   cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
 
 
   }
@@ -1480,22 +2095,34 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_SubProduct).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
-    
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
+
 
   }
   ReoprtPaymentTestPage_364() {
@@ -1505,24 +2132,39 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-     cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_SubProduct).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
   }
   ReoprtPaymentTestPage_366() {
@@ -1532,29 +2174,48 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_SubProduct).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
+
 
   }
   ReoprtPaymentTestPage_367() {
@@ -1564,31 +2225,54 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_SubProduct).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Region).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
 
   }
   ReoprtPaymentTestPage_368() {
@@ -1598,34 +2282,61 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_SubProduct).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Region).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_State).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
 
 
   }
@@ -1636,28 +2347,47 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_SubProduct).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Region).click();
     cy.wait(2000);
     cy.get(".ng-option").last().click();
@@ -1666,7 +2396,11 @@ ReoprtPaymentTestPage_357() {
     cy.get(".ng-option").last().click();
     cy.get(this.locators.ClickOn_City).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
 
 
   }
@@ -1677,28 +2411,47 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_SubProduct).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Region).click();
     cy.wait(2000);
     cy.get(".ng-option").last().click();
@@ -1707,10 +2460,18 @@ ReoprtPaymentTestPage_357() {
     cy.get(".ng-option").last().click();
     cy.get(this.locators.ClickOn_City).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Branch).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
 
 
 
@@ -1724,15 +2485,19 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
-    cy.wait(500);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Onwer).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
 
   }
   ReoprtPaymentTestPage_373() {
@@ -1742,24 +2507,35 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-     cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Product).click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Click_Generate_Report_button).click();
 
 
@@ -1774,25 +2550,40 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-   cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Product).click();
     cy.wait(1000);
-     cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Click_Generate_Report_button).click();
 
 
@@ -1804,28 +2595,47 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
-     cy.get(this.locators.ClickOn_SubProduct).click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
+    cy.get(this.locators.ClickOn_SubProduct).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Click_Generate_Report_button).click();
   }
 
@@ -1836,25 +2646,40 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Click_Generate_Report_button).click();
 
   }
@@ -1865,31 +2690,50 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Region).click();
     cy.wait(2000);
     cy.get(".ng-option").last().click();
     cy.get(this.locators.ClickOn_State).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Click_Generate_Report_button).click();
 
   }
@@ -1900,31 +2744,50 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Region).click();
     cy.wait(2000);
     cy.get(".ng-option").last().click();
     cy.get(this.locators.ClickOn_State).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Click_Generate_Report_button).click();
 
 
@@ -1937,34 +2800,57 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Region).click();
     cy.wait(2000);
     cy.get(".ng-option").last().click();
     cy.get(this.locators.ClickOn_State).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_City).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Click_Generate_Report_button).click();
 
 
@@ -1977,35 +2863,42 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-   .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Productgroup).click();
+        cy.wait(2000);
+      });
     cy.get(this.locators.ClickOn_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
-     cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-    .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Bucket).click();
+        cy.wait(2000);
+      });
     cy.get(this.locators.ClickOn_Country).click();
-     cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.Click_Generate_Report_button).click();
   }
@@ -2019,38 +2912,46 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-   .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Productgroup).click();
+        cy.wait(2000);
+      });
     cy.get(this.locators.ClickOn_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
-     cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-    .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Bucket).click();
+        cy.wait(2000);
+      });
     cy.get(this.locators.ClickOn_Country).click();
-     cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.Click_Generate_Report_button).click();
-    cy.get('#download-report-button').click();
+    cy.get('#download-report-button').click(({ force: true}));
+    cy.wait(2000);
   }
 
   ReoprtPaymentTestPage_383() {
@@ -2060,39 +2961,49 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-     cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-   .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Productgroup).click();
+        cy.wait(2000);
+      });
     cy.get(this.locators.ClickOn_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-    .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Bucket).click();
+        cy.wait(2000);
+      });
     cy.get(this.locators.ClickOn_Country).click();
-     cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.Click_Generate_Report_button).click();
-    cy.get('#download-report-button').click();
-    cy.contains("Agency Allocated & Un-Allocated Accounts Pie Report").should("be.visible");
+    cy.wait(12000);
+    cy.get('#download-report-button').click({force: true});
+    cy.wait(2000);
+    // cy.contains("Agency Allocated & Un-Allocated Accounts Pie Report").should("be.visible");
+    // cy.wait(2000);
   }
 
   ReoprtPaymentTestPage_384() {
@@ -2102,34 +3013,49 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickAgencyAllGap).click();
+     cy.contains("Agency Allocation Gap Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
-     cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-    .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Bucket).click();
+        cy.wait(2000);
+      });
     cy.get(this.locators.ClickOn_Country).click();
-    cy.get(".ng-option").first().click();
+    cy.wait(2000);
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.Click_Generate_Report_button).click();
+    cy.wait(2000);
     cy.get('#download-report-button').click();
+    cy.wait(2000);
     cy.contains("Agency Allocated & Un-Allocated Accounts Pie Report").should("be.visible");
-  
+    cy.wait(2000);
+
   }
 
 
@@ -2140,13 +3066,13 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click();
-    cy.wait(500);
-  
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+
 
   }
 
@@ -2157,15 +3083,19 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click();
-    cy.wait(300);
-     cy.get(this.locators.Clickon_Productgroup).click();
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
 
   }
   ReoprtPaymentTestPage_387() {
@@ -2175,18 +3105,26 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-   cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click();
-    cy.wait(300);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickonTrail_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
 
 
 
@@ -2198,21 +3136,33 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click();
-    cy.wait(300);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickonTrail_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_SubProduct).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
 
 
   }
@@ -2223,24 +3173,40 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click();
-    cy.wait(300);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickonTrail_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_SubProduct).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
-     cy.get(this.locators.Clickon_Bucket).click();
-     cy.wait(300);
-     cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
+    cy.get(this.locators.Clickon_Bucket).click();
+    cy.wait(2000);
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
   }
   ReoprtPaymentTestPage_390() {
     Cypress.on('uncaught:exception', (err, runnable) => {
@@ -2249,23 +3215,38 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click();
-    cy.wait(300);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickonTrail_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
-    cy.get(".ng-option").first().click();
+    cy.wait(2000);
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
   }
 
@@ -2276,28 +3257,47 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click();
-    cy.wait(300);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickonTrail_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
-    cy.get(".ng-option").first().click();
+    cy.wait(2000);
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Region).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
-   
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
+
 
   }
   ReoprtPaymentTestPage_392() {
@@ -2307,23 +3307,38 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click();
-    cy.wait(300);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickonTrail_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
-    cy.get(".ng-option").first().click();
+    cy.wait(2000);
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Region).click();
     cy.wait(2000);
@@ -2340,29 +3355,40 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click();
-    cy.wait(300);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-   .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Productgroup).click();
+        cy.wait(2000);
+      });
     cy.get(this.locators.ClickonTrail_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
-    cy.get(".ng-option").first().click();
+    cy.wait(2000);
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Region).click();
     cy.wait(2000);
@@ -2380,38 +3406,41 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click();
-    cy.wait(300);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-   .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Productgroup).click();
+        cy.wait(2000);
+      });
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-   .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Bucket).click();
+        cy.wait(2000);
+      });
     cy.get(this.locators.ClickOn_Country).click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.Click_Generate_Report_button).click();
     cy.get('#download-report-button').click();
-    
-  
+
+
   }
 
 
@@ -2422,40 +3451,47 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-     cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click();
-    cy.wait(300);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-   .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Productgroup).click();
+        cy.wait(2000);
+      });
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-   .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Bucket).click();
+        cy.wait(2000);
+      });
     cy.get(this.locators.ClickOn_Country).click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.Click_Generate_Report_button).click();
+    cy.wait(12000);
+    cy.contains('Search Result').scrollIntoView().should('be.visible'); 
+    cy.wait(2000);
     cy.get('#download-report-button').click();
-     cy.contains("Agency Allocated & Un-Allocated Accounts Pie Report").should("be.visible");
-  
-    
-  
+    cy.wait(2000);
+    // cy.contains("Agency Allocated & Un-Allocated Accounts Pie Report").should("be.visible");
+
+
+
   }
   ReoprtPaymentTestPage_396() {
     Cypress.on('uncaught:exception', (err, runnable) => {
@@ -2464,17 +3500,17 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonreport).click();
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click({ force: true });
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('[for="agencyUserRadio"]').click();
 
-  
-  
+
+
   }
   ReoprtPaymentTestPage_397() {
     Cypress.on('uncaught:exception', (err, runnable) => {
@@ -2483,29 +3519,48 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-   cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonreport).click();
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click({ force: true });
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('[for="agencyUserRadio"]').click();
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickonTrail_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
-    cy.get(".ng-option").first().click();
+    cy.wait(2000);
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Region).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
 
   }
   ReoprtPaymentTestPage_398() {
@@ -2515,37 +3570,40 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-   cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click();
-    cy.wait(300);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-   .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Productgroup).click();
+        cy.wait(2000);
+      });
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-   .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Bucket).click();
+        cy.wait(2000);
+      });
     cy.get(this.locators.ClickOn_Country).click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.Click_Generate_Report_button).click();
     cy.get('#download-report-button').click();
-    
+
   }
   ReoprtPaymentTestPage_399() {
     Cypress.on('uncaught:exception', (err, runnable) => {
@@ -2555,42 +3613,45 @@ ReoprtPaymentTestPage_357() {
       return false;
     });
 
-   cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click();
-    cy.wait(300);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-   .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Productgroup).click();
+        cy.wait(2000);
+      });
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-   .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Bucket).click();
+        cy.wait(2000);
+      });
     cy.get(this.locators.ClickOn_Country).click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.Click_Generate_Report_button).click();
     cy.wait(3000);
     cy.get('#download-report-button').click();
     cy.contains("Search Result").should("be.visible");
-  
-    
+
+
   }
-  
+
   ReoprtPaymentTestPage_406() {
     Cypress.on('uncaught:exception', (err, runnable) => {
       console.error('Uncaught exception:', err.message);
@@ -2598,39 +3659,42 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click({ force: true });
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-   .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Productgroup).click();
+        cy.wait(2000);
+      });
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-   .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Bucket).click();
+        cy.wait(2000);
+      });
     cy.get(this.locators.ClickOn_Country).click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(this.locators.Click_Generate_Report_button).click();
     cy.wait(3000);
     cy.get('#download-report-button').click();
     cy.contains("Search Result").should("be.visible");
-  
-    
+
+
 
 
 
@@ -2644,37 +3708,49 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.MoneyMovementReport).click({ force: true });
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    
+    cy.wait(2000);
+    cy.contains("Money Movement Report").click({ force: true });
     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-   .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Productgroup).click();
+        cy.wait(2000);
+      });
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
-    cy.get('#receiptDate_from').click();
-    cy.wait(500);
-    cy.get('.previous > span').click();
-    cy.wait(500);
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
-    cy.get('#receiptDate_to').click();
-    cy.wait(500);
-    cy.get('.bs-datepicker-body').click();
-   cy.get('#generate-report-button').click();
-    
+     cy.get('#receiptDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 25);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#receiptDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(2000);
+
+    cy.get('#generate-report-button').click();
+
 
     //cy.get('.ng-trigger').should('contain','You can only search for thirty two day receipt at a time');
 
@@ -2687,55 +3763,53 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.MoneyMovementReport).click({ force: true });
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Money Movement Report").click({ force: true });
     cy.wait(400);
     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-   .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Productgroup).click();
+        cy.wait(2000);
+      });
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
-    cy.get('#receiptDate_from').click();
-    cy.wait(500);
-    cy.get('.previous > span').click();
-    cy.wait(500);
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
-    cy.get('#receiptDate_to').click();
-    cy.wait(500);
-    cy.get('.bs-datepicker-body').click();
-   cy.get('#generate-report-button').click();
-   cy.contains("Search Result").scrollIntoView().should("be.visible");
-    //cy.get(':nth-child(9) > .form-control').select('All',{force: true});
-    //cy.wait(300);
-    //cy.get('.form-group > [type="button"]').click({force: true});
-    //cy.wait(300);
-    //cy.get(':nth-child(13) > .nav-item-hold > a > .nav-text').click({force: true});
-    //cy.wait(300);
-    //cy.get('body > app-root:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-navbar:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(6) > a:nth-child(1) > span:nth-child(2)').click({force: true});
-    //cy.wait(300);
-    //cy.get(':nth-child(4) > :nth-child(1) > .form-control').type('05/07/2024',{force: true});
-    //cy.wait(300);
-    ////cy.get(':nth-child(4) > :nth-child(2) > .form-control').type('09/07/2024',{force: true});
-    //cy.wait(300);
-    //cy.get(':nth-child(9) > .form-control').select('1',{force: true});
-    //cy.wait(300);
-    //cy.get('.form-group > [type="button"]').click({force: true});
-    //cy.wait(300);
+
+        cy.get('#receiptDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 25);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#receiptDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(2000);
+
+ 
+    cy.get('#generate-report-button').click();
+     cy.wait(2000);
+    cy.contains("Search Result").scrollIntoView().should("be.visible");
+
 
   }
   ReoprtPaymentTestPage_414() {
@@ -2745,99 +3819,106 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.MoneyMovementReport).click({ force: true });
-    cy.wait(500);
-     cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.MoneyMovementReport).click({ force: true });
-    cy.wait(400);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Money Movement Report").click({ force: true });
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-   .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Productgroup).click();
+        cy.wait(2000);
+      });
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
-    cy.get('#receiptDate_from').click();
-    cy.wait(500);
-    cy.get('.previous > span').click();
-    cy.wait(500);
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
-    cy.get('#receiptDate_to').click();
-    cy.wait(500);
-    cy.get('.bs-datepicker-body').click();
-   cy.get('#generate-report-button').click();
-   cy.wait(3000);
-   cy.get('#download-report-button').click();
-   cy.wait(3000);
-   cy.contains("Search Result").scrollIntoView().should("be.visible");
-    //cy.get('.search-result').should('be.visible').click({force: true});
-    cy.wait(300);
-    // cy.get(':nth-child(13) > .nav-item-hold > a > .nav-text').click({force: true});
-    // cy.wait(300);
-    // cy.get('body > app-root:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-navbar:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(6) > a:nth-child(1) > span:nth-child(2)').click({force: true});
-    // cy.wait(300);
-    // cy.get(':nth-child(4) > :nth-child(1) > .form-control').type('01/07/2024',{force: true});
-    // cy.wait(300);
-    // cy.get(':nth-child(4) > :nth-child(2) > .form-control').type('03/07/2024',{force: true});
-    // cy.wait(300);
-    // cy.get('.form-group > [type="button"]').click({force: true});
-    // cy.wait(300);
-    //cy.get('.search-result').should('be.visible').click({force: true});
+   cy.get('#receiptDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 25);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#receiptDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(2000);
+cy.get('#generate-report-button').click();
+    cy.wait(2000);
+    cy.get('#download-report-button').click();
+    cy.wait(3000);
+    cy.contains("Search Result").scrollIntoView().should("be.visible");
+    cy.wait(2000);
+  
   }
 
   ReoprtPaymentTestPage_415() {
     Cypress.on('uncaught:exception', (err, runnable) => {
       console.error('Uncaught exception:', err.message);
       console.error(err);
-      // Returning false prevents Cypress from failing the test
+  
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.MoneyMovementReport).click({ force: true });
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Money Movement Report").click({ force: true });
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-   .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Productgroup).click();
+        cy.wait(2000);
+      });
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
-    cy.get('#receiptDate_from').click();
-    cy.wait(500);
-    cy.get('.previous > span').click();
-    cy.wait(500);
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
-    cy.get('#receiptDate_to').click();
-    cy.wait(500);
-    cy.get('.bs-datepicker-body').click();
-   cy.get('#generate-report-button').click();
-   cy.contains("Search Result").scrollIntoView().should("be.visible");
+     cy.get('#receiptDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 25);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#receiptDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(2000);
+
+    cy.get('#generate-report-button').click();
+    cy.wait(2000);
+    cy.contains("Search Result").scrollIntoView().should("be.visible");
   }
 
   ReoprtPaymentTestPage_417() {
@@ -2847,37 +3928,50 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.MoneyMovementReport).click({ force: true });
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Money Movement Report").click({ force: true });
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-   .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Productgroup).click();
+        cy.wait(2000);
+      });
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get(this.locators.Clickon_Bucket).click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
-    cy.get('#receiptDate_from').click();
-    cy.wait(500);
-    cy.get('.previous > span').click();
-    cy.wait(500);
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
-    cy.get('#receiptDate_to').click();
-    cy.wait(500);
-    cy.get('.bs-datepicker-body').click();
-   cy.get('#generate-report-button').click();
-   cy.contains("Search Result").scrollIntoView().should("be.visible");
+     cy.get('#receiptDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 25);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#receiptDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(2000);
+
+    cy.get('#generate-report-button').click();
+    cy.wait(2000);
+    cy.contains("Search Result").scrollIntoView().should("be.visible");
   }
   ReoprtPaymentTestPage_427() {
     Cypress.on('uncaught:exception', (err, runnable) => {
@@ -2886,21 +3980,51 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get("a[title='Supervisory Report']").click({ force: true });
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Supervisory Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('[heading="Product Filter"] > .panel > .panel-heading > .panel-title > .accordion-toggle > .btn').click();
-    cy.wait(500);
-    cy.get('#productGroup').select('All', { force: true });
-    cy.wait(300);
-    cy.get('#product').select('All', { force: true });
-    cy.wait(300);
-    cy.get('#subProduct').select('All', { force: true });
-    cy.wait(300);
+    cy.wait(2000);
+    cy.get(this.locators.ClickOn_Supervisory_PG).click();
+    cy.wait(2000);
+
+      cy.get('.ng-dropdown-panel .ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+ cy.wait(2000);
+
+ cy.get('[heading="Bucket Filter"] > .panel > .panel-heading > .panel-title').click();
+    cy.wait(2000);
+
+  cy.get(this.locators.ClickOn_Supervisory_Bucket).click();
+    cy.wait(2000);
+
+      cy.get('.ng-dropdown-panel .ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+ cy.wait(2000);
+
+ cy.get('[heading="  Geography Filter"] > .panel > .panel-heading > .panel-title').click();
+    cy.wait(2000);
+
+  cy.get(this.locators.ClickOn_Supervisory_Country).click();
+    cy.wait(2000);
+
+      cy.get('.ng-dropdown-panel .ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+ cy.wait(2000);
+   
     cy.get(this.locators.ClickGenrtReport).click({ force: true });
-    cy.wait(300);
-    cy.log('Generated sucessfully')
+    cy.wait(2000);
+    cy.log('Generated sucessfully');
+    cy.contains("Search Result").scrollIntoView().should("be.visible");
+    cy.wait(2000);
+
   }
 
 
@@ -2911,21 +4035,45 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get("a[title='Supervisory Report']").click({ force: true });
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Supervisory Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('[heading="Product Filter"] > .panel > .panel-heading > .panel-title > .accordion-toggle > .btn').click();
-    cy.wait(500);
-    cy.get('#productGroup').select('All', { force: true });
-    cy.wait(300);
-    cy.get('#product').select('All', { force: true });
-    cy.wait(300);
-    cy.get('#subProduct').select('All', { force: true });
-    cy.wait(300);
+    cy.wait(2000);
+    cy.get(this.locators.ClickOn_Supervisory_PG).click();
+    cy.wait(2000);
+
+      cy.get('.ng-dropdown-panel .ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+ cy.wait(2000);
+
+   cy.get(this.locators.ClikcOn_Supervisory_Product).click();
+    cy.wait(2000);
+
+      cy.get('.ng-dropdown-panel .ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+ cy.wait(2000);
+   cy.get(this.locators.ClickOn_Supervisory_SubProduct).click();
+    cy.wait(2000);
+
+      cy.get('.ng-dropdown-panel .ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+ cy.wait(2000);
+   
     cy.get(this.locators.ClickGenrtReport).click({ force: true });
-    cy.wait(300);
-    cy.log('Generated sucessfully')
+    cy.wait(2000);
+    cy.get('[role="alert"]').should('contain', 'Please select at least one Bucket.');
+    cy.wait(2000);
+     cy.contains("Search Result").scrollIntoView().should("be.visible");
+    cy.wait(2000);
+
   }
   ReoprtPaymentTestPage_429() {
     Cypress.on('uncaught:exception', (err, runnable) => {
@@ -2934,24 +4082,72 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get("a[title='Supervisory Report']").click({ force: true });
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Supervisory Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('[heading="Product Filter"] > .panel > .panel-heading > .panel-title > .accordion-toggle > .btn').click();
-    cy.wait(500);
-    cy.get('#productGroup').select('All', { force: true });
-    cy.wait(300);
-    cy.get('#product').select('All', { force: true });
-    cy.wait(300);
-    cy.get('#subProduct').select('All', { force: true });
-    cy.wait(300);
+    cy.wait(2000);
+    cy.get(this.locators.ClickOn_Supervisory_PG).click();
+    cy.wait(2000);
+
+      cy.get('.ng-dropdown-panel .ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+ cy.wait(2000);
+
+  cy.get(this.locators.ClikcOn_Supervisory_Product).click();
+    cy.wait(2000);
+
+      cy.get('.ng-dropdown-panel .ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+ cy.wait(2000);
+   cy.get(this.locators.ClickOn_Supervisory_SubProduct).click();
+    cy.wait(2000);
+
+      cy.get('.ng-dropdown-panel .ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+ cy.wait(2000);
+
+ cy.get('[heading="Bucket Filter"] > .panel > .panel-heading > .panel-title').click();
+    cy.wait(2000);
+
+  cy.get(this.locators.ClickOn_Supervisory_Bucket).click();
+    cy.wait(2000);
+
+      cy.get('.ng-dropdown-panel .ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+ cy.wait(2000);
+
+ cy.get('[heading="  Geography Filter"] > .panel > .panel-heading > .panel-title').click();
+    cy.wait(2000);
+
+  cy.get(this.locators.ClickOn_Supervisory_Country).click();
+    cy.wait(2000);
+
+      cy.get('.ng-dropdown-panel .ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+ cy.wait(2000);
+   
     cy.get(this.locators.ClickGenrtReport).click({ force: true });
-    cy.wait(300);
-    cy.log('Generated sucessfully')
+    cy.wait(2000);
+    cy.log('Generated sucessfully');
+
+     cy.contains("Search Result").scrollIntoView().should("be.visible");
+    cy.wait(2000);
+
   }
   ReportsModule() {
-    cy.wait(500);
+    cy.wait(2000);
     Cypress.on('uncaught:exception', (err, runnable) => {
       console.error('Uncaught exception:', err.message);
       console.error(err);
@@ -2960,7 +4156,21 @@ ReoprtPaymentTestPage_357() {
     });
     cy.get(this.locators.clickonreports).click();
   }
-  
+
+   TrailIntensityReportTestPage_400() {
+    Cypress.on('uncaught:exception', (err, runnable) => {
+      console.error('Uncaught exception:', err.message);
+      console.error(err);
+      // Returning false prevents Cypress from failing the test
+      return false;
+    });
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+
+  }
 
   TrailIntensityReportTestPage_401() {
     Cypress.on('uncaught:exception', (err, runnable) => {
@@ -2969,12 +4179,22 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click({ force: true });
-    cy.wait(500);
-    cy.get('#bOMBucket').select("All");
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.get(this.locators.Select_trailGap_BUcket).click();
+    cy.wait(2000);
+
+      cy.get('.ng-dropdown-panel .ng-option')
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Select_trailGap_BUcket).click();
+        cy.wait(2000);
+      });
+    cy.wait(2000);
 
 
   }
@@ -2986,12 +4206,22 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click({ force: true });
-    cy.wait(500);
-    cy.get('#Region').select("All");
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.get(this.locators.Select_trailGap_Country).click();
+    cy.wait(2000);
+
+     cy.get('.ng-dropdown-panel .ng-option')
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Select_trailGap_Country).click();
+        cy.wait(2000);
+      });
+    cy.wait(2000);
   }
 
   TrailIntensityReportTestPage_403() {
@@ -3001,27 +4231,74 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click({ force: true });
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     //cy.get('#inlineRadio2').click();
 
-    cy.get('select[name="name"]').select('India', { force: true });
-    cy.wait(500);
-    cy.get('select[name="region"]').select('South', { force: true });
-    cy.wait(500);
-    cy.get('select[name="region"]').should('contain', 'South', { force: true });
-    cy.wait(400);
-    cy.get('select[name="state"]').select('Tamilnadu', { force: true });
-    cy.wait(500);
-    cy.get('select[name="state"]').should('contain', 'Tamilnadu', { force: true });
-    cy.wait(500);
-    cy.get('select[name="city"]').select('Chennai', { force: true });
-    cy.wait(500);
-    cy.get('select[name="city"]').should('contain', 'Chennai', { force: true });
-    cy.wait(400);
+      cy.get(this.locators.Select_trailGap_Country).click();
+    cy.wait(2000);
+
+     cy.get('.ng-dropdown-panel .ng-option')
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Select_trailGap_Country).click();
+        cy.wait(2000);
+      });
+    cy.wait(2000);
+
+      cy.get(this.locators.Select_trailGap_Region).click();
+    cy.wait(2000);
+
+     cy.get('.ng-dropdown-panel .ng-option')
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Select_trailGap_Region).click();
+        cy.wait(2000);
+      });
+    cy.wait(2000);
+
+      cy.get(this.locators.Select_trailGap_State).click();
+    cy.wait(2000);
+
+     cy.get('.ng-dropdown-panel .ng-option')
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Select_trailGap_State).click();
+        cy.wait(2000);
+      });
+    cy.wait(2000);
+
+      cy.get(this.locators.select_city).click();
+    cy.wait(2000);
+
+     cy.get('.ng-dropdown-panel .ng-option')
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.select_city).click();
+        cy.wait(2000);
+      });
+    cy.wait(2000);
+
+    //   cy.get(this.locators.Select_trailGap_Branch).click();
+    // cy.wait(2000);
+
+    //  cy.get('.ng-dropdown-panel .ng-option')
+    //   .each(($option) => {
+    //     cy.wrap($option).click({ force: true });
+    //     cy.wait(2000);
+    //     cy.get(this.locators.Select_trailGap_Branch).click();
+    //     cy.wait(2000);
+    //   });
+    // cy.wait(2000);
+
+   
   }
 
   TrailIntensityReportTestPage_404() {
@@ -3031,14 +4308,22 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click({ force: true });
-    cy.wait(500);
-    cy.get('#inlineRadio2').click();
-    cy.get('input[name="agencyName"]').type('y');
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.get('#agencyUserRadio').click();
+    cy.wait(2000);
+    cy.get(':nth-child(11) > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click({force:true});
+    cy.wait(2000);
+    cy.get('.ng-dropdown-panel .ng-option').then($options => {
+  const count = $options.length;
+  const randomIndex = Math.floor(Math.random() * count);   // pick one random option
+
+  cy.wrap($options[randomIndex]).click({ force: true });
+});
+ cy.wait(2000);
   }
 
   TrailIntensityReportTestPage_405() {
@@ -3048,14 +4333,22 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.ClickTrailGapReport).click({ force: true });
-    cy.wait(500);
-    cy.get('#inlineRadio2').click();
-    cy.get('input[name="agentName"]').type('a');
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Trail Gap Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.get('#agencyUserRadio').click();
+    cy.get(':nth-child(10) > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click({force:true});
+    cy.wait(2000);
+
+     cy.get('.ng-dropdown-panel .ng-option').then($options => {
+  const count = $options.length;
+  const randomIndex = Math.floor(Math.random() * count);   // pick one random option
+
+  cy.wrap($options[randomIndex]).click({ force: true });
+});
+ cy.wait(2000);
   }
 
   MoneyMovementReportTestPage_408() {
@@ -3065,11 +4358,11 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.MoneyMovementReport).click({ force: true });
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Money Movement Report").click({ force: true });
     cy.wait(400);
-    
+
   }
 
   MoneyMovementReportTestPage_410() {
@@ -3079,27 +4372,27 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.MoneyMovementReport).click({ force: true });
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Money Movement Report").click({ force: true });
     cy.wait(400);
-    cy.contains("Product Group").should("be.visible");
+    cy.contains("Product Group(s)").should("be.visible");
     cy.wait(1000);
-    cy.contains("Product").should("be.visible");
+    cy.contains("Product(s)").should("be.visible");
     cy.wait(1000);
-    cy.contains(" Sub Product").should("be.visible");
+    cy.contains("Sub Product(s)").should("be.visible");
     cy.wait(1000);
     cy.contains("Bucket").should("be.visible");
     cy.wait(1000);
     cy.contains("NPA Stage ID").should("be.visible");
     cy.wait(1000);
-    cy.contains("Country").should("be.visible");
+    cy.contains("Country(s)").should("be.visible");
     cy.wait(1000);
-    cy.contains("Region").should("be.visible");
+    cy.contains("Region(s)").should("be.visible");
     cy.wait(1000);
-    cy.contains("State").should("be.visible");
+    cy.contains("State(s)").should("be.visible");
     cy.wait(1000);
-    cy.contains("City").should("be.visible");
+    cy.contains("City(s)").should("be.visible");
     cy.wait(1000);
     //cy.contains("Branch").should("be.visible");
     //cy.wait(1000);
@@ -3107,16 +4400,16 @@ ReoprtPaymentTestPage_357() {
     cy.wait(1000);
     cy.contains("Receipt To Date").should("be.visible");
     cy.wait(1000);
-    cy.contains("User Branch").scrollIntoView().should("be.visible");
+    cy.contains("User Branch(s)").scrollIntoView().should("be.visible");
     cy.wait(1000);
     //cy.get('ul.sub-nav-list').should('have.css', 'height');
     // cy.contains("Staff").should("be.visible");
     //cy.wait(1000);
-   
-   
-   
-   
-   
+
+
+
+
+
   }
 
   MoneyMovementReportTestPage_418() {
@@ -3126,37 +4419,59 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.MoneyMovementReport).click({ force: true });
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Money Movement Report").click({ force: true });
     cy.wait(400);
+
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.wait(2000);
-    cy.get(':nth-child(6) > .form-control-group').click();
-    cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.wait(2000);
-     cy.get(this.locators.Clickon_Bucket).click();
-    cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-dropdown-panel .ng-option')
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.ClickOn_Product_group).click();
+        cy.wait(2000);
+      });
+    cy.get('body').click(0, 0);
+    cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
 
+    cy.get('.ng-dropdown-panel').should('be.visible')
+      .within(() => {
+        cy.get('.ng-option').each(($option) => {
+          cy.wrap($option).click({ force: true });
+          cy.wait(1000); // wait between selections (adjust if needed)
+        });
+      });
+    cy.get(this.locators.ClickOn_Country_MM).click();
+    cy.wait(2000);
+    cy.contains('India').click({ force: true });
 
+    cy.wait(2000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click({force: true});
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click({force: true});
+    cy.wait(2000);
+
+
     cy.get('#generate-report-button').click();
-    cy.wait(300);
+    cy.wait(3000);
+    cy.contains("Search Result").scrollIntoView().should("be.visible");
+    cy.wait(2000);
 
 
-  
+
 
   }
 
@@ -3167,34 +4482,52 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.MoneyMovementReport).click({ force: true });
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Money Movement Report").click({ force: true });
     cy.wait(400);
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click()
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group').click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
   }
 
   MoneyMovementReportTestPage_420() {
@@ -3204,35 +4537,70 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(500);
-    cy.get(this.locators.MoneyMovementReport).click({ force: true });
-     cy.get(this.locators.ClickOn_Product_group).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.contains("Money Movement Report").click({ force: true });
+    cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click()
+    cy.get('.ng-dropdown-panel .ng-option')
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.ClickOn_Product_group).click();
+        cy.wait(2000);
+      });
+    cy.get('body').click(0, 0);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+
+    cy.get('.ng-dropdown-panel').should('be.visible')
+      .within(() => {
+        cy.get('.ng-option').each(($option) => {
+          cy.wrap($option).click({ force: true });
+          cy.wait(1000); // wait between selections (adjust if needed)
+        });
+      });
+    cy.get(this.locators.ClickOn_Country_MM).click();
     cy.wait(2000);
-    cy.get(':nth-child(6) > .form-control-group').click();
+    cy.contains('India').click({ force: true });
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.wait(2000);
+
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").last().click();
     cy.wait(2000);
+
+    cy.get('.ng-option').each(($option) => {
+      cy.wrap($option).click();
+
+      // Assert that the selected value is visible in the UI
+      cy.wrap($option).invoke('text').then((text) => {
+        cy.contains(text.trim()).should('be.visible');
+      });
+
+      // Reopen dropdown if it closes automatically
+      cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input')
+        .click({ force: true });
+    });
+
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
-     cy.get('#generate-report-button').click();
-    cy.wait(300);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
+
+
+    cy.get('#generate-report-button').click();
+    cy.wait(3000);
+    cy.contains("Search Result").scrollIntoView().should("be.visible");
+    cy.wait(2000);
 
   }
 
@@ -3243,39 +4611,71 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(500);
-    cy.get(this.locators.MoneyMovementReport).click({ force: true });
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Money Movement Report").click({ force: true });
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.wait(2000);
-    cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click()
+    cy.get('.ng-dropdown-panel .ng-option')
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.ClickOn_Product_group).click();
+        cy.wait(2000);
+      });
+    cy.get('body').click(0, 0);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+
+    cy.get('.ng-dropdown-panel').should('be.visible')
+      .within(() => {
+        cy.get('.ng-option').each(($option) => {
+          cy.wrap($option).click({ force: true });
+          cy.wait(1000);
+        });
+      });
+    cy.get(this.locators.ClickOn_Country_MM).click();
     cy.wait(2000);
-    cy.get(':nth-child(6) > .form-control-group').click();
+    cy.contains('India').click({ force: true });
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.wait(2000);
+
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").last().click();
     cy.wait(2000);
-    cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.contains('South').click({ force: true });
     cy.wait(2000);
-    cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
-    cy.get('#receiptDate_from').click();
-    cy.wait(500);
+
+    cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container').click();
+    cy.wait(2000);
+
+    cy.get('.ng-option').each(($option) => {
+      cy.wrap($option).click();
+      cy.wrap($option).invoke('text').then((text) => {
+        cy.contains(text.trim()).should('be.visible');
+      });
+      cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container').click({ force: true });
+    });
+    cy.wait(2000);
+
+    cy.get('#receiptDate_from').click({ force: true });
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
-     cy.get('#generate-report-button').click();
-    cy.wait(300);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
+
+
+    cy.get('#generate-report-button').click();
+    cy.wait(3000);
+    cy.contains("Search Result").scrollIntoView().should("be.visible");
+    cy.wait(2000);
   }
 
   MoneyMovementReportTestPage_422() {
@@ -3285,41 +4685,75 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(500);
-    cy.get(this.locators.MoneyMovementReport).click({ force: true });
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Money Movement Report").click({ force: true });
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.wait(2000);
-    cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click()
+    cy.get('.ng-dropdown-panel .ng-option')
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.ClickOn_Product_group).click();
+        cy.wait(2000);
+      });
+    cy.get('body').click(0, 0);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+
+    cy.get('.ng-dropdown-panel').should('be.visible')
+      .within(() => {
+        cy.get('.ng-option').each(($option) => {
+          cy.wrap($option).click({ force: true });
+          cy.wait(1000); // wait between selections (adjust if needed)
+        });
+      });
+    cy.get(this.locators.ClickOn_Country_MM).click();
     cy.wait(2000);
-    cy.get(':nth-child(6) > .form-control-group').click();
+    cy.contains('India').click({ force: true });
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.wait(2000);
+
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").last().click();
     cy.wait(2000);
-    cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.contains('South').click({ force: true });
     cy.wait(2000);
-    cy.get(':nth-child(9) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+
+    cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container').click();
     cy.wait(2000);
-    cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.contains('Karnataka').click({ force: true });
+    cy.wait(2000);
+
+    cy.get(':nth-child(9) > .form-control-group > .form-ng-select > .ng-select-container').click();
+    cy.wait(2000);
+    cy.get('.ng-option').each(($option) => {
+      cy.wrap($option).click();
+      cy.wrap($option).invoke('text').then((text) => {
+        cy.contains(text.trim()).should('be.visible');
+      });
+      cy.get(':nth-child(9) > .form-control-group > .form-ng-select > .ng-select-container').click({ force: true });
+    });
+    cy.wait(2000);
+
+    cy.get('#receiptDate_from').click({ force: true });
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
-     cy.get('#generate-report-button').click();
-    cy.wait(300);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
+
+
+    cy.get('#generate-report-button').click();
+    cy.wait(3000);
+    cy.contains("Search Result").scrollIntoView().should("be.visible");
+    cy.wait(2000);
   }
 
   MoneyMovementReportTestPage_423() {
@@ -3329,44 +4763,81 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(500);
-    cy.get(this.locators.MoneyMovementReport).click({ force: true });
-    cy.wait(400);
-      cy.get(this.locators.ClickOn_Product_group).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.contains("Money Movement Report").click({ force: true });
+    cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
-    cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click()
+    cy.get('.ng-dropdown-panel .ng-option')
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.ClickOn_Product_group).click();
+        cy.wait(2000);
+      });
+    cy.get('body').click(0, 0);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+
+    cy.get('.ng-dropdown-panel').should('be.visible')
+      .within(() => {
+        cy.get('.ng-option').each(($option) => {
+          cy.wrap($option).click({ force: true });
+          cy.wait(1000); // wait between selections (adjust if needed)
+        });
+      });
+    cy.get(this.locators.ClickOn_Country_MM).click();
     cy.wait(2000);
-    cy.get(':nth-child(6) > .form-control-group').click();
+    cy.contains('India').click({ force: true });
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.wait(2000);
+
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").last().click();
     cy.wait(2000);
-    cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+    cy.contains('South').click({ force: true });
     cy.wait(2000);
-    cy.get(':nth-child(9) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+
+    cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container').click();
     cy.wait(2000);
-    cy.get(':nth-child(10) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input')
-    cy.get(".ng-option").first().click();
-    cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.contains('Karnataka').click({ force: true });
+    cy.wait(2000);
+
+    cy.get(':nth-child(9) > .form-control-group > .form-ng-select > .ng-select-container').click();
+    cy.wait(2000);
+    cy.contains('Bangalore').click({ force: true });
+    cy.wait(2000);
+
+
+    cy.get(':nth-child(10) > .form-control-group > .form-ng-select > .ng-select-container').click();
+    cy.wait(2000);
+    cy.get('.ng-option').each(($option) => {
+      cy.wrap($option).click();
+      cy.wrap($option).invoke('text').then((text) => {
+        cy.contains(text.trim()).should('be.visible');
+      });
+      cy.get(':nth-child(10) > .form-control-group > .form-ng-select > .ng-select-container').click({ force: true });
+    });
+    cy.wait(2000);
+
+    cy.get('#receiptDate_from').click({ force: true });
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
-     cy.get('#generate-report-button').click();
-    cy.wait(300);
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
+
+
+    cy.get('#generate-report-button').click();
+    cy.wait(3000);
+    cy.contains("Search Result").scrollIntoView().should("be.visible");
+    cy.wait(2000);
   }
 
   MoneyMovementReportTestPage_424() {
@@ -3376,84 +4847,140 @@ ReoprtPaymentTestPage_357() {
       // Returning false prevents Cypress from failing the test
       return false;
     });
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(500);
-    cy.get(this.locators.MoneyMovementReport).click({ force: true });
-    cy.wait(400);
-      cy.get(this.locators.ClickOn_Product_group).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.contains("Money Movement Report").click({ force: true });
+    cy.wait(400);
+    cy.get(this.locators.ClickOn_Product_group).click();
+    cy.wait(2000);
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click()
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(6) > .form-control-group').click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
     cy.wait(2000);
     cy.get(':nth-child(7) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
     cy.get(".ng-option").last().click();
     cy.wait(2000);
+    // Open the dropdown
     cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
+
+    // Get all options and select them one by one
+    cy.get('.ng-option').each(($option) => {
+      cy.wrap($option).click();
+      // Reopen dropdown if it closes after each click
+      cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
+    });
+
     cy.wait(2000);
     cy.get(':nth-child(8) > .form-control-group > .form-ng-select > .ng-select-container > .ng-arrow-wrapper').click();
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
-    cy.get('.previous > span').click();
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
-    cy.get('#receiptDate_to').click();
-    cy.get('.today-date').click();
-    cy.wait(500);
-    cy.get(':nth-child(13) > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-    cy.get(".ng-option").first().click();
     cy.wait(2000);
-     cy.get('#generate-report-button').click();
-    cy.wait(300);
+    cy.get('.previous > span').click();
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
+    cy.get('#receiptDate_to').click();
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
+    cy.get(':nth-child(13) > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
+    cy.get('.ng-option').each(($el) => {
+      cy.wrap($el).click({ force: true });
+      cy.wait(1000);
+    });
+    cy.wait(2000);
+    cy.get('#generate-report-button').click();
+    cy.wait(2000);
   }
 
   SupervisoryReportTestPage_425() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(500);
-    cy.wait(500);
-    cy.get("a[title='Supervisory Report']").click({ force: true });
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.wait(2000);
+    cy.contains("Supervisory Report").scrollIntoView().should("be.visible").click();
     cy.wait(400);
     cy.get('accordion-group[heading="Product Filter"] div[role="button"]').click();
     cy.wait(400);
-    cy.get('select[name="ProductGroup"]').select('Consumer Loan', { force: true });
-    cy.wait(400);
-    cy.get('select[name="Product"]').select('All', { force: true });
-    cy.wait(400);
-    //cy.get('accordion-group[heading="Bucket Filter"] div[role="button"]').click();
-    //cy.wait(400);
-    //cy.get('body > app-root:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(3) > app-supervisory-report:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > form:nth-child(2) > accordion:nth-child(2) > accordion-group:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > select:nth-child(2)').select('1',{force: true});
-    //cy.wait(400);
+     cy.get(this.locators.ClickOn_Supervisory_PG).click();
+    cy.wait(2000);
 
+      cy.get('.ng-dropdown-panel .ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+ cy.wait(2000);
+
+ cy.get('[heading="  Geography Filter"] > .panel > .panel-heading > .panel-title').click();
+    cy.wait(2000);
+
+  cy.get(this.locators.ClickOn_Supervisory_Country).click();
+    cy.wait(2000);
+
+      cy.get('.ng-dropdown-panel .ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+ cy.wait(2000);
+
+  cy.get(this.locators.ClickGenrtReport).click({ force: true });
+    cy.wait(2000);
+    cy.get('[role="alert"]').should('contain', 'Please select at least one Bucket.');
+    cy.wait(2000);
   }
 
   SupervisoryReportTestPage_426() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(500);
-    cy.wait(500);
-    cy.get("a[title='Supervisory Report']").click({ force: true });
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.wait(2000);
+    cy.contains("Supervisory Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('accordion-group[heading="Product Filter"] div[role="button"]').click();
     cy.wait(400);
-    cy.get('select[name="ProductGroup"]').select('Consumer Loan', { force: true });
-    cy.wait(400);
-    cy.get('select[name="Product"]').select('All', { force: true });
-    cy.wait(400);
-    //cy.get('accordion-group[heading="Bucket Filter"] div[role="button"]').click();
-    //cy.wait(400);
-    //cy.get('body > app-root:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(3) > app-supervisory-report:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > form:nth-child(2) > accordion:nth-child(2) > accordion-group:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > select:nth-child(2)').select('1',{force: true});
-    //cy.wait(400);
-    //cy.scrollTo('bottom');
-    //cy.wait(400);
-    //cy.get('button[type="submit"]').click();
-    //cy.wait(400);
+     cy.get(this.locators.ClickOn_Supervisory_PG).click();
+    cy.wait(2000);
+
+      cy.get('.ng-dropdown-panel .ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+ cy.wait(2000);
+
+ cy.get('[heading="Bucket Filter"] > .panel > .panel-heading > .panel-title').click();
+    cy.wait(2000);
+
+  cy.get(this.locators.ClickOn_Supervisory_Bucket).click();
+    cy.wait(2000);
+
+      cy.get('.ng-dropdown-panel .ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+ cy.wait(2000);
+
+    cy.get(this.locators.ClickGenrtReport).click({ force: true });
+    cy.wait(2000);
+
+    cy.get('[role="alert"]').should('contain', 'The Geos field is required.');
+    cy.wait(2000);
 
   }
 
@@ -3465,7 +4992,7 @@ ReoprtPaymentTestPage_357() {
       }
     });
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(3000);
     cy.contains("Collection Intensity Report").scrollIntoView().should("be.visible");
     cy.wait(1000);
@@ -3474,9 +5001,9 @@ ReoprtPaymentTestPage_357() {
 
   CollectionIntensityTestPage_02() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionIntensity).click();
+      cy.contains("Collection Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(2000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(2000);
@@ -3509,24 +5036,24 @@ ReoprtPaymentTestPage_357() {
   }
 
   CollectionIntensityTestPage_03() {
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionIntensity).click();
+      cy.contains("Collection Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.today-date').click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
@@ -3536,24 +5063,24 @@ ReoprtPaymentTestPage_357() {
   }
 
   CollectionIntensityTestPage_04() {
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionIntensity).click();
+      cy.contains("Collection Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.today-date').click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
@@ -3597,24 +5124,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionIntensityTestPage_05() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionIntensity).click();
+      cy.contains("Collection Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(10000);
     cy.get('.mt-4 > .card-content').scrollIntoView().should("be.visible");
@@ -3626,24 +5153,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionIntensityTestPage_06() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionIntensity).click();
+      cy.contains("Collection Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(10000);
     cy.get('.mt-4 > .card-content').scrollIntoView().should("be.visible");
@@ -3654,24 +5181,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionIntensityTestPage_07() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionIntensity).click();
+      cy.contains("Collection Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(10000);
     cy.get('.mt-4 > .card-content').scrollIntoView().should("be.visible");
@@ -3682,24 +5209,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionIntensityTestPage_08() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionIntensity).click();
+      cy.contains("Collection Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(9000);
     cy.get(this.locators.ClickonDownloadreportBtn).click();
@@ -3710,9 +5237,9 @@ ReoprtPaymentTestPage_357() {
 
   CollectionIntensityTestPage_09() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionIntensity).click();
+      cy.contains("Collection Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
@@ -3747,15 +5274,15 @@ ReoprtPaymentTestPage_357() {
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).should('be.enabled').click();
     cy.wait(10000);
     cy.get(this.locators.ClickonDownloadreportBtn).should('be.enabled');
@@ -3765,24 +5292,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionIntensityTestPage_10() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionIntensity).click();
+      cy.contains("Collection Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(5000);
 
@@ -3790,24 +5317,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionIntensityTestPage_11() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionIntensity).click();
+      cy.contains("Collection Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(10000);
     cy.contains("Collector Branch/Agency Name").scrollIntoView().should("be.visible");
@@ -3850,24 +5377,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionIntensityTestPage_12() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionIntensity).click();
+      cy.contains("Collection Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(10000);
     cy.get('.mt-4 > .card-content').scrollIntoView().should("be.visible");
@@ -3879,9 +5406,9 @@ ReoprtPaymentTestPage_357() {
 
   CollectionIntensityTestPage_13() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionIntensity).click();
+      cy.contains("Collection Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
@@ -3890,7 +5417,7 @@ ReoprtPaymentTestPage_357() {
     cy.get(this.locators.ClickOnReceiptFrom).type("01/03/2025");
     cy.wait(1000);
     cy.get(this.locators.ClickOnReceiptTo).click({ force: true });
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.today-date').click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
@@ -3902,24 +5429,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionIntensityTestPage_14() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionIntensity).click();
+      cy.contains("Collection Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(10000);
     cy.get('.mt-4 > .card-content').scrollIntoView().should("be.visible");
@@ -3931,24 +5458,24 @@ ReoprtPaymentTestPage_357() {
   CollectionIntensityTestPage_15() {
 
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionIntensity).click();
+      cy.contains("Collection Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(10000);
     cy.get(this.locators.ClickonDownloadreportBtn).click();
@@ -3966,7 +5493,7 @@ ReoprtPaymentTestPage_357() {
       }
     });
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(3000);
     cy.contains("Collection Trend Report").scrollIntoView().should("be.visible");
     cy.wait(1000);
@@ -3975,9 +5502,9 @@ ReoprtPaymentTestPage_357() {
 
   CollectionTrendTestPage_02() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(3000);
-    cy.get(this.locators.ClickOnCollectionTrend).click();
+    cy.contains("Collection Trend Report").scrollIntoView().should("be.visible").click();
     cy.wait(3000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
@@ -4012,15 +5539,15 @@ ReoprtPaymentTestPage_357() {
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).should('be.enabled').click();
     cy.wait(9000);
     cy.get(this.locators.ClickonDownloadreportBtn).should('be.enabled');
@@ -4030,24 +5557,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionTrendTestPage_03() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionTrend).click();
+    cy.contains("Collection Trend Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(10000);
     cy.get('.mt-4 > .card-content').scrollIntoView().should("be.visible");
@@ -4057,24 +5584,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionTrendTestPage_04() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionTrend).click();
+    cy.contains("Collection Trend Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(9000);
     cy.contains("Collector Branch/Agency Name").scrollIntoView().should("be.visible");
@@ -4117,24 +5644,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionTrendTestPage_05() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionTrend).click();
+    cy.contains("Collection Trend Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(9000);
     cy.get('.mt-4 > .card-content').scrollIntoView().should("be.visible");
@@ -4145,24 +5672,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionTrendTestPage_06() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionTrend).click();
+    cy.contains("Collection Trend Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(9000);
     cy.get('.mt-4 > .card-content').scrollIntoView().should("be.visible");
@@ -4173,24 +5700,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionTrendTestPage_07() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionTrend).click();
+    cy.contains("Collection Trend Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(9000);
     cy.get('.mt-4 > .card-content').scrollIntoView().should("be.visible");
@@ -4201,24 +5728,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionTrendTestPage_08() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionTrend).click();
+    cy.contains("Collection Trend Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(9000);
     cy.get('.form-control-group > .btn').scrollIntoView().should("be.visible");
@@ -4229,24 +5756,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionTrendTestPage_09() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionTrend).click();
+    cy.contains("Collection Trend Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(9000);
     cy.get('.form-control-group > .btn').scrollIntoView().click();
@@ -4259,24 +5786,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionTrendTestPage_10() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionTrend).click();
+    cy.contains("Collection Trend Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(9000);
     cy.get(this.locators.ClickonDownloadreportBtn).click();
@@ -4286,9 +5813,9 @@ ReoprtPaymentTestPage_357() {
 
   CollectionTrendTestPage_11() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionTrend).click();
+    cy.contains("Collection Trend Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
@@ -4323,15 +5850,15 @@ ReoprtPaymentTestPage_357() {
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).should('be.enabled').click();
     cy.wait(10000);
     cy.get(this.locators.ClickonDownloadreportBtn).should('be.enabled');
@@ -4342,24 +5869,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionTrendTestPage_12() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionTrend).click();
+    cy.contains("Collection Trend Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(10000);
     cy.get('.mt-4 > .card-content').scrollIntoView().should("be.visible");
@@ -4370,24 +5897,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionTrendTestPage_13() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionTrend).click();
+    cy.contains("Collection Trend Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(10000);
     cy.contains("Collector Branch/Agency Name").scrollIntoView().should("be.visible");
@@ -4430,24 +5957,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionTrendTestPage_14() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionTrend).click();
+    cy.contains("Collection Trend Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(10000);
     cy.get('.mt-4 > .card-content').scrollIntoView().should("be.visible");
@@ -4458,24 +5985,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionTrendTestPage_15() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionTrend).click();
+    cy.contains("Collection Trend Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(10000);
     cy.get('.mt-4 > .card-content').scrollIntoView().should("be.visible");
@@ -4486,24 +6013,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionTrendTestPage_16() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionTrend).click();
+    cy.contains("Collection Trend Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(10000);
     cy.get('.mt-4 > .card-content').scrollIntoView().should("be.visible");
@@ -4514,24 +6041,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionTrendTestPage_17() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionTrend).click();
+    cy.contains("Collection Trend Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(10000);
     cy.get('.form-control-group > .btn').scrollIntoView().should("be.visible");
@@ -4542,24 +6069,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionTrendTestPage_18() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionTrend).click();
+    cy.contains("Collection Trend Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(10000);
     cy.get('.form-control-group > .btn').scrollIntoView().click();
@@ -4572,24 +6099,24 @@ ReoprtPaymentTestPage_357() {
 
   CollectionTrendTestPage_19() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnCollectionTrend).click();
+    cy.contains("Collection Trend Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOnBOMBucket).select("All");
     cy.wait(1000);
     cy.get('#receiptDate_from').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#receiptDate_to').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.ClickOnGenerateReportBtn).click();
     cy.wait(10000);
     cy.get(this.locators.ClickonDownloadreportBtn).click();
@@ -4599,7 +6126,7 @@ ReoprtPaymentTestPage_357() {
 
   VisitIntensityTestPage_01() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(3000);
     cy.contains("Visit Intensity Report").scrollIntoView().should("be.visible");
     cy.wait(1000);
@@ -4608,9 +6135,9 @@ ReoprtPaymentTestPage_357() {
 
   VisitIntensityTestPage_02() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(3000);
-    cy.get(this.locators.ClickOnVisitIntensity).click();
+    cy.contains("Visit Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(3000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
@@ -4650,9 +6177,9 @@ ReoprtPaymentTestPage_357() {
 
   VisitIntensityTestPage_03() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnVisitIntensity).click();
+    cy.contains("Visit Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
@@ -4667,9 +6194,9 @@ ReoprtPaymentTestPage_357() {
 
   VisitIntensityTestPage_04() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnVisitIntensity).click();
+    cy.contains("Visit Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
@@ -4712,9 +6239,9 @@ ReoprtPaymentTestPage_357() {
 
   VisitIntensityTestPage_05() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnVisitIntensity).click();
+    cy.contains("Visit Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
@@ -4729,9 +6256,9 @@ ReoprtPaymentTestPage_357() {
 
   VisitIntensityTestPage_06() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnVisitIntensity).click();
+    cy.contains("Visit Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
@@ -4746,9 +6273,9 @@ ReoprtPaymentTestPage_357() {
 
   VisitIntensityTestPage_07() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnVisitIntensity).click();
+    cy.contains("Visit Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
@@ -4763,9 +6290,9 @@ ReoprtPaymentTestPage_357() {
 
   VisitIntensityTestPage_08() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnVisitIntensity).click();
+    cy.contains("Visit Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
@@ -4779,9 +6306,9 @@ ReoprtPaymentTestPage_357() {
 
   VisitIntensityTestPage_09() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnVisitIntensity).click();
+    cy.contains("Visit Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickBankStaff_Radio).click();
     cy.wait(1000);
@@ -4796,9 +6323,9 @@ ReoprtPaymentTestPage_357() {
 
   VisitIntensityTestPage_10() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnVisitIntensity).click();
+    cy.contains("Visit Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
@@ -4813,9 +6340,9 @@ ReoprtPaymentTestPage_357() {
 
   VisitIntensityTestPage_11() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnVisitIntensity).click();
+    cy.contains("Visit Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
@@ -4857,9 +6384,9 @@ ReoprtPaymentTestPage_357() {
 
   VisitIntensityTestPage_12() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnVisitIntensity).click();
+    cy.contains("Visit Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
@@ -4874,9 +6401,9 @@ ReoprtPaymentTestPage_357() {
 
   VisitIntensityTestPage_13() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnVisitIntensity).click();
+    cy.contains("Visit Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
@@ -4891,9 +6418,9 @@ ReoprtPaymentTestPage_357() {
 
   VisitIntensityTestPage_14() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnVisitIntensity).click();
+    cy.contains("Visit Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
@@ -4908,9 +6435,9 @@ ReoprtPaymentTestPage_357() {
 
   VisitIntensityTestPage_15() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnVisitIntensity).click();
+    cy.contains("Visit Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
@@ -4925,9 +6452,9 @@ ReoprtPaymentTestPage_357() {
 
   VisitIntensityTestPage_16() {
 
-    cy.get(this.locators.clickonreport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.ClickOnVisitIntensity).click();
+    cy.contains("Visit Intensity Report").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
     cy.get(this.locators.ClickAgencyStaff_Radio).click();
     cy.wait(1000);
@@ -4940,38 +6467,38 @@ ReoprtPaymentTestPage_357() {
 
   }
 
-  allocatedVsAchievedReports_001() 
-  {
-    cy.get(this.locators.clickonreport).click();
+  allocatedVsAchievedReports_001() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(2000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.clickOnAllocatedVsAchievedReport).click();
+  cy.contains("Allocated vs Achieved Report").scrollIntoView().should("be.visible").click();
+cy.wait(2000);
     cy.wait(2000);
   }
 
 
-  allocatedVsAchievedReports_002() 
-  {
-      cy.get(this.locators.clickonreport).click();
+  allocatedVsAchievedReports_002() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
     cy.wait(2000);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.clickOnAllocatedVsAchievedReport).click();
+  cy.contains("Allocated vs Achieved Report").scrollIntoView().should("be.visible").click();
+cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.ClickOn_Product_group).click();
-   cy.wait(2000);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-    .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(500);
-    cy.get(this.locators.ClickOn_Product_group).click();
-    cy.wait(500);
-  });
-  cy.get('body').click(0, 0);
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.ClickOn_Product_group).click();
+        cy.wait(2000);
+      });
+    cy.get('body').click(0, 0);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-   cy.get('.ng-dropdown-panel').should('be.visible')
+    cy.get('.ng-dropdown-panel').should('be.visible')
       .within(() => {
         cy.wait(7000);
         cy.get('.ng-option').then($options => {
@@ -4980,34 +6507,35 @@ ReoprtPaymentTestPage_357() {
           cy.wrap($options[randomIndex]).click({ force: true });
         });
       });
-        cy.get(this.locators.ClickOn_Country).click();
+    cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
     cy.contains('India').click({ force: true });
     cy.get(this.locators.Click_Generate_Report_button).click();
     cy.wait(2000);
     cy.get('.btn-outline-dark').click();
-    
+
 
   }
 
   allocatedVsAchievedReports_003() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.clickOnAllocatedVsAchievedReport).click();
-    cy.wait(300);
+  cy.contains("Allocated vs Achieved Report").scrollIntoView().should("be.visible").click();
+cy.wait(2000);
+    cy.wait(2000);
     cy.get('#agencyUserRadio').click();
     cy.wait(1000);
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-    .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(500);
-    cy.get(this.locators.ClickOn_Product_group).click();
-    cy.wait(500);
-    });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.ClickOn_Product_group).click();
+        cy.wait(2000);
+      });
     cy.get('body').click(0, 0);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
@@ -5026,77 +6554,79 @@ ReoprtPaymentTestPage_357() {
     cy.get(this.locators.Click_Generate_Report_button).click();
     cy.wait(2000);
     cy.get('.inner-layout-container').scrollTo('bottom');
-    cy.wait(500);
-   cy.get('h3').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
+    cy.get('h3').should('be.visible');
+    cy.wait(2000);
     cy.get('.btn-outline-dark').click();
     cy.wait(2000);
 
   }
 
   allocatedVsAchievedReports_004() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.clickOnAllocatedVsAchievedReport).click();
-    cy.wait(300);
+  cy.contains("Allocated vs Achieved Report").scrollIntoView().should("be.visible").click();
+cy.wait(2000);
+    cy.wait(2000);
     cy.get(this.locators.ClickOn_Product_group).click();
-   cy.wait(2000);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-    .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(500);
-    cy.get(this.locators.ClickOn_Product_group).click();
-    cy.wait(500);
-  });
-  cy.get('body').click(0, 0);
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.ClickOn_Product_group).click();
+        cy.wait(2000);
+      });
+    cy.get('body').click(0, 0);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-   cy.get('.ng-dropdown-panel').should('be.visible')
+    cy.get('.ng-dropdown-panel').should('be.visible')
       .within(() => {
-        cy.wait(7000);
+        cy.wait(2000);
         cy.get('.ng-option').then($options => {
           const count = $options.length;
           const randomIndex = Math.floor(Math.random() * count);
           cy.wrap($options[randomIndex]).click({ force: true });
         });
       });
-        cy.get(this.locators.ClickOn_Country).click();
+    cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
     cy.contains('India').click({ force: true });
     cy.get(this.locators.Click_Generate_Report_button).click();
     cy.wait(2000);
     cy.get('.inner-layout-container').scrollTo('bottom');
-    cy.wait(500);
-   cy.get('h3').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
+    cy.get('h3').scrollIntoView().should('be.visible');
+    cy.wait(2000);
     cy.get('.btn-outline-dark').click();
     cy.wait(2000);
 
   }
 
   allocatedVsAchievedReports_005() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.clickOnAllocatedVsAchievedReport).click();
-    cy.wait(300);
+  cy.contains("Allocated vs Achieved Report").scrollIntoView().should("be.visible").click();
+cy.wait(2000);
+    cy.wait(2000);
     cy.get('#agencyUserRadio').click();
-     cy.get(this.locators.ClickOn_Product_group).click();
-   cy.wait(2000);
-    cy.get('.ng-dropdown-panel .ng-option')
-    .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(500);
     cy.get(this.locators.ClickOn_Product_group).click();
-    cy.wait(500);
-  });
-  cy.get('body').click(0, 0);
+    cy.wait(2000);
+    cy.get('.ng-dropdown-panel .ng-option')
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.ClickOn_Product_group).click();
+        cy.wait(2000);
+      });
+    cy.get('body').click(0, 0);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-   cy.get('.ng-dropdown-panel').should('be.visible')
+    cy.get('.ng-dropdown-panel').should('be.visible')
       .within(() => {
         cy.wait(7000);
         cy.get('.ng-option').then($options => {
@@ -5105,15 +6635,15 @@ ReoprtPaymentTestPage_357() {
           cy.wrap($options[randomIndex]).click({ force: true });
         });
       });
-        cy.get(this.locators.ClickOn_Country).click();
+    cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
     cy.contains('India').click({ force: true });
     cy.get(this.locators.Click_Generate_Report_button).click();
     cy.wait(2000);
     cy.get('.inner-layout-container').scrollTo('bottom');
-    cy.wait(500);
-   cy.get('h3').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
+    cy.get('h3').should('be.visible');
+    cy.wait(2000);
     cy.get('.btn-outline-dark').click();
     cy.wait(2000);
 
@@ -5121,25 +6651,26 @@ ReoprtPaymentTestPage_357() {
 
 
   allocatedVsAchievedReports_006() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.clickOnAllocatedVsAchievedReport).click();
-    cy.wait(300);
-      cy.get(this.locators.ClickOn_Product_group).click();
-   cy.wait(2000);
-    cy.get('.ng-dropdown-panel .ng-option')
-    .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(500);
+  cy.contains("Allocated vs Achieved Report").scrollIntoView().should("be.visible").click();
+cy.wait(2000);
+    cy.wait(2000);
     cy.get(this.locators.ClickOn_Product_group).click();
-    cy.wait(500);
-  });
-  cy.get('body').click(0, 0);
+    cy.wait(2000);
+    cy.get('.ng-dropdown-panel .ng-option')
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.ClickOn_Product_group).click();
+        cy.wait(2000);
+      });
+    cy.get('body').click(0, 0);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-   cy.get('.ng-dropdown-panel').should('be.visible')
+    cy.get('.ng-dropdown-panel').should('be.visible')
       .within(() => {
         cy.wait(7000);
         cy.get('.ng-option').then($options => {
@@ -5148,46 +6679,47 @@ ReoprtPaymentTestPage_357() {
           cy.wrap($options[randomIndex]).click({ force: true });
         });
       });
-        cy.get(this.locators.ClickOn_Country).click();
+    cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
     cy.contains('India').click({ force: true });
     cy.get(this.locators.Click_Generate_Report_button).click();
     cy.wait(2000);
-      cy.get('.btn-outline-dark').click();
+    cy.get('.btn-outline-dark').click();
     cy.wait(2000);
     cy.get('.inner-layout-container').scrollTo('bottom');
-    cy.wait(500);
-   cy.get('h3').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
+    cy.get('h3').should('be.visible');
+    cy.wait(2000);
     cy.get('.btn-outline-dark').click();
     cy.wait(2000);
     cy.contains('Count of Accounts').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.contains('Overdue Amounts').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
 
   }
 
   allocatedVsAchievedReports_007() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.clickOnAllocatedVsAchievedReport).click();
-    cy.wait(300);
-      cy.get(this.locators.ClickOn_Product_group).click();
-   cy.wait(2000);
-    cy.get('.ng-dropdown-panel .ng-option')
-    .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(500);
+  cy.contains("Allocated vs Achieved Report").scrollIntoView().should("be.visible").click();
+cy.wait(2000);
+    cy.wait(2000);
     cy.get(this.locators.ClickOn_Product_group).click();
-    cy.wait(500);
-  });
-  cy.get('body').click(0, 0);
+    cy.wait(2000);
+    cy.get('.ng-dropdown-panel .ng-option')
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.ClickOn_Product_group).click();
+        cy.wait(2000);
+      });
+    cy.get('body').click(0, 0);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-   cy.get('.ng-dropdown-panel').should('be.visible')
+    cy.get('.ng-dropdown-panel').should('be.visible')
       .within(() => {
         cy.wait(7000);
         cy.get('.ng-option').then($options => {
@@ -5196,63 +6728,64 @@ ReoprtPaymentTestPage_357() {
           cy.wrap($options[randomIndex]).click({ force: true });
         });
       });
-        cy.get(this.locators.ClickOn_Country).click();
+    cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
     cy.contains('India').click({ force: true });
     cy.get(this.locators.Click_Generate_Report_button).click();
     cy.wait(2000);
-      cy.get('.btn-outline-dark').click();
+    cy.get('.btn-outline-dark').click();
     cy.wait(2000);
     cy.get('.inner-layout-container').scrollTo('bottom');
-    cy.wait(500);
-   cy.get('h3').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
+    cy.get('h3').should('be.visible');
+    cy.wait(2000);
     cy.get('.btn-outline-dark').click();
     cy.wait(2000);
     cy.contains('Count of Accounts').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.contains('Overdue Amounts').should('be.visible');
-    cy.wait(500);
-     cy.get('thead > :nth-child(1) > :nth-child(2)').contains('Product').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
+    cy.get('thead > :nth-child(1) > :nth-child(2)').contains('Product').should('be.visible');
+    cy.wait(2000);
     cy.get('thead > :nth-child(1) > :nth-child(3)').contains('Bucket').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('thead > :nth-child(2) > :nth-child(1)').contains('Allocated').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('thead > :nth-child(2) > :nth-child(2)').contains('Collected').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('thead > :nth-child(2) > :nth-child(3)').contains('Pending').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('thead > :nth-child(2) > :nth-child(4)').contains('Allocated').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('thead > :nth-child(2) > :nth-child(5)').contains('Collected').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
 
 
   }
 
 
   allocatedVsAchievedReports_008() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.clickOnAllocatedVsAchievedReport).click();
-    cy.wait(300);
-     cy.get('#agencyUserRadio').click();
-      cy.get(this.locators.ClickOn_Product_group).click();
-   cy.wait(2000);
-    cy.get('.ng-dropdown-panel .ng-option')
-    .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(500);
+  cy.contains("Allocated vs Achieved Report").scrollIntoView().should("be.visible").click();
+cy.wait(2000);
+    cy.wait(2000);
+    cy.get('#agencyUserRadio').click();
     cy.get(this.locators.ClickOn_Product_group).click();
-    cy.wait(500);
-  });
-  cy.get('body').click(0, 0);
+    cy.wait(2000);
+    cy.get('.ng-dropdown-panel .ng-option')
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.ClickOn_Product_group).click();
+        cy.wait(2000);
+      });
+    cy.get('body').click(0, 0);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-   cy.get('.ng-dropdown-panel').should('be.visible')
+    cy.get('.ng-dropdown-panel').should('be.visible')
       .within(() => {
         cy.wait(7000);
         cy.get('.ng-option').then($options => {
@@ -5261,49 +6794,50 @@ ReoprtPaymentTestPage_357() {
           cy.wrap($options[randomIndex]).click({ force: true });
         });
       });
-        cy.get(this.locators.ClickOn_Country).click();
+    cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
     cy.contains('India').click({ force: true });
     cy.get(this.locators.Click_Generate_Report_button).click();
     cy.wait(2000);
-      cy.get('.btn-outline-dark').click();
+    cy.get('.btn-outline-dark').click();
     cy.wait(2000);
     cy.get('.inner-layout-container').scrollTo('bottom');
-    cy.wait(500);
-   cy.get('h3').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
+    cy.get('h3').should('be.visible');
+    cy.wait(2000);
     cy.get('.btn-outline-dark').click();
     cy.wait(2000);
     cy.contains('Count of Accounts').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.contains('Overdue Amounts').should('be.visible');
-    cy.wait(500);
-     cy.get('thead > :nth-child(1) > :nth-child(2)').contains('Product').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
+    cy.get('thead > :nth-child(1) > :nth-child(2)').contains('Product').should('be.visible');
+    cy.wait(2000);
     cy.get('thead > :nth-child(1) > :nth-child(3)').contains('Bucket').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('thead > :nth-child(2) > :nth-child(1)').contains('Allocated').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('thead > :nth-child(2) > :nth-child(2)').contains('Collected').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('thead > :nth-child(2) > :nth-child(3)').contains('Pending').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('thead > :nth-child(2) > :nth-child(4)').contains('Allocated').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('thead > :nth-child(2) > :nth-child(5)').contains('Collected').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
 
 
 
   }
 
   allocatedVsAchievedReports_009() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.clickOnAllocatedVsAchievedReport).click();
-    cy.wait(300);
+  cy.contains("Allocated vs Achieved Report").scrollIntoView().should("be.visible").click();
+cy.wait(2000);
+    cy.wait(2000);
     cy.get('#agencyUserRadio').click();
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
@@ -5314,10 +6848,10 @@ ReoprtPaymentTestPage_357() {
     cy.wait(2000);
     cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-    .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(500);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+      });
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
     cy.contains('India').click({ force: true });
@@ -5326,40 +6860,40 @@ ReoprtPaymentTestPage_357() {
     cy.get('.btn-outline-dark').click();
     cy.wait(2000);
     cy.get('.inner-layout-container').scrollTo('bottom');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('h3').should('be.visible');
-    cy.wait(500);
+    cy.wait(15000);
     cy.contains('Count of Accounts').should('be.visible');
-    cy.wait(500);
-    cy.contains('Overdue Amounts').scrollIntoView()
-    .should('be.visible');
-    cy.wait(500);
-     cy.get('thead > :nth-child(1) > :nth-child(2)').contains('Product').scrollIntoView().should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
+    // cy.contains('Overdue Amounts').scrollIntoView().should('be.visible');
+    // cy.wait(2000);
+    cy.get('thead > :nth-child(1) > :nth-child(2)').contains('Product').scrollIntoView().should('be.visible');
+    cy.wait(2000);
     cy.get('thead > :nth-child(1) > :nth-child(3)').contains('Bucket').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('thead > :nth-child(2) > :nth-child(1)').contains('Allocated').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('thead > :nth-child(2) > :nth-child(2)').contains('Collected').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('thead > :nth-child(2) > :nth-child(3)').contains('Pending').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('thead > :nth-child(2) > :nth-child(4)').contains('Allocated').should('be.visible');
-    cy.wait(500);
-    cy.get('thead > :nth-child(2) > :nth-child(5)').contains('Collected').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
+    cy.get('thead > :nth-child(2) > :nth-child(5)').contains('Collected').scrollIntoView().should('be.visible');
+    cy.wait(2000);
 
 
 
   }
 
   allocatedVsAchievedReports_010() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickAllocReport).click();
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Allocation Reports").scrollIntoView().should("be.visible").click();
     cy.wait(1000);
-    cy.get(this.locators.clickOnAllocatedVsAchievedReport).click();
-    cy.wait(300);
+  cy.contains("Allocated vs Achieved Report").scrollIntoView().should("be.visible").click();
+cy.wait(2000);
+    cy.wait(2000);
     cy.get(this.locators.ClickOn_Product_group).click();
     cy.wait(2000);
     cy.contains('Loan Product').click({ force: true });
@@ -5369,10 +6903,10 @@ ReoprtPaymentTestPage_357() {
     cy.wait(2000);
     cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-    .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(500);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+      });
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
     cy.contains('India').click({ force: true });
@@ -5381,52 +6915,52 @@ ReoprtPaymentTestPage_357() {
     cy.get('.btn-outline-dark').click();
     cy.wait(2000);
     cy.get('.inner-layout-container').scrollTo('bottom');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('h3').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.contains('Count of Accounts').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.contains('Overdue Amounts').scrollIntoView().should('be.visible');
-    cy.wait(500);
-     cy.get('thead > :nth-child(1) > :nth-child(2)').contains('Product').scrollIntoView().should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
+    cy.get('thead > :nth-child(1) > :nth-child(2)').contains('Product').scrollIntoView().should('be.visible');
+    cy.wait(2000);
     cy.get('thead > :nth-child(1) > :nth-child(3)').contains('Bucket').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('thead > :nth-child(2) > :nth-child(1)').contains('Allocated').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('thead > :nth-child(2) > :nth-child(2)').contains('Collected').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('thead > :nth-child(2) > :nth-child(3)').contains('Pending').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('thead > :nth-child(2) > :nth-child(4)').contains('Allocated').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('thead > :nth-child(2) > :nth-child(5)').contains('Collected').should('be.visible');
-    cy.wait(500);
+    cy.wait(2000);
 
 
 
   }
 
   trailHistoryReport_001() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('#agencyUserRadio').click();
-  
+
   }
 
   trailHistoryReport_002() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('#agencyUserRadio').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('#discCodeGroup').then($select => {
       const allValues = [...$select[0].options].map(option => option.value);
       cy.get('#discCodeGroup').select('BPTP');
@@ -5437,34 +6971,34 @@ ReoprtPaymentTestPage_357() {
       cy.get('#discCode').select('BPTP');
     });
     cy.wait(1000);
-  //  cy.get(this.locators.ClickGenrtReport).click({ force: true });
-   // cy.wait(2000);
+    //  cy.get(this.locators.ClickGenrtReport).click({ force: true });
+    // cy.wait(2000);
 
   }
 
 
   trailHistoryReport_003() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('#agencyUserRadio').click();
-    cy.wait(500);
-   // cy.get('#bOMBucket').select('All');
-   // cy.wait(500);
-   // cy.get('#trailDate_from').click();
-   // cy.wait(500);
-   // cy.get('.previous > span').click();
-   // cy.wait(500);
-   // cy.get('.bs-datepicker-body').click();
-   // cy.wait(500);
-   //// cy.get('#trailDate_to').click();
-   // cy.wait(500);
+    cy.wait(2000);
+    // cy.get('#bOMBucket').select('All');
+    // cy.wait(2000);
+    // cy.get('#trailDate_from').click();
+    // cy.wait(2000);
+    // cy.get('.previous > span').click();
+    // cy.wait(2000);
+    // cy.get('.bs-datepicker-body').click();
+    // cy.wait(2000);
+    //// cy.get('#trailDate_to').click();
+    // cy.wait(2000);
     //const today = new Date().getDate().toString();
-   // cy.get('.bs-datepicker-body').contains('span', today).click();
-   // cy.wait(500);
+    // cy.get('.bs-datepicker-body').contains('span', today).click();
+    // cy.wait(2000);
     cy.get('#discCodeGroup').then($select => {
       const allValues = [...$select[0].options].map(option => option.value);
       cy.get('#discCodeGroup').select('BPTP');
@@ -5481,30 +7015,56 @@ ReoprtPaymentTestPage_357() {
   }
 
   trailHistoryReport_004() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickonTrail_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.get('#trailDate_from').type("04/08/2025");
-    cy.get('#trailDate_to').click();
-    cy.wait(500);
-    const today = new Date().getDate().toString();
-    cy.get('.bs-datepicker-body').contains('span', today).click();
-    cy.wait(500);
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
+
+     cy.get('#trailDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#trailDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(1000);
+
     cy.get('#discCodeGroup').then($select => {
       const allValues = [...$select[0].options].map(option => option.value);
       cy.get('#discCodeGroup').select(allValues);
@@ -5515,42 +7075,63 @@ ReoprtPaymentTestPage_357() {
       cy.get('#discCode').select(allValues);
     });
     cy.wait(1000);
-  cy.get('#downloadReport').click();
+    cy.get('#downloadReport').click();
 
   }
 
   trailHistoryReport_005() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-    .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Productgroup).click();
+        cy.wait(2000);
+      });
     cy.get(this.locators.ClickonTrail_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.get('#trailDate_from').type("04/08/2025");
-    cy.wait(400);
-    cy.get('#trailDate_to').click();
-    cy.wait(500);
-    const today = new Date().getDate().toString();
-    cy.get('.bs-datepicker-body').contains('span', today).click();
-    cy.wait(500);
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
+
+   cy.get('#trailDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#trailDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(1000);
+
     cy.get('#discCodeGroup').then($select => {
       const allValues = [...$select[0].options].map(option => option.value);
       cy.get('#discCodeGroup').select(allValues);
@@ -5561,39 +7142,64 @@ ReoprtPaymentTestPage_357() {
       cy.get('#discCode').select(allValues);
     });
     cy.wait(1000);
-  cy.get('#downloadReport').click();
+    cy.get('#downloadReport').click();
 
   }
 
 
   trailHistoryReport_006() {
-   cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('#agencyUserRadio').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickonTrail_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.get('#trailDate_from').type("04/08/2025");
-    cy.wait(400);
-    cy.get('#trailDate_to').click();
-    cy.wait(500);
-    const today = new Date().getDate().toString();
-    cy.get('.bs-datepicker-body').contains('span', today).click();
-    cy.wait(500);
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
+   
+   cy.get('#trailDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#trailDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(1000);
+                        
     cy.get('#discCodeGroup').then($select => {
       const allValues = [...$select[0].options].map(option => option.value);
       cy.get('#discCodeGroup').select(allValues);
@@ -5604,37 +7210,62 @@ ReoprtPaymentTestPage_357() {
       cy.get('#discCode').select(allValues);
     });
     cy.wait(1000);
-  cy.get('#downloadReport').click();
+    cy.get('#downloadReport').click();
   }
 
   trailHistoryReport_007() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
-   cy.get('#agencyUserRadio').click();
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.get('#agencyUserRadio').click();
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickonTrail_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.get('#trailDate_from').type("04/08/2025");
-    cy.wait(400);
-    cy.get('#trailDate_to').click();
-    cy.wait(500);
-    const today = new Date().getDate().toString();
-    cy.get('.bs-datepicker-body').contains('span', today).click();
-    cy.wait(500);
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
+   
+   cy.get('#trailDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#trailDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(1000);
+                        
     cy.get('#discCodeGroup').then($select => {
       const allValues = [...$select[0].options].map(option => option.value);
       cy.get('#discCodeGroup').select(allValues);
@@ -5645,38 +7276,63 @@ ReoprtPaymentTestPage_357() {
       cy.get('#discCode').select(allValues);
     });
     cy.wait(1000);
-     cy.get('#downloadReport').click();
-     cy.wait(2000);
+    cy.get('#downloadReport').click();
+    cy.wait(2000);
   }
 
   trailHistoryReport_008() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('#agencyUserRadio').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickonTrail_Product).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.get('#trailDate_from').type("04/08/2025");
-    cy.wait(400);
-    cy.get('#trailDate_to').click();
-    cy.wait(500);
-    const today = new Date().getDate().toString();
-    cy.get('.bs-datepicker-body').contains('span', today).click();
-    cy.wait(500);
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
+  
+   cy.get('#trailDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#trailDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(1000);
+                        
     cy.get('#discCodeGroup').then($select => {
       const allValues = [...$select[0].options].map(option => option.value);
       cy.get('#discCodeGroup').select('BPTP');
@@ -5688,41 +7344,66 @@ ReoprtPaymentTestPage_357() {
     });
     cy.wait(1000);
     cy.get('#downloadReport').click();
-     cy.wait(2000);
+    cy.wait(2000);
 
   }
 
   trailHistoryReport_009() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
-     cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.wait(2000);
     cy.get('#agencyUserRadio').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickonTrail_Product).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOn_SubProduct).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.get('#trailDate_from').type("04/08/2025");
-    cy.wait(400);
-    cy.get('#trailDate_to').click();
-    cy.wait(500);
-    const today = new Date().getDate().toString();
-    cy.get('.bs-datepicker-body').contains('span', today).click();
-    cy.wait(500);
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
+  
+   cy.get('#trailDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#trailDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(1000);
+                        
     cy.get('#discCodeGroup').then($select => {
       const allValues = [...$select[0].options].map(option => option.value);
       cy.get('#discCodeGroup').select('BPTP');
@@ -5734,43 +7415,64 @@ ReoprtPaymentTestPage_357() {
     });
     cy.wait(1000);
     cy.get('#downloadReport').click();
-     cy.wait(2000);
+    cy.wait(2000);
   }
 
   trailHistoryReport_010() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-    .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Productgroup).click();
+        cy.wait(2000);
+      });
     cy.get(this.locators.ClickonTrail_Product).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOn_SubProduct).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.get('#trailDate_from').type("04/08/2025");
-    cy.wait(400);
-    cy.get('#trailDate_to').click();
-    cy.wait(500);
-    const today = new Date().getDate().toString();
-    cy.get('.bs-datepicker-body').contains('span', today).click();
-    cy.wait(500);
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
+   
+   cy.get('#trailDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#trailDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(1000);
+                        
     cy.get('#discCodeGroup').then($select => {
       const allValues = [...$select[0].options].map(option => option.value);
       cy.get('#discCodeGroup').select('BPTP');
@@ -5787,39 +7489,60 @@ ReoprtPaymentTestPage_357() {
   }
 
   trailHistoryReport_011() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-    .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Productgroup).click();
+        cy.wait(2000);
+      });
     cy.get(this.locators.ClickonTrail_Product).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOn_SubProduct).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.get('#trailDate_from').type("04/08/2025");
-    cy.wait(400);
-    cy.get('#trailDate_to').click();
-    cy.wait(500);
-    const today = new Date().getDate().toString();
-    cy.get('.bs-datepicker-body').contains('span', today).click();
-    cy.wait(500);
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
+   
+   cy.get('#trailDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#trailDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(1000);
+                        
     cy.get('#discCodeGroup').then($select => {
       const allValues = [...$select[0].options].map(option => option.value);
       cy.get('#discCodeGroup').select('BPTP');
@@ -5835,42 +7558,67 @@ ReoprtPaymentTestPage_357() {
   }
 
   trailHistoryReport_012() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get('.ng-dropdown-panel .ng-option')
-    .each(($option) => {
-    cy.wrap($option).click({ force: true });
-    cy.wait(300);
-     cy.get(this.locators.Clickon_Productgroup).click();
-    cy.wait(300);
-  });
+      .each(($option) => {
+        cy.wrap($option).click({ force: true });
+        cy.wait(2000);
+        cy.get(this.locators.Clickon_Productgroup).click();
+        cy.wait(2000);
+      });
     cy.get(this.locators.ClickonTrail_Product).click();
     cy.wait(1000);
     cy.get(this.locators.ClickOn_SubProduct).click();
     cy.wait(1000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.Clickon_Bucket).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Country).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
     cy.get(this.locators.ClickOn_Region).click();
     cy.wait(2000);
-    cy.get(".ng-option").first().click();
-    cy.get('#trailDate_from').type("04/08/2025");
-    cy.wait(400);
-    cy.get('#trailDate_to').click();
-    cy.wait(500);
-    const today = new Date().getDate().toString();
-    cy.get('.bs-datepicker-body').contains('span', today).click();
-    cy.wait(500);
+   cy.get('.ng-option').each(($el) => {
+  cy.wrap($el).click({ force: true });
+  cy.wait(1000);   // wait 1 second after each click
+});
+cy.wait(2000);
+   
+   cy.get('#trailDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#trailDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(1000);
+                        
     cy.get('#discCodeGroup').then($select => {
       const allValues = [...$select[0].options].map(option => option.value);
       cy.get('#discCodeGroup').select('BPTP');
@@ -5887,23 +7635,28 @@ ReoprtPaymentTestPage_357() {
   }
 
   trailHistoryReport_013() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
-    cy.get('#trailDate_from').click();
-    cy.wait(500);
-    cy.get('.previous > span').click();
-    cy.wait(500);
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
-    cy.get('#trailDate_to').click();
-    cy.wait(500);
-    const today = new Date().getDate().toString();
-    cy.get('.bs-datepicker-body').contains('span', today).click();
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+   
+   cy.get('#trailDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#trailDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(1000);
+                        
     cy.get('#discCodeGroup').then($select => {
       const allValues = [...$select[0].options].map(option => option.value);
       cy.get('#discCodeGroup').select('CB');
@@ -5914,29 +7667,34 @@ ReoprtPaymentTestPage_357() {
       cy.get('#discCode').select('GV');
     });
     cy.wait(1000);
-    cy.get(this.locators.ClickGenrtReport).click({ force: true });
+    cy.get('#downloadReport').click({ force: true });
     cy.wait(2000);
 
   }
 
   trailHistoryReport_014() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
-    cy.get('#trailDate_from').click();
-    cy.wait(500);
-    cy.get('.previous > span').click();
-    cy.wait(500);
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
-    cy.get('#trailDate_to').click();
-    cy.wait(500);
-    const today = new Date().getDate().toString();
-    cy.get('.bs-datepicker-body').contains('span', today).click();
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+   
+   cy.get('#trailDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#trailDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(1000);
+                        
     cy.get('#discCodeGroup').then($select => {
       const allValues = [...$select[0].options].map(option => option.value);
       cy.get('#discCodeGroup').select('CB');
@@ -5947,29 +7705,34 @@ ReoprtPaymentTestPage_357() {
       cy.get('#discCode').select('GV');
     });
     cy.wait(1000);
-    cy.get(this.locators.ClickGenrtReport).click({ force: true });
+    cy.get('#downloadReport').should("be.disabled");
     cy.wait(2000);
 
   }
 
   trailHistoryReport_015() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
-    cy.get('#trailDate_from').click();
-    cy.wait(500);
-    cy.get('.previous > span').click();
-    cy.wait(500);
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
-    cy.get('#trailDate_to').click();
-    cy.wait(500);
-    const today = new Date().getDate().toString();
-    cy.get('.bs-datepicker-body').contains('span', today).click();
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+   
+   cy.get('#trailDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#trailDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(1000);
+                        
     cy.get('#discCodeGroup').then($select => {
       const allValues = [...$select[0].options].map(option => option.value);
       cy.get('#discCodeGroup').select('CB');
@@ -5980,31 +7743,43 @@ ReoprtPaymentTestPage_357() {
       cy.get('#discCode').select('GV');
     });
     cy.wait(1000);
-    cy.get(this.locators.ClickGenrtReport).click({ force: true });
+    cy.get('#downloadReport').click({ force: true });
     cy.wait(2000);
 
   }
 
   trailHistoryReport_016() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
-    cy.get('#bOMBucket').select('0');
-    cy.wait(500);
-    cy.get('#trailDate_from').click();
-    cy.wait(500);
-    cy.get('.previous > span').click();
-    cy.wait(500);
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
-    cy.get('#trailDate_to').click();
-    cy.wait(500);
-    const today = new Date().getDate().toString();
-    cy.get('.bs-datepicker-body').contains('span', today).click();
-    cy.wait(500);
+    cy.get(this.locators.clickonreport).click({force:true});
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    // cy.get(this.locators.Product_Group).click({force:true});
+    // cy.wait(2000);
+    // cy.get('.ng-dropdown-panel .ng-option').contains('Cards').click({ force: true });
+    cy.wait(2000);
+    cy.get(this.locators.ClickOn_TrailHistory_Bucket).click({force:true});
+    cy.wait(2000);
+    cy.get('.ng-dropdown-panel .ng-option').contains('1').click({ force: true });
+    cy.wait(2000);
+    cy.get(this.locators.Select_trailGap_Country).click({force:true});
+    cy.get('.ng-dropdown-panel .ng-option').contains('Tamilnadu').click({ force: true });
+    cy.wait(2000);
+cy.get('#trailDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#trailDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(1000);
     cy.get('#discCodeGroup').then($select => {
       const allValues = [...$select[0].options].map(option => option.value);
       cy.get('#discCodeGroup').select('Contact');
@@ -6015,31 +7790,40 @@ ReoprtPaymentTestPage_357() {
       cy.get('#discCode').select('CB');
     });
     cy.wait(1000);
-    cy.get(this.locators.ClickGenrtReport).click({ force: true });
+    cy.get('#downloadReport').click({ force: true });
     cy.wait(2000);
+    cy.get('[role="alert"]').should('contain', 'Please fill all required fields');
+ cy.wait(2000);
 
   }
 
   trailHistoryReport_017() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
-    cy.get('#bOMBucket').select('1');
-    cy.wait(500);
-    cy.get('#trailDate_from').click();
-    cy.wait(500);
-    cy.get('.previous > span').click();
-    cy.wait(500);
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
-    cy.get('#trailDate_to').click();
-    cy.wait(500);
-    const today = new Date().getDate().toString();
-    cy.get('.bs-datepicker-body').contains('span', today).click();
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.get(this.locators.ClickOn_TrailHistory_Bucket).click();
+    cy.wait(2000);
+    cy.get('.ng-dropdown-panel .ng-option').contains('1').click({ force: true });
+    cy.wait(2000);
+    
+   cy.get('#trailDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#trailDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(1000);
+                        
     cy.get('#discCodeGroup').then($select => {
       const allValues = [...$select[0].options].map(option => option.value);
       cy.get('#discCodeGroup').select('Contact');
@@ -6050,31 +7834,40 @@ ReoprtPaymentTestPage_357() {
       cy.get('#discCode').select('CB');
     });
     cy.wait(1000);
-    cy.get(this.locators.ClickGenrtReport).click({ force: true });
+    cy.get('#downloadReport').click({ force: true });
     cy.wait(2000);
+     cy.get('[role="alert"]').should('contain', 'Please fill all required fields');
+ cy.wait(2000);
 
   }
 
   trailHistoryReport_018() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
-    cy.get('#bOMBucket').select('2');
-    cy.wait(500);
-    cy.get('#trailDate_from').click();
-    cy.wait(500);
-    cy.get('.previous > span').click();
-    cy.wait(500);
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
-    cy.get('#trailDate_to').click();
-    cy.wait(500);
-    const today = new Date().getDate().toString();
-    cy.get('.bs-datepicker-body').contains('span', today).click();
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.get(this.locators.ClickOn_TrailHistory_Bucket).click();
+    cy.wait(2000);
+    cy.get('.ng-dropdown-panel .ng-option').contains('1').click({ force: true });
+    cy.wait(2000);
+   
+   cy.get('#trailDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#trailDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(1000);
+                        
     cy.get('#discCodeGroup').then($select => {
       const allValues = [...$select[0].options].map(option => option.value);
       cy.get('#discCodeGroup').select('Contact');
@@ -6085,31 +7878,40 @@ ReoprtPaymentTestPage_357() {
       cy.get('#discCode').select('CB');
     });
     cy.wait(1000);
-    cy.get(this.locators.ClickGenrtReport).click({ force: true });
+    cy.get('#downloadReport').click({ force: true });
     cy.wait(2000);
+     cy.get('[role="alert"]').should('contain', 'Please fill all required fields');
+ cy.wait(2000);
 
   }
 
   trailHistoryReport_019() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
-    cy.get('#bOMBucket').select('3');
-    cy.wait(500);
-    cy.get('#trailDate_from').click();
-    cy.wait(500);
-    cy.get('.previous > span').click();
-    cy.wait(500);
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
-    cy.get('#trailDate_to').click();
-    cy.wait(500);
-    const today = new Date().getDate().toString();
-    cy.get('.bs-datepicker-body').contains('span', today).click();
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.get(this.locators.ClickOn_TrailHistory_Bucket).click();
+    cy.wait(2000);
+    cy.get('.ng-dropdown-panel .ng-option').contains('1').click({ force: true });
+    cy.wait(2000);
+  
+   cy.get('#trailDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#trailDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(1000);
+                        
     cy.get('#discCodeGroup').then($select => {
       const allValues = [...$select[0].options].map(option => option.value);
       cy.get('#discCodeGroup').select('Contact');
@@ -6120,31 +7922,40 @@ ReoprtPaymentTestPage_357() {
       cy.get('#discCode').select('CB');
     });
     cy.wait(1000);
-    cy.get(this.locators.ClickGenrtReport).click({ force: true });
+    cy.get("#downloadReport").click({ force: true });
     cy.wait(2000);
+     cy.get('[role="alert"]').should('contain', 'Please fill all required fields');
+ cy.wait(2000);
 
   }
 
   trailHistoryReport_020() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClicktrailReport).click({ force: true });
-    cy.wait(300);
-    cy.get(this.locators.clickTrailHistoryReport).click({ force: true });
-    cy.wait(500);
-    cy.get('#bOMBucket').select('4');
-    cy.wait(500);
-    cy.get('#trailDate_from').click();
-    cy.wait(500);
-    cy.get('.previous > span').click();
-    cy.wait(500);
-    cy.get('.bs-datepicker-body').click();
-    cy.wait(500);
-    cy.get('#trailDate_to').click();
-    cy.wait(500);
-    const today = new Date().getDate().toString();
-    cy.get('.bs-datepicker-body').contains('span', today).click();
-    cy.wait(500);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Trail Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Trail History Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+   cy.get(this.locators.ClickOn_TrailHistory_Bucket).click();
+    cy.wait(2000);
+    cy.get('.ng-dropdown-panel .ng-option').contains('1').click({ force: true });
+    cy.wait(2000);
+  
+   cy.get('#trailDate_from').click();
+                        cy.wait(500);
+                        cy.get('.previous > span').click();
+                        cy.wait(500);
+                        const pastDate = new Date();
+                        pastDate.setDate(pastDate.getDate() - 30);
+                        const pastDay = pastDate.getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+                        cy.wait(500);
+                        cy.get('#trailDate_to').click();
+                        cy.wait(500);
+                        const today = new Date().getDate().toString();
+                        cy.get('.bs-datepicker-body').contains('span', today).click();
+                        cy.wait(1000);
+                        
     cy.get('#discCodeGroup').then($select => {
       const allValues = [...$select[0].options].map(option => option.value);
       cy.get('#discCodeGroup').select('Contact');
@@ -6155,60 +7966,62 @@ ReoprtPaymentTestPage_357() {
       cy.get('#discCode').select('CB');
     });
     cy.wait(1000);
-    cy.get(this.locators.ClickGenrtReport).click({ force: true });
+    cy.get('#downloadReport').click({ force: true });
     cy.wait(2000);
+     cy.get('[role="alert"]').should('contain', 'Please fill all required fields');
+ cy.wait(2000);
 
   }
 
   attendanceReport_001() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickOnAttendenceReport).click({ force: true });
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Attendance Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(':nth-child(5) > .form-control').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     const pastDate = new Date();
     pastDate.setDate(pastDate.getDate() - 30);
     const pastDay = pastDate.getDate().toString();
     cy.get('.bs-datepicker-body').contains('span', pastDay).click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(':nth-child(6) > .form-control').click();
-    cy.wait(500);
-    const today = new Date().getDate().toString();
-    cy.get('.bs-datepicker-body').contains('span', today).click();
-    cy.wait(1000);
-    cy.get('.btn-secondary').click();
-cy.wait(3000);
-cy.contains('Search Result').scrollIntoView().should("be.visible");
-cy.wait(2000);
-
-  }
-
-  attendanceReport_002() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickOnAttendenceReport).click({ force: true });
-    cy.wait(300);
-    cy.get(':nth-child(5) > .form-control').click();
-    cy.wait(500);
-    cy.get('.previous > span').click();
-    cy.wait(500);
-    const pastDate = new Date();
-    pastDate.setDate(pastDate.getDate() - 30);
-    const pastDay = pastDate.getDate().toString();
-    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
-    cy.wait(500);
-    cy.get(':nth-child(6) > .form-control').click();
-    cy.wait(500);
+    cy.wait(2000);
     const today = new Date().getDate().toString();
     cy.get('.bs-datepicker-body').contains('span', today).click();
     cy.wait(1000);
     cy.get('.btn-secondary').click();
     cy.wait(3000);
-   cy.contains('Search Result').scrollIntoView().should("be.visible");
-   cy.wait(2000);
+    cy.contains('Search Result').scrollIntoView().should("be.visible");
+    cy.wait(2000);
+
+  }
+
+  attendanceReport_002() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Attendance Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.get(':nth-child(5) > .form-control').click();
+    cy.wait(2000);
+    cy.get('.previous > span').click();
+    cy.wait(2000);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
+    const pastDay = pastDate.getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', pastDay).click();
+    cy.wait(2000);
+    cy.get(':nth-child(6) > .form-control').click();
+    cy.wait(2000);
+    const today = new Date().getDate().toString();
+    cy.get('.bs-datepicker-body').contains('span', today).click();
+    cy.wait(1000);
+    cy.get('.btn-secondary').click();
+    cy.wait(3000);
+    cy.contains('Search Result').scrollIntoView().should("be.visible");
+    cy.wait(2000);
     cy.get('.btn-outline-dark').click();
     cy.wait(1000);
 
@@ -6216,25 +8029,25 @@ cy.wait(2000);
 
 
   attendanceReport_003() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickOnAttendenceReport).click({ force: true });
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Attendance Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('.form-radio-group > :nth-child(2) > #reportType-1').click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get(':nth-child(2) > .form-select').select('Tony');
-    cy.wait(300);
+    cy.wait(2000);
     cy.get(':nth-child(5) > .form-control').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     const pastDate = new Date();
     pastDate.setDate(pastDate.getDate() - 30);
     const pastDay = pastDate.getDate().toString();
     cy.get('.bs-datepicker-body').contains('span', pastDay).click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(':nth-child(6) > .form-control').click();
-    cy.wait(500);
+    cy.wait(2000);
     const today = new Date().getDate().toString();
     cy.get('.bs-datepicker-body').contains('span', today).click();
     cy.wait(1000);
@@ -6248,25 +8061,25 @@ cy.wait(2000);
   }
 
   attendanceReport_004() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickOnAttendenceReport).click({ force: true });
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Attendance Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('.form-radio-group > :nth-child(2) > #reportType-1').click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get(':nth-child(2) > .form-select').select('Tony');
-    cy.wait(300);
+    cy.wait(2000);
     cy.get(':nth-child(5) > .form-control').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     const pastDate = new Date();
     pastDate.setDate(pastDate.getDate() - 30);
     const pastDay = pastDate.getDate().toString();
     cy.get('.bs-datepicker-body').contains('span', pastDay).click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(':nth-child(6) > .form-control').click();
-    cy.wait(500);
+    cy.wait(2000);
     const today = new Date().getDate().toString();
     cy.get('.bs-datepicker-body').contains('span', today).click();
     cy.wait(1000);
@@ -6280,21 +8093,21 @@ cy.wait(2000);
   }
 
   attendanceReport_005() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickOnAttendenceReport).click({ force: true });
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Attendance Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(':nth-child(5) > .form-control').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     const pastDate = new Date();
     pastDate.setDate(pastDate.getDate() - 30);
     const pastDay = pastDate.getDate().toString();
     cy.get('.bs-datepicker-body').contains('span', pastDay).click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(':nth-child(6) > .form-control').click();
-    cy.wait(500);
+    cy.wait(2000);
     const today = new Date().getDate().toString();
     cy.get('.bs-datepicker-body').contains('span', today).click();
     cy.wait(1000);
@@ -6307,31 +8120,31 @@ cy.wait(2000);
     cy.get('tbody > :nth-child(1) > :nth-child(1) > .form-control-group > .form-radio-group > label > input').click();
     cy.wait(1000);
     //cy.contains('Attendance Details').scrollIntoView().should('be.visible');
-   // cy.wait(1000);
+    // cy.wait(1000);
 
   }
 
 
   attendanceReport_006() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickOnAttendenceReport).click({ force: true });
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Attendance Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('.form-radio-group > :nth-child(2) > #reportType-1').click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get(':nth-child(2) > .form-select').select('Tony');
-    cy.wait(300);
+    cy.wait(2000);
     cy.get(':nth-child(5) > .form-control').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     const pastDate = new Date();
     pastDate.setDate(pastDate.getDate() - 30);
     const pastDay = pastDate.getDate().toString();
     cy.get('.bs-datepicker-body').contains('span', pastDay).click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(':nth-child(6) > .form-control').click();
-    cy.wait(500);
+    cy.wait(2000);
     const today = new Date().getDate().toString();
     cy.get('.bs-datepicker-body').contains('span', today).click();
     cy.wait(1000);
@@ -6349,25 +8162,25 @@ cy.wait(2000);
   }
 
   attendanceReport_007() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickOnAttendenceReport).click({ force: true });
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Attendance Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('.form-radio-group > :nth-child(2) > #reportType-1').click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get(':nth-child(2) > .form-select').select('Tony');
-    cy.wait(300);
+    cy.wait(2000);
     cy.get(':nth-child(5) > .form-control').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     const pastDate = new Date();
     pastDate.setDate(pastDate.getDate() - 30);
     const pastDay = pastDate.getDate().toString();
     cy.get('.bs-datepicker-body').contains('span', pastDay).click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(':nth-child(6) > .form-control').click();
-    cy.wait(500);
+    cy.wait(2000);
     const today = new Date().getDate().toString();
     cy.get('.bs-datepicker-body').contains('span', today).click();
     cy.wait(1000);
@@ -6381,25 +8194,25 @@ cy.wait(2000);
   }
 
   attendanceReport_008() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickOnAttendenceReport).click({ force: true });
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Attendance Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('.form-radio-group > :nth-child(2) > #reportType-1').click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get(':nth-child(2) > .form-select').select('Tony');
-    cy.wait(300);
+    cy.wait(2000);
     cy.get(':nth-child(5) > .form-control').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     const pastDate = new Date();
     pastDate.setDate(pastDate.getDate() - 30);
     const pastDay = pastDate.getDate().toString();
     cy.get('.bs-datepicker-body').contains('span', pastDay).click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(':nth-child(6) > .form-control').click();
-    cy.wait(500);
+    cy.wait(2000);
     const today = new Date().getDate().toString();
     cy.get('.bs-datepicker-body').contains('span', today).click();
     cy.wait(1000);
@@ -6414,25 +8227,25 @@ cy.wait(2000);
 
 
   attendanceReport_009() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickOnAttendenceReport).click({ force: true });
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Attendance Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('.form-radio-group > :nth-child(2) > #reportType-1').click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get(':nth-child(2) > .form-select').select('Tony');
-    cy.wait(300);
+    cy.wait(2000);
     cy.get(':nth-child(5) > .form-control').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     const pastDate = new Date();
     pastDate.setDate(pastDate.getDate() - 30);
     const pastDay = pastDate.getDate().toString();
     cy.get('.bs-datepicker-body').contains('span', pastDay).click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(':nth-child(6) > .form-control').click();
-    cy.wait(500);
+    cy.wait(2000);
     const today = new Date().getDate().toString();
     cy.get('.bs-datepicker-body').contains('span', today).click();
     cy.wait(1000);
@@ -6447,25 +8260,25 @@ cy.wait(2000);
 
 
   attendanceReport_010() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickOnAttendenceReport).click({ force: true });
-    cy.wait(300);
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Attendance Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('.form-radio-group > :nth-child(2) > #reportType-1').click();
-    cy.wait(300);
+    cy.wait(2000);
     cy.get(':nth-child(2) > .form-select').select('Tony');
-    cy.wait(300);
+    cy.wait(2000);
     cy.get(':nth-child(5) > .form-control').click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get('.previous > span').click();
-    cy.wait(500);
+    cy.wait(2000);
     const pastDate = new Date();
     pastDate.setDate(pastDate.getDate() - 30);
     const pastDay = pastDate.getDate().toString();
     cy.get('.bs-datepicker-body').contains('span', pastDay).click();
-    cy.wait(500);
+    cy.wait(2000);
     cy.get(':nth-child(6) > .form-control').click();
-    cy.wait(500);
+    cy.wait(2000);
     const today = new Date().getDate().toString();
     cy.get('.bs-datepicker-body').contains('span', today).click();
     cy.wait(1000);
@@ -6477,419 +8290,562 @@ cy.wait(2000);
     cy.wait(1000);
 
   }
- CashWalletLimitReportPage01() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCashWlletLimitReport).click();
-    cy.wait(300);
+  CashWalletLimitReportPage01() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Cash Wallet Limit Report").click();
+    cy.wait(2000);
     cy.get("#empStatus").select('Disabled');
     cy.wait(2000);
-}
-CashWalletLimitReportPage02() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCashWlletLimitReport).click();
-    cy.wait(300);
+  }
+  CashWalletLimitReportPage02() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Cash Wallet Limit Report").click();
+    cy.wait(2000);
     cy.get("#empStatus").select('Approved');
     cy.wait(2000);
-}
- CashWalletLimitReportPage03() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCashWlletLimitReport).click();
-    cy.wait(300);
+  }
+  CashWalletLimitReportPage03() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Cash Wallet Limit Report").click();
+    cy.wait(2000);
     cy.get("#empStatus").select('Disabled');
     cy.wait(2000);
-}
-CashWalletLimitReportPage04() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCashWlletLimitReport).click();
-    cy.wait(300);
+  }
+  CashWalletLimitReportPage04() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Cash Wallet Limit Report").click();
+    cy.wait(2000);
     cy.get("#empStatus").select('Dormant');
     cy.wait(2000);
-}
-CashWalletLimitReportPage05() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCashWlletLimitReport).click();
-    cy.wait(300);
+  }
+  CashWalletLimitReportPage05() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Cash Wallet Limit Report").click();
+    cy.wait(2000);
     cy.get("#empStatus").select('Pending Approval');
     cy.wait(2000);
-}
-CashWalletLimitReportPage06() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCashWlletLimitReport).click();
-    cy.wait(300);
+  }
+  CashWalletLimitReportPage06() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Cash Wallet Limit Report").click();
+    cy.wait(2000);
     cy.get("#empStatus").select('Rejected');
     cy.wait(2000);
     cy.get('.btn-secondary').click();
-}
-CashWalletLimitReportPage07() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCashWlletLimitReport).click();
-    cy.wait(300);
+  }
+  CashWalletLimitReportPage07() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Cash Wallet Limit Report").click();
+    cy.wait(2000);
     cy.get('.form-radio-group > :nth-child(2) > #inlineRadio2').click();
     cy.wait(1000);
-  
-}
-CashWalletLimitReportPage08() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCashWlletLimitReport).click();
-    cy.wait(300);
+
+  }
+  CashWalletLimitReportPage08() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Cash Wallet Limit Report").click();
+    cy.wait(2000);
     cy.get('.form-radio-group > :nth-child(2) > #inlineRadio2').click();
     cy.wait(1000);
     cy.get("#empStatus").select('Approved');
     cy.wait(2000);
     cy.get('.btn-secondary').click();
-}
-CashWalletLimitReportPage09() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCashWlletLimitReport).click();
-    cy.wait(300);
+  }
+  CashWalletLimitReportPage09() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Cash Wallet Limit Report").click();
+    cy.wait(2000);
     cy.get('.form-radio-group > :nth-child(2) > #inlineRadio2').click();
     cy.wait(1000);
     cy.get("#empStatus").select('Disabled');
     cy.wait(2000);
     cy.get('.btn-secondary').click();
-}
-CashWalletLimitReportPage10() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCashWlletLimitReport).click();
-    cy.wait(300);
+  }
+  CashWalletLimitReportPage10() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Cash Wallet Limit Report").click();
+    cy.wait(2000);
     cy.get('.form-radio-group > :nth-child(2) > #inlineRadio2').click();
     cy.wait(1000);
     cy.get("#empStatus").select('Dormant');
     cy.wait(2000);
     cy.get('.btn-secondary').click();
-}
-CashWalletLimitReportPage11() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCashWlletLimitReport).click();
-    cy.wait(300);
+  }
+  CashWalletLimitReportPage11() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Cash Wallet Limit Report").click();
+    cy.wait(2000);
     cy.get('.form-radio-group > :nth-child(2) > #inlineRadio2').click();
     cy.wait(1000);
     cy.get("#empStatus").select('Pending Approval');
     cy.wait(2000);
     cy.get('.btn-secondary').click();
-}
-CashWalletLimitReportPage12() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCashWlletLimitReport).click();
-    cy.wait(300);
+  }
+  CashWalletLimitReportPage12() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Cash Wallet Limit Report").click();
+    cy.wait(2000);
     cy.get('.form-radio-group > :nth-child(2) > #inlineRadio2').click();
     cy.wait(1000);
     cy.get("#empStatus").select('Rejected');
+    cy.wait(2000);
     cy.get('#agency_name').type('TRRagency');
     cy.get('strong').click();
     cy.wait(2000);
+    cy.wait(2000);
     cy.get('.btn-secondary').click();
-}
-CashWalletLimitReportPage13() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCashWlletLimitReport).click();
-    cy.wait(300);
+  }
+  CashWalletLimitReportPage13() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Cash Wallet Limit Report").click();
+    cy.wait(2000);
     cy.get('.form-radio-group > :nth-child(2) > #inlineRadio2').click();
     cy.wait(1000);
     cy.get("#empStatus").select('Rejected');
+    cy.wait(2000);
     cy.get('#agency_name').type('TRRagency');
+    cy.wait(2000);
     cy.get('strong').click();
     cy.wait(2000);
     cy.get('.btn-secondary').click();
-}
-CashWalletLimitReportPage14() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCashWlletLimitReport).click();
-    cy.wait(300);
+    cy.wait(2000);
+  }
+  CashWalletLimitReportPage14() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Cash Wallet Limit Report").click();
+    cy.wait(2000);
     cy.get("#empStatus").select('Rejected');
+    cy.wait(2000);
     cy.get('#branch_name').type('Delhi A');
+    cy.wait(2000);
     cy.get('#ngb-typeahead-1-0').click();
     cy.wait(2000);
     cy.get('.btn-secondary').click();
+    cy.wait(2000);
     //cy.get(this.locators.ClickGenrtReport).click({ force: true });
     //cy.wait(400);
-}
-CashWalletLimitReportPage15() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCashWlletLimitReport).click();
-    cy.wait(300);
+  }
+  CashWalletLimitReportPage15() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.contains("Cash Wallet Limit Report").click();
+    cy.wait(2000);
     cy.get('.btn-secondary').click();
-      cy.contains('Any one filter is mandatory').should('be.visible');
-  
-}
-Customercontactreport16() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
-    cy.wait(300);
-    
-}
-Customercontactreport17() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
-    cy.wait(300);
-    cy.get(':nth-child(1) > .form-select').select("All");
-}
-Customercontactreport18() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
-    cy.wait(300);
-    cy.get(':nth-child(1) > .form-select').select("All");
-    cy.get(':nth-child(2) > .form-select').select("All");
-}
-Customercontactreport19() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
-    cy.wait(300);
-    cy.get(':nth-child(1) > .form-select').select("All");
-    cy.get(':nth-child(2) > .form-select').select("All");
-    cy.get(':nth-child(3) > .form-select').select("All");
-}
-Customercontactreport20() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
-    cy.wait(300);
-    cy.get(':nth-child(4) > .form-select').select("India");
-}
-Customercontactreport21() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
-    cy.wait(300);
-    cy.get(':nth-child(4) > .form-select').select("India");
-    cy.get(':nth-child(5) > .form-select').select("West");
-}
-Customercontactreport22() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
-    cy.wait(300);
-    cy.get(':nth-child(4) > .form-select').select("India");
-    cy.get(':nth-child(5) > .form-select').select("West");
-    cy.get(':nth-child(6) > .form-select').select("Manipur");
+    cy.wait(2000);
+    cy.contains('Any one filter is mandatory').should('be.visible');
 
-    
-}
-Customercontactreport23() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
-    cy.wait(300);
-    cy.get(':nth-child(4) > .form-select').select("India");
-    cy.get(':nth-child(5) > .form-select').select("West");
-    cy.get(':nth-child(6) > .form-select').select("Manipur");
-    cy.get(':nth-child(7) > .form-select').select("Imphal")
+  }
+  Customercontactreport16() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
 
-   
-    
-}
-Customercontactreport24() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
-    cy.wait(300);
-    cy.get(':nth-child(8) > .form-select').select("All");
-    cy.get(':nth-child(9) > .form-control').click();
-    cy.get('.today-date').click();
-    cy.get(':nth-child(10) > .form-control').click();
-    cy.get('.today-date').click();
-}
-Customercontactreport25() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
-    cy.wait(300);
-    cy.get(':nth-child(9) > .form-control').click();
-    cy.get('.today-date').click();
-}
-Customercontactreport26() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
-    cy.wait(300);cy.get(':nth-child(9) > .form-control').click();
-    cy.get('.today-date').click();
-    cy.get(':nth-child(10) > .form-control').click();
-    cy.get('.today-date').click();
-}
-Customercontactreport27() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
+  }
+  Customercontactreport17() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(':nth-child(1) > .form-select').select("All");
-    cy.get(':nth-child(2) > .form-select').select("All");
-    cy.get(':nth-child(3) > .form-select').select("All");
-    cy.get(':nth-child(4) > .form-select').select("India");
-    cy.get(':nth-child(5) > .form-select').select("West");
-    cy.get(':nth-child(6) > .form-select').select("Manipur");
-    cy.get(':nth-child(7) > .form-select').select("Imphal")
-     cy.get(':nth-child(8) > .form-select').select("All");
-    cy.get(':nth-child(9) > .form-control').click();
-    cy.get('.today-date').click();
-    cy.get(':nth-child(10) > .form-control').click();
-    cy.get('.today-date').click();
-}
-Customercontactreport28() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
+    cy.wait(2000);
+  }
+  Customercontactreport18() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(':nth-child(1) > .form-select').select("All");
+    cy.wait(2000);
     cy.get(':nth-child(2) > .form-select').select("All");
+    cy.wait(2000);
+  }
+  Customercontactreport19() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.get(':nth-child(1) > .form-select').select("All");
+    cy.wait(2000);
+    cy.get(':nth-child(2) > .form-select').select("All");
+    cy.wait(2000);
     cy.get(':nth-child(3) > .form-select').select("All");
+    cy.wait(2000);
+  }
+  Customercontactreport20() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(':nth-child(4) > .form-select').select("India");
+    cy.wait(2000);
+  }
+  Customercontactreport21() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.get(':nth-child(4) > .form-select').select("India");
+    cy.wait(2000);
     cy.get(':nth-child(5) > .form-select').select("West");
+    cy.wait(2000);
+  }
+  Customercontactreport22() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.get(':nth-child(4) > .form-select').select("India");
+    cy.wait(2000);
+    cy.get(':nth-child(5) > .form-select').select("West");
+    cy.wait(2000);
     cy.get(':nth-child(6) > .form-select').select("Manipur");
+    cy.wait(2000);
+
+
+  }
+  Customercontactreport23() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.get(':nth-child(4) > .form-select').select("India");
+    cy.wait(2000);
+    cy.get(':nth-child(5) > .form-select').select("West");
+    cy.wait(2000);
+    cy.get(':nth-child(6) > .form-select').select("Manipur");
+    cy.wait(2000);
     cy.get(':nth-child(7) > .form-select').select("Imphal")
+    cy.wait(2000);
+
+
+
+  }
+  Customercontactreport24() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(':nth-child(8) > .form-select').select("All");
+    cy.wait(2000);
     cy.get(':nth-child(9) > .form-control').click();
+    cy.wait(2000);
     cy.get('.today-date').click();
+    cy.wait(2000);
     cy.get(':nth-child(10) > .form-control').click();
+    cy.wait(2000);
     cy.get('.today-date').click();
-    cy.get('.btn').click();
-}
-Customercontactreport29() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
-    cy.get(':nth-child(8) > .form-select').select("All");
+    cy.wait(2000);
+  }
+  Customercontactreport25() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(':nth-child(9) > .form-control').click();
+    cy.wait(2000);
     cy.get('.today-date').click();
+    cy.wait(2000);
+  }
+  Customercontactreport26() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.wait(2000); cy.get(':nth-child(9) > .form-control').click();
+    cy.wait(2000);
+    cy.get('.today-date').click();
+    cy.wait(2000);
     cy.get(':nth-child(10) > .form-control').click();
+    cy.wait(2000);
     cy.get('.today-date').click();
-    cy.get('.btn').click();
-}
-Customercontactreport30() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
+    cy.wait(2000);
+  }
+  Customercontactreport27() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.get(':nth-child(1) > .form-select').select("All");
+    cy.wait(2000);
+    cy.get(':nth-child(2) > .form-select').select("All");
+    cy.wait(2000);
+    cy.get(':nth-child(3) > .form-select').select("All");
+    cy.wait(2000);
     cy.get(':nth-child(4) > .form-select').select("India");
+    cy.wait(2000);
+    cy.get(':nth-child(5) > .form-select').select("West");
+    cy.wait(2000);
+    cy.get(':nth-child(6) > .form-select').select("Manipur");
+    cy.wait(2000);
+    cy.get(':nth-child(7) > .form-select').select("Imphal");
+    cy.wait(2000);
     cy.get(':nth-child(8) > .form-select').select("All");
+    cy.wait(2000);
     cy.get(':nth-child(9) > .form-control').click();
+    cy.wait(2000);
     cy.get('.today-date').click();
+    cy.wait(2000);
     cy.get(':nth-child(10) > .form-control').click();
+    cy.wait(2000);
     cy.get('.today-date').click();
-    cy.get('.btn').click();
-}
-Customercontactreport31() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
+    cy.wait(2000);
+  }
+  Customercontactreport28() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.get(':nth-child(1) > .form-select').select("All");
+    cy.wait(2000);
+    cy.get(':nth-child(2) > .form-select').select("All");
+    cy.wait(2000);
+    cy.get(':nth-child(3) > .form-select').select("All");
+    cy.wait(2000);
     cy.get(':nth-child(4) > .form-select').select("India");
+    cy.wait(2000);
+    cy.get(':nth-child(5) > .form-select').select("West");
+    cy.wait(2000);
+    cy.get(':nth-child(6) > .form-select').select("Manipur");
+    cy.wait(2000);
+    cy.get(':nth-child(7) > .form-select').select("Imphal");
+    cy.wait(2000);
+    cy.get(':nth-child(8) > .form-select').select("All");
+    cy.wait(2000);
+    cy.get(':nth-child(9) > .form-control').click();
+    cy.wait(2000);
+    cy.get('.today-date').click();
+    cy.wait(2000);
+    cy.get(':nth-child(10) > .form-control').click();
+    cy.wait(2000);
+    cy.get('.today-date').click();
+    cy.wait(2000);
+    cy.get('.btn').click();
+    cy.wait(2000);
+  }
+  Customercontactreport29() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.get(':nth-child(8) > .form-select').select("All");
+    cy.wait(2000);
+    cy.get(':nth-child(9) > .form-control').click();
+    cy.wait(2000);
+    cy.get('.today-date').click();
+    cy.wait(2000);
+    cy.get(':nth-child(10) > .form-control').click();
+    cy.wait(2000);
+    cy.get('.today-date').click();
+    cy.wait(2000);
+    cy.get('.btn').click();
+    cy.wait(2000);
+  }
+  Customercontactreport30() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.get(':nth-child(4) > .form-select').select("India");
+    cy.wait(2000);
+    cy.get(':nth-child(8) > .form-select').select("All");
+    cy.wait(2000);
+    cy.get(':nth-child(9) > .form-control').click();
+    cy.wait(2000);
+    cy.get('.today-date').click();
+    cy.wait(2000);
+    cy.get(':nth-child(10) > .form-control').click();
+    cy.wait(2000);
+    cy.get('.today-date').click();
+    cy.wait(2000);
+    cy.get('.btn').click();
+    cy.wait(2000);
+  }
+  Customercontactreport31() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+    cy.get(':nth-child(4) > .form-select').select("India");
+    cy.wait(2000);
     cy.get(':nth-child(5) > .form-select').select("South");
+    cy.wait(2000);
     cy.get(':nth-child(8) > .form-select').select("All");
+    cy.wait(2000);
     cy.get(':nth-child(9) > .form-control').click();
+    cy.wait(2000);
     cy.get('.today-date').click();
+    cy.wait(2000);
     cy.get(':nth-child(10) > .form-control').click();
+    cy.wait(2000);
     cy.get('.today-date').click();
+    cy.wait(2000);
     cy.get('.btn').click();
-}
-Customercontactreport32() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
+    cy.wait(2000);
+  }
+  Customercontactreport32() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(':nth-child(4) > .form-select').select("India");
+    cy.wait(2000);
     cy.get(':nth-child(5) > .form-select').select("South");
+    cy.wait(2000);
     cy.get(':nth-child(6) > .form-select').select("Karnataka");
+    cy.wait(2000);
     cy.get(':nth-child(8) > .form-select').select("All");
+    cy.wait(2000);
     cy.get(':nth-child(9) > .form-control').click();
+    cy.wait(2000);
     cy.get('.today-date').click();
+    cy.wait(2000);
     cy.get(':nth-child(10) > .form-control').click();
+    cy.wait(2000);
     cy.get('.today-date').click();
+    cy.wait(2000);
     cy.get('.btn').click();
-}
-Customercontactreport33() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
+    cy.wait(2000);
+  }
+  Customercontactreport33() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(':nth-child(4) > .form-select').select("India");
+    cy.wait(2000);
     cy.get(':nth-child(5) > .form-select').select("South");
+    cy.wait(2000);
     cy.get(':nth-child(6) > .form-select').select("Karnataka");
+    cy.wait(2000);
     cy.get(':nth-child(7) > .form-select').select("Mysore");
+    cy.wait(2000);
     cy.get(':nth-child(8) > .form-select').select("All");
+    cy.wait(2000);
     cy.get(':nth-child(9) > .form-control').click();
+    cy.wait(2000);
     cy.get('.today-date').click();
+    cy.wait(2000);
     cy.get(':nth-child(10) > .form-control').click();
+    cy.wait(2000);
     cy.get('.today-date').click();
+    cy.wait(2000);
     cy.get('.btn').click();
-}
-Customercontactreport34() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
+    cy.wait(2000);
+  }
+  Customercontactreport34() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(':nth-child(1) > .form-select').select("All");
+    cy.wait(2000);
     cy.get(':nth-child(8) > .form-select').select("All");
+    cy.wait(2000);
     cy.get(':nth-child(9) > .form-control').click();
+    cy.wait(2000);
     cy.get('.today-date').click();
+    cy.wait(2000);
     cy.get(':nth-child(10) > .form-control').click();
+    cy.wait(2000);
     cy.get('.today-date').click();
+    cy.wait(2000);
     cy.get('.btn').click();
-}
-Customercontactreport35() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
+    cy.wait(2000);
+  }
+  Customercontactreport35() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(':nth-child(1) > .form-select').select("Consumer Loan");
+    cy.wait(2000);
     cy.get(':nth-child(2) > .form-select').select("Unsecured");
+    cy.wait(2000);
     cy.wait(1000);
     cy.get(':nth-child(8) > .form-select').select("1");
+    cy.wait(2000);
     cy.get(':nth-child(9) > .form-control').click();
+    cy.wait(2000);
     cy.get('.today-date').click();
+    cy.wait(2000);
     cy.get(':nth-child(10) > .form-control').click();
+    cy.wait(2000);
     cy.get('.today-date').click();
+    cy.wait(2000);
     cy.get('.btn').click();
-}
-Customercontactreport36() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
+    cy.wait(2000);
+  }
+  Customercontactreport36() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get(':nth-child(1) > .form-select').select("Consumer Loan");
+    cy.wait(2000);
     cy.get(':nth-child(2) > .form-select').select("Unsecured");
+    cy.wait(2000);
     cy.get(':nth-child(3) > .form-select').select("Personal Loan");
+    cy.wait(2000);
     cy.get(':nth-child(8) > .form-select').select("1");
+    cy.wait(2000);
     cy.get(':nth-child(9) > .form-control').click();
+    cy.wait(2000);
     cy.get('.today-date').click();
+    cy.wait(2000);
     cy.get(':nth-child(10) > .form-control').click();
+    cy.wait(2000);
     cy.get('.today-date').click();
+    cy.wait(2000);
     cy.get('.btn').click();
-}
-Customercontactreport37() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
+    cy.wait(2000);
+  }
+  Customercontactreport37() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('.search-batch > :nth-child(2)');
+    cy.wait(2000);
     cy.contains('Download Report').should('be.visible');
- 
-    }
-Customercontactreport38() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonCustomerContactReport).click();
+    cy.wait(2000);
+
+  }
+  Customercontactreport38() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+      cy.contains("Customer Contact Report").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
     cy.get('.title');
+    cy.wait(2000);
     cy.contains('Customer Contact Report').should('be.visible');
- 
-    } 
-VisitIntensityReport39() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonVisitIntensityReport).click();
+    cy.wait(2000);
+
+  }
+  VisitIntensityReport39() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Visit Intensity Report").scrollIntoView().should("be.visible").click();
     cy.get(1000);
-  cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-  cy.get('.ng-dropdown-panel').should('be.visible')
+    cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
+    cy.wait(2000);
+    cy.get('.ng-dropdown-panel').should('be.visible')
       .within(() => {
-        cy.wait(7000);
+        cy.wait(3000);
         cy.get('.ng-option').then($options => {
           const count = $options.length;
           const randomIndex = Math.floor(Math.random() * count);
@@ -6897,18 +8853,19 @@ VisitIntensityReport39() {
         });
       });
 
-        
-    
-}
-VisitIntensityReport40() {
-    cy.get(this.locators.clickonreport).click();
-    cy.wait(300);
-    cy.get(this.locators.ClickonVisitIntensityReport).click();
+
+
+  }
+  VisitIntensityReport40() {
+      cy.contains("Reports").scrollIntoView().should("be.visible").click();
+    cy.wait(2000);
+     cy.contains("Visit Intensity Report").scrollIntoView().should("be.visible").click();
     cy.get(1000);
-  cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
-  cy.get('.ng-dropdown-panel').should('be.visible')
+    cy.get(':nth-child(1) > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input').click();
+    cy.wait(2000);
+    cy.get('.ng-dropdown-panel').should('be.visible')
       .within(() => {
-        cy.wait(7000);
+        cy.wait(3000);
         cy.get('.ng-option').then($options => {
           const count = $options.length;
           const randomIndex = Math.floor(Math.random() * count);
@@ -6916,8 +8873,8 @@ VisitIntensityReport40() {
         });
       });
 
-        
-    
-}
+
+
+  }
 }
 export default ReportsPage;

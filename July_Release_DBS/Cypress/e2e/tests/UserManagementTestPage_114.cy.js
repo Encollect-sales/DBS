@@ -22,8 +22,8 @@ describe('User Management - Add Agent - User do not enter a address and try to c
     it('User Management - Address TC_ID_114', () => {
         getTestData('loginData', 'login').then(user => {
             loginPage.login(user.Companyname, user.email, user.password);
-                cy.wait(2000);
-               userManagementPage.UserManagementTestPage_110();            
+                cy.wait(7000);
+                userManagementPage.UserManagementTestPage_114();            
             });
         });
     });

@@ -25,7 +25,10 @@ describe('Allocation - Primary Allocation by filters - User should be able to se
             loginPage.login(user.Companyname, user.email, user.password);
 
            //allocationPage.ClickonallocationOF();
-             allocationPage.Allthefieldsbucket();
+           allocationPage.ClickonallocationPAF();
+           allocationPage.fillproductgroupPAF6();
+           allocationPage.fillproductPAF6();
+           allocationPage.fillsubproductPAF6();
             
         });
     });

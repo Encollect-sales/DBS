@@ -1,48 +1,13 @@
 {
   "login": {
     "Companyname": "ENCollect",
-     "email": "AD1234",
+    "email": "AD007",
       "password": "123@asAS"
   },
   "login1": {
     "Companyname": "ENCollect",
-     "email": "AD1234",
+  "email": "AD007",
       "password": "123@asAS"
-  },
-    "login2": {
-    "Companyname": "ENCollect",
-    "email": "bml107@yopmail.com",
-    "password": "123@asAS"
-  },
-   "login3": {
-    "Companyname": "ENCollect",
-    "email": "cml2@yopmail.com",
-    "password": "123@asAS"
-  },
-   "login4": {
-    "Companyname": "ENCollect",
-    "email": "cchl3@yopmail.com",
-    "password": "123@asAS"
-  },
-   "login5": {
-    "Companyname": "ENCollect",
-    "email": "pchl4@yopmail.com",
-    "password": "123@asAS"
-  },
-   "login6": {
-    "Companyname": "ENCollect",
-    "email": "rchl5@yopmail.com",
-    "password": "123@asAS"
-  },
-   "login7": {
-    "Companyname": "ENCollect",
-    "email": "zchl6@yopmail.com",
-    "password": "123@asAS"
-  },
-   "login8": {
-    "Companyname": "ENCollect",
-    "email": "cchl7@yopmail.com",
-    "password": "123@asAS"
   }
 
 }

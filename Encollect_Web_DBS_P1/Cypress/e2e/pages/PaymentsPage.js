@@ -1974,7 +1974,7 @@ cy.get('.ng-dropdown-panel .ng-option').then(($options) => {
     cy.wait(2000);
     cy.get(this.locators.SearchStaff).click();
     cy.wait(2000);
-    cy.get(this.locators.Select_Dept).select("Audit");
+    cy.get(this.locators.Select_Dept).select("Audit and Risk");
     cy.wait(2000);
     cy.get(this.locators.ClickOn_search).click();
     cy.wait(3000);
@@ -1991,7 +1991,7 @@ cy.get('.ng-dropdown-panel .ng-option').then(($options) => {
     cy.wait(2000);
     cy.get(this.locators.SearchStaff).click();
     cy.wait(2000);
-    cy.get(this.locators.Select_Dept).select("Audit");
+    cy.get(this.locators.Select_Dept).select("Audit and Risk");
     cy.wait(2000);
      cy.get(this.locators.Select_Designation).select("Audit Manager");
     cy.wait(2000);
@@ -2012,7 +2012,7 @@ cy.get('.ng-dropdown-panel .ng-option').then(($options) => {
     cy.wait(2000);
     cy.get(this.locators.SearchStaff).click();
     cy.wait(2000);
-    // cy.get(this.locators.Select_Dept).select("Audit");
+    // cy.get(this.locators.Select_Dept).select("Audit and Risk");
     // cy.wait(2000);
     //  cy.get(this.locators.Select_Designation).select("Audit Manager");
     // cy.wait(2000);
@@ -2033,7 +2033,7 @@ cy.get('.ng-dropdown-panel .ng-option').then(($options) => {
     cy.wait(2000);
     cy.get(this.locators.SearchStaff).click();
     cy.wait(2000);
-    cy.get(this.locators.Select_Dept).select("Audit");
+    cy.get(this.locators.Select_Dept).select("Audit and Risk");
     cy.wait(2000);
      cy.get(this.locators.Select_Designation).select("Audit Manager");
     cy.wait(2000);

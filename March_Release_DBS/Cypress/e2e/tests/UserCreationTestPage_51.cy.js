@@ -51,8 +51,8 @@ describe('UserManagement -When Mobile Number is blank then system will throw an 
                             'D2': ln,
                             'E2': email,
                             'F2': '',
-                            'G2': 'Branch Backend',
-                            'H2': 'Branch Manager',
+                            'G2': 'Collection Staff Backend',
+                            'H2': 'Collection Backend Manager',
                             'I2': 'Bangalore',                        
 
             };

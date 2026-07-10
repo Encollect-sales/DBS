@@ -2,19 +2,19 @@
 {
   "login": {
     "Companyname": "Encollect",
-    "email": "AD1234",
-      "password": "123@asAS"
-  },
-  "login1": {
-    "Companyname": "Encollect",
-  "email": "AD1234",
+    "email": "9001",
       "password": "123@asAS"
   },
   "login2": {
     "Companyname": "Encollect",
-   "email": "AD1234",
+  "email": "9001",
+      "password": "123@asAS"
+  },
+  "login3": {
+    "Companyname": "Encollect",
+      "email": "9001",
       "password": "123@asAS"
 
-  }
+    }
   
   }

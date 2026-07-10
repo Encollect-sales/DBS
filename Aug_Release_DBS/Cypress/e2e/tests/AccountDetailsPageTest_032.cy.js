@@ -24,7 +24,7 @@ describe('TC_032 Account Details CC - View Account Details and check Show/Hide E
         getTestData('loginData', 'login').then(user => {
             loginPage.login(user.Companyname, user.email, user.password);
                 cy.wait(2000);
-               accountdetailsPage.ViewAccountDetails005();
+                accountdetailsPage.ViewAccountDetails032();
                 //loginPage.logout();
                          
             });

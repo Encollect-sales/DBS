@@ -51,7 +51,7 @@ describe('UserManagement -If entered Department does not exist in db then system
                             'D2': ln,
                             'E2': email,
                             'F2': phno,
-                            'G2': 'Audit and Branch',
+                            'G2': 'Audit',
                             'H2': 'Audit Manager',
                             'I2': 'Bangalore',                        
 

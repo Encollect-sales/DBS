@@ -46,7 +46,7 @@ describe('UserManagement -When  user enters Mobile number which is less than 10 
               'A2': 'Telecaller',
                 'B2': firstName,
                 'C2': lastName,
-                'D2': '2345',
+                'D2': '1002',
                 'E2': '',
                 'F2': '435454',
                 'G2': '10-10-2020',

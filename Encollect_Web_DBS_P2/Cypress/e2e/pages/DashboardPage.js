@@ -25,41 +25,37 @@ class DashboardPage {
   } 
 
   Dashboard982(){
-     cy.get('.ng-arrow-wrapper').click();
-    cy.wait(1000);
-    cy.contains('span.ng-option-label', 'Loan Account Last 4 Digits').click();
-    cy.wait(2000);
     cy.get('#cc-account-type').click();
-    cy.wait(500);
+    cy.wait(2000);
      cy.get('.ng-arrow-wrapper').click();
     cy.wait(1000);
-    cy.contains('span.ng-option-label', 'Credit Card Last 4 Digits').click();
+    cy.contains('span.ng-option-label','Credit Card Last 4 Digits').click();
     cy.wait(2000);
-    cy.get(this.locators.creditcardnumber).type('7990');
+  cy.get('#search-cc-number').type('7990');
     cy.wait(500);
-    cy.get(this.locators.search_btn);
+    cy.get(this.locators.search_btn).click();
+    cy.wait(2000);
+  cy.contains("Search Results").should("be.visible");
   }
   
   Accountloan_563(){
-     cy.get('.ng-arrow-wrapper').click();
-    cy.wait(1000);
-    cy.contains('span.ng-option-label', 'Customer Name').click();
-    cy.wait(500);
+  
     cy.get('#loan-account-type').click();
     cy.wait(500);
     cy.get('#search-customer-name').type('a');
     cy.wait(500);
     cy.get(this.locators.search).click();
     cy.wait(500);
-    cy.get('.pagination-next > .page-link').click({force: true});
+    cy.get('.pagination-next > .page-link').click();
     
 
   } 
   Dashboard1517(){
-    cy.wait(700);
+    cy.wait(5000);
     cy.get('[role="alert"]').should('contain.text', 'Last Successful Login :');
-    cy.wait(500);
-    cy.log("Last Successful Login :   +00:00. Last Failed Login :  +00:00.");
+
+     cy.wait(500);
+     cy.log("Last Successful Login :   +00:00. Last Failed Login :  +00:00.");
    
   }
  
@@ -76,7 +72,7 @@ class DashboardPage {
     cy.wait(1000);
     cy.contains('span.ng-option-label', 'Customer Name').click();
     cy.wait(500);
-    cy.get(this.locators.customer_Name).type('R anupriya', { force: true });
+    cy.get(this.locators.customer_Name).type('A', { force: true });
     cy.get('.btn').click();
     cy.get(this.locators.clickOn_CustName).click();
      
@@ -100,7 +96,7 @@ class DashboardPage {
     // cy.wait(1000);
     // cy.get('#radios-0').click();
     // cy.wait(500);
-    // cy.get('input[placeholder="Customer Name"]').type('R anupriya');
+    // cy.get('input[placeholder="Customer Name"]').type('A');
     // cy.wait(500);
     // cy.get('button[type="submit"]').click();
     // cy.wait(500);

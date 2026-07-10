@@ -51,8 +51,8 @@ describe('UserManagement -When  user enters alphabets or special characters then
                             'D2': ln,
                             'E2': email,
                             'F2': '32!53@0049',
-                            'G2': 'Branch Backend',
-                            'H2': 'Branch Manager',
+                            'G2': 'Collection Staff Backend',
+                            'H2': 'Collection Backend Manager',
                             'I2': 'Bangalore',                        
 
             };

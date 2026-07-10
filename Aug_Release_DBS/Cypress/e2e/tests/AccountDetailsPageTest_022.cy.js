@@ -24,7 +24,7 @@ describe('TC_022 Account Details CC -  View Account Details and check online pay
         getTestData('loginData', 'login').then(user => {
             loginPage.login(user.Companyname, user.email, user.password);
                 cy.wait(2000);
-                accountdetailsPage.ViewAccountDetails005();
+                accountdetailsPage.ViewAccountDetails022();
                 //loginPage.logout();
                          
             });

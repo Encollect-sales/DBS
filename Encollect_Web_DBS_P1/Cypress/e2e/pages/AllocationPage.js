@@ -83,17 +83,60 @@ cy.get('.ng-dropdown-panel .ng-option').each(($option, index) => {
 
   }
 
-Allthefieldsbucket(){
+  fillsubproduct() {
+     cy.get(this.locators.subproduct_select).click();
+cy.wait(1000);
 
-}
+cy.get('.ng-dropdown-panel .ng-option').each(($option, index) => {
+  
+  cy.wrap($option).click({ force: true });   // select option
+  cy.wait(1000);
+
+  // Re-open dropdown for next option
+  cy.get(this.locators.subproduct_select).click();
+  cy.wait(2000);
+
+});
+
+  }
+
+  fillBucketAndCountry(){
+
+     cy.get(this.locators.SelectBucket).click();
+cy.wait(1000);
+
+cy.get('.ng-dropdown-panel .ng-option').each(($option, index) => {
+  
+  cy.wrap($option).click({ force: true });   // select option
+  cy.wait(1000);
+
+  // Re-open dropdown for next option
+  cy.get(this.locators.SelectBucket).click();
+  cy.wait(2000);
+
+});
+
+ cy.get(this.locators.SelectCountry).click();
+cy.wait(1000);
+
+cy.get('.ng-dropdown-panel .ng-option').each(($option, index) => {
+  
+  cy.wrap($option).click({ force: true });   // select option
+  cy.wait(1000);
+
+  // Re-open dropdown for next option
+  cy.get(this.locators.SelectCountry).click();
+  cy.wait(2000);
+
+});
+  }
+
   clickNotAllcated() {
-    cy.get('#Bucket').select('All');
     cy.get(this.locators.notallocated).click({force: true});
      cy.wait(2000);
   }
 
   clickonAllcated() {
-    cy.get('#Bucket').select('All');
     cy.get(this.locators.allocated).click({force: true});
      cy.wait(2000);
   }
@@ -101,13 +144,9 @@ Allthefieldsbucket(){
   clickonDownload() {
     cy.get(this.locators.download).click({force: true});
      cy.wait(4000);
-     cy.get('.ms-4').click();
-     cy.wait(4000);
   }
 
   clickonprimaryfile() {
-    cy.get('#Bucket').select('All');
-    cy.wait(2000);
     cy.get(this.locators.primaryZip).click({force: true});
      cy.wait(2000);
   }
@@ -118,12 +157,12 @@ Allthefieldsbucket(){
   }
 
   filltemplate2() {
-   cy.get('#downloadTemplate1').click({force:true});
+    cy.get('#downloadTemplateType2').click();
     cy.wait(2000);
   }
 
   filltemplate3() {
-    cy.get('.card-content > :nth-child(1) > .form-select').select('Allocation Template for Child Telecalling Agency');
+    cy.get(':nth-child(1) > .enc-card > .card-content > :nth-child(1) > .form-radio-group > :nth-child(1)').click();
     cy.wait(2000);
   }
 
@@ -233,8 +272,7 @@ Allthefieldsbucket(){
   }
 
   uploadfilewithSpclChrctr() {
-    cy.get('#allocationType2').click();
-    cy.get(this.locators.uploadfile).should('exist').attachFile('PrimaryTeleCallingAgency_Accountlevel.xlsx');
+    cy.get(this.locators.uploadfile).should('exist').attachFile('Allocation#ToOwner.xlsx');
   }
 
   uploadDocxExtensionFile() {
@@ -310,7 +348,7 @@ Allthefieldsbucket(){
 
   clickonCARadioBtnagnt() {
     //cy.get(this.locators.CAradiobtnagent).click();
-    cy.get('#allocationType2').click({ force: true });
+    cy.get('#AllocationType2').click({ force: true });
     // cy.get('input[type="radio"][value="agent"]').click();
 
   }
@@ -350,7 +388,6 @@ Allthefieldsbucket(){
   }
 
   ClickonallocationSAS() {
-    cy.wait(8000);
     cy.get(this.locators.allocation).click();
     cy.wait(2000);
     cy.get(this.locators.ClickAgentU).click({force: true});
@@ -402,68 +439,18 @@ Allthefieldsbucket(){
   }
 
   ClickonallocationPAF() {
-    cy.get(this.locators.allocation).click({force: true} );
+    cy.get(this.locators.allocation).click();
     cy.wait(2000);
-    cy.get(this.locators.AllocFilter).click({force: true} );
+    cy.get(this.locators.AllocFilter).click();
     cy.wait(2000);
-    cy.get(this.locators.ClickAABF).click({force: true} );
+    cy.get(this.locators.ClickAABF).click();
     cy.wait(2000);
-    cy.contains('Agency Allocation by Filters').should('be.visible');
-    cy.wait(2000);
-    cy.contains('Geography Filter').click();
-    cy.wait(2000);
-    cy.contains('Country').should('be.visible');
-     cy.wait(2000);
-  cy.contains('Region').should('be.visible');
-   cy.wait(2000);
-  cy.contains('State').should('be.visible');
-   cy.wait(2000);
-  cy.contains('City').should('be.visible');
-   cy.wait(2000);
- cy.contains('Branch').should('exist');
-  
-  }
- 
-  Allthefieldsbucket(){
-    cy.get(this.locators.allocation).click({force: true} );
-    cy.wait(2000);
-    cy.get(this.locators.AllocFilter).click({force: true} );
-    cy.wait(2000);
-    cy.get('.allocation > :nth-child(2) > :nth-child(3) > .sub-nav-list > :nth-child(2) > a').click({force:true});
-    cy.wait(2000);
-    cy.contains('Bucket Filter').click({force:true});   
-    cy.wait(2000);
-cy.contains('Current DPD')
-  .scrollIntoView()
-  .should('be.visible');
-   cy.wait(2000);
-cy.contains('Dell String')
-  .scrollIntoView()
-  .should('be.visible');
-  cy.wait(2000);
-cy.contains('BOM Bucket')
-  .scrollIntoView()
-  .should('be.visible');
+    // cy.get(this.locators.clickonPAF).click().click();
+    // cy.wait(2000);
+    // cy.get(this.locators.clickonPF).click();
+    // cy.wait(2000);
   }
 
-  Allthefields(){
-    cy.get(this.locators.allocation).click({force: true} );
-    cy.wait(2000);
-    cy.get(this.locators.AllocFilter).click({force: true} );
-    cy.wait(2000);
-    cy.get('.allocation > :nth-child(2) > :nth-child(3) > .sub-nav-list > :nth-child(2) > a').click({force:true});
-    cy.wait(2000);
-    cy.contains('Product Filter').scrollIntoView().should('be.visible');
-cy.wait(2000);
-cy.contains('ProductGroup')
-  .scrollIntoView()
-  .should('be.visible');
-cy.wait(2000);
-cy.contains('Product')
-  .scrollIntoView()
-  .should('be.visible');
-
-  }
   fillproductgroupPAF() {
     cy.get(this.locators.pg_select_PAF).click();     
 cy.wait(2000);
@@ -489,9 +476,9 @@ cy.wait(2000);
 
   fillproductgroupPAF1() {
     
-    //cy.get(this.locators.pg_select_PAF).click();   
+    cy.get(this.locators.pg_select_PAF).click();   
 
-cy.get('#Productgroup').then(options => {
+cy.get('.ng-dropdown-panel .ng-option').then(options => {
 
   const total = options.length;
 
@@ -729,22 +716,10 @@ cy.get('.ng-dropdown-panel .ng-option').each(($option, index) => {
   }
 
   fillproductgroupPAF6() {
-    cy.get(this.locators.allocation).click({force: true} );
+    cy.get(this.locators.pg_select_PAF).click();
     cy.wait(2000);
-    cy.get(this.locators.AllocFilter).click({force: true} );
-    cy.wait(2000);
-    cy.get(this.locators.ClickAABF).click({force: true} );
-    cy.wait(2000);
-cy.contains('Agency Allocation by Filters')
-  .scrollIntoView()
-  .should('exist');
-    cy.wait(2000);
-    cy.contains('Other Filter').click();
-    cy.wait(1000);
-    cy.contains('Customer Name').scrollIntoView().should('be.visible');
-    cy.wait(2000);
-    cy.contains('Account Number').scrollIntoView().should('be.visible');
-
+    cy.get('.ng-dropdown-panel .ng-option').contains('Loan Products').click();
+     cy.wait(2000);
   }
 
   fillproductPAF6() {
@@ -755,59 +730,28 @@ cy.contains('Agency Allocation by Filters')
   }
 
   fillsubproductPAF6() {
-    cy.get(this.locators.allocation).click({force: true} );
+    cy.get(this.locators.subproduct_select_PAF).click();
     cy.wait(2000);
-    cy.get(this.locators.AllocFilter).click({force: true} );
-    cy.wait(2000);
-    cy.get('.allocation > :nth-child(2) > :nth-child(3) > .sub-nav-list > :nth-child(2) > a').click({force:true});
-    cy.wait(2000);
-    cy.contains('Agent Allocation by Filters').should('be.visible');
-    cy.wait(2000);
-cy.contains('Product Filter').should('be.visible');
-cy.wait(2000);
-cy.contains('Bucket Filter').should('be.visible');
-cy.wait(2000);
-cy.contains('Geography Filter').should('be.visible');
-cy.wait(2000);
-cy.contains('Other Filter').should('be.visible');
-cy.wait(2000);
-cy.contains('Unallocated Accounts')
-  .scrollIntoView()
-  .should('be.visible');
-cy.wait(2000);
-cy.contains('Allocated Accounts')
-  .scrollIntoView()
-  .should('be.visible');
-cy.wait(2000);
-cy.contains('Search')
-  .scrollIntoView()
-  .should('be.visible');
-cy.wait(2000);
-cy.contains('Cancel')
-  .scrollIntoView()
-  .should('exist');
+     cy.get('.ng-dropdown-panel .ng-option').contains('Bike').click();
+     cy.wait(2000);
   }
 
   ClickonallocationBF() {
-     cy.get(this.locators.allocation).click({force: true} );
+    cy.get(this.locators.allocation).click();
     cy.wait(2000);
-    cy.get(this.locators.AllocFilter).click({force: true} );
+    cy.get('.allocation > :nth-child(2) > :nth-child(4) > a.ng-star-inserted').click()
     cy.wait(2000);
-    cy.get('.allocation > :nth-child(2) > :nth-child(3) > .sub-nav-list > :nth-child(2) > a').click({force:true});
+    
+    cy.get(this.locators.clickonPAF).click();
     cy.wait(2000);
-    cy.contains('Agent Allocation by Filters').should('be.visible');
+    cy.get(this.locators.clickonBF).click();
     cy.wait(2000);
-    cy.contains('Geography Filter').parent().find('button').click({force:true});
+    cy.get(this.locators.clickonDPD).type('OK');
     cy.wait(2000);
-cy.contains('Country').should('be.visible');
- cy.wait(2000);
-cy.contains('Region').should('be.visible');
- cy.wait(2000);
-cy.contains('State').should('be.visible');
- cy.wait(2000);
-cy.contains('City').should('be.visible');
- cy.wait(2000);
-cy.contains('Branch').should('exist');
+    cy.get(this.locators.clickonDString).type('OK');
+    cy.wait(2000);
+    cy.get(this.locators.BOMBucket).select('All');
+    cy.wait(2000);
   }
 
   ClickonallocationOF() {
@@ -1015,7 +959,7 @@ cy.get('.ng-dropdown-panel .ng-option').each(($option, index) => {
   ClickonallocationSUS(Status) {
     cy.get(this.locators.allocation).click();
     cy.wait(2000);
-    cy.get('.allocation > :nth-child(2) > :nth-child(3) > a.ng-star-inserted').click();
+    cy.get('#nav-item-2-allocation-owner-bulk-upload').click();
     cy.get("a[title='Allocation Owner Upload Status']").click().click();
     cy.wait(2000);
     cy.get(this.locators.clickonSUSFailed).select("Processed");
@@ -1026,9 +970,9 @@ cy.get('.ng-dropdown-panel .ng-option').each(($option, index) => {
   }
 
   ClickonallocationSAS() {
-    cy.get(this.locators.allocation).click({force:true});
+    cy.get(this.locators.allocation).click();
     cy.wait(2000);
-    cy.get(this.locators.ClickAgentU).click({force:true});
+    cy.get(this.locators.ClickAgentU).click();
     cy.wait(2000);
     cy.get(this.locators.clickonSAS).click().click();
     cy.wait(2000);
@@ -2894,7 +2838,7 @@ cy.get('[heading="  Geography Filter"] > .panel > .panel-heading > .panel-title 
     cy.wait(2000);
     cy.get(this.locators.ClickOnABAL).click();
     cy.wait(2000);
-    cy.get('.allocation > :nth-child(2) > :nth-child(1) > .sub-nav-list > :nth-child(1) > a').click()
+    cy.get('#nav-item-2-allocation-owner-bulk-upload').click()
     cy.wait(2000);
     cy.get('#downloadAccounts').click({ force: true });
     cy.wait(2000);
@@ -2907,7 +2851,7 @@ cy.get('[heading="  Geography Filter"] > .panel > .panel-heading > .panel-title 
   ClickonUAABvalidationCheck() {
     cy.get(this.locators.allocation).click();
     cy.wait(2000);
-    cy.get('.allocation > :nth-child(2) > :nth-child(3) > a.ng-star-inserted').click();
+    cy.get('#nav-item-2-allocation-owner-bulk-upload').click();
     cy.wait(2000);
     cy.get('.allocation > :nth-child(2) > :nth-child(3) > .sub-nav-list > :nth-child(1) > a').click({force: true} );
     cy.wait(2000);
@@ -2983,7 +2927,7 @@ cy.get('.ng-dropdown-panel .ng-option').then($options => {
     cy.wait(2000);
     cy.get(this.locators.ClickOnABAL).click();
     cy.wait(2000);
-    cy.get('.allocation > :nth-child(2) > :nth-child(1) > .sub-nav-list > :nth-child(1) > a').click()
+    cy.get('#nav-item-2-allocation-owner-bulk-upload').click()
     cy.wait(2000);
     cy.get(this.locators.UAABUpload).should('exist').attachFile('AllocationToOwner.xlsx');
     cy.wait(2000);
@@ -3023,7 +2967,7 @@ cy.get('.ng-dropdown-panel .ng-option').then($options => {
   downloadAgencyallocationbatch() {
     cy.get(this.locators.allocation).click();
     cy.wait(2000);
-    cy.get(".allocation > :nth-child(2) > :nth-child(3) > a.ng-star-inserted").click();
+    cy.get("#nav-item-2-allocation-owner-bulk-upload").click();
     cy.wait(2000);
     // cy.get(this.locators.Clickallocationownerbulkupload).click();
     // cy.wait(2000);
@@ -3039,7 +2983,7 @@ cy.get('.ng-dropdown-panel .ng-option').then($options => {
     const filePath = 'Cypress/downloads/AllocationToOwner.xlsx'
     cy.get(this.locators.allocation).click();
     cy.wait(2000);
-    cy.get('.allocation > :nth-child(2) > :nth-child(3) > a.ng-star-inserted').click();
+    cy.get('#nav-item-2-allocation-owner-bulk-upload').click();
     cy.wait(2000);
     cy.get(".allocation > :nth-child(2) > :nth-child(3) > .sub-nav-list > :nth-child(1) > a").click().click();
     cy.wait(2000);
@@ -3121,7 +3065,7 @@ cy.get('.ng-dropdown-panel .ng-option').then($options => {
     const filePath = 'Cypress/downloads/AllocationToOwner.xlsx'
     cy.get("").click({force: true});
     cy.wait(2000);
-    cy.get("a[title='Agency Bulk Upload']").click({force: true});
+    cy.get("#nav-item-2-agency-bulk-upload").click({force: true});
     cy.wait(2000);
     cy.get(this.locators.UnAllocation_Batch).click();
     cy.wait(2000);
@@ -3512,7 +3456,7 @@ cy.get('[heading="  Geography Filter"] > .panel > .panel-heading > .panel-title 
   ClickonUAAOvalidationCheck_49() {
     cy.get(this.locators.allocation).click();
     cy.wait(2000);
-    cy.get('.allocation > :nth-child(2) > :nth-child(3) > a.ng-star-inserted').click();
+    cy.get('#nav-item-2-allocation-owner-bulk-upload').click();
     cy.wait(2000);
     cy.get(this.locators.Uploadallstatus).click();
     cy.wait(2000);
@@ -3525,7 +3469,7 @@ cy.get('[heading="  Geography Filter"] > .panel > .panel-heading > .panel-title 
   ClickonUAAOvalidationCheck_50() {
     cy.get(this.locators.allocation).click();
     cy.wait(2000);
-    cy.get('.allocation > :nth-child(2) > :nth-child(3) > a.ng-star-inserted').click();
+    cy.get('#nav-item-2-allocation-owner-bulk-upload').click();
     cy.wait(2000);
     cy.get(this.locators.Uploadallstatus).click();
     cy.wait(2000);
@@ -3541,7 +3485,7 @@ cy.get('[heading="  Geography Filter"] > .panel > .panel-heading > .panel-title 
   ClickonUAAOvalidationCheck_51() {
     cy.get(this.locators.allocation).click();
     cy.wait(2000);
-    cy.get('.allocation > :nth-child(2) > :nth-child(3) > a.ng-star-inserted').click();
+    cy.get('#nav-item-2-allocation-owner-bulk-upload').click();
     cy.wait(2000);
     cy.get(this.locators.Uploadallstatus).click();
     cy.wait(2000);
@@ -3556,7 +3500,7 @@ cy.get('[heading="  Geography Filter"] > .panel > .panel-heading > .panel-title 
   ClickonUAAOvalidationCheck_52() {
     cy.get(this.locators.allocation).click();
     cy.wait(2000);
-    cy.get('.allocation > :nth-child(2) > :nth-child(3) > a.ng-star-inserted').click();
+    cy.get('#nav-item-2-allocation-owner-bulk-upload').click();
     cy.wait(2000);
     cy.get(this.locators.Uploadallstatus).click();
     cy.wait(2000);
@@ -3611,7 +3555,7 @@ cy.get('[heading="  Geography Filter"] > .panel > .panel-heading > .panel-title 
     cy.wait(2000);
     cy.get('.allocation > :nth-child(2) > :nth-child(1) > a.ng-star-inserted').click();
     cy.wait(2000);
-    cy.get('.allocation > :nth-child(2) > :nth-child(1) > .sub-nav-list > :nth-child(1) > a').click();
+    cy.get('#nav-item-2-allocation-owner-bulk-upload').click();
     //cy.get(this.locators.Upload_Agency_Allocation_Owner).click().click();
     cy.wait(2000);
     cy.get(':nth-child(1) > .enc-card > .card-content > :nth-child(1) > .form-radio-group > :nth-child(1)').click();

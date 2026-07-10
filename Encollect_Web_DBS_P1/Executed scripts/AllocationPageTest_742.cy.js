@@ -5,7 +5,7 @@ import LoginPage from '../pages/LoginPage';
 import AllocationPage from '../pages/AllocationPage';
 import { getLocators } from '../utils/locatorUtils';
 
-describe('Allocation -  Allocation Agency by filters - All the fields should be visible', () => {
+describe('Allocation - Primary Allocation by filters - User should be able to select the dropdown values of Product Group, Product and Sub Product Under product filter. User selected Product Group as "Credit Card", Product as "Credit Card" and Sub product as "Credit Card"', () => {
     let loginPage;
     let allocationPage;  
 
@@ -25,9 +25,9 @@ describe('Allocation -  Allocation Agency by filters - All the fields should be 
             loginPage.login(user.Companyname, user.email, user.password);
 
            allocationPage.ClickonallocationPAF();
-        //    allocationPage.fillproductgroupPAF3();
-        //    allocationPage.fillproductPAF3();
-        //    allocationPage.fillsubproductPAF3();
+           allocationPage.fillproductgroupPAF3();
+           allocationPage.fillproductPAF3();
+           allocationPage.fillsubproductPAF3();
 
         });
     });

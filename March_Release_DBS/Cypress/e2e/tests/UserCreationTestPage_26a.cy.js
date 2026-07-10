@@ -50,7 +50,7 @@ describe('UserManagement -If user enters AgencyType more than 40 characters then
                 'B2': '',
                 'C2': agencycode,
                 'D2': name,
-                'E2': '1163',
+                'E2': '1161',
                 'F2': 'CollectionsCollectionsCollectionsCollectionsCollections',
                 'G2': 'Field Agents',
                 'H2': '12345321',

@@ -22,8 +22,8 @@ describe('User Management - Pan Card - PAN update is logged with user ID and tim
     it('User Management -Pan Card- TC_ID_08', () => {
         getTestData('loginData', 'login').then(user => {
             loginPage.login(user.Companyname, user.email, user.password);
-                cy.wait(2000);
-                userManagementPage.PanCardTestPage_03();             
+                cy.wait(7000);
+                userManagementPage.PanCardTestPage_08();            
             });
         });
     });

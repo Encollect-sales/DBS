@@ -1,2 +1,0 @@
-WorkRequestId,AccountNo,AgentCode,RightPartyContact,DispositionCodeGroup,DispositionCode,PTPDate,PTPAmount,NextActionCode,Remarks,NewContactNumber,NewArea,NewAddress,NewEmailID,AddressType,PickupAddress,AgentContactNo,nextActiondate,ThirdPartyContactNo,UploadStatus,ErrorMessage
-02212026122851094,1665,1660,Yes,PTP,PTP,2025-06-28,21524,,Bulk upload dec 16,9942413413,bakori,banglore,jawa25@yopmail.com,permenant11,new116,,,,Error,Invalid Account Number

@@ -21,36 +21,26 @@ class LoginPage {
     });
   }
  
+  // 
+  
   fillcompanyname(Companyname) {
-    //cy.get(this.locators.companynameInput).type(Companyname);
-    cy.get(this.locators.companynameInput).type("ENCollect");
-    cy.wait(2000);
-  }
+  cy.get(this.locators.companynameInput).then(($input) => {
+    const currentValue = $input.val();
  
-  Clikcompanyname() {
-   
-    cy.get(this.locators.ClickonCompanyName).click();
-    cy.wait(2000);
-  }
-
-  selectradio1(){
+    if (currentValue) {
+      cy.wrap($input).clear().type(Companyname);
+    } else {
+      cy.wrap($input).type(Companyname);
+    }
+  });
+ 
   cy.wait(2000);
-   cy.get(this.locators.selectradio).each(($el) => {
-  cy.wrap($el).click({ force: true });
-});
-
-cy.wait(2000);
-
-  }
-
-  selectradio2(){
+}
  
-    cy.wait(1000);
-    cy.get(this.locators.selectradio_agency).click({force: true});
-    cy.wait(1000);
-
-
-  }
+Clikcompanyname() {
+  cy.get(this.locators.ClickonCompanyName).click();
+  cy.wait(2000);
+}
  
   fillUsername(email) {
     
@@ -66,25 +56,54 @@ cy.wait(2000);
   submit() {
     cy.wait(2000);
     cy.get(this.locators.signinButton).click();
-    cy.wait(4000);
+    cy.wait(3000);
   }
  
   // verifyLoginSuccess() {
   //   return cy.get(this.locators.dashboard).then(() => {
   //   });
   // }
+
+  enterotp(){
+
+    cy.get('#otp-input').type(560062);
+    cy.wait(2000);
+    cy.get('.btn-success').click();
+    cy.wait(6000);
+  }
  
   login(Companyname, email, password) {
    
       this.visit();
-      // this.fillcompanyname(Companyname);
-      // this.Clikcompanyname();
-      this.selectradio2();
+      this.fillcompanyname(Companyname);
+      this.Clikcompanyname();
       this.fillUsername(email);
       this.fillPassword(password);
       this.submit();
-      cy.wait(3000);
-      // this.verifyLoginSuccess();
+      cy.wait(6000);
+      // this.enterotp();
+      //this.verifyLoginSuccess();
+  }
+
+  // login1(Companyname, email, password) {
+   
+  //     this.visit();
+  //     this.fillcompanyname(Companyname);
+  //     this.Clikcompanyname();
+  //     this.fillUsername(email);
+  //     this.fillPassword(password);
+  //     this.submit();
+  //     cy.wait(7000);
+
+  // }
+
+  logout(){
+
+    cy.get('.avatar').click();
+    cy.wait(2000);
+    cy.get(':nth-child(3) > .dropdown-item').click();
+    cy.wait(6000);
+
   }
 
  

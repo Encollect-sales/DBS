@@ -51,8 +51,8 @@ describe('UserManagement -When  user enters Mobile number which is less than 10 
                             'D2': ln,
                             'E2': email,
                             'F2': '32453049',
-                            'G2': 'Branch Backend',
-                            'H2': 'Branch Manager',
+                            'G2': 'Collection Staff Backend',
+                            'H2': 'Collection Backend Manager',
                             'I2': 'Bangalore',                        
             };
 

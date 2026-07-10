@@ -46,7 +46,7 @@ describe('UserManagement -If user enters alphabets or special characters then sy
                'A2': 'FOS',
                 'B2': firstName,
                 'C2': lastName,
-                'D2': '1270',
+                'D2': '1002',
                 'E2': '',
                 'F2': '435ab#@#%4',
                 'G2': '',

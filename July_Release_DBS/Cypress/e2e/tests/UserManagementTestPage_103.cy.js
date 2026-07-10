@@ -22,8 +22,8 @@ describe('User Management - Add Agency - user enter the address in 200 character
     it('User Management - Address TC_ID_103', () => {
         getTestData('loginData', 'login').then(user => {
             loginPage.login(user.Companyname, user.email, user.password);
-                cy.wait(2000);
-               userManagementPage.UserManagementTestPage_110();            
+                cy.wait(7000);
+                userManagementPage.UserManagementTestPage_103();            
             });
         });
     });

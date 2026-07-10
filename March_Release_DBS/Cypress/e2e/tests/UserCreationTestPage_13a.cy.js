@@ -46,7 +46,7 @@ describe('UserManagement -If entered email is incorrect then system will throw a
               'A2': 'Telecaller',
             'B2': firstName,
             'C2': lastName,
-            'D2': '2345',
+            'D2': '1002',
             'E2': '',
             'F2': '435454',
             'G2': '10-10-2020',

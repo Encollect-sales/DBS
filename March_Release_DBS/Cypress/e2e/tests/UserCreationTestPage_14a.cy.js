@@ -46,7 +46,7 @@ describe('UserManagement -If user enters numbers or special characters then syst
               'A2': 'FOS',
                 'B2': firstName,
                 'C2': lastName,
-                'D2': '2345',
+                'D2': '1002',
                 'E2': '',
                 'F2': '435454',
                 'G2': '10-10-2020',

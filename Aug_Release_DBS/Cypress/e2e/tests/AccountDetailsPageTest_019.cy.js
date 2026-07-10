@@ -24,7 +24,7 @@ describe('TC_019 Account Details cc - View Account Details and click on three do
         getTestData('loginData', 'login').then(user => {
             loginPage.login(user.Companyname, user.email, user.password);
                 cy.wait(2000);
-                accountdetailsPage.ViewAccountDetails005();
+                accountdetailsPage.ViewAccountDetails019();
                 //loginPage.logout();
                          
             });

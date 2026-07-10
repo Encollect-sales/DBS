@@ -8,65 +8,73 @@ class LoginPage {
  
   visit() {
 
+    
     Cypress.on('uncaught:exception', (err, runnable) => {
       console.error('Uncaught exception:', err.message);
       console.error(err);
       // Returning false prevents Cypress from failing the test
       return false;
     });
-   
+    
     getBaseUrl().then((baseUrl) => {
       console.log('Visiting URL:', baseUrl);
       cy.visit(baseUrl);
     });
   }
  
-  fillcompanyname(Companyname) {
-    //cy.get(this.locators.companynameInput).type(Companyname);
-    cy.get(this.locators.companynameInput).type("ENCollect");
-    cy.wait(2000);
-  }
+  // fillcompanyname(Companyname) {
+  //   //cy.get(this.locators.companynameInput).type(Companyname);
+  //   cy.get(this.locators.companynameInput).type("ENCollect");
+  //   cy.wait(2000)
+  // }
  
-  Clikcompanyname() {
-   
-    cy.get(this.locators.ClickonCompanyName).click();
-    cy.wait(2000);
-  }
+  // Clikcompanyname() {
+  //   cy.wait(1000);
+  //   cy.get(this.locators.ClickonCompanyName).click();
+  //   cy.wait(1000);
+  // }
 
-  selectradio1(){
+   fillcompanyname(Companyname) {
+  cy.get(this.locators.companynameInput).then(($input) => {
+    const currentValue = $input.val();
+ 
+    if (currentValue) {
+      cy.wrap($input).clear().type(Companyname);
+    } else {
+      cy.wrap($input).type(Companyname);
+    }
+  });
+ 
   cy.wait(2000);
-   cy.get(this.locators.selectradio).each(($el) => {
-  cy.wrap($el).click({ force: true });
-});
-
-cy.wait(2000);
-
-  }
-
-  selectradio2(){
+}
  
-    cy.wait(1000);
-    cy.get(this.locators.selectradio_agency).click({force: true});
-    cy.wait(1000);
-
-
-  }
+Clikcompanyname() {
+  cy.get(this.locators.ClickonCompanyName).click();
+  cy.wait(3000);
+}
  
   fillUsername(email) {
-    
     cy.get(this.locators.usernameInput).type(email);
-    cy.wait(2000);
+    cy.wait(1000);
   }
  
   fillPassword(password) {
-    
     cy.get(this.locators.passwordInput).type(password);
+    cy.wait(1000);
   }
  
   submit() {
-    cy.wait(2000);
+    cy.wait(1000)
     cy.get(this.locators.signinButton).click();
-    cy.wait(4000);
+    cy.wait(2000);
+  }
+
+   enterotp(){
+
+    cy.get('#otp-input').type(560062);
+    cy.wait(1000);
+    cy.get('.btn-success').click();
+    cy.wait(6000);
   }
  
   // verifyLoginSuccess() {
@@ -77,17 +85,24 @@ cy.wait(2000);
   login(Companyname, email, password) {
    
       this.visit();
-      // this.fillcompanyname(Companyname);
-      // this.Clikcompanyname();
-      this.selectradio2();
+      this.fillcompanyname(Companyname);
+      this.Clikcompanyname();
       this.fillUsername(email);
       this.fillPassword(password);
       this.submit();
-      cy.wait(3000);
+      cy.wait(6000);
+      // this.enterotp();
+
       // this.verifyLoginSuccess();
   }
 
- 
+  // logout() {
+  //   // Implement logout functionality here
+  //   cy.wait(5000);
+  //   cy.get(this.locators.profile).click();
+  //   cy.get(this.locators.logoutButton).click(); // Example locator for logout button
+  //   cy.wait(2000); // Adjust wait time if necessary
+  // }
 
 
 

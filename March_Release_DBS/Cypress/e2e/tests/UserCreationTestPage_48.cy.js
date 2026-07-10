@@ -50,8 +50,8 @@ describe('UserManagement -If user enters numbers or special characters then syst
                             'D2': ln,
                             'E2': email,
                             'F2': phno,
-                            'G2': 'Branch Backend',
-                            'H2': 'Branch Manager',
+                            'G2': 'Collection Staff Backend',
+                            'H2': 'Collection Backend Manager',
                             'I2': 'Bangalore',
 
             };
