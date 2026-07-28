@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-07-23T09:47:28.612Z",
+    "end": "2026-07-23T09:48:38.855Z",
+    "duration": 70243,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "aab9b37e-84ea-42ea-a306-7af1435b739e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\AddStaffPageTest_79.cy.js",
+      "file": "cypress\\e2e\\tests\\AddStaffPageTest_79.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fb79e2dd-a55f-4f1e-8b92-624a7300e74f",
+          "title": "UserManagement - Add Staff - Logged in user to validate the values of all Drop down fields should be as per masters",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add Staff - TC_ID_79",
+              "fullTitle": "UserManagement - Add Staff - Logged in user to validate the values of all Drop down fields should be as per masters Add Staff - TC_ID_79",
+              "timedOut": null,
+              "duration": 62115,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.task('getExcelData', '../fixtures/userManagementData.xlsx').then(excelData => {\n    const firstRow = excelData['Sheet1'][0];\n    cy.wait(2000);\n    addStaffPage.Clikonusermanagement(); // Use the method without click\n    addStaffPage.Clikonaddstaff();\n    addStaffPage.selectUserType();\n    addStaffPage.fillemployeeID(firstRow.EmployeeID); // Correct method name and pass the argument\n    addStaffPage.fillfirstname(firstRow.FirstName);\n    addStaffPage.filllastname(firstRow.LastName);\n    addStaffPage.fillemailid(firstRow.EmailID);\n    addStaffPage.fillmobilenumber(firstRow.MobileNumber);\n    addStaffPage.clickondandd();\n    cy.wait(2000);\n    // addStaffPage.clickOnAdd();\n    // cy.wait(2000);\n    addStaffPage.fillDepartment('Audit and Risk', 0);\n    addStaffPage.fillDesignation('Audit Manager', 0);\n    cy.wait(1000);\n    addStaffPage.clickonWallet();\n    addStaffPage.ClikonSOW();\n    cy.wait(2000);\n    addStaffPage.ScopeOfWorkTestPage_02();\n    cy.wait(2000);\n    addStaffPage.clickonbbrm();\n    cy.wait(2000);\n    addStaffPage.fillbasebranch();\n    cy.wait(2000);\n    // addStaffPage.clickonPlaceOkWork();\n    // cy.wait(2000);\n    // addStaffPage.ClickOnSkill();\n    // cy.wait(5000);\n    // addStaffPage.clickonsavestaffprofile();\n    // cy.wait(1000);\n    // addStaffPage.Sucessmessage()\n    // cy.wait(1000);\n  });\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input`, but never found it.\n    at AddStaffPage.ScopeOfWorkTestPage_02 (webpack:///./cypress/e2e/pages/AddStaffPage.js:291:7)\n    at Context.eval (webpack:///./cypress/e2e/tests/AddStaffPageTest_79.cy.js:51:29)",
+                "diff": null
+              },
+              "uuid": "818c9521-928e-47b0-b6cf-efbb37112b32",
+              "parentUUID": "fb79e2dd-a55f-4f1e-8b92-624a7300e74f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "818c9521-928e-47b0-b6cf-efbb37112b32"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 62115,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

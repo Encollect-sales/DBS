@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-07-23T08:59:24.090Z",
+    "end": "2026-07-23T09:00:24.723Z",
+    "duration": 60633,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9b1feac2-0802-44b7-af7a-246363cbeb7d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\AddStaffPageTest_650.cy.js",
+      "file": "cypress\\e2e\\tests\\AddStaffPageTest_650.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3cbc68be-b7ab-487c-adef-462d1f6c88c2",
+          "title": "Add Staff - Department and Designations - Agency Backend - User should be able to add department & designations by selecting department as \"Agency Backend\" and designation as \"Agency Backend\" user can also click on add button to add one more department and designation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add Staff - TC_ID_650",
+              "fullTitle": "Add Staff - Department and Designations - Agency Backend - User should be able to add department & designations by selecting department as \"Agency Backend\" and designation as \"Agency Backend\" user can also click on add button to add one more department and designation Add Staff - TC_ID_650",
+              "timedOut": null,
+              "duration": 52757,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.task('getExcelData', '../fixtures/userManagementData.xlsx').then(excelData => {\n    const firstRow = excelData['Sheet1'][0];\n    cy.wait(2000);\n    addStaffPage.Clikonusermanagement();\n    addStaffPage.Clikonaddstaff();\n    const employeeId = addStaffPage.fillemployeeID();\n    //addStaffPage.fillemployeeID(firstRow.EmployeeID); \n    addStaffPage.fillfirstname(firstRow.FirstName);\n    addStaffPage.filllastname(firstRow.LastName);\n    addStaffPage.fillemailid(firstRow.EmailID);\n    addStaffPage.fillmobilenumber(firstRow.MobileNumber);\n    cy.wait(2000);\n    addStaffPage.clickondandd();\n    cy.wait(2000);\n    addStaffPage.clickOnAdd();\n    cy.wait(2000);\n    addStaffPage.seleDD();\n  });\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#domainId`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#domainId`, but never found it.\n    at AddStaffPage.fillemployeeID (webpack:///./cypress/e2e/pages/AddStaffPage.js:178:7)\n    at Context.eval (webpack:///./cypress/e2e/tests/AddStaffPageTest_650.cy.js:31:48)",
+                "diff": null
+              },
+              "uuid": "a1990bc4-8863-4c6e-862f-6ac3068d6915",
+              "parentUUID": "3cbc68be-b7ab-487c-adef-462d1f6c88c2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "a1990bc4-8863-4c6e-862f-6ac3068d6915"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 52757,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

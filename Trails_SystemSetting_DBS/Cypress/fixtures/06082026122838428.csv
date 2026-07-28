@@ -1,0 +1,3 @@
+WorkRequestId,AccountNo,AgentCode,RightPartyContact,DispositionCodeGroup,DispositionCode,PTPDate,PTPAmount,NextActionCode,Remarks,NewContactNumber,NewArea,NewAddress,NewEmailID,AddressType,PickupAddress,AgentContactNo,nextActiondate,ThirdPartyContactNo,UploadStatus,ErrorMessage
+06082026122838428,0105773000095448,10031,yes,PTP,PTP,2027/12/22,109, ,Bulk upload,1277908097,South Norval,6054 Gertrude Pike,lssrccbc@yopmail.com,permenant,new,,,,Error,Invalid Agent Code
+06082026122838428,187@#65,3345,yes,BPTP,BPTP,2027/12/22,109, ,Bulk upload,6829398635,Reillyfurt,61608 Coty Square,srfkepfw@yopmail.com,permenant,new,,,,Error,Invalid Account Number

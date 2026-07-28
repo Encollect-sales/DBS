@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-07-23T13:20:31.327Z",
+    "end": "2026-07-23T13:21:28.024Z",
+    "duration": 56697,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5c72cd38-7f8a-4760-8026-ed8f76e19fbd",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\PaymentsPageTest_114.cy.js",
+      "file": "cypress\\e2e\\tests\\PaymentsPageTest_114.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ef075f08-d228-464f-83e3-76298211c34f",
+          "title": "Payments Module - Walkin Customer Receipt - Logged in user to enter receipt amount greater than 49,999 but did noto enter PAN number then encollect system will throw an error.",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Payment - TC_ID_119",
+              "fullTitle": "Payments Module - Walkin Customer Receipt - Logged in user to enter receipt amount greater than 49,999 but did noto enter PAN number then encollect system will throw an error. Payment - TC_ID_119",
+              "timedOut": null,
+              "duration": 41166,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  paymentsPage.PaymentModule();\n  paymentsPage.ClickOnWalkInCustomerReceipt_creditcard_options_visibility();\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.payments > :nth-child(2) > :nth-child(4) > a.ng-star-inserted`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.payments > :nth-child(2) > :nth-child(4) > a.ng-star-inserted`, but never found it.\n    at PaymentsPage.ClickOnWalkInCustomerReceipt_creditcard_options_visibility (webpack:///./cypress/e2e/pages/PaymentsPage.js:1432:7)\n    at Context.eval (webpack:///./cypress/e2e/tests/PaymentsPageTest_114.cy.js:27:29)",
+                "diff": null
+              },
+              "uuid": "8e15d628-4c1c-4667-be1d-1adbb5927dba",
+              "parentUUID": "ef075f08-d228-464f-83e3-76298211c34f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "8e15d628-4c1c-4667-be1d-1adbb5927dba"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 41166,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

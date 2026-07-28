@@ -77,9 +77,9 @@ cy.wait(2000);
     cy.get('#otp-input').type(560062);
     cy.wait(1000);
     cy.get('.btn-success').click({force:true});
-     cy.wait(10000); 
+     cy.wait(6000); 
      cy.wait(2000);
-     cy.wait(1000);
+     
    cy.get('body', { timeout: 5000 }).then(($body) => {
   if ($body.find('button:contains("I Agree")').length > 0) {
     cy.contains('button', 'I Agree').click();

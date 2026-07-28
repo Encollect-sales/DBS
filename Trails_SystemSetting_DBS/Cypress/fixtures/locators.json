@@ -1,0 +1,56 @@
+{
+  "loginPage": {
+    "selectradio":".form-radio-group > :nth-child(1)",
+      "selectradio_agency":".form-radio-group > :nth-child(2) > .ng-valid",
+
+      
+    "companynameInput": "#login-company-name",
+    "ClickonCompanyName": ".ng-option-label",
+    "usernameInput": "#login-email",
+    "passwordInput": "#login-password",
+    "signinButton": "#login-submit-button",
+    "dashboard": ".name-width",
+     "profile" : ".avatar-info",
+    "logoutButton" : ":nth-child(4) > .dropdown-item"
+  },
+
+  "Trails": {
+    "Clickontrials": "#nav-item-1-trails",
+    "Clickontrailuploadstatus": "#nav-item-2-trail-upload-status",
+    "bulk_upload":"#nav-item-2-bulk-trail-upload",
+    "Clickonsearch":"#bulk-trail-search-button",
+    "Clickoncancel":"#bulk-trail-cancel-button",
+    "Clickonstatus":"#bulk-trail-status",
+    "download_button":"#bulk-trail-download-template",
+    "ClickOnUploadBtn":"#bulk-trail-upload-button",
+    "ClickOnOkay":"#confirm-dialog-okay",
+    "ClickOnStatusSearchBtn":"#bulk-trail-search-button",
+    "cancelbutton":"#confirm-dialog-cancel",
+    "firstpage":".pagination-first",
+    "lastpage":".pagination-last > .page-link"
+
+    
+
+
+    
+  },
+  "SystemSettings":{
+    "Account_upload":"#nav-item-2-account-upload",
+    "Account_upload_bulk":"#nav-item-3-bulk-account-upload",
+    "cc_download":"#radio-download-template-card",
+    "cc_upload":"#radio-upload-template-card",
+    "loan_download":"#radio-download-template-account",
+    "clickokbutton":"#confirm-dialog-okay",
+    "cancelbutton":"#confirm-dialog-cancel",
+    "masters_upload":"#nav-item-2-masters-upload",
+    "bulk_upload_master":"#nav-item-3-bulk-upload-masters",
+    "download_template_bank_master":"#download-template-type",
+    "upload_template_bank_master":"#upload-template-type",
+    "download_template_button":"#download-template-button",
+    "upload":"#upload-template-file",
+    "cancel":"#confirm-dialog-cancel"
+  }
+ 
+ 
+
+}

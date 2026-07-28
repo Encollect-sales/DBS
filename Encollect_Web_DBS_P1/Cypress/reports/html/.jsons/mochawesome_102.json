@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-07-23T11:53:36.926Z",
+    "end": "2026-07-23T11:54:38.901Z",
+    "duration": 61975,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "22a7b72d-9d0b-4727-993c-c56747e707a8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\AgentEmpanelmentRequestPageTest_88.cy.js",
+      "file": "cypress\\e2e\\tests\\AgentEmpanelmentRequestPageTest_88.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8752b76a-7dc6-45d4-9b24-a08ab2cf1536",
+          "title": "Agent Empanelment Request - Create Agent - Logged in user should be able to enter data in all mandatory fields in create agent screen.",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Agent Empanelment Request - TC_ID_88",
+              "fullTitle": "Agent Empanelment Request - Create Agent - Logged in user should be able to enter data in all mandatory fields in create agent screen. Agent Empanelment Request - TC_ID_88",
+              "timedOut": null,
+              "duration": 52323,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  agentemplimentationRequest.AgentEnpalmentRequest88();\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying after 4000ms: `cy.select()` failed because it could not find a single `<option>` with value, index, or text matching: `BCCI`\n\nhttps://on.cypress.io/select",
+                "estack": "CypressError: Timed out retrying after 4000ms: `cy.select()` failed because it could not find a single `<option>` with value, index, or text matching: `BCCI`\n\nhttps://on.cypress.io/select\n    at getOptions (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:114180:72)\n    at tryCatcher (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise.attempt.Promise.try (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:4338:29)\n    at retryOptions (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:114212:70)\n    at tryCatcher (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise.attempt.Promise.try (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:4338:29)\n    at whenStable (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:143744:68)\n    at <unknown> (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:143685:14)\n    at tryCatcher (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise._settlePromiseFromHandler (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1542:31)\n    at Promise._settlePromise (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1724:18)\n    at Promise._fulfill (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1668:18)\n    at <unknown> (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:5473:46)\nFrom Your Spec Code:\n    at AgentEmpanelmentRequestPage.AgentEnpalmentRequest88 (webpack:///./cypress/e2e/pages/AgentEmpanelmentRequestPage.js:323:37)\n    at Context.eval (webpack:///./cypress/e2e/tests/AgentEmpanelmentRequestPageTest_88.cy.js:27:43)",
+                "diff": null
+              },
+              "uuid": "6372abd9-da0b-4002-8c4b-2c590d31a84e",
+              "parentUUID": "8752b76a-7dc6-45d4-9b24-a08ab2cf1536",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "6372abd9-da0b-4002-8c4b-2c590d31a84e"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 52323,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

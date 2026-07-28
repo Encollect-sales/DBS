@@ -119,9 +119,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -176,19 +176,19 @@ cy.wait(2000);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -211,9 +211,9 @@ cy.wait(2000);
   });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024').should("be.visible");
+    cy.get(this.locators.firstagreementdate).type('02-01-2026').should("be.visible");
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024').should("be.visible");
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.Contactexpiredate).type('30-09-2026').should("be.visible");
     cy.wait(2000);
@@ -325,9 +325,9 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -382,19 +382,19 @@ cy.wait(1000);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -418,9 +418,9 @@ cy.wait(1000);
   cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024').should("be.visible");
+    cy.get(this.locators.firstagreementdate).type('02-01-2026').should("be.visible");
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024').should("be.visible");
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.Contactexpiredate).type('30-09-2026').should("be.visible");
     cy.wait(2000);
@@ -449,29 +449,38 @@ cy.wait(2000);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-      cy.get(this.locators.selectAgencyType)
-  .find('option') 
+    // ✅ Select Random Agency Type
+cy.get(this.locators.selectAgencyType)
+  .should('be.visible')
+  .find('option')
   .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
 
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+    // Remove first option if it is default (optional but recommended)
+    const validOptions = [...$options].filter(option => option.value !== "");
+
+    const randomIndex = Math.floor(Math.random() * validOptions.length);
+    const randomValue = validOptions[randomIndex].value;
+
+    cy.get(this.locators.selectAgencyType)
+      .select(randomValue);
   });
 
-cy.wait(1000);     
 
+// ✅ Wait for SubType to load (if dependent dropdown)
 cy.get(this.locators.selectAgencySubType)
-  .find('option') 
+  .should('be.visible')
+  .find('option')
+  .should('have.length.greaterThan', 1)   // ensures options are loaded
   .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
 
-cy.wait(1000);
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+    const validOptions = [...$options].filter(option => option.value !== "");
+
+    const randomIndex = Math.floor(Math.random() * validOptions.length);
+    const randomValue = validOptions[randomIndex].value;
+
+    cy.get(this.locators.selectAgencySubType)
+      .select(randomValue);
   });
-
 cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
@@ -605,7 +614,7 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("All");
+    ////cy.get(this.locators.subproduct).select("All");
     cy.wait(2000);
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
@@ -613,7 +622,7 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -637,9 +646,9 @@ cy.wait(2000);
   cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('06-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('10-01-2026');
     cy.wait(2000);
     cy.get(this.locators.Contactexpiredate).type('30-09-2026');
     cy.wait(2000);
@@ -685,7 +694,7 @@ cy.wait(2000);
   DisabledAgent(){
     cy.get(this.locators.clickonusermanagement).click();
     cy.wait(2000);
-    cy.get('#nav-item-2-agent-empanelment').click();
+    cy.get('.user-management > :nth-child(2) > :nth-child(2) > a.ng-star-inserted').click();
     cy.wait(2000);
     cy.get('.user-management > :nth-child(2) > :nth-child(2) > .sub-nav-list > :nth-child(2) > a').click();
     cy.wait(2000);
@@ -703,6 +712,7 @@ cy.wait(2000);
   
 
   CreateAgency028() {
+    cy.wait(8000);
     const filePath = 'Aadhar.png';
     cy.get(this.locators.clickonusermanagement).click();
     cy.wait(2000);
@@ -720,29 +730,32 @@ cy.get(this.locators.selectRecommendingOfficer)
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-      cy.get(this.locators.selectAgencyType)
-  .find('option') 
+     // Select random Agency Type
+cy.get(this.locators.selectAgencyType)
+  .find('option')
   .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
+    // Remove first option if it is placeholder
+    const validOptions = [...$options].filter(option => option.value !== "");
+    
+    const randomIndex = Math.floor(Math.random() * validOptions.length);
+    const randomValue = validOptions[randomIndex].value;
 
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
+    cy.get(this.locators.selectAgencyType)
+      .select(randomValue, { force: true });
   });
 
-cy.wait(1000);    
-
+// Select random Agency Sub Type
 cy.get(this.locators.selectAgencySubType)
-  .find('option') 
+  .find('option')
   .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
+    const validOptions = [...$options].filter(option => option.value !== "");
+    
+    const randomIndex = Math.floor(Math.random() * validOptions.length);
+    const randomValue = validOptions[randomIndex].value;
 
-cy.wait(1000);
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+    cy.get(this.locators.selectAgencySubType)
+      .select(randomValue, { force: true });
   });
-
 cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
@@ -874,7 +887,7 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("All");
+    ////cy.get(this.locators.subproduct).select("All");
     cy.wait(2000);
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
@@ -882,7 +895,7 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -906,9 +919,9 @@ cy.wait(2000);
   cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('06-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('06-05-2026');
     cy.wait(2000);
     cy.get(this.locators.Contactexpiredate).type('30-09-2026');
     cy.wait(2000);
@@ -1184,7 +1197,7 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("All");
+    ////cy.get(this.locators.subproduct).select("All");
     cy.wait(2000);
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
@@ -1192,7 +1205,7 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -1214,7 +1227,7 @@ cy.wait(2000);
   cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
     cy.get(this.locators.lastrenewaldate).type('06-05-2024');
     cy.wait(2000);
@@ -1478,7 +1491,7 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("All");
+    ////cy.get(this.locators.subproduct).select("All");
     cy.wait(2000);
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
@@ -1486,7 +1499,7 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -2050,9 +2063,9 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -2106,20 +2119,20 @@ cy.wait(1000);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -2139,7 +2152,7 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.firstagreementdate).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
     cy.get(this.locators.lastrenewaldate).type('01-03-2024');
     cy.get(this.locators.Contactexpiredate).type('11-09-2026');
@@ -2253,9 +2266,9 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -2283,20 +2296,20 @@ cy.wait(1000);
     //cy.get(this.locators.UploadConfirm).click();
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -2559,7 +2572,7 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("All");
+    ////cy.get(this.locators.subproduct).select("All");
     cy.wait(2000);
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
@@ -2567,7 +2580,7 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("All");
+    //cy.get(this.locators.selectsubp).select("All");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -2583,7 +2596,7 @@ cy.wait(2000);
     // cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
     cy.get(this.locators.lastrenewaldate).type('06-05-2024');
     cy.wait(2000);
@@ -2694,9 +2707,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -2750,20 +2763,20 @@ cy.wait(2000);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan",{force: true});
+    //cy.get(this.locators.selectsubp).select("Personal Loan",{force: true});
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -2784,9 +2797,9 @@ cy.wait(2000);
   // });// cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
     cy.get(this.locators.Contactexpiredate).type('01-09-2026');
     cy.wait(2000);
@@ -2817,26 +2830,27 @@ cy.get(this.locators.selectRecommendingOfficer)
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-      cy.get(this.locators.selectAgencyType)
-  .find('option') 
-  .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
-
-    cy.get(this.locators.selectAgencyType).select(randomValue, { force: true });
-  });
-
-cy.wait(1000);    
-
- cy.get(this.locators.selectAgencySubType).then($select => {
+  // Select random Agency Type
+cy.get(this.locators.selectAgencyType).then($select => {
   const options = $select.find('option');
-  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1; 
+
+  // Skip first option (usually placeholder)
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1;
   const randomValue = options[randomIndex].value;
 
-  cy.wrap($select).select(randomValue);
+  cy.wrap($select).select(randomValue, { force: true });
 });
 
+// Select random Agency Sub Type
+cy.get(this.locators.selectAgencySubType).then($select => {
+  const options = $select.find('option');
+
+  // Skip first option
+  const randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1;
+  const randomValue = options[randomIndex].value;
+
+  cy.wrap($select).select(randomValue, { force: true });
+});
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
@@ -2895,9 +2909,9 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -2951,20 +2965,20 @@ cy.wait(1000);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -2985,9 +2999,9 @@ cy.wait(1000);
   // });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
     cy.get(this.locators.Contactexpiredate).type('01-09-2026');
     cy.wait(2000);
@@ -3098,9 +3112,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -3154,20 +3168,20 @@ cy.wait(2000);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -3188,9 +3202,9 @@ cy.wait(2000);
   // });// cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
     cy.get(this.locators.Contactexpiredate).type('11-09-2026');
     cy.wait(2000);
@@ -3298,9 +3312,9 @@ cy.wait(1000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -3354,20 +3368,20 @@ cy.wait(1000);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -3388,9 +3402,9 @@ cy.wait(1000);
   });cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
     cy.get(this.locators.Contactexpiredate).type('11-09-2026').should("be.visible");
     cy.wait(2000);
@@ -3426,14 +3440,17 @@ cy.get(this.locators.selectRecommendingOfficer)
     cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
     cy.get(this.locators.selectAgencySubType)
-  .find('option') 
+  .find('option')
   .then($options => {
-    const optionsCount = $options.length;
-    const randomIndex = Math.floor(Math.random() * optionsCount); 
-    const randomValue = $options[randomIndex].value; 
 
-cy.wait(1000);
-    cy.get(this.locators.selectAgencySubType).select(randomValue, { force: true });
+    // Skip first option (placeholder)
+    const validOptions = [...$options].slice(1);
+
+    const randomIndex = Math.floor(Math.random() * validOptions.length);
+    const randomValue = validOptions[randomIndex].value;
+
+    cy.get(this.locators.selectAgencySubType)
+      .select(randomValue, { force: true });
   });
 
 cy.wait(2000);
@@ -3495,9 +3512,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -3551,20 +3568,20 @@ cy.wait(2000);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("All");
     cy.wait(2000);
@@ -3585,9 +3602,9 @@ cy.wait(2000);
   });cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024').should("be.visible");
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.Contactexpiredate).type('30-09-2026').should("be.visible");
     cy.wait(2000);
@@ -3622,7 +3639,7 @@ cy.get(this.locators.selectRecommendingOfficer)
   });
     cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Pick up");
+    cy.get(this.locators.selectAgencySubType).select("Field Agents");
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
@@ -3681,9 +3698,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -3738,20 +3755,20 @@ cy.get(this.locators.selectRecommendingOfficer)
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -3772,9 +3789,9 @@ cy.get(this.locators.selectRecommendingOfficer)
   });cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
     cy.get(this.locators.Contactexpiredate).type('01-09-2026').should("be.visible");
     cy.wait(2000);
@@ -3810,7 +3827,7 @@ cy.get(this.locators.selectRecommendingOfficer)
   });
     cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Skip Agency");
+    cy.get(this.locators.selectAgencySubType).select("Field Agents");
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
@@ -3869,9 +3886,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -3925,20 +3942,20 @@ cy.get(this.locators.selectRecommendingOfficer)
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -3959,9 +3976,9 @@ cy.get(this.locators.selectRecommendingOfficer)
   });cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
     cy.get(this.locators.Contactexpiredate).type('31-10-2026').should("be.visible");
     cy.wait(2000);
@@ -4054,9 +4071,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -4111,20 +4128,20 @@ cy.get(this.locators.selectRecommendingOfficer)
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -4145,11 +4162,11 @@ cy.get(this.locators.selectRecommendingOfficer)
   });cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2026').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true}).should("be.visible");
     cy.wait(3000);
@@ -4179,9 +4196,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
+    cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Repossession Agent");
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
@@ -4240,9 +4257,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -4296,20 +4313,20 @@ cy.get(this.locators.selectRecommendingOfficer)
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -4332,11 +4349,11 @@ cy.get(this.locators.selectRecommendingOfficer)
   });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2026');
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(3000);
@@ -4366,9 +4383,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Recovery Agents");
+    cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Valuer");
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
@@ -4427,9 +4444,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -4483,20 +4500,20 @@ cy.get(this.locators.selectRecommendingOfficer)
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -4517,11 +4534,11 @@ cy.get(this.locators.selectRecommendingOfficer)
   });cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2026');
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true}).should("be.visible");
     cy.wait(2000);
@@ -4552,9 +4569,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
+    cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Repossession Agent");
+    cy.get(this.locators.selectAgencySubType).select("Field Agents");
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
@@ -4613,9 +4630,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -4669,20 +4686,20 @@ cy.get(this.locators.selectRecommendingOfficer)
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -4703,11 +4720,11 @@ cy.get(this.locators.selectRecommendingOfficer)
   });cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2026').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true}).should("be.visible");
     cy.wait(3000);
@@ -4739,9 +4756,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
+    cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Yard");
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
@@ -4800,9 +4817,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -4857,20 +4874,20 @@ cy.get(this.locators.selectRecommendingOfficer)
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -4891,11 +4908,11 @@ cy.get(this.locators.selectRecommendingOfficer)
   });cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2026').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true}).should("be.visible");
     cy.wait(2000);
@@ -4925,9 +4942,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
+    cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Valuer");
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
@@ -4986,9 +5003,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -5043,20 +5060,20 @@ cy.get(this.locators.selectRecommendingOfficer)
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -5077,11 +5094,11 @@ cy.get(this.locators.selectRecommendingOfficer)
   });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2026').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true}).should("be.visible");
     cy.wait(2000);
@@ -5111,9 +5128,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
+    cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Yard");
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
@@ -5172,9 +5189,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -5229,20 +5246,20 @@ cy.get(this.locators.selectRecommendingOfficer)
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -5263,11 +5280,11 @@ cy.get(this.locators.selectRecommendingOfficer)
   });cy.wait(3000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2026').should("be.visible");
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028').should("be.visible");
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true}).should("be.visible");
     cy.wait(2000);
@@ -5297,7 +5314,7 @@ cy.get(this.locators.selectRecommendingOfficer)
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Recovery Agents");
+    cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
     cy.get(this.locators.selectAgencySubType).select("Field Agents");
     cy.wait(2000);
@@ -5358,9 +5375,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD").should("be.visible");
     cy.wait(2000);
@@ -5415,20 +5432,20 @@ cy.get(this.locators.selectRecommendingOfficer)
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -5450,9 +5467,9 @@ cy.get(this.locators.selectRecommendingOfficer)
   });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
     cy.get(this.locators.Contactexpiredate).type('30-09-2026');
     cy.wait(2000);
@@ -5485,9 +5502,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
+    cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Yard");
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
@@ -5546,9 +5563,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -5603,20 +5620,20 @@ cy.get(this.locators.selectRecommendingOfficer)
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -5637,11 +5654,11 @@ cy.get(this.locators.selectRecommendingOfficer)
   });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2026');
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
@@ -5673,9 +5690,9 @@ cy.wait(2000);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
+    cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Yard");
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
@@ -5734,9 +5751,9 @@ cy.wait(2000);
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -5791,20 +5808,20 @@ cy.wait(2000);
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -5827,9 +5844,9 @@ cy.wait(2000);
   });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
     cy.get(this.locators.Contactexpiredate).type('30-09-2026');
     cy.wait(2000);
@@ -5859,16 +5876,16 @@ cy.get(this.locators.selectRecommendingOfficer)
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
+    cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Yard");
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
     cy.get(this.locators.fillTINNumber).type("123456");
     cy.wait(2000);
-   const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
-     cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
+  //  const encode = faker.number.int({ min: 10000, max: 99999 }).toString();
+  //    cy.get('.col-md-6.ng-star-inserted > .form-control').type(encode);
     cy.wait(2000);
     //Address Details
     cy.get(this.locators.clickonaddressdetails).click();
@@ -5920,9 +5937,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -5977,19 +5994,19 @@ cy.get(this.locators.selectRecommendingOfficer)
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -6012,11 +6029,11 @@ cy.get(this.locators.selectRecommendingOfficer)
   });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2026');
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
@@ -6046,16 +6063,16 @@ cy.wait(2000);
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-     cy.get(this.locators.selectAgencyType).select("Repossession Agency");
+     cy.get(this.locators.selectAgencyType).select("Collections");
      cy.wait(2000);
-     cy.get(this.locators.selectAgencySubType).select("Yard");
+     cy.get(this.locators.selectAgencySubType).select("Tele calling");
      cy.wait(2000);
      cy.get(this.locators.fillpancard).type("ABCDE1234F");
      cy.wait(2000);
      cy.get(this.locators.fillTINNumber).type("123456");
      cy.wait(2000);
-     cy.get(this.locators.clickongenerateENcollectcode).click();
-     cy.wait(2000);
+    //  cy.get(this.locators.clickongenerateENcollectcode).click();
+    //  cy.wait(2000);
      //Address Details
      cy.get(this.locators.clickonaddressdetails).click();
      cy.wait(2000);
@@ -6107,9 +6124,9 @@ cy.wait(2000);
      cy.wait(2000);
      cy.get(this.locators.bankaccountnumber).type("1234567890");
      cy.wait(2000);
-     cy.get(this.locators.bankname).select("ADCC BANK");
+     cy.get(this.locators.bankname).select("ANDHRA BANK");
      cy.wait(2000);
-     cy.get(this.locators.bankbranchname).select("ADCC BANK");
+     cy.get(this.locators.bankbranchname).select("ACHANTA");
      cy.wait(2000);
      cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
      cy.wait(2000);
@@ -6164,20 +6181,20 @@ cy.wait(2000);
      //////-----------------
      cy.get(this.locators.scopeofword).click();
      cy.wait(2000);
-     cy.get(this.locators.productgroup).select("Consumer Loan");
+     cy.get(this.locators.productgroup).select("Loans");
      cy.wait(2000);
-     cy.get(this.locators.product).select("Unsecured");
+     cy.get(this.locators.product).select("All");
      cy.wait(2000);
-     cy.get(this.locators.subproduct).select("Personal Loan");
+     //cy.get(this.locators.subproduct).select("Personal Loan");
      cy.wait(2000);
  
      cy.get(this.locators.placeofwork).click();
      cy.wait(2000);
-     cy.get(this.locators.selectpg).select("Consumer Loan");
+     cy.get(this.locators.selectpg).select("Loans");
      cy.wait(2000);
-     cy.get(this.locators.selectp).select("Unsecured");
+     cy.get(this.locators.selectp).select("All");
      cy.wait(2000);
-     cy.get(this.locators.selectsubp).select("Personal Loan");
+     //cy.get(this.locators.selectsubp).select("Personal Loan");
      cy.wait(2000);
      cy.get(this.locators.selectbucket).select("1");
      cy.wait(2000);
@@ -6200,11 +6217,11 @@ cy.wait(2000);
   }); cy.wait(2000);
      cy.get(this.locators.clickonARD).click();
      cy.wait(2000);
-     cy.get(this.locators.firstagreementdate).type('02-04-2024');
+     cy.get(this.locators.firstagreementdate).type('02-01-2026');
      cy.wait(2000);
-     cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+     cy.get(this.locators.lastrenewaldate).type('20-02-2026');
      cy.wait(2000);
-     cy.get(this.locators.Contactexpiredate).type('31-08-2026');
+     cy.get(this.locators.Contactexpiredate).type('31-08-2028');
      cy.wait(2000);
      cy.get(this.locators.addremark).type("This is ok",{force:true});
      cy.wait(2000);
@@ -6236,9 +6253,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
+    cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Yard");
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
@@ -6297,9 +6314,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -6354,20 +6371,20 @@ cy.get(this.locators.selectRecommendingOfficer)
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -6390,9 +6407,9 @@ cy.get(this.locators.selectRecommendingOfficer)
   });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
     cy.get(this.locators.Contactexpiredate).type('30-09-2026').should("be.visible");
     cy.wait(2000);
@@ -6427,9 +6444,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
+    cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Yard");
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDE1234F");
     cy.wait(2000);
@@ -6488,9 +6505,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     cy.wait(2000);
     cy.get(this.locators.bankaccountnumber).type("1234567890");
     cy.wait(2000);
-    cy.get(this.locators.bankname).select("ADCC BANK");
+    cy.get(this.locators.bankname).select("ANDHRA BANK");
     cy.wait(2000);
-    cy.get(this.locators.bankbranchname).select("ADCC BANK");
+    cy.get(this.locators.bankbranchname).select("ACHANTA");
     cy.wait(2000);
     cy.get(this.locators.gstnumber).type("ADCC123456ABCD");
     cy.wait(2000);
@@ -6545,20 +6562,20 @@ cy.get(this.locators.selectRecommendingOfficer)
     //////-----------------
     cy.get(this.locators.scopeofword).click();
     cy.wait(2000);
-    cy.get(this.locators.productgroup).select("Consumer Loan");
+    cy.get(this.locators.productgroup).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.product).select("Unsecured");
+    cy.get(this.locators.product).select("All");
     cy.wait(2000);
-    cy.get(this.locators.subproduct).select("Personal Loan");
+    //cy.get(this.locators.subproduct).select("Personal Loan");
     cy.wait(2000);
 
     cy.get(this.locators.placeofwork).click();
     cy.wait(2000);
-    cy.get(this.locators.selectpg).select("Consumer Loan");
+    cy.get(this.locators.selectpg).select("Loans");
     cy.wait(2000);
-    cy.get(this.locators.selectp).select("Unsecured");
+    cy.get(this.locators.selectp).select("All");
     cy.wait(2000);
-    cy.get(this.locators.selectsubp).select("Personal Loan");
+    //cy.get(this.locators.selectsubp).select("Personal Loan");
     cy.wait(2000);
     cy.get(this.locators.selectbucket).select("1");
     cy.wait(2000);
@@ -6581,11 +6598,11 @@ cy.get(this.locators.selectRecommendingOfficer)
   });cy.wait(2000);
     cy.get(this.locators.clickonARD).click();
     cy.wait(2000);
-    cy.get(this.locators.firstagreementdate).type('02-04-2024');
+    cy.get(this.locators.firstagreementdate).type('02-01-2026');
     cy.wait(2000);
-    cy.get(this.locators.lastrenewaldate).type('01-05-2024');
+    cy.get(this.locators.lastrenewaldate).type('20-02-2026');
     cy.wait(2000);
-    cy.get(this.locators.Contactexpiredate).type('31-08-2026');
+    cy.get(this.locators.Contactexpiredate).type('31-08-2028');
     cy.wait(2000);
     cy.get(this.locators.addremark).type("This is ok",{force:true});
     cy.wait(2000);
@@ -6652,9 +6669,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
+    cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Yard");
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
     cy.wait(2000);
     cy.get(this.locators.fillpancard).type("ABCDEfghijk");
     cy.wait(2000);
@@ -6686,9 +6703,9 @@ cy.get(this.locators.selectRecommendingOfficer)
     const randomValue = $options.eq(randomIndex).val(); 
     cy.get(this.locators.selectRecommendingOfficer).select(randomValue);
   });
-    cy.get(this.locators.selectAgencyType).select("Repossession Agency");
+    cy.get(this.locators.selectAgencyType).select("Collections");
     cy.wait(2000);
-    cy.get(this.locators.selectAgencySubType).select("Yard");
+    cy.get(this.locators.selectAgencySubType).select("Tele calling");
     cy.wait(2000);
     cy.get(this.locators.fillTIN).type("ABCD");
     cy.wait(2000);

@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-07-23T13:21:44.355Z",
+    "end": "2026-07-23T13:22:28.030Z",
+    "duration": 43675,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5eac118b-050d-42b5-a99f-593e46d054c2",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\PaymentsPageTest_115.cy.js",
+      "file": "cypress\\e2e\\tests\\PaymentsPageTest_115.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "09db5d89-27d3-49ab-ac3e-7d0913662d9b",
+          "title": "Payments Module - Receive money from collector -Logged in user to click on submit payment button but did not uploaded physical receipt image then encollect system will throw an error.",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Payment - TC_ID_115",
+              "fullTitle": "Payments Module - Receive money from collector -Logged in user to click on submit payment button but did not uploaded physical receipt image then encollect system will throw an error. Payment - TC_ID_115",
+              "timedOut": null,
+              "duration": 34562,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  paymentsPage.PaymentModule();\n});",
+              "err": {},
+              "uuid": "c90de349-73a7-4a7a-ac37-7e4623043635",
+              "parentUUID": "09db5d89-27d3-49ab-ac3e-7d0913662d9b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c90de349-73a7-4a7a-ac37-7e4623043635"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 34562,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

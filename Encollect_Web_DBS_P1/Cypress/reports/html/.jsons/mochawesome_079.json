@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-07-23T11:20:26.445Z",
+    "end": "2026-07-23T11:21:49.034Z",
+    "duration": 82589,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0af738b8-39fb-466d-8d1e-f289c0eafc95",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\AgencyEmpanelmentRequest_84.cy.js",
+      "file": "cypress\\e2e\\tests\\AgencyEmpanelmentRequest_84.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ff83319a-eca9-4884-a1e5-39f27d067daa",
+          "title": "User Management - Agency Empanelment Request",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Create Agency - TC_ID_084",
+              "fullTitle": "User Management - Agency Empanelment Request Create Agency - TC_ID_084",
+              "timedOut": null,
+              "duration": 73882,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  userManagementPage.CreateAgency029again();\n  //loginPage.logout();\n  // Fetch and login with second set of credentials\n  // getTestData('loginData', 'login1').then(user1 => {\n  //   loginPage.login1(user1.email, user1.password);\n  //   userManagementPage.CreateAgency029again();\n  // });\n});",
+              "err": {},
+              "uuid": "72c46e50-efe8-4514-b5aa-8a28ddb0c907",
+              "parentUUID": "ff83319a-eca9-4884-a1e5-39f27d067daa",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "72c46e50-efe8-4514-b5aa-8a28ddb0c907"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 73882,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

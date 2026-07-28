@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-07-23T14:33:03.174Z",
+    "end": "2026-07-23T14:33:55.955Z",
+    "duration": 52781,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9bfa6e59-f2a9-4037-918b-1d7d6dc785ab",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\ScopeofWorkTestPage_26.cy.js",
+      "file": "cypress\\e2e\\tests\\ScopeofWorkTestPage_26.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b6d39fe1-8a69-40d8-b392-f8f731d66a95",
+          "title": "User Management -Add staff- Scope of work - user click on bucket dropdown and select the one dropdown value",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "User Management - Scope of work - TC_ID_26",
+              "fullTitle": "User Management -Add staff- Scope of work - user click on bucket dropdown and select the one dropdown value User Management - Scope of work - TC_ID_26",
+              "timedOut": null,
+              "duration": 43796,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  scopeofworkpage.ScopeOfWorkTestPage_26();\n});",
+              "err": {},
+              "uuid": "d39c09c2-f7ac-4f34-a66c-950600c63b9a",
+              "parentUUID": "b6d39fe1-8a69-40d8-b392-f8f731d66a95",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d39c09c2-f7ac-4f34-a66c-950600c63b9a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 43796,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

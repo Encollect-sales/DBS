@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-07-23T13:50:39.025Z",
+    "end": "2026-07-23T13:51:36.175Z",
+    "duration": 57150,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a1340d9a-9444-4279-bce4-a43be9457166",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\PaymentsPageTest_1411.cy.js",
+      "file": "cypress\\e2e\\tests\\PaymentsPageTest_1411.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "537bae8d-212a-4a10-a185-8d71acee1781",
+          "title": "Payments Module - Search and send duplicate email e-receipt & SMS - Logged in user entered special character or alphabets in agent id field",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Payment - TC_ID_1411",
+              "fullTitle": "Payments Module - Search and send duplicate email e-receipt & SMS - Logged in user entered special character or alphabets in agent id field Payment - TC_ID_1411",
+              "timedOut": null,
+              "duration": 42342,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  paymentsPage.sendduplicateemailereceiptSMS1414();\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.payments > :nth-child(2) > :nth-child(4) > a.ng-star-inserted`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.payments > :nth-child(2) > :nth-child(4) > a.ng-star-inserted`, but never found it.\n    at PaymentsPage.sendduplicateemailereceiptSMS1414 (webpack:///./cypress/e2e/pages/PaymentsPage.js:1697:7)\n    at Context.eval (webpack:///./cypress/e2e/tests/PaymentsPageTest_1411.cy.js:27:29)",
+                "diff": null
+              },
+              "uuid": "98a04d7c-d90e-4418-8805-6e88dde45ce3",
+              "parentUUID": "537bae8d-212a-4a10-a185-8d71acee1781",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "98a04d7c-d90e-4418-8805-6e88dde45ce3"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 42342,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-07-23T12:11:53.448Z",
+    "end": "2026-07-23T12:13:08.057Z",
+    "duration": 74609,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7c8dfa39-eded-48cf-beef-32c01bc14383",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\DashboardTestPage_034.cy.js",
+      "file": "cypress\\e2e\\tests\\DashboardTestPage_034.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d80f9a81-eed2-45eb-8a7e-127be69ef920",
+          "title": "Dashboard - Search account -Verify whether navigated account detail screen under Note History tab user is able to add the notes.",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Payment - TC_ID_034",
+              "fullTitle": "Dashboard - Search account -Verify whether navigated account detail screen under Note History tab user is able to add the notes. Payment - TC_ID_034",
+              "timedOut": null,
+              "duration": 47937,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  dashboardpage.DashboardTestPage_034();\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `tbody tr:nth-child(1) td:nth-child(4) a:nth-child(1)`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `tbody tr:nth-child(1) td:nth-child(4) a:nth-child(1)`, but never found it.\n    at DashboardPage.DashboardTestPage_034 (webpack:///./cypress/e2e/pages/DashboardPage.js:378:7)\n    at Context.eval (webpack:///./cypress/e2e/tests/DashboardTestPage_034.cy.js:27:30)",
+                "diff": null
+              },
+              "uuid": "04a07c2e-2c73-4305-a98f-38d322a0e346",
+              "parentUUID": "d80f9a81-eed2-45eb-8a7e-127be69ef920",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "04a07c2e-2c73-4305-a98f-38d322a0e346"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 47937,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

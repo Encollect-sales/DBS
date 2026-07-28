@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-07-23T13:45:20.072Z",
+    "end": "2026-07-23T13:46:14.310Z",
+    "duration": 54238,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "93057001-4aba-4998-ba4e-f391cc86a4df",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\PaymentsPageTest_1406.cy.js",
+      "file": "cypress\\e2e\\tests\\PaymentsPageTest_1406.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d9e49dfd-3452-4b4b-bd83-371de7f884f1",
+          "title": "Payments Module - Central ops acknowledging payin slip- Logged in user entered special characters  in payin slip number field then system to throw an error.",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Payment - TC_ID_1406",
+              "fullTitle": "Payments Module - Central ops acknowledging payin slip- Logged in user entered special characters  in payin slip number field then system to throw an error. Payment - TC_ID_1406",
+              "timedOut": null,
+              "duration": 44523,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  paymentsPage.PaymentModule();\n  paymentsPage.ClickOnCentral_ops_acknowledging_payin_slip_specl_chrctr();\n});",
+              "err": {},
+              "uuid": "06779d15-68ed-45d7-b599-d379c51076e4",
+              "parentUUID": "d9e49dfd-3452-4b4b-bd83-371de7f884f1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "06779d15-68ed-45d7-b599-d379c51076e4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 44523,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

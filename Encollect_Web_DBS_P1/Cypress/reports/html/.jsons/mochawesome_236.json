@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-07-23T14:19:28.052Z",
+    "end": "2026-07-23T14:20:40.694Z",
+    "duration": 72642,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ddaa1a94-c927-434b-8407-a95f567cdbae",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\ScopeofWorkTestPage_13.cy.js",
+      "file": "cypress\\e2e\\tests\\ScopeofWorkTestPage_13.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "76f9300a-44fd-4851-9735-7bfbde135fc3",
+          "title": "User Management - Add staff - Scope of work - user select the dropdown in the product in the scope of work",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "User Management - Scope of work - TC_ID_13",
+              "fullTitle": "User Management - Add staff - Scope of work - user select the dropdown in the product in the scope of work User Management - Scope of work - TC_ID_13",
+              "timedOut": null,
+              "duration": 63649,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  scopeofworkpage.ScopeOfWorkTestPage_13();\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.col-md-12.ng-star-inserted > .form-control-group > .form-ng-select > .ng-select-container > .ng-value-container > .ng-input > input`, but never found it.\n    at ScopeofWorkPage.ScopeOfWorkTestPage_13 (webpack:///./cypress/e2e/pages/ScopeofWorkPage.js:206:7)\n    at Context.eval (webpack:///./cypress/e2e/tests/ScopeofWorkTestPage_13.cy.js:27:32)",
+                "diff": null
+              },
+              "uuid": "d95856d4-e54c-4ca7-9d9c-e0715e981c6b",
+              "parentUUID": "76f9300a-44fd-4851-9735-7bfbde135fc3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "d95856d4-e54c-4ca7-9d9c-e0715e981c6b"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 63649,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

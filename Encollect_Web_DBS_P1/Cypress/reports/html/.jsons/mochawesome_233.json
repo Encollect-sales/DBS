@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-07-23T14:15:07.957Z",
+    "end": "2026-07-23T14:16:06.615Z",
+    "duration": 58658,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f203030a-cb06-4459-9cd2-c89228b18caa",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\ScopeofWorkTestPage_10.cy.js",
+      "file": "cypress\\e2e\\tests\\ScopeofWorkTestPage_10.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6ce1f731-40fd-4753-93ab-f5cd6d945a84",
+          "title": "User Management - Add staff - Scope of work - user select the dropdown in the product group in the scope of work",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "User Management - Scope of work - TC_ID_10",
+              "fullTitle": "User Management - Add staff - Scope of work - user select the dropdown in the product group in the scope of work User Management - Scope of work - TC_ID_10",
+              "timedOut": null,
+              "duration": 47435,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  scopeofworkpage.ScopeOfWorkTestPage_10();\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#otp-input`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#otp-input`, but never found it.\n    at LoginPage.enterotp (webpack:///./cypress/e2e/pages/LoginPage.js:77:7)\n    at LoginPage.login (webpack:///./cypress/e2e/pages/LoginPage.js:105:11)\n    at Context.eval (webpack:///./cypress/e2e/tests/ScopeofWorkTestPage_10.cy.js:25:22)",
+                "diff": null
+              },
+              "uuid": "e447e100-c71b-4a8d-a5ab-e08126447613",
+              "parentUUID": "6ce1f731-40fd-4753-93ab-f5cd6d945a84",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "e447e100-c71b-4a8d-a5ab-e08126447613"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 47435,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

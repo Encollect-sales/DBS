@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-07-23T12:40:54.898Z",
+    "end": "2026-07-23T12:41:56.817Z",
+    "duration": 61919,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2b7345c2-4b55-4b07-bf14-5422bce56314",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\PaymentsPageTest_051.cy.js",
+      "file": "cypress\\e2e\\tests\\PaymentsPageTest_051.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3d589a46-241b-4982-b8c5-6c155303c81d",
+          "title": "Payments Module - Create pay-in slip - Logged in user to enter data in all mandatory fields to generate payin slip",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Payment - TC_ID_051",
+              "fullTitle": "Payments Module - Create pay-in slip - Logged in user to enter data in all mandatory fields to generate payin slip Payment - TC_ID_051",
+              "timedOut": null,
+              "duration": 50208,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  paymentsPage.PaymentModule();\n  paymentsPage.Depositslip();\n  paymentsPage.ClickOnCreatePayInSlip();\n  paymentsPage.ClickOnCreatePayInSlip_SubmitBtn();\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying after 4000ms: `cy.select()` failed because it could not find a single `<option>` with value, index, or text matching: `Consumer Loan`\n\nhttps://on.cypress.io/select",
+                "estack": "CypressError: Timed out retrying after 4000ms: `cy.select()` failed because it could not find a single `<option>` with value, index, or text matching: `Consumer Loan`\n\nhttps://on.cypress.io/select\n    at getOptions (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:114180:72)\n    at tryCatcher (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise.attempt.Promise.try (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:4338:29)\n    at retryOptions (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:114212:70)\n    at tryCatcher (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise.attempt.Promise.try (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:4338:29)\n    at whenStable (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:143744:68)\n    at <unknown> (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:143685:14)\n    at tryCatcher (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise._settlePromiseFromHandler (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1542:31)\n    at Promise._settlePromise (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1724:18)\n    at Promise._fulfill (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1668:18)\n    at <unknown> (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:5473:46)\nFrom Your Spec Code:\n    at PaymentsPage.ClickOnCreatePayInSlip_SubmitBtn (webpack:///./cypress/e2e/pages/PaymentsPage.js:790:42)\n    at Context.eval (webpack:///./cypress/e2e/tests/PaymentsPageTest_051.cy.js:29:29)",
+                "diff": null
+              },
+              "uuid": "d26253eb-82d0-423e-8dc2-1ac9c274a5ab",
+              "parentUUID": "3d589a46-241b-4982-b8c5-6c155303c81d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "d26253eb-82d0-423e-8dc2-1ac9c274a5ab"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 50208,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

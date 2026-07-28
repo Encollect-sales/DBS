@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-07-23T15:14:21.804Z",
+    "end": "2026-07-23T15:14:59.240Z",
+    "duration": 37436,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b76802ca-7ccf-42de-a494-d509402f0d0a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\ScopeofWorkTestPage_75.cy.js",
+      "file": "cypress\\e2e\\tests\\ScopeofWorkTestPage_75.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5a745077-5f5c-46ac-9576-5a1da7bf0132",
+          "title": "User Management -Add agent- Scope of work - user select the branches in the geography in the scope of work",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "User Management - Scope of work - TC_ID_75",
+              "fullTitle": "User Management -Add agent- Scope of work - user select the branches in the geography in the scope of work User Management - Scope of work - TC_ID_75",
+              "timedOut": null,
+              "duration": 32780,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  scopeofworkpage.ScopeOfWorkTestPage_75();\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#nav-item-1-user-management`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#nav-item-1-user-management`, but never found it.\n    at ScopeofWorkPage.ScopeOfWorkTestPage_75 (webpack:///./cypress/e2e/pages/ScopeofWorkPage.js:1409:7)\n    at Context.eval (webpack:///./cypress/e2e/tests/ScopeofWorkTestPage_75.cy.js:27:32)",
+                "diff": null
+              },
+              "uuid": "fdb69f61-544a-4cd7-8ece-15e4032500fa",
+              "parentUUID": "5a745077-5f5c-46ac-9576-5a1da7bf0132",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "fdb69f61-544a-4cd7-8ece-15e4032500fa"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 32780,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

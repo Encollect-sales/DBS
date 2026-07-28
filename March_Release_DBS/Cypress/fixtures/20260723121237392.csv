@@ -1,0 +1,2 @@
+Id,IsParentAgency,ParentAgencyCode,AgencyCode,AgencyName,RecommendingOfficer,AgencyType,AgencySubType,TINNumber,PanCard,PrimaryOwnerFirstName,PrimaryOwnerLastName,RegisteredAgencyAddress,Landmark,MobileNo,EmailID,FirstAgreementDate,LastRenewalDate,ContractExpiryDate,Remarks,IsFailed,FailureReason
+3a229fe317e90ddbf6456928018955c8,Yes,,410735,Durward,1161,Collections,Field Agents,12345321,PANCA9614B,hamad,,Pune,wiki field,5518343205,durward@yopmail.com,12-10-2022,13-10-2023,10-10-2032,Bulk upload,True, | Primary Owner Last Name  is Required

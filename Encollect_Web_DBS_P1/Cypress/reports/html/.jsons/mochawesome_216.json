@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-07-23T13:55:52.047Z",
+    "end": "2026-07-23T13:56:43.348Z",
+    "duration": 51301,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8c999337-8a2d-4b07-8cb5-17e901a41332",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\PaymentsPageTest_1416.cy.js",
+      "file": "cypress\\e2e\\tests\\PaymentsPageTest_1416.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d4a9e938-1afa-4943-9a41-bfb7e0e0b0e5",
+          "title": "Payments Module - Receive money from collector - Logged in user to click on request cancellation button without selecting atleast one receipt in the result grid.",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Payment - TC_ID_1416",
+              "fullTitle": "Payments Module - Receive money from collector - Logged in user to click on request cancellation button without selecting atleast one receipt in the result grid. Payment - TC_ID_1416",
+              "timedOut": null,
+              "duration": 39915,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  paymentsPage.PaymentModule();\n});",
+              "err": {},
+              "uuid": "1e772cb2-2d8b-4211-958d-5d7ae5a4bf8c",
+              "parentUUID": "d4a9e938-1afa-4943-9a41-bfb7e0e0b0e5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1e772cb2-2d8b-4211-958d-5d7ae5a4bf8c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 39915,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

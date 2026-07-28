@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-07-23T10:11:37.012Z",
+    "end": "2026-07-23T10:14:14.075Z",
+    "duration": 157063,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "905cf3c7-672a-4a3b-86ec-ecc8cefb808f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\AgencyEmpanelmentRequest_595.cy.js",
+      "file": "cypress\\e2e\\tests\\AgencyEmpanelmentRequest_595.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0c107932-c542-4079-adaf-978cf8fc0332",
+          "title": "User Management - Agency Empanelment Request",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Create Agency - TC_ID_595",
+              "fullTitle": "User Management - Agency Empanelment Request Create Agency - TC_ID_595",
+              "timedOut": null,
+              "duration": 147954,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  userManagementPage.CreateAgency033();\n  //loginPage.logout();\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `tr.ng-star-inserted > :nth-child(1) > .form-select`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `tr.ng-star-inserted > :nth-child(1) > .form-select`, but never found it.\n    at UserManagementPage.CreateAgency033 (webpack:///./cypress/e2e/pages/UserManagementPage.js:2977:7)\n    at Context.eval (webpack:///./cypress/e2e/tests/AgencyEmpanelmentRequest_595.cy.js:24:25)",
+                "diff": null
+              },
+              "uuid": "d4ab08a9-5295-4404-a29f-3fc056fa6cc5",
+              "parentUUID": "0c107932-c542-4079-adaf-978cf8fc0332",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "d4ab08a9-5295-4404-a29f-3fc056fa6cc5"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 147954,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

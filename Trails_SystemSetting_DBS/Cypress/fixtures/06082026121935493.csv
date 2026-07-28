@@ -1,0 +1,2 @@
+WorkRequestId,AccountNo,AgentCode,RightPartyContact,DispositionCodeGroup,DispositionCode,PTPDate,PTPAmount,NextActionCode,Remarks,NewContactNumber,NewArea,NewAddress,NewEmailID,AddressType,PickupAddress,AgentContactNo,nextActiondate,ThirdPartyContactNo,UploadStatus,ErrorMessage
+06082026121935493,DMI0009590352,3345,yes,BPTP,BPTP,2027/12/22,109, ,Bulk upload,1171196173,Enterprise,149 Jefferson Street,jbhylydi@yopmail.com,permenant,new,,,,Error,Invalid Account Number

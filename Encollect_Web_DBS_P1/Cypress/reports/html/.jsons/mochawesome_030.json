@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-07-23T09:36:06.472Z",
+    "end": "2026-07-23T09:37:09.045Z",
+    "duration": 62573,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "66390e48-f997-4193-abe5-c32cc31b06fc",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\AddStaffPageTest_677.cy.js",
+      "file": "cypress\\e2e\\tests\\AddStaffPageTest_677.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "01668bf4-b965-48bb-a406-c1d77a17bc11",
+          "title": "Usermanagement - Base Branch and Reporting - manager User should be able to enter data in all mandatory fields in Add staff screen",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add Staff - TC_ID_677",
+              "fullTitle": "Usermanagement - Base Branch and Reporting - manager User should be able to enter data in all mandatory fields in Add staff screen Add Staff - TC_ID_677",
+              "timedOut": null,
+              "duration": 52474,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.task('getExcelData', '../fixtures/userManagementData.xlsx').then(excelData => {\n    const firstRow = excelData['Sheet1'][0];\n    cy.wait(2000);\n    addStaffPage.Clikonusermanagement(); // Use the method without click\n    addStaffPage.Clikonaddstaff();\n    const employeeId = addStaffPage.fillemployeeID();\n    //addStaffPage.fillemployeeID(firstRow.EmployeeID);  // Correct method name and pass the argument\n    addStaffPage.clickonbbrm3();\n    cy.wait(2000);\n    addStaffPage.fillbasebranch();\n    cy.wait(2000);\n  });\n});",
+              "err": {},
+              "uuid": "0baa4f54-a864-4918-ad0f-f55870377d49",
+              "parentUUID": "01668bf4-b965-48bb-a406-c1d77a17bc11",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0baa4f54-a864-4918-ad0f-f55870377d49"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 52474,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

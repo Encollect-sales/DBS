@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-07-23T09:31:44.198Z",
+    "end": "2026-07-23T09:33:06.366Z",
+    "duration": 82168,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "13466082-a6bc-4ead-95b9-7604603ddd8e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\AddStaffPageTest_674.cy.js",
+      "file": "cypress\\e2e\\tests\\AddStaffPageTest_674.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1802fe26-f0ff-4f63-9a5a-5ae0dbd68962",
+          "title": "Department and Designations -User should be able to add department & designations by selecting department as \"Ops\" and designation as \"Ops Manager\"user can also click on add button to add one more department and designation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add Staff - TC_ID_674",
+              "fullTitle": "Department and Designations -User should be able to add department & designations by selecting department as \"Ops\" and designation as \"Ops Manager\"user can also click on add button to add one more department and designation Add Staff - TC_ID_674",
+              "timedOut": null,
+              "duration": 71698,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  cy.task('getExcelData', '../fixtures/userManagementData.xlsx').then(excelData => {\n    const firstRow = excelData['Sheet1'][0];\n    cy.wait(2000);\n    addStaffPage.Clikonusermanagement();\n    addStaffPage.Clikonaddstaff();\n    const employeeId = addStaffPage.fillemployeeID();\n    //addStaffPage.fillemployeeID(firstRow.EmployeeID); \n    addStaffPage.fillfirstname(firstRow.FirstName);\n    addStaffPage.filllastname(firstRow.LastName);\n    addStaffPage.fillemailid(firstRow.EmailID);\n    addStaffPage.fillmobilenumber(firstRow.MobileNumber);\n    cy.wait(2000);\n    addStaffPage.clickondandd();\n    cy.wait(2000);\n    addStaffPage.seleDD74();\n  });\n});",
+              "err": {},
+              "uuid": "8ad6aa0a-0ef1-4db7-a753-91a0adbaa135",
+              "parentUUID": "1802fe26-f0ff-4f63-9a5a-5ae0dbd68962",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8ad6aa0a-0ef1-4db7-a753-91a0adbaa135"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 71698,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

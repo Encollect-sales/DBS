@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-07-23T12:37:44.589Z",
+    "end": "2026-07-23T12:38:37.380Z",
+    "duration": 52791,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "fc28e9f5-ce59-4a4a-85ee-6466ad69cd06",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\PaymentsPageTest_048.cy.js",
+      "file": "cypress\\e2e\\tests\\PaymentsPageTest_048.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "05b2b08a-bba4-46e1-aa5f-ae419556196d",
+          "title": "Payments Module - Search and Print Batch",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Payment - TC_ID_048",
+              "fullTitle": "Payments Module - Search and Print Batch Payment - TC_ID_048",
+              "timedOut": null,
+              "duration": 39366,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  paymentsPage.SearchandPrintBatch050();\n});",
+              "err": {},
+              "uuid": "c5c0fc57-3523-4611-b695-d57d2e7ef122",
+              "parentUUID": "05b2b08a-bba4-46e1-aa5f-ae419556196d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c5c0fc57-3523-4611-b695-d57d2e7ef122"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 39366,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

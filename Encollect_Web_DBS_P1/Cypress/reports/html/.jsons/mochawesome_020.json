@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-07-23T09:21:29.923Z",
+    "end": "2026-07-23T09:22:44.949Z",
+    "duration": 75026,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "42ff075a-bf17-4057-9878-2d67562d07bd",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\AddStaffPageTest_667.cy.js",
+      "file": "cypress\\e2e\\tests\\AddStaffPageTest_667.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6e5538e7-729e-4aee-941c-f9cccd6ee5c2",
+          "title": "Add Staff - Department and Designations - User should be able to add department & designations by selecting department as \"Collections staff frontend\" and designation as \"collections manager\"",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add Staff - TC_ID_667",
+              "fullTitle": "Add Staff - Department and Designations - User should be able to add department & designations by selecting department as \"Collections staff frontend\" and designation as \"collections manager\" Add Staff - TC_ID_667",
+              "timedOut": null,
+              "duration": 67994,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  cy.task('getExcelData', '../fixtures/userManagementData.xlsx').then(excelData => {\n    const firstRow = excelData['Sheet1'][0];\n    cy.wait(2000);\n    addStaffPage.Clikonusermanagement();\n    addStaffPage.Clikonaddstaff();\n    const employeeId = addStaffPage.fillemployeeID();\n    //addStaffPage.fillemployeeID(firstRow.EmployeeID); \n    addStaffPage.fillfirstname(firstRow.FirstName);\n    addStaffPage.filllastname(firstRow.LastName);\n    addStaffPage.fillemailid(firstRow.EmailID);\n    addStaffPage.fillmobilenumber(firstRow.MobileNumber);\n    cy.wait(2000);\n    addStaffPage.clickondandd();\n    cy.wait(2000);\n    addStaffPage.seleDD67();\n  });\n});",
+              "err": {},
+              "uuid": "3991e833-ccdf-422e-a5b1-54c0295c88d6",
+              "parentUUID": "6e5538e7-729e-4aee-941c-f9cccd6ee5c2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3991e833-ccdf-422e-a5b1-54c0295c88d6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 67994,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

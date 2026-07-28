@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-07-23T12:31:31.627Z",
+    "end": "2026-07-23T12:32:21.890Z",
+    "duration": 50263,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6f254851-2658-4619-ac23-3220faa7603f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\PaymentsPageTest_042.cy.js",
+      "file": "cypress\\e2e\\tests\\PaymentsPageTest_042.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e37eba93-8be1-4bf9-89c2-b3bbdcb1ef88",
+          "title": "Payments Module - Receive money from collector - Agency cashier to click on cancel button to abort the receipt acknowledgement process.",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Payment - TC_ID_042",
+              "fullTitle": "Payments Module - Receive money from collector - Agency cashier to click on cancel button to abort the receipt acknowledgement process. Payment - TC_ID_042",
+              "timedOut": null,
+              "duration": 38717,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  paymentsPage.PaymentModule_42();\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.account-search > a.ng-star-inserted > span.ng-star-inserted`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.account-search > a.ng-star-inserted > span.ng-star-inserted`, but never found it.\n    at PaymentsPage.PaymentModule_42 (webpack:///./cypress/e2e/pages/PaymentsPage.js:208:7)\n    at Context.eval (webpack:///./cypress/e2e/tests/PaymentsPageTest_042.cy.js:26:29)",
+                "diff": null
+              },
+              "uuid": "b12e548a-a7e0-4761-b65b-9742960a1856",
+              "parentUUID": "e37eba93-8be1-4bf9-89c2-b3bbdcb1ef88",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "b12e548a-a7e0-4761-b65b-9742960a1856"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 38717,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

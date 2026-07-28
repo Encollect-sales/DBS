@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-07-23T09:05:58.265Z",
+    "end": "2026-07-23T09:07:11.660Z",
+    "duration": 73395,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "378f7b82-ae64-4ac5-94be-f3f095c72b2c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\AddStaffPageTest_656.cy.js",
+      "file": "cypress\\e2e\\tests\\AddStaffPageTest_656.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6dd59657-33b1-44b0-a0f7-ca5a2b94add8",
+          "title": "Add Staff - Department and Designations - User should be able to add department & designations by selecting department as \"Branch Frontend\" and designation as \"Branch Collection Officer",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add Staff - TC_ID_656",
+              "fullTitle": "Add Staff - Department and Designations - User should be able to add department & designations by selecting department as \"Branch Frontend\" and designation as \"Branch Collection Officer Add Staff - TC_ID_656",
+              "timedOut": null,
+              "duration": 67304,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  cy.task('getExcelData', '../fixtures/userManagementData.xlsx').then(excelData => {\n    const firstRow = excelData['Sheet1'][0];\n    cy.wait(2000);\n    addStaffPage.Clikonusermanagement();\n    addStaffPage.Clikonaddstaff();\n    const employeeId = addStaffPage.fillemployeeID();\n    //addStaffPage.fillemployeeID(firstRow.EmployeeID); \n    addStaffPage.fillfirstname(firstRow.FirstName);\n    addStaffPage.filllastname(firstRow.LastName);\n    addStaffPage.fillemailid(firstRow.EmailID);\n    addStaffPage.fillmobilenumber(firstRow.MobileNumber);\n    cy.wait(2000);\n    addStaffPage.clickondandd();\n    cy.wait(2000);\n    addStaffPage.seleDD56();\n  });\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying after 4000ms: `cy.select()` failed because it could not find a single `<option>` with value, index, or text matching: `Branch Collection Officer`\n\nhttps://on.cypress.io/select",
+                "estack": "CypressError: Timed out retrying after 4000ms: `cy.select()` failed because it could not find a single `<option>` with value, index, or text matching: `Branch Collection Officer`\n\nhttps://on.cypress.io/select\n    at getOptions (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:114180:72)\n    at tryCatcher (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise.attempt.Promise.try (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:4338:29)\n    at retryOptions (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:114212:70)\n    at tryCatcher (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise.attempt.Promise.try (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:4338:29)\n    at whenStable (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:143744:68)\n    at <unknown> (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:143685:14)\n    at tryCatcher (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise._settlePromiseFromHandler (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1542:31)\n    at Promise._settlePromise (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1724:18)\n    at Promise._fulfill (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:1668:18)\n    at <unknown> (https://entqa.sumeruentiger.com/__cypress/runner/cypress_runner.js:5473:46)\nFrom Your Spec Code:\n    at AddStaffPage.seleDD56 (webpack:///./cypress/e2e/pages/AddStaffPage.js:581:36)\n    at Context.eval (webpack:///./cypress/e2e/tests/AddStaffPageTest_656.cy.js:42:29)",
+                "diff": null
+              },
+              "uuid": "7ac3b795-00b2-4548-89cd-e04b0b8cc6f5",
+              "parentUUID": "6dd59657-33b1-44b0-a0f7-ca5a2b94add8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "7ac3b795-00b2-4548-89cd-e04b0b8cc6f5"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 67304,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

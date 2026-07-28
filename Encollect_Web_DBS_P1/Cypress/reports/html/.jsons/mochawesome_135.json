@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-07-23T12:28:26.613Z",
+    "end": "2026-07-23T12:29:12.484Z",
+    "duration": 45871,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bb14553b-c029-459e-8149-0fd4fe8ff1be",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\PaymentsPageTest_039.cy.js",
+      "file": "cypress\\e2e\\tests\\PaymentsPageTest_039.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4bf19073-2ed8-45af-8b73-ebef2962ccff",
+          "title": "Payments Module - Receive money from collector - Logged in user (Agency Cashier) to click on \"Receive money from collector\" sub menu to acknowledge the receipts issued by the field collector.",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Payment - TC_ID_039",
+              "fullTitle": "Payments Module - Receive money from collector - Logged in user (Agency Cashier) to click on \"Receive money from collector\" sub menu to acknowledge the receipts issued by the field collector. Payment - TC_ID_039",
+              "timedOut": null,
+              "duration": 37811,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  paymentsPage.PaymentModule_39();\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.account-search > a.ng-star-inserted > span.ng-star-inserted`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.account-search > a.ng-star-inserted > span.ng-star-inserted`, but never found it.\n    at PaymentsPage.PaymentModule_39 (webpack:///./cypress/e2e/pages/PaymentsPage.js:68:7)\n    at Context.eval (webpack:///./cypress/e2e/tests/PaymentsPageTest_039.cy.js:26:29)",
+                "diff": null
+              },
+              "uuid": "b106a1ab-74c9-4f7e-8e60-4ddb9b85bdfe",
+              "parentUUID": "4bf19073-2ed8-45af-8b73-ebef2962ccff",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "b106a1ab-74c9-4f7e-8e60-4ddb9b85bdfe"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 37811,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

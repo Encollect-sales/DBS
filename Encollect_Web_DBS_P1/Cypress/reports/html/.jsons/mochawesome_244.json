@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-07-23T14:27:55.553Z",
+    "end": "2026-07-23T14:28:44.690Z",
+    "duration": 49137,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "29bd27e0-faaa-4671-b5ce-67cc5948bf20",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\ScopeofWorkTestPage_21.cy.js",
+      "file": "cypress\\e2e\\tests\\ScopeofWorkTestPage_21.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8d376e3a-8069-497d-b8cf-313ebb85f823",
+          "title": "User Management - Add staff - Scope of work - user select the dropdown in the sub-product in the scope of work",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "User Management - Scope of work - TC_ID_21",
+              "fullTitle": "User Management - Add staff - Scope of work - user select the dropdown in the sub-product in the scope of work User Management - Scope of work - TC_ID_21",
+              "timedOut": null,
+              "duration": 40543,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  scopeofworkpage.ScopeOfWorkTestPage_21();\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#product-scope-HL03`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#product-scope-HL03`, but never found it.\n    at ScopeofWorkPage.ScopeOfWorkTestPage_21 (webpack:///./cypress/e2e/pages/ScopeofWorkPage.js:348:7)\n    at Context.eval (webpack:///./cypress/e2e/tests/ScopeofWorkTestPage_21.cy.js:27:32)",
+                "diff": null
+              },
+              "uuid": "1c7ed680-bd3c-4da2-bbde-023af9dfc4c4",
+              "parentUUID": "8d376e3a-8069-497d-b8cf-313ebb85f823",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "1c7ed680-bd3c-4da2-bbde-023af9dfc4c4"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 40543,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

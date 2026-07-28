@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-07-23T11:45:04.664Z",
+    "end": "2026-07-23T11:46:08.737Z",
+    "duration": 64073,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "83da2216-d017-4fe5-952d-2eb19773322c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\AgentEmpanelmentRequestPageTest_635.cy.js",
+      "file": "cypress\\e2e\\tests\\AgentEmpanelmentRequestPageTest_635.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "07cc02d3-6aae-4ea5-a576-4af332198952",
+          "title": "Agent Empanelment Request - Create Agent - User should be able to enter area pin code as this is mandatory field",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Agent Empanelment Request - TC_ID_635",
+              "fullTitle": "Agent Empanelment Request - Create Agent - User should be able to enter area pin code as this is mandatory field Agent Empanelment Request - TC_ID_635",
+              "timedOut": null,
+              "duration": 53030,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  agentemplimentationRequest.AgentEnpalmentRequest635();\n});",
+              "err": {},
+              "uuid": "1ab705b2-27a8-4cb3-b143-b1e50b333577",
+              "parentUUID": "07cc02d3-6aae-4ea5-a576-4af332198952",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1ab705b2-27a8-4cb3-b143-b1e50b333577"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 53030,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

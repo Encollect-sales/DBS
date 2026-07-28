@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-07-23T15:15:47.032Z",
+    "end": "2026-07-23T15:16:25.943Z",
+    "duration": 38911,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "675ce247-4418-49ea-a348-0f9f80e09a29",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\SearchStaffPageTest_004.cy.js",
+      "file": "cypress\\e2e\\tests\\SearchStaffPageTest_004.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9a7a9cbe-8d3d-4812-a98d-9f6b9f7b1fec",
+          "title": "User Management - Search Staff",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Search Staff - TC_ID_004",
+              "fullTitle": "User Management - Search Staff Search Staff - TC_ID_004",
+              "timedOut": null,
+              "duration": 34183,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  paymentsPage.SearchStaffTestPage_01();\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#nav-item-1-user-management > span`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#nav-item-1-user-management > span`, but never found it.\n    at PaymentsPage.SearchStaffTestPage_01 (webpack:///./cypress/e2e/pages/PaymentsPage.js:1889:7)\n    at Context.eval (webpack:///./cypress/e2e/tests/SearchStaffPageTest_004.cy.js:26:29)",
+                "diff": null
+              },
+              "uuid": "8a67612c-0a92-4db4-94e8-4a70cc1eab6e",
+              "parentUUID": "9a7a9cbe-8d3d-4812-a98d-9f6b9f7b1fec",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "8a67612c-0a92-4db4-94e8-4a70cc1eab6e"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 34183,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -8,11 +8,11 @@ class AddStaffPage {
 
   DD_647(){
 
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(':nth-child(3) > .nav-link > span').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('.form-control-group > :nth-child(3) > #btn-add').click();
-    cy.wait(5000);
+    cy.wait(3000);
 
 
   }
@@ -20,13 +20,13 @@ class AddStaffPage {
   DD_80(){
 
     cy.get(':nth-child(3) > .nav-link > span').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('.form-control-group > :nth-child(3) > #btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Audit and Risk");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Audit");
+    cy.wait(3000);
     cy.get('#designation-select-0').select("Audit Manager");
-    cy.wait(5000);
+    cy.wait(3000);
 
 
 
@@ -45,11 +45,11 @@ class AddStaffPage {
   AddStaff_80(){
     cy.wait(2000);
     cy.get(this.locators.clickonum).click({force: true});
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(this.locators.ClickonSttafEmp).click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(this.locators.Clickonaddstaff).click();
-    cy.wait(5000);
+    cy.wait(3000);
     
   }
 
@@ -63,13 +63,13 @@ class AddStaffPage {
   }
 
   Clikonusermanagement() {
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(this.locators.clickonum).click({force: true});
   }
 
   ClickonSttafEmp(){
 
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(this.locators.ClickonSttafEmp).click();
     
 
@@ -86,30 +86,27 @@ selectUserType(){
 
 }
   
-typeexistingcode(){
+// typeexistingcode(){
+// const randomNum = Math.floor(100000 + Math.random() * 900000);
+// cy.get('#customId').type(randomNum);
+// cy.wait(2000);
 
-const randomNum = Math.floor(100000 + Math.random() * 900000);
-cy.get('#customId').type(randomNum);
-cy.wait(2000);
-
-
-
-}
+// }
 
   Clikonaddstaff() {
     cy.get(this.locators.Clickonaddstaff).click({force: true});
   }
 
   Approval(){
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('#empStatus').select("Pending Approval");
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('#btn-search').click();
-    cy.wait(5000);
+    cy.wait(3000);
     // cy.get(":nth-child(1) > :nth-child(8) > .form-control-group > .form-check-group > label > input").click();
-    // cy.wait(5000);
+    // cy.wait(3000);
     // cy.get("#btn-approve").click();
-    // cy.wait(5000);
+    // cy.wait(3000);
     // cy.contains("Staff Approved Successfully").should("be.visible");
   }
 
@@ -216,7 +213,7 @@ cy.get('.ng-option-label')
     cy.get(this.locators.LastName).click();
     cy.get(this.locators.EmailID).click();
     cy.contains("Last Name is required").should("be.visible");
-    cy.wait(5000);
+    cy.wait(3000);
 
     cy.get(this.locators.LastName).type('*88');
     cy.contains("Please Enter Valid Last Name.").should("be.visible");
@@ -322,7 +319,7 @@ cy.get('.ng-option-label')
     cy.wait(1000);
     cy.get(this.locators.Select_product_group).click();
     cy.wait(1000);
-    cy.get(".ng-option").eq(3).click();
+    cy.get(".ng-option-label").click({ multiple: true });
     cy.wait(1000);
     cy.get(this.locators.Product_Panel).click()
     cy.wait(2000);
@@ -425,9 +422,9 @@ cy.get('.ng-option-label')
   }
 
   fillcity() {
-    cy.wait(5000);
+    cy.wait(3000);
     //cy.get(".scroll-nav-container.ng-star-inserted").scrollTo("left",{ensureScrollable: false});
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(this.locators.City).select('All');
   }
 
@@ -443,7 +440,7 @@ cy.get('.ng-option-label')
 
   fillsupervisingmanager(supervisingmanager) {
     cy.get(this.locators.SupervisingManager).type(supervisingmanager);
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(this.locators.clickSM).click();
   }
 
@@ -512,6 +509,7 @@ cy.get('.ng-option-label')
     cy.get(":nth-child(2) > .nav-link > span").click();
     cy.wait(2000);
     cy.get('#btn-add').click();
+    cy.wait(2000);
   }
   clickondandd79() {
     cy.get(":nth-child(4) > .nav-link > span").click();
@@ -525,8 +523,8 @@ cy.get('.ng-option-label')
   }
   seleDD(){
     cy.get('#btn-add').click({force: true});
-    cy.get('#department-select-0').select("Audit and Risk");
-    cy.wait(5000);
+    cy.get('#department-select-0').select("Audit");
+    cy.wait(3000);
     cy.get('#designation-select-0').select("Audit Manager");
     //cy.contains('Add Collections Staff').should("be.visible");
 
@@ -534,320 +532,320 @@ cy.get('.ng-option-label')
 
   }
   seleDD1(){
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Audit Officer");
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("Audit Head");
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
 
   seleDD2(){
-    cy.get('#department-select-0').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Audit Officer");
+    cy.get('#department-select-0').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("Audit Head");
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
   seleDD54(){
     cy.get('#btn-add').click();
     cy.get('#department-select-0').select("Branch Backend");
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('#designation-select-0').select("Branch Cashier");
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer")
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head")
   }
   seleDD55(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('#department-select-0').select("Branch Backend");
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('#designation-select-0').select("Branch Manager");
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer")
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head")
   }
   seleDD56(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
     cy.get('#designation-select-0').select("Branch Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer")
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head")
   }
 
   seleDD57(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
     cy.get('#designation-select-0').select("Branch Supervisor");
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
 
   seleDD58(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Branch Tele-Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("DBS Head of Collections");
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
   seleDD59(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Branch Tele-Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("DBS Head of Collections");
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
 
   seleDD60(){
 
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Branch Tele-Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("DBS Head of Collections");
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
 
   seleDD61(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Branch Tele-Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("DBS Head of Collections");
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
 
   seleDD62(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Branch Tele-Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("DBS Head of Collections");
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
   seleDD63(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Branch Tele-Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("DBS Head of Collections");
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
 
   seleDD64(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Branch Tele-Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("DBS Head of Collections");
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
 
   seleDD65(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Branch Tele-Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("DBS Head of Collections");
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
   seleDD66(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Branch Tele-Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("DBS Head of Collections");
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
   seleDD67(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Branch Tele-Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("DBS Head of Collections");
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
   seleDD68(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Branch Tele-Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("DBS Head of Collections");
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
   seleDD69(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Branch Tele-Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("DBS Head of Collections");
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
 
   seleDD70(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Branch Tele-Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("DBS Head of Collections");
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
   seleDD71(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Branch Tele-Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("DBS Head of Collections");
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
 
   seleDD72(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Branch Tele-Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("DBS Head of Collections");
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
 
   seleDD73(){
     cy.get('#btn-add').click({force: true});
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Branch Tele-Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("DBS Head of Collections");
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
   seleDD74(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Branch Tele-Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("DBS Head of Collections");
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
   seleDD75(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Branch Tele-Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("DBS Head of Collections");
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
   seleDD76(){
     cy.get('#btn-add').click();
-    cy.wait(5000);
-    cy.get('#department-select-0').select("Branch Frontend");
-    cy.wait(5000);
-    cy.get('#designation-select-0').select("Branch Tele-Collection Officer");
-    cy.wait(5000);
+    cy.wait(3000);
+    cy.get('#department-select-0').select("Collection Staff Frontend");
+    cy.wait(3000);
+    cy.get('#designation-select-0').select("DBS Head of Collections");
+    cy.wait(3000);
     cy.get('#btn-add').click();
-    cy.get('#department-select-1').select("Audit and Risk");
-    cy.wait(5000);
-    cy.get('#designation-select-1').select("Audit Officer");
+    cy.get('#department-select-1').select("Audit");
+    cy.wait(3000);
+    cy.get('#designation-select-1').select("Audit Head");
   }
   // clickOnAdd1() {
   //   cy.get("body > app-root:nth-child(1) > app-menu-layout:nth-child(1) > main:nth-child(1) > section:nth-child(3) > div:nth-child(2) > umm-staff-create:nth-child(2) > div:nth-child(1) > form:nth-child(3) > div:nth-child(1) > div:nth-child(1) > tabset:nth-child(1) > div:nth-child(2) > tab:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(1)").click({force: true});
-  //   cy.wait(5000);
+  //   cy.wait(3000);
   //   cy.get('#department-select-0').select("Branch Backend");
-  //   cy.wait(5000);
+  //   cy.wait(3000);
   //   cy.get("#designation-select-0").select("Branch Manager");
   // }
   clickOnAdd() {
     cy.get("#btn-add").click({force: true});
-    cy.wait(5000);
+    cy.wait(3000);
   }
 
   fillDepartment() {
@@ -975,7 +973,7 @@ cy.get('.ng-option-label')
     cy.get(':nth-child(4) > .nav-link > span').click();
     cy.wait(20000);
     cy.get('#btn-add').click({force: true});
-    cy.wait(5000);
+    cy.wait(3000);
   }
 
   fillsprm(sprm) {
@@ -1078,44 +1076,44 @@ cy.get('.ng-option-label')
   }
   CreateAgency001again() {
     cy.get(':nth-child(2) > .nav-item-hold > a > .nav-text').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('body > app-root:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-navbar:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(6) > a:nth-child(1) > span:nth-child(2)').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(':nth-child(5) > .form-control').select("Pending Approval");
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('.btn').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(':nth-child(1) > :nth-child(7) > input').click();
-    cy.wait(5000);
+    cy.wait(3000);
    
   }
   CreateAgency002again() {
     cy.get(':nth-child(2) > .nav-item-hold > a > .nav-text').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('body > app-root:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-navbar:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(6) > a:nth-child(1) > span:nth-child(2)').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(':nth-child(5) > .form-control').select("Approved");
-    cy.wait(5000);
+    cy.wait(3000);
   }
   CreateAgency003again() {
     cy.get(':nth-child(2) > .nav-item-hold > a > .nav-text').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('body > app-root:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-navbar:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(6) > a:nth-child(1) > span:nth-child(2)').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(':nth-child(5) > .form-control').select("Rejected");
-    cy.wait(5000);
+    cy.wait(3000);
   }
   ApprovedStaff(){
     cy.get(':nth-child(2) > .nav-item-hold > a > .nav-text').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('body > app-root:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-navbar:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(6) > a:nth-child(1) > span:nth-child(2)').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(':nth-child(5) > .form-control').select("Pending Approval");
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('.btn').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(':nth-child(1) > :nth-child(7) > input').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('.row > :nth-child(1) > :nth-child(1) > .form-control', { timeout: 20000 })
   .should('be.visible') // Ensure the element is visible before typing
   .type('Okay');
@@ -1125,15 +1123,15 @@ cy.get('.ng-option-label')
 
   DisabledStaff(){
     cy.get(':nth-child(2) > .nav-item-hold > a > .nav-text').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('body > app-root:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-navbar:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(6) > a:nth-child(1) > span:nth-child(2)').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(':nth-child(5) > .form-control').select("Approved");
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('.btn').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(':nth-child(1) > :nth-child(7) > input').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('.row > :nth-child(1) > :nth-child(1) > .form-control', { timeout: 20000 })
   .should('be.visible') // Ensure the element is visible before typing
   .type('Okay');
@@ -1142,15 +1140,15 @@ cy.get('.ng-option-label')
   }
   RejectedStaff(){
     cy.get(':nth-child(2) > .nav-item-hold > a > .nav-text').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('body > app-root:nth-child(1) > div:nth-child(1) > div:nth-child(2) > app-navbar:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(6) > a:nth-child(1) > span:nth-child(2)').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(':nth-child(5) > .form-control').select("Rejected");
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('.btn').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get(':nth-child(1) > :nth-child(7) > input').click();
-    cy.wait(5000);
+    cy.wait(3000);
     cy.get('.row > :nth-child(1) > :nth-child(1) > .form-control', { timeout: 20000 })
   .should('be.visible') // Ensure the element is visible before typing
   .type('Okay');
@@ -1196,7 +1194,7 @@ cy.get('.ng-option-label')
     cy.wait(2000);
     cy.get('#domainId').click();
     cy.wait(2000);
-    cy.get('#btn-save').click();
+    cy.get('#btn-save').click({force: true});
     cy.wait(2000);
     cy.contains("Employee ID is required").should("be.visible");
     cy.wait(2000);
@@ -1215,7 +1213,7 @@ cy.get('.ng-option-label')
     cy.wait(2000);
     cy.get('#fName').click();
     cy.wait(2000);
-    cy.get('#btn-save').click();
+    cy.get('#btn-save').click({force: true});
     cy.wait(2000);
     cy.contains("First Name is required").should("be.visible");
     cy.wait(2000);
@@ -1231,13 +1229,13 @@ cy.get('.ng-option-label')
     cy.wait(2000);
     cy.get('#emailId').click();
     cy.wait(2000);
-    cy.get('#btn-save').click();
+    cy.get('#btn-save').click({force:true});
     cy.wait(2000);
     cy.contains("E-mail ID is required").should("be.visible");
     cy.wait(2000);
     cy.get('#emailId').type("gdgfgfgfg");
     cy.wait(2000);
-    cy.get('#btn-save').click();
+    cy.get('#btn-save').click({force: true});
     cy.wait(2000);
     cy.contains("Enter a valid E-mail ID.").should("be.visible");
     cy.wait(2000);

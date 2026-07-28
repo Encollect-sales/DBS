@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-07-23T11:36:41.420Z",
+    "end": "2026-07-23T11:37:35.288Z",
+    "duration": 53868,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b4cf0d36-ed1a-4c41-8a35-c4e55fa43e1e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\AgentEmpanelmentRequestPageTest_628.cy.js",
+      "file": "cypress\\e2e\\tests\\AgentEmpanelmentRequestPageTest_628.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b75f86a2-5c1c-4d03-9add-7bf37ff8de39",
+          "title": "Agent Empanelment Request - Create Agent - .User should be able to add department & designations by selecting department as \"agency frontend\" and designation as \"agency supervisor\"2.user can also click on add button to add one more department and designation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Agent Empanelment Request - TC_ID_628",
+              "fullTitle": "Agent Empanelment Request - Create Agent - .User should be able to add department & designations by selecting department as \"agency frontend\" and designation as \"agency supervisor\"2.user can also click on add button to add one more department and designation Agent Empanelment Request - TC_ID_628",
+              "timedOut": null,
+              "duration": 47379,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _testDataUtils.getTestData)('loginData', 'login').then(user => {\n  loginPage.login(user.Companyname, user.email, user.password);\n  cy.wait(2000);\n  agentemplimentationRequest.AgentEnpalmentRequest628();\n});",
+              "err": {},
+              "uuid": "fdeb05cd-3b81-4d9e-9414-4f5694515d20",
+              "parentUUID": "b75f86a2-5c1c-4d03-9add-7bf37ff8de39",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fdeb05cd-3b81-4d9e-9414-4f5694515d20"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 47379,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
